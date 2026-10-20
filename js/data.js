@@ -1,13 +1,8 @@
 /**
- * data.js
- * MASTER APPLICATION DATA & CONFIGURATION STORE
- * Blue Door Café & Bakes — ONESCAN Experience Engine
- * 
- * NOTE FOR DEVELOPERS:
- * You have 100% full access and control here.
- * Any text, image URL, link, menu item, testimonial, or review template
- * edited in this file (or via the in-browser Live Developer Mode)
- * will instantly update across the entire web application.
+ * ===========================================================================
+ * SCOOP N BREW — MASTER DATA & CONFIGURATION STORE
+ * ONESCAN Experience Engine
+ * ===========================================================================
  */
 
 import { REVIEWS_DB } from './reviews-db.js';
@@ -21,45 +16,45 @@ export const DEFAULT_STORE_DATA = {
         name: 'Scoop n brew',
         shortName: 'Scoop n Brew',
         initials: 'SB',
-        tagline: 'Handcrafted gelato scoops, thick milkshakes, Belgian waffles & specialty coffee in Dehradun',
+        tagline: 'Artisanal Gelato Scoops, Handcrafted Belgian Waffles, Gourmet Shakes & Specialty Coffee',
         statusBadge: 'Open Now • 11 AM - 11 PM',
-        categoryBadge: '🍨 Artisanal Gelato & Brews',
-        heroHandwriting: 'Good Food\nGood Vibes ✨',
+        categoryBadge: '🍨 Artisanal Gelato & Specialty Brews',
+        heroHandwriting: 'Sweet Scoops\nGood Vibes ✨',
         logoImg: './assets/images/blue-door/blue-door-sign.png',
         heroImg: './assets/images/blue-door/hero-food-collage.jpg',
         rating: 4.9,
         ratingStars: '★★★★★',
-        ratingCountText: '1,240+ Google Reviews',
-        badgeText: 'Top Rated Cafe'
+        ratingCountText: '850+ Google Reviews',
+        badgeText: 'Top Rated Dessert Cafe'
     },
 
     // ═══════════════════════════════════════════════════════════════
     // 1b. BRAND THEME & COLOR PALETTE
     // ═══════════════════════════════════════════════════════════════
     theme: {
-        primary: '#E11D48',             // Active chips & primary highlights
+        primary: '#E11D48',             // Vibrant Berry / Strawberry Rose
         primaryHover: '#BE123C',
-        primaryLight: '#EEF2FF',
-        primaryShadow: 'rgba(79, 70, 229, 0.3)',
-        accent: '#E11D48',              // CTAs, modal checkmarks & rings
-        accentGlow: 'rgba(37, 99, 235, 0.25)',
-        gradientBg: 'linear-gradient(135deg, #FFF1F2 0%, #FDF2F8 50%, #FEF3C7 100%)'
+        primaryLight: '#FFE4E6',
+        primaryShadow: 'rgba(225, 29, 72, 0.35)',
+        accent: '#E11D48',              // Buttons, rings & checkmarks
+        accentGlow: 'rgba(225, 29, 72, 0.25)',
+        gradientBg: 'linear-gradient(135deg, #FFF1F2 0%, #FDF2F8 50%, #FEF3C7 100%)' // Strawberry cream to vanilla waffle
     },
 
     // ═══════════════════════════════════════════════════════════════
     // 1c. WELCOME POPUP EXPERIENCE (Menu item selection)
     // ═══════════════════════════════════════════════════════════════
     welcomeModal: {
-        heading: 'What did you have<br>at Blue Door Café & Bakes?',
+        heading: 'What did you treat yourself to<br>at Scoop n brew?',
         subheading: 'Choose one or more items',
         items: [
-            { key: 'COFFEE', categoryKey: 'COFFEE', label: 'Coffee', image: './assets/images/blue-door/coffee-cup.jpg' },
-            { key: 'CROISSANTS', categoryKey: 'BAKES', label: 'Croissants', image: './assets/images/blue-door/croissant.jpg' },
-            { key: 'CAKES', categoryKey: 'BAKES', label: 'Cakes & Pastries', image: './assets/images/blue-door/cake-pastry.jpg' },
-            { key: 'PASTA', categoryKey: 'FOOD', label: 'Pasta & Italian', image: './assets/images/blue-door/penne-pasta.jpg' },
-            { key: 'SANDWICHES', categoryKey: 'FOOD', label: 'Sandwiches & Wraps', image: './assets/images/blue-door/sandwich-wrap.jpg' },
-            { key: 'DESSERTS', categoryKey: 'BAKES', label: 'Desserts', image: './assets/images/blue-door/tiramisu-cup.jpg' },
-            { key: 'BEVERAGES', categoryKey: 'COFFEE', label: 'Other Beverages', image: './assets/images/blue-door/beverage-drink.jpg' },
+            { key: 'GELATO', categoryKey: 'GELATO', label: 'Gelato & Scoops', image: './assets/images/blue-door/biscoff-cheesecake.jpg' },
+            { key: 'WAFFLES', categoryKey: 'WAFFLES', label: 'Belgian Waffles', image: './assets/images/blue-door/fluffy-pancakes.jpg' },
+            { key: 'SHAKES', categoryKey: 'SHAKES', label: 'Thick Shakes', image: './assets/images/blue-door/beverage-drink.jpg' },
+            { key: 'COFFEE', categoryKey: 'COFFEE', label: 'Artisan Coffee', image: './assets/images/blue-door/coffee-cup.jpg' },
+            { key: 'SUNDAES', categoryKey: 'SUNDAES', label: 'Signature Sundaes', image: './assets/images/blue-door/tiramisu-cup.jpg' },
+            { key: 'BITES', categoryKey: 'FOOD', label: 'Savory Bites', image: './assets/images/blue-door/sandwich-wrap.jpg' },
+            { key: 'DESSERTS', categoryKey: 'DESSERT', label: 'Pastries & Cakes', image: './assets/images/blue-door/cake-pastry.jpg' },
             { key: 'ALL', categoryKey: 'ALL', label: 'Not Sure', isNotSure: true }
         ]
     },
@@ -68,39 +63,27 @@ export const DEFAULT_STORE_DATA = {
     // 2. CONTACT & LOCATION DETAILS
     // ═══════════════════════════════════════════════════════════════
     contact: {
-        phone: '+917455866408',
-        phoneDisplay: '+91 74558 66408',
-        whatsapp: '917455866408',
+        phone: '+919876543210',
+        phoneDisplay: '+91 98765 43210',
+        whatsapp: '919876543210',
         address: 'Jakhan, Rajpur Road, Dehradun, Uttarakhand 248001, India',
         shortAddress: 'Jakhan, Rajpur Road, Dehradun',
         coordinates: {
-            latitude: 30.2629266,
-            longitude: 77.9993898
+            latitude: 30.2722923,
+            longitude: 77.9985567
         }
     },
 
     // ═══════════════════════════════════════════════════════════════
     // 3. ACTION BUTTONS & EXTERNAL LINKS
-    // (Edit these URLs to change redirect destinations site-wide)
     // ═══════════════════════════════════════════════════════════════
     links: {
-        // Google Place ID (used to identify business on Google)
         googlePlaceId: 'ChIJBVRVOgArCTkRi8U55iIBsHg',
-
-        // Direct Google Review Page (redirects user here after copying review)
         googleReviewUrl: 'https://search.google.com/local/writereview?placeid=ChIJBVRVOgArCTkRi8U55iIBsHg',
         googleWriteReviewUrl: 'https://search.google.com/local/writereview?placeid=ChIJBVRVOgArCTkRi8U55iIBsHg',
-
-        // Directions / Navigation Link ("Directions", "Find Us", "Open in Maps")
         googleMapsUrl: 'https://www.google.com/maps?cid=8696452129855489419',
-
-        // Interactive Map Embed (Google Maps iframe src)
         mapsEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3297.704247068065!2d77.9985567!3d30.272292299999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39092b003a555405%3A0x78b00122e639c58b!2sScoop%20n%20brew!5e1!3m2!1sen!2sin!4v1792495036661!5m2!1sen!2sin',
-
-        // Instagram Profile Link
-        instagramUrl: 'https://www.instagram.com/blue_door_cafe',
-
-        // Menu Link & Button Label
+        instagramUrl: 'https://www.instagram.com/scoopnbrew',
         menuUrl: '#',
         menuLabel: 'Browse Menu'
     },
@@ -110,198 +93,198 @@ export const DEFAULT_STORE_DATA = {
     // ═══════════════════════════════════════════════════════════════
     specialities: [
         {
-            id: 'spec-biscoff',
-            name: 'Lotus Biscoff',
+            id: 'spec-gelato',
+            name: 'Artisan Gelato',
             image: './assets/images/blue-door/biscoff-cheesecake.jpg',
-            gradient: 'from-amber-400 to-orange-500',
-            categoryKey: 'BISCOFF'
+            gradient: 'from-pink-500 to-rose-600',
+            categoryKey: 'GELATO'
         },
         {
-            id: 'spec-tiramisu',
-            name: 'Tiramisu Cup',
-            image: './assets/images/blue-door/tiramisu-cup.jpg',
-            gradient: 'from-amber-600 to-yellow-600',
-            categoryKey: 'TIRAMISU'
-        },
-        {
-            id: 'spec-pancakes',
-            name: 'Pancakes',
+            id: 'spec-waffles',
+            name: 'Belgian Waffle',
             image: './assets/images/blue-door/fluffy-pancakes.jpg',
-            gradient: 'from-blue-400 to-indigo-500',
-            categoryKey: 'PANCAKES'
+            gradient: 'from-amber-400 to-orange-500',
+            categoryKey: 'WAFFLES'
         },
         {
-            id: 'spec-pasta',
-            name: 'Penne Pasta',
-            image: './assets/images/blue-door/penne-pasta.jpg',
-            gradient: 'from-rose-500 to-red-600',
-            categoryKey: 'PASTA'
+            id: 'spec-shakes',
+            name: 'Thick Shakes',
+            image: './assets/images/blue-door/beverage-drink.jpg',
+            gradient: 'from-rose-400 to-pink-500',
+            categoryKey: 'SHAKES'
         },
         {
-            id: 'spec-bento',
-            name: 'Bento Cake',
-            image: './assets/images/blue-door/bento-cake.jpg',
-            gradient: 'from-pink-400 to-rose-400',
-            categoryKey: 'CAKES'
+            id: 'spec-coldbrew',
+            name: 'Cold Brew Coffee',
+            image: './assets/images/blue-door/coffee-cup.jpg',
+            gradient: 'from-amber-700 to-stone-800',
+            categoryKey: 'COFFEE'
         },
         {
-            id: 'spec-orange',
-            name: 'Orange Cake',
-            image: './assets/images/blue-door/orange-cake.jpg',
-            gradient: 'from-amber-500 to-orange-400',
-            categoryKey: 'CAKES'
+            id: 'spec-sundae',
+            name: 'Loaded Sundae',
+            image: './assets/images/blue-door/tiramisu-cup.jpg',
+            gradient: 'from-purple-500 to-indigo-600',
+            categoryKey: 'SUNDAES'
+        },
+        {
+            id: 'spec-bites',
+            name: 'Savory Bites',
+            image: './assets/images/blue-door/sandwich-wrap.jpg',
+            gradient: 'from-emerald-500 to-teal-600',
+            categoryKey: 'BITES'
         }
     ],
 
     // ═══════════════════════════════════════════════════════════════
-    // 5. REVIEW CHIP SELECTORS (AI Review Generator)
+    // 5. REVIEW CHIP SELECTORS
     // ═══════════════════════════════════════════════════════════════
     reviewChips: [
-        { key: 'COFFEE', label: 'Great Coffee', icon: 'coffee' },
-        { key: 'BAKES', label: 'Fresh Bakes', icon: 'croissant' },
-        { key: 'FOOD', label: 'Tasty Food', icon: 'cake' },
+        { key: 'GELATO', label: 'Artisan Gelato', icon: 'cup' },
+        { key: 'WAFFLES', label: 'Crispy Waffles', icon: 'bake' },
+        { key: 'SHAKES', label: 'Thick Shakes', icon: 'food' },
+        { key: 'COFFEE', label: 'Specialty Coffee', icon: 'coffee' },
         { key: 'SERVICE', label: 'Friendly Staff', icon: 'users' },
-        { key: 'AMBIENCE', label: 'Cozy Ambience', icon: 'sparkles' },
-        { key: 'CLEANLINESS', label: 'Cleanliness', icon: 'leaf' },
+        { key: 'AMBIENCE', label: 'Vibrant Vibe', icon: 'sparkles' },
         { key: 'VALUE', label: 'Value for Money', icon: 'tag' },
         { key: 'ALL', label: 'Overall Experience', icon: 'star' }
     ],
 
     // ═══════════════════════════════════════════════════════════════
-    // 6. AI REVIEW TEMPLATE BANK (Managed centrally in js/reviews-db.js)
+    // 6. AI REVIEW TEMPLATE BANK
     // ═══════════════════════════════════════════════════════════════
     reviewBank: REVIEWS_DB,
 
     // ═══════════════════════════════════════════════════════════════
-    // 7. CULINARY GALLERY ITEMS (All 8 Items)
+    // 7. CULINARY GALLERY ITEMS
     // ═══════════════════════════════════════════════════════════════
     gallery: [
         {
-            id: 'biscoff-cheesecake',
+            id: 'belgian-dark-gelato',
             src: './assets/images/blue-door/biscoff-cheesecake.jpg',
-            title: 'Lotus Biscoff Cheesecake',
-            category: 'bakes',
-            categoryLabel: 'Cheesecake',
-            tag: 'Lotus Biscoff',
-            desc: 'Creamy layered artisanal cheesecake with authentic Lotus Biscoff spread and spiced biscuit crumb crust.',
-            aiCategory: 'BISCOFF'
+            title: 'Dark Chocolate Gelato',
+            category: 'dessert',
+            categoryLabel: 'Gelato',
+            tag: 'Dark Chocolate',
+            desc: '70% Belgian dark chocolate artisanal gelato, churned fresh daily for an intensely smooth taste.',
+            aiCategory: 'GELATO'
         },
         {
-            id: 'fluffy-pancakes',
+            id: 'warm-nutella-waffle',
             src: './assets/images/blue-door/fluffy-pancakes.jpg',
-            title: 'Fluffy Blueberry Pancakes',
-            category: 'brunch',
-            categoryLabel: 'Brunch',
-            tag: 'Blueberry Pancakes',
-            desc: 'Golden soufflé-style stacked pancakes layered with organic blueberries, churned butter, and pure maple syrup.',
-            aiCategory: 'PANCAKES'
+            title: 'Warm Nutella Waffle',
+            category: 'dessert',
+            categoryLabel: 'Waffle',
+            tag: 'Nutella Waffle',
+            desc: 'Freshly pressed golden-crisp Belgian waffle smothered with warm Nutella and roasted almonds.',
+            aiCategory: 'WAFFLES'
         },
         {
-            id: 'penne-pasta',
-            src: './assets/images/blue-door/penne-pasta.jpg',
-            title: 'Penne Arrabbiata Pasta',
-            category: 'brunch',
-            categoryLabel: 'Savory',
-            tag: 'Arrabbiata Pasta',
-            desc: 'Al dente penne in a slow-simmered fiery tomato pomodoro sauce with aromatic fresh Italian herbs and garlic.',
-            aiCategory: 'PASTA'
+            id: 'biscoff-thick-shake',
+            src: './assets/images/blue-door/beverage-drink.jpg',
+            title: 'Biscoff Thick Shake',
+            category: 'beverage',
+            categoryLabel: 'Thick Shake',
+            tag: 'Lotus Biscoff',
+            desc: 'Decadently thick gourmet milkshake blended with real gelato scoops and crunchy spiced biscuit crumbs.',
+            aiCategory: 'SHAKES'
         },
         {
-            id: 'tiramisu-cup',
+            id: 'specialty-cold-brew',
+            src: './assets/images/blue-door/coffee-cup.jpg',
+            title: 'Signature Cold Brew',
+            category: 'coffee',
+            categoryLabel: 'Coffee',
+            tag: 'Cold Brew',
+            desc: '16-hour slow steeped single-origin Arabica cold brew served over crystal ice with smooth chocolate notes.',
+            aiCategory: 'COFFEE'
+        },
+        {
+            id: 'berry-sundae-bowl',
             src: './assets/images/blue-door/tiramisu-cup.jpg',
-            title: 'Classic Tiramisu Cup',
-            category: 'bakes',
-            categoryLabel: 'Dessert',
-            tag: 'Tiramisu Cup',
-            desc: 'Authentic Italian recipe with espresso-dipped ladyfingers, velvety mascarpone cream, and Dutch cocoa dust.',
-            aiCategory: 'TIRAMISU'
+            title: 'Berry Blast Sundae',
+            category: 'dessert',
+            categoryLabel: 'Sundae',
+            tag: 'Berry Sundae',
+            desc: 'Double scoops of Madagascar vanilla and berry gelato topped with organic compote and white chocolate flakes.',
+            aiCategory: 'SUNDAES'
         },
         {
-            id: 'bento-cake',
-            src: './assets/images/blue-door/bento-cake.jpg',
-            title: 'Handcrafted Bento Cake',
-            category: 'bakes',
-            categoryLabel: 'Bento Cake',
-            tag: 'Bento Floral Cake',
-            desc: 'Charming personal mini celebration cake with delicate handcrafted buttercream floral decor.',
-            aiCategory: 'CAKES'
+            id: 'cheesy-garlic-bites',
+            src: './assets/images/blue-door/sandwich-wrap.jpg',
+            title: 'Cheesy Garlic Bites',
+            category: 'savory',
+            categoryLabel: 'Savory',
+            tag: 'Garlic Bites',
+            desc: 'Toasted buttery sourdough loaded with melted mozzarella, aromatic garlic herb butter, and chili flakes.',
+            aiCategory: 'BITES'
         },
         {
-            id: 'carrot-cake',
-            src: './assets/images/blue-door/carrot-cake.jpg',
-            title: 'Spiced Walnut Carrot Cake',
-            category: 'bakes',
-            categoryLabel: 'Artisanal',
-            tag: 'Carrot Cake',
-            desc: 'Moist spiced sponge packed with fresh grated carrots, toasted walnuts, and silky cream cheese frosting.',
-            aiCategory: 'CAKES'
-        },
-        {
-            id: 'cheesecake-cafe',
-            src: './assets/images/blue-door/cheesecake-cafe.jpg',
-            title: 'Signature New York Cheesecake',
-            category: 'bakes',
-            categoryLabel: 'Cheesecake',
-            tag: 'Baked Cheesecake',
-            desc: 'Dense, rich, and velvety classic New York style baked cheesecake served fresh from our pastry vitrine.',
-            aiCategory: 'BISCOFF'
-        },
-        {
-            id: 'orange-cake',
+            id: 'pistachio-gelato',
             src: './assets/images/blue-door/orange-cake.jpg',
-            title: 'Citrus Glazed Orange Cake',
-            category: 'bakes',
-            categoryLabel: 'Citrus Glaze',
-            tag: 'Orange Cake',
-            desc: 'Fragrant zest-infused sponge topped with hand-caramelized candied orange slices and citrus syrup.',
-            aiCategory: 'CAKES'
+            title: 'Sicilian Pistachio Scoop',
+            category: 'dessert',
+            categoryLabel: 'Gelato',
+            tag: 'Pistachio Scoop',
+            desc: 'Roasted Sicilian pistachio paste infused into rich dairy cream for an authentic Italian treat.',
+            aiCategory: 'GELATO'
+        },
+        {
+            id: 'affogato-special',
+            src: './assets/images/blue-door/penne-pasta.jpg',
+            title: 'Classic Italian Affogato',
+            category: 'coffee',
+            categoryLabel: 'Signature',
+            tag: 'Affogato',
+            desc: 'A bold, piping-hot double shot of espresso poured over a velvety scoop of artisanal gelato.',
+            aiCategory: 'COFFEE'
         }
     ],
 
     // ═══════════════════════════════════════════════════════════════
-    // 8. ABOUT US & HIGHLIGHT BADGES
+    // 8. ABOUT US SECTION
     // ═══════════════════════════════════════════════════════════════
     about: {
-        title: 'About Blue Door Café & Bakes',
-        description: 'Blue Door Café & Bakes was founded with a love for artisanal European baking and rich, velvety specialty roasts. From flaky breakfast pastries and fluffy banana blueberry pancakes to decadent Lotus Biscoff cheesecakes, every recipe is made from scratch with authentic butter, fine chocolate, and pure passion.',
+        title: 'About Scoop n brew',
+        description: 'Scoop n brew was born out of pure passion for authentic Italian gelato, warm golden waffles, and specialty coffee. Every batch of gelato is slow-churned daily with real dairy and natural fruits, while our beans are freshly roasted to perfection.',
         highlights: [
-            { icon: '✨', text: '100% Real Dairy Butter' },
-            { icon: '☕', text: 'Grade-1 Arabica Beans' },
-            { icon: '🌿', text: 'Eggless Bakes Daily' },
-            { icon: '🐾', text: 'Pet Friendly Patio' }
+            { icon: '🍨', text: '100% Real Gelato Churned Daily' },
+            { icon: '🧇', text: 'Fresh Belgian Waffles' },
+            { icon: '☕', text: 'Grade-1 Arabica Roasts' },
+            { icon: '✨', text: 'Cozy Chill Hangout Spot' }
         ]
     },
 
     // ═══════════════════════════════════════════════════════════════
-    // 9. CUSTOMER TESTIMONIALS (Why People Love Us)
+    // 9. CUSTOMER TESTIMONIALS
     // ═══════════════════════════════════════════════════════════════
     testimonials: [
         {
             id: 't-1',
-            name: 'Rhea Sen',
-            initial: 'R',
-            avatarBg: 'bg-blue-600',
-            rating: 5,
-            timeAgo: '2 days ago',
-            quote: 'The Lotus Biscoff cheesecake literally melts in your mouth! Aesthetic seating and top-tier brews. Easily our new Dehradun favorite.'
-        },
-        {
-            id: 't-2',
-            name: 'Kabir Mehta',
-            initial: 'K',
-            avatarBg: 'bg-amber-600',
-            rating: 5,
-            timeAgo: '1 week ago',
-            quote: 'Best pancakes in Clement Town. Generous portions, authentic maple drizzle, and the coffee roast is exceptionally smooth!'
-        },
-        {
-            id: 't-3',
-            name: 'Ananya Joshi',
+            name: 'Aarav Malhotra',
             initial: 'A',
             avatarBg: 'bg-rose-600',
             rating: 5,
-            timeAgo: '3 weeks ago',
-            quote: 'Ordered a customized bento floral cake for my sister\'s birthday. It was breathtakingly pretty and super fresh. 10/10 service!'
+            timeAgo: '2 days ago',
+            quote: 'Hands down the best gelato in Dehradun! The dark chocolate scoop with waffle cone is absolute perfection. Super vibrant cafe vibe!'
+        },
+        {
+            id: 't-2',
+            name: 'Divya Sharma',
+            initial: 'D',
+            avatarBg: 'bg-amber-600',
+            rating: 5,
+            timeAgo: '1 week ago',
+            quote: 'The warm Nutella waffle paired with their iced cold brew made my whole weekend. Crispy on the outside and generous toppings!'
+        },
+        {
+            id: 't-3',
+            name: 'Rohan Verma',
+            initial: 'R',
+            avatarBg: 'bg-pink-600',
+            rating: 5,
+            timeAgo: '2 weeks ago',
+            quote: 'Thickest milkshakes in town! The Lotus Biscoff shake was so decadent and smooth. Staff is very warm and letting you taste samples.'
         }
     ],
 
@@ -311,48 +294,34 @@ export const DEFAULT_STORE_DATA = {
     footer: {
         poweredBy: 'ONESCAN Reviews',
         poweredBySubtitle: 'AI Experience Engine',
-        copyright: '© 2026 Blue Door Café & Bakes. All rights reserved.'
+        copyright: '© 2026 Scoop n brew. All rights reserved.'
     }
 };
 
-/**
- * Storage & State Helper
- * Gets live active store (from localStorage if edited, or defaults)
- */
 export function getStoreData() {
     try {
-        const stored = localStorage.getItem('bluedoor_store_data');
-        if (stored) {
-            return JSON.parse(stored);
-        }
+        const stored = localStorage.getItem('scoopnbrew_store_data');
+        if (stored) return JSON.parse(stored);
     } catch (e) {
-        console.warn('Failed to parse stored store data, falling back to defaults', e);
+        console.warn('Failed to parse stored data', e);
     }
     return JSON.parse(JSON.stringify(DEFAULT_STORE_DATA));
 }
 
-/**
- * Saves current store data to localStorage
- */
 export function saveStoreData(data) {
     try {
-        localStorage.setItem('bluedoor_store_data', JSON.stringify(data));
+        localStorage.setItem('scoopnbrew_store_data', JSON.stringify(data));
         return true;
     } catch (e) {
-        console.error('Failed to save to localStorage', e);
         return false;
     }
 }
 
-/**
- * Resets store data back to default data
- */
 export function resetStoreData() {
     try {
-        localStorage.removeItem('bluedoor_store_data');
+        localStorage.removeItem('scoopnbrew_store_data');
         return true;
     } catch (e) {
-        console.error('Failed to reset localStorage', e);
         return false;
     }
 }
