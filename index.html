@@ -1391,69 +1391,69 @@
             </h2>
             <p class="text-center text-xs text-slate-400 font-medium mb-5">Choose one or more items</p>
 
-            <!-- Food Item Grid -->
+                        <!-- Food Item Grid (Real Menu Items from Scoop n Brew Flyer) -->
             <div class="grid grid-cols-3 gap-x-4 gap-y-5 mb-6" id="welcomeFoodGrid">
-                <!-- Coffee -->
+                <!-- Mini Pancakes -->
+                <button type="button" class="modal-food-item flex flex-col items-center gap-1.5" onclick="toggleWelcomeItem(this, 'MINI_PANCAKES', 'PANCAKES')">
+                    <div class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
+                        <img src="./assets/images/blue-door/fluffy-pancakes.jpg" alt="Mini Pancakes" class="w-full h-full object-cover">
+                        <div class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-[#DB2777] text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">✓</div>
+                    </div>
+                    <span class="text-[11px] font-bold text-slate-700 text-center leading-tight">Mini Pancakes<br><span class="text-[10px] text-pink-600 font-extrabold">₹59</span></span>
+                </button>
+
+                <!-- Oreo & Choco Shakes -->
+                <button type="button" class="modal-food-item flex flex-col items-center gap-1.5" onclick="toggleWelcomeItem(this, 'SHAKES', 'SHAKES')">
+                    <div class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
+                        <img src="./assets/images/blue-door/beverage-drink.jpg" alt="Thick Shakes" class="w-full h-full object-cover">
+                        <div class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-[#DB2777] text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">✓</div>
+                    </div>
+                    <span class="text-[11px] font-bold text-slate-700 text-center leading-tight">Oreo Shake<br><span class="text-[10px] text-pink-600 font-extrabold">₹79</span></span>
+                </button>
+
+                <!-- Loaded & Peri Fries -->
+                <button type="button" class="modal-food-item flex flex-col items-center gap-1.5" onclick="toggleWelcomeItem(this, 'LOADED_FRIES', 'FRIES')">
+                    <div class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
+                        <img src="./assets/images/blue-door/penne-pasta.jpg" alt="Loaded Fries" class="w-full h-full object-cover">
+                        <div class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-[#DB2777] text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">✓</div>
+                    </div>
+                    <span class="text-[11px] font-bold text-slate-700 text-center leading-tight">Loaded Fries<br><span class="text-[10px] text-pink-600 font-extrabold">₹79</span></span>
+                </button>
+
+                <!-- Grilled Sandwich -->
+                <button type="button" class="modal-food-item flex flex-col items-center gap-1.5" onclick="toggleWelcomeItem(this, 'SANDWICHES', 'SANDWICHES')">
+                    <div class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
+                        <img src="./assets/images/blue-door/sandwich-wrap.jpg" alt="Grilled Sandwich" class="w-full h-full object-cover">
+                        <div class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-[#DB2777] text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">✓</div>
+                    </div>
+                    <span class="text-[11px] font-bold text-slate-700 text-center leading-tight">Sandwich<br><span class="text-[10px] text-pink-600 font-extrabold">₹69</span></span>
+                </button>
+
+                <!-- Cool Mojitos -->
+                <button type="button" class="modal-food-item flex flex-col items-center gap-1.5" onclick="toggleWelcomeItem(this, 'MOJITOS', 'MOJITOS')">
+                    <div class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
+                        <img src="./assets/images/blue-door/beverage-drink.jpg" alt="Mojitos" class="w-full h-full object-cover">
+                        <div class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-[#DB2777] text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">✓</div>
+                    </div>
+                    <span class="text-[11px] font-bold text-slate-700 text-center leading-tight">Mojitos<br><span class="text-[10px] text-pink-600 font-extrabold">₹69</span></span>
+                </button>
+
+                <!-- Cold Coffee & Brews -->
                 <button type="button" class="modal-food-item flex flex-col items-center gap-1.5" onclick="toggleWelcomeItem(this, 'COFFEE', 'COFFEE')">
                     <div class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
                         <img src="./assets/images/blue-door/coffee-cup.jpg" alt="Coffee" class="w-full h-full object-cover">
-                        <div class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-blue-600 text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">✓</div>
+                        <div class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-[#DB2777] text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">✓</div>
                     </div>
-                    <span class="text-[11px] font-bold text-slate-700 text-center leading-tight">Coffee</span>
+                    <span class="text-[11px] font-bold text-slate-700 text-center leading-tight">Coffee & Cold<br><span class="text-[10px] text-pink-600 font-extrabold">Brews</span></span>
                 </button>
 
-                <!-- Croissants -->
-                <button type="button" class="modal-food-item flex flex-col items-center gap-1.5" onclick="toggleWelcomeItem(this, 'CROISSANTS', 'BAKES')">
+                <!-- Ice Cream Scoops -->
+                <button type="button" class="modal-food-item flex flex-col items-center gap-1.5" onclick="toggleWelcomeItem(this, 'ICE_CREAM', 'DESSERT')">
                     <div class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
-                        <img src="./assets/images/blue-door/croissant.jpg" alt="Croissants" class="w-full h-full object-cover">
-                        <div class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-blue-600 text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">✓</div>
+                        <img src="./assets/images/blue-door/biscoff-cheesecake.jpg" alt="Ice Cream Scoops" class="w-full h-full object-cover">
+                        <div class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-[#DB2777] text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">✓</div>
                     </div>
-                    <span class="text-[11px] font-bold text-slate-700 text-center leading-tight">Croissants</span>
-                </button>
-
-                <!-- Cakes & Pastries -->
-                <button type="button" class="modal-food-item flex flex-col items-center gap-1.5" onclick="toggleWelcomeItem(this, 'CAKES', 'BAKES')">
-                    <div class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
-                        <img src="./assets/images/blue-door/cake-pastry.jpg" alt="Cakes & Pastries" class="w-full h-full object-cover">
-                        <div class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-blue-600 text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">✓</div>
-                    </div>
-                    <span class="text-[11px] font-bold text-slate-700 text-center leading-tight">Cakes & Pastries</span>
-                </button>
-
-                <!-- Pasta & Italian -->
-                <button type="button" class="modal-food-item flex flex-col items-center gap-1.5" onclick="toggleWelcomeItem(this, 'PASTA', 'FOOD')">
-                    <div class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
-                        <img src="./assets/images/blue-door/penne-pasta.jpg" alt="Pasta & Italian" class="w-full h-full object-cover">
-                        <div class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-blue-600 text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">✓</div>
-                    </div>
-                    <span class="text-[11px] font-bold text-slate-700 text-center leading-tight">Pasta & Italian</span>
-                </button>
-
-                <!-- Sandwiches & Wraps -->
-                <button type="button" class="modal-food-item flex flex-col items-center gap-1.5" onclick="toggleWelcomeItem(this, 'SANDWICHES', 'FOOD')">
-                    <div class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
-                        <img src="./assets/images/blue-door/sandwich-wrap.jpg" alt="Sandwiches & Wraps" class="w-full h-full object-cover">
-                        <div class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-blue-600 text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">✓</div>
-                    </div>
-                    <span class="text-[11px] font-bold text-slate-700 text-center leading-tight">Sandwiches & Wraps</span>
-                </button>
-
-                <!-- Desserts -->
-                <button type="button" class="modal-food-item flex flex-col items-center gap-1.5" onclick="toggleWelcomeItem(this, 'DESSERTS', 'BAKES')">
-                    <div class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
-                        <img src="./assets/images/blue-door/tiramisu-cup.jpg" alt="Desserts" class="w-full h-full object-cover">
-                        <div class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-blue-600 text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">✓</div>
-                    </div>
-                    <span class="text-[11px] font-bold text-slate-700 text-center leading-tight">Desserts</span>
-                </button>
-
-                <!-- Other Beverages -->
-                <button type="button" class="modal-food-item flex flex-col items-center gap-1.5" onclick="toggleWelcomeItem(this, 'BEVERAGES', 'COFFEE')">
-                    <div class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
-                        <img src="./assets/images/blue-door/beverage-drink.jpg" alt="Other Beverages" class="w-full h-full object-cover">
-                        <div class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-blue-600 text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">✓</div>
-                    </div>
-                    <span class="text-[11px] font-bold text-slate-700 text-center leading-tight">Other Beverages</span>
+                    <span class="text-[11px] font-bold text-slate-700 text-center leading-tight">Ice Cream<br><span class="text-[10px] text-pink-600 font-extrabold">Scoops</span></span>
                 </button>
 
                 <!-- Not Sure -->
@@ -1462,7 +1462,7 @@
                         <svg class="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M12 18h.01"/>
                         </svg>
-                        <div class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-blue-600 text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">✓</div>
+                        <div class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-[#DB2777] text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">✓</div>
                     </div>
                     <span class="text-[11px] font-bold text-slate-700 text-center leading-tight">Not Sure</span>
                 </button>

@@ -960,7 +960,11 @@ export function resetStoreData() {
     }
 }
 
-// Instantiate developer editor on DOMContentLoaded
-window.addEventListener('DOMContentLoaded', () => {
+// Instantiate developer editor safely (whether DOM is loading or already ready)
+if (document.readyState === 'loading') {
+    window.addEventListener('DOMContentLoaded', () => {
+        window.devEditor = new DeveloperEditor();
+    });
+} else {
     window.devEditor = new DeveloperEditor();
-});
+}
