@@ -1,79 +1,76 @@
 /**
  * ===========================================================================
  * SCOOP N BREW — HUMANIZED REVIEWS ENGINE v2.0
- * ===========================================================================
- * Curated, authentic reviews tailored for Scoop n Brew (Gelato, Waffles & Brews)
+ * Curated for: Mini Pancakes (@ ₹59), Loaded Fries, Shakes, Mojitos & Sandwiches
  * ===========================================================================
  */
 
 const REVIEWS_DB = {
     "ENGLISH": {
         "combos": {
-            "GELATO": [
-                "Hands down the best artisanal gelato in Dehradun! Super creamy, rich authentic flavours, and not overly sweet. Tried the Belgian Dark Chocolate and Blueberry Cheesecake scoops — absolute perfection. Beautiful cozy vibe too!",
-                "Scoop n Brew has completely raised the bar for ice cream in town. Every scoop is dense, silky, and bursting with fresh flavor. The waffle cone was freshly made and delightfully crispy. 10/10 recommendation!",
-                "If you love real gelato, this is the place to be. You can genuinely taste the premium quality ingredients in every spoonful. Staff let us sample different flavors with a smile. Will definitely be a regular here!",
-                "Such rich and velvety gelato! Far better than commercial ice creams. The texture is so smooth and the flavors are natural. Perfect sweet tooth fix."
-            ],
-            "WAFFLES": [
-                "The Belgian waffles here are on another level! Freshly pressed, golden-crisp on the outside, light and fluffy inside, topped with generous scoops of gelato and melted chocolate drizzle. Easily the best waffle spot in town.",
-                "Ordered their signature warm waffle with a scoop of Madagascar vanilla and Nutella. Absolute heavenly combination! Perfect crispiness and portion size. A must-visit dessert cafe.",
-                "Fresh, hot, and delightfully crunchy! You can smell the waffle batter the moment you step in. Paired it with fresh berries and chocolate — truly delicious."
+            "PANCAKES": [
+                "The mini pancakes here are an absolute must-try! For just ₹59, you get a warm, fluffy stack loaded with chocolate drizzle. Unbelievable value near GEHU Gate 1!",
+                "Hands down the best mini pancakes in Clement Town. Freshly made, warm, soft, and so chocolatey. Perfect sweet treat with friends!",
+                "Ordered the mini pancakes on a friend's recommendation and was blown away. Golden, fluffy, and great toppings. 10/10 sweet tooth fix."
             ],
             "SHAKES": [
-                "Their thick shakes are truly thick, decadent, and packed with flavor! Loved the Lotus Biscoff milkshake — rich without being overwhelmingly heavy. Great place to chill with friends.",
-                "Best milkshakes around Rajpur Road! Thick, creamy, and made with real ice cream rather than just milk and syrups. Fantastic presentation as well.",
-                "Super thick gourmet shake! The flavor was spot on and served chilled to perfection. Will definitely try other flavors next time."
+                "Their Oreo thick shake is seriously thick, rich, and delicious! Far better than what most cafes serve for ₹79. Loved the chocolate drizzle inside the glass.",
+                "Tried the chocolate and Oreo thick shakes — both were thick, decadent, and made with real ice cream. Best shake spot in Clement Town!",
+                "Super thick gourmet shake! Served chilled and perfectly sweet. Definitely my new go-to place after college."
+            ],
+            "FRIES": [
+                "The loaded fries here are next level! Smothered in creamy cheese sauce, seasoned to perfection, and served piping hot. At ₹79 it's unbeatable.",
+                "Best peri peri fries around Rajpur Road and Clement Town! Extra crispy in the basket and fiery seasoning. Perfect snack combo.",
+                "Ordered both peri peri and cheesy loaded fries with friends. We wiped out the bowl in minutes! Super fresh and crispy."
+            ],
+            "SANDWICHES": [
+                "Loved their grilled sandwich! Crispy golden toasted bread with rich filling and cheese. At ₹69, it's such an affordable, satisfying bite.",
+                "The grilled sandwich was hot, crunchy, and packed with flavor. Great quick lunch spot for college students."
+            ],
+            "MOJITOS": [
+                "The mint mojito here is so refreshing! Perfectly chilled with fresh lime and mint leaves. Ideal drink after a long day of lectures.",
+                "Tried their mojitos — crisp, fizzy, and very refreshing. Best beverage option at ₹69!"
             ],
             "COFFEE": [
-                "Great surprise! Not only is the gelato top tier, but their coffee is surprisingly serious and well-crafted. Ordered an iced Americano and a cappuccino — smooth extraction with great crema. Perfect spot to read or work.",
-                "The cold brew here is bold, smooth, and refreshing. Paired it with a warm waffle and it made my afternoon. Love the aesthetic neon cafe vibe!",
-                "Really good coffee roasts! Balanced, aromatic, and not acidic. It is so rare to find a place that excels at both specialty coffee and artisanal desserts."
+                "Great cold coffee! Smooth, rich, and not overly milky. Paired it with mini pancakes and it made my afternoon.",
+                "Their coffee is aromatic and well-brewed. Whether you want an espresso kick or a cold coffee, they nail it."
             ],
-            "SUNDAES": [
-                "Their signature sundae bowls are loaded with goodness! Multiple scoops, crunchy brownies, roasted nuts, and hot fudge. A total visual and taste treat.",
-                "Ordered the monster sundae with friends and we finished every last bit. Generous toppings and high quality gelato. Pure indulgence!"
+            "PANCAKES,SHAKES": [
+                "Warm mini pancakes paired with an Oreo thick shake is the ultimate sweet craving combo! Cozy pink cafe aesthetic and super quick service.",
+                "Mini pancakes + chocolate thick shake = pure dessert heaven! Generous portions, incredible taste, and super pocket friendly."
             ],
-            "BITES": [
-                "Great savory bites to balance all the sweetness! The loaded fries and grilled sandwich were hot, fresh, and well-seasoned. Perfect snack combo.",
-                "Surprisingly good savory snacks! The garlic bread and crispy bites were fresh and tasty. Great menu all around."
+            "FRIES,SHAKES": [
+                "Crispy cheesy loaded fries with a chilled thick shake — honestly the best comfort food combo in Clement Town. Great hangout spot!",
+                "The salty peri peri fries and sweet thick shake complement each other so well. Finished everything with friends!"
             ],
-            "GELATO,COFFEE": [
-                "The ultimate affogato and coffee experience! Having a rich shot of hot espresso poured over their authentic gelato is pure bliss. Cozy aesthetic interior, friendly staff, and fantastic music.",
-                "Best combo ever — rich artisan coffee followed by creamy gelato scoops! The contrast of hot coffee and chilled dessert is unmatched. My new favorite hangout spot in Dehradun."
-            ],
-            "WAFFLES,COFFEE": [
-                "Crisp warm Belgian waffles paired with hot artisanal coffee — honestly the best combo you could ask for in Dehradun. The ambiance is warm and welcoming. Highly recommended!",
-                "Warm waffle drizzled with chocolate accompanied by a velvety latte. Everything tasted freshly prepared and made with care."
-            ],
-            "GELATO,WAFFLES": [
-                "Freshly baked golden waffle topped with two generous scoops of artisanal gelato. The crunch of the waffle and creaminess of the gelato was downright addictive!",
-                "Warm waffle meeting cold melting gelato is pure culinary happiness. Easily one of the finest dessert places in the city."
+            "SANDWICHES,MOJITOS": [
+                "Grilled sandwich and an iced mint mojito for under ₹140 total! You simply can't beat the taste and price near GEHU Gate 1.",
+                "Crispy sandwich paired with a fizzy mojito. Fast service, clean seating, and very polite staff."
             ],
             "SERVICE": [
-                "The team at Scoop n Brew is exceptionally courteous and warm. They patiently let us sample flavors and served everything with a bright smile. Excellent customer care!",
-                "Super fast and polite service! The staff is attentive, knowledgeable about all the flavors, and keeps the whole place spotless."
+                "The staff at Scoop n Brew is exceptionally polite and quick! They took our order with a smile and served everything fresh and hot.",
+                "Super fast service and spotless clean counters. The team genuinely cares about customer satisfaction."
             ],
             "AMBIENCE": [
-                "Such an Instagram-worthy, vibrant cafe aesthetic! Beautiful lighting, comfortable seating, and a lovely chill vibe. Perfect spot for dates, family treats, or hanging out with friends.",
-                "Aesthetic interiors, cozy seating, and great music in the background. It feels modern, relaxed, and cheerful from the moment you step in."
+                "Such an Instagrammable cafe! The pink brick wall with neon arches and velvet seating looks stunning in photos. Perfect hangout spot.",
+                "Love the illuminated arch lighting and chill music in the background. Cozy, vibrant, and very youthful energy."
             ],
             "VALUE": [
-                "Super generous scoop portions, premium artisanal quality, and very fair pricing for the experience they provide. Totally worth every single rupee!",
-                "Great value for money considering the rich taste, fresh ingredients, and generous portions. You definitely get what you pay for."
+                "Unbeatable value for money! Menu starts at just ₹59 and you can have a full feast with fries, sandwich, and shake under ₹200. Best student cafe in town!",
+                "Pocket-friendly prices without any compromise on taste or quality. Truly savings sorted for students!"
             ],
             "ALL": [
-                "Scoop n Brew is an absolute gem in Dehradun! Exceptional artisanal gelato, delicious crisp waffles, great coffee, and a wonderful youthful vibe. 5 stars all the way!",
-                "Everything about Scoop n Brew was top notch — from the welcoming staff to the mouth-watering desserts and cozy interior. Can't wait to visit again!",
-                "Found our new favorite dessert and coffee destination! Every single item we tried was delicious, fresh, and beautifully served. Highly recommend to everyone in town."
+                "Scoop n Brew is an absolute gem near GEHU Gate 1! Delicious mini pancakes, loaded fries, thick shakes, and an aesthetic pink vibe. 5 stars all the way!",
+                "Everything from the food to the illuminated arches and courteous staff was 10/10. Definitely coming back with more friends!",
+                "Found our new regular college hangout! Great food, awesome cool vibes, and super affordable. Highly recommended to everyone in Dehradun."
             ]
         },
         "openings": [
-            "Visited Scoop n Brew today and was blown away!",
-            "Such a delightful experience at Scoop n Brew.",
-            "Finally checked out Scoop n Brew and it exceeded all expectations!",
-            "If you're in Dehradun, Scoop n Brew is an absolute must-visit spot.",
-            "Had the best time hanging out at Scoop n Brew!"
+            "Visited Scoop n Brew near GEHU Gate 1 today and loved it!",
+            "Such a great experience at Scoop n Brew Clement Town.",
+            "Finally checked out Scoop n Brew and it exceeded expectations!",
+            "If you're near Graphic Era Hill University, this cafe is a must-visit!",
+            "Had the best time hanging out at Scoop n Brew today."
         ],
         "bridges": [
             "On top of that,",
@@ -83,46 +80,49 @@ const REVIEWS_DB = {
             "What really stood out was that"
         ],
         "categories": {
-            "GELATO": [
-                "their artisanal gelato is so rich, smooth, and naturally flavored.",
-                "the scoop quality is noticeably better than standard ice creams.",
-                "the freshly rolled waffle cones added that perfect crunch."
-            ],
-            "WAFFLES": [
-                "the Belgian waffles were warm, golden-brown, and delightfully crisp.",
-                "the waffle toppings and sauces were super generous and fresh."
+            "PANCAKES": [
+                "the mini pancakes were golden, fluffy, and loaded with chocolate.",
+                "the pancake stack at ₹59 is an absolute steal."
             ],
             "SHAKES": [
-                "their milkshakes are decadently thick and crafted with real ice cream.",
-                "the shakes have the perfect creamy consistency and rich taste."
+                "the thick shake was rich, creamy, and made with real ice cream.",
+                "their Oreo shake consistency was super thick and decadent."
             ],
-            "COFFEE": [
-                "their coffee roast is exceptionally smooth, aromatic, and rich.",
-                "the cold brew was bold, smooth, and served ice cold."
+            "FRIES": [
+                "the loaded fries were smothered in cheese and served piping hot.",
+                "the peri peri fries were extra crispy and full of flavor."
+            ],
+            "SANDWICHES": [
+                "the grilled sandwich was toasted to perfection with tasty filling.",
+                "the sandwich was hot, crispy, and super satisfying."
+            ],
+            "MOJITOS": [
+                "the mojito was cool, fizzy, and bursting with fresh mint flavor.",
+                "the drink was delightfully refreshing and crisp."
             ],
             "SERVICE": [
-                "the staff was extremely warm, courteous, and prompt.",
-                "the service was lightning fast and served with genuine smiles."
+                "the staff was super courteous, friendly, and prompt.",
+                "the service was quick and served with genuine warmth."
             ],
             "AMBIENCE": [
-                "the ambiance is cozy, aesthetic, and great for photos.",
-                "the vibrant decor and chill music make for a fantastic vibe."
+                "the pink brick walls and illuminated arches are super Instagrammable.",
+                "the ambient lighting and comfortable velvet seating create a great vibe."
             ],
             "VALUE": [
-                "the portion sizes are very generous for the price.",
-                "it offers amazing quality and value for money."
+                "the prices are so student-friendly and affordable.",
+                "you get amazing quality and generous portions for the price."
             ],
             "ALL": [
-                "the overall experience was simply outstanding from start to finish.",
-                "everything from the treats to the atmosphere was top tier."
+                "the overall experience was top tier from start to finish.",
+                "the whole vibe, food, and music were simply spot on."
             ]
         },
         "closings": [
-            "Will definitely be coming back again and again!",
-            "Highly recommend visiting Scoop n Brew to everyone!",
-            "Already planning my next trip back. 5 stars!",
-            "Easily one of the best dessert and cafe parlours in town!",
-            "Can't wait to bring more friends here next weekend!"
+            "Will definitely be coming back after college regularly!",
+            "Highly recommend Scoop n Brew to everyone in Dehradun!",
+            "Already planning our next visit with friends. 5 stars!",
+            "Easily one of the coolest and most affordable cafes in town!",
+            "Can't wait to try the rest of the menu soon!"
         ]
     }
 };
