@@ -1,0 +1,24 @@
+{
+  "name": "scoop-n-brew-review-experience",
+  "version": "1.0.0",
+  "description": "Standalone AI-Powered Google Reviews & Experience Landing Page for Scoop n Brew",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve . -l 3000",
+    "start": "npx serve . -l 3000",
+    "preview": "npx serve . -l 8080",
+    "new-client": "node scripts/create-client.js"
+  },
+  "keywords": [
+    "ai-reviews",
+    "qr-experience",
+    "blue-door-cafe",
+    "google-maps-reviews",
+    "onescan"
+  ],
+  "author": "ONESCAN Reviews Engine",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}

@@ -1,0 +1,966 @@
+/**
+ * dev-editor.js
+ * LIVE VISUAL IN-BROWSER DEVELOPER & CMS EDITOR
+ * Gives the developer 100% full access and control over every text, image, link, and configuration.
+ */
+
+import { DEFAULT_STORE_DATA, getStoreData, saveStoreData, resetStoreData } from './data.js';
+
+class DeveloperEditor {
+    constructor() {
+        this.data = getStoreData();
+        this.isDevMode = false;
+        this.activeTab = 'business';
+        this.init();
+    }
+
+    init() {
+        // Check URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('dev') === 'true' || urlParams.get('edit') === 'true') {
+            this.isDevMode = true;
+        }
+
+        // Ensure any cached store data in localStorage is updated to the correct Google Maps URL
+        if (this.data && this.data.links) {
+            if (!this.data.links.googleMapsUrl || this.data.links.googleMapsUrl.includes('Blue+Door+Cafe+and+Bakes')) {
+                this.data.links.googleMapsUrl = 'https://www.google.com/maps?cid=8696452129855489419';
+                saveStoreData(this.data);
+            }
+            if (!this.data.links.mapsEmbedUrl || !this.data.links.mapsEmbedUrl.includes('pb=')) {
+                this.data.links.mapsEmbedUrl = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3297.704247068065!2d77.9985567!3d30.272292299999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39092b003a555405%3A0x78b00122e639c58b!2sScoop%20n%20brew!5e1!3m2!1sen!2sin!4v1792495036661!5m2!1sen!2sin';
+                saveStoreData(this.data);
+            }
+            if (!this.data.links.googlePlaceId || this.data.links.googlePlaceId === '14447932579898534547') {
+                this.data.links.googlePlaceId = 'ChIJBVRVOgArCTkRi8U55iIBsHg';
+                this.data.links.googleWriteReviewUrl = 'https://search.google.com/local/writereview?placeid=ChIJBVRVOgArCTkRi8U55iIBsHg';
+                saveStoreData(this.data);
+            }
+        }
+
+        // Hydrate the DOM with active data
+        this.renderAll();
+
+        // Inject Dev Floating Controls and CMS Modal
+        this.injectEditorUI();
+
+        // Register Keyboard Shortcut: Ctrl + Alt + E (or Cmd + Alt + E)
+        window.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.altKey && (e.key === 'e' || e.key === 'E')) {
+                e.preventDefault();
+                this.toggleDevMode();
+            }
+        });
+
+        // Sync with dev mode state
+        if (this.isDevMode) {
+            this.enableDevModeStyles();
+        }
+    }
+
+    /**
+     * Renders all dynamic content across the page using current store data
+     */
+    renderAll() {
+        const d = this.data;
+
+        if (d.brand && d.brand.name) {
+            document.title = `${d.brand.name} — Review & Experience`;
+        }
+
+        // Apply dynamic brand theme colors & Welcome Modal
+        this.applyTheme();
+        this.renderWelcomeModal();
+
+        // 1. Header & Brand
+        this.setText('storeBrandInitials', d.brand.initials);
+        this.setText('storeHeaderName', d.brand.name);
+        this.setText('storeStatusBadge', d.brand.statusBadge);
+
+        // 2. Hero & Identity
+        this.setImg('heroBannerImg', d.brand.heroImg, d.brand.name);
+        this.setImg('storeLogoImg', d.brand.logoImg, d.brand.name + ' Logo');
+        this.setText('heroCategoryBadge', d.brand.categoryBadge);
+        this.setText('storeMainName', d.brand.name);
+        this.setText('storeTagline', d.brand.tagline);
+        this.setText('storeShortAddress', d.contact.shortAddress);
+        this.setText('ratingValue', d.brand.rating.toFixed(1));
+        this.setText('ratingStars', d.brand.ratingStars);
+        this.setText('ratingCountText', d.brand.ratingCountText);
+        this.setText('ratingBadgeText', d.brand.badgeText);
+
+        // Phone & WhatsApp CTAs
+        const callBtn = document.getElementById('callStoreBtn');
+        if (callBtn) {
+            callBtn.href = `tel:${d.contact.phone}`;
+            callBtn.title = `Call ${d.brand.name} (${d.contact.phoneDisplay})`;
+        }
+        const whatsappBtn = document.getElementById('whatsappStoreBtn');
+        if (whatsappBtn) {
+            const cleanWa = (d.contact.whatsapp || '').replace(/[^0-9]/g, '');
+            const waMsg = encodeURIComponent(`Hi ${d.brand.name}, I would like to order or reserve a table`);
+            whatsappBtn.href = `https://wa.me/${cleanWa}?text=${waMsg}`;
+        }
+        const directionsBtn = document.getElementById('directionsBtn');
+        if (directionsBtn) {
+            directionsBtn.href = d.links.googleMapsUrl;
+        }
+        const instagramBtn = document.getElementById('instagramStoreBtn');
+        if (instagramBtn) {
+            instagramBtn.href = d.links.instagramUrl || (window.SITE_LINKS && window.SITE_LINKS.instagramUrl) || 'https://www.instagram.com/blue_door_cafe';
+        }
+        const addressLink = document.getElementById('addressLink');
+        if (addressLink) {
+            addressLink.href = d.links.googleMapsUrl;
+        }
+        const menuBtn = document.getElementById('menuBtn');
+        if (menuBtn) {
+            menuBtn.href = d.links.menuUrl || '#';
+            const menuLabelEl = document.getElementById('menuBtnLabel');
+            if (menuLabelEl) menuLabelEl.textContent = d.links.menuLabel || 'Menu';
+        }
+
+        // 3. Specialities Carousel
+        this.renderSpecialities();
+
+        // 4. Review Chips
+        this.renderReviewChips();
+
+        // 5. Culinary Gallery
+        this.renderGallery();
+
+        // 6. Map & Find Us
+        const mapIframe = document.getElementById('mapEmbedIframe');
+        if (mapIframe && d.links.mapsEmbedUrl) {
+            mapIframe.src = d.links.mapsEmbedUrl;
+        }
+        const mapHeaderLink = document.getElementById('mapHeaderLink');
+        if (mapHeaderLink) mapHeaderLink.href = d.links.googleMapsUrl;
+        const mapFloatingBtn = document.getElementById('mapFloatingBtn');
+        if (mapFloatingBtn) mapFloatingBtn.href = d.links.googleMapsUrl;
+
+        // 7. About Section
+        this.setText('aboutTitle', d.about.title);
+        this.setText('aboutDescription', d.about.description);
+        this.renderAboutHighlights();
+
+        // 8. Testimonials
+        this.renderTestimonials();
+
+        // 9. Footer
+        this.setText('footerPoweredBy', d.footer.poweredBy);
+        this.setText('footerPoweredBySub', d.footer.poweredBySubtitle);
+        this.setText('footerCopyright', d.footer.copyright);
+
+        // Update Global references
+        window.CURRENT_STORE_DATA = d;
+        if (window.SITE_LINKS) {
+            window.SITE_LINKS.phone = d.contact.phone;
+            window.SITE_LINKS.whatsappNumber = d.contact.whatsapp;
+            window.SITE_LINKS.googleMapsUrl = d.links.googleMapsUrl;
+            window.SITE_LINKS.mapEmbedUrl = d.links.mapsEmbedUrl;
+            window.SITE_LINKS.googleReviewUrl = d.links.googleReviewUrl;
+            window.SITE_LINKS.googlePlaceId = d.links.googlePlaceId;
+            if (d.links.instagramUrl) window.SITE_LINKS.instagramUrl = d.links.instagramUrl;
+        }
+        if (window.BUSINESS_CONFIG) {
+            window.BUSINESS_CONFIG.name = d.brand.name;
+            window.BUSINESS_CONFIG.phone = d.contact.phone;
+            window.BUSINESS_CONFIG.whatsapp = d.contact.whatsapp;
+            window.BUSINESS_CONFIG.googleReviewUrl = d.links.googleReviewUrl;
+            window.BUSINESS_CONFIG.googleWriteReviewUrl = d.links.googleWriteReviewUrl;
+            window.BUSINESS_CONFIG.address = d.contact.address;
+        }
+    }
+
+    applyTheme() {
+        if (!this.data.theme) return;
+        const t = this.data.theme;
+        const root = document.documentElement;
+        if (t.primary) root.style.setProperty('--brand-primary', t.primary);
+        if (t.primaryShadow) root.style.setProperty('--brand-primary-shadow', t.primaryShadow);
+        if (t.accent) root.style.setProperty('--brand-accent', t.accent);
+        if (t.accentGlow) root.style.setProperty('--brand-accent-glow', t.accentGlow);
+        if (t.gradientBg) {
+            root.style.setProperty('--brand-gradient', t.gradientBg);
+            document.body.style.background = t.gradientBg;
+        }
+    }
+
+    renderWelcomeModal() {
+        if (!this.data.welcomeModal) return;
+        const wm = this.data.welcomeModal;
+        const headingEl = document.getElementById('welcomeModalHeading');
+        if (headingEl && wm.heading) {
+            headingEl.innerHTML = wm.heading.replace('{name}', this.data.brand.name || 'us');
+        }
+        const gridEl = document.getElementById('welcomeFoodGrid');
+        if (gridEl && Array.isArray(wm.items) && wm.items.length > 0) {
+            gridEl.innerHTML = wm.items.map(item => {
+                const isSelected = window.welcomeSelectedItems && window.welcomeSelectedItems.has(item.key);
+                if (item.isNotSure) {
+                    return `
+                    <button type="button" class="modal-food-item flex flex-col items-center gap-1.5 ${isSelected ? 'selected' : ''}" onclick="toggleWelcomeItem(this, '${item.key}', '${item.categoryKey || item.key}')">
+                        <div class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-100 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M12 18h.01"/>
+                            </svg>
+                            <div class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-blue-600 text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">✓</div>
+                        </div>
+                        <span class="text-[11px] font-bold text-slate-700 text-center leading-tight">${item.label}</span>
+                    </button>`;
+                }
+                return `
+                <button type="button" class="modal-food-item flex flex-col items-center gap-1.5 ${isSelected ? 'selected' : ''}" onclick="toggleWelcomeItem(this, '${item.key}', '${item.categoryKey || item.key}')">
+                    <div class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
+                        <img src="${item.image}" alt="${item.label}" class="w-full h-full object-cover">
+                        <div class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-blue-600 text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">✓</div>
+                    </div>
+                    <span class="text-[11px] font-bold text-slate-700 text-center leading-tight">${item.label}</span>
+                </button>`;
+            }).join('');
+        }
+    }
+
+    setText(id, value) {
+        const el = document.getElementById(id);
+        if (el && value !== undefined) el.innerText = value;
+    }
+
+    setImg(id, src, alt) {
+        const el = document.getElementById(id);
+        if (el && src) {
+            el.src = src;
+            if (alt) el.alt = alt;
+        }
+    }
+
+    renderSpecialities() {
+        const container = document.getElementById('specialitiesRowContainer');
+        if (!container || !this.data.specialities) return;
+
+        container.innerHTML = this.data.specialities.map(item => `
+            <div class="flex-shrink-0 flex flex-col items-center w-20 cursor-pointer group"
+                onclick="quickSelectCategory('${item.categoryKey}')" title="Filter by ${item.name}">
+                <div class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr ${item.gradient || 'from-amber-400 to-orange-500'} shadow-md group-hover:scale-105 transition-all">
+                    <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover rounded-full">
+                </div>
+                <span class="text-[10px] font-bold text-slate-700 text-center mt-1.5 leading-tight">${item.name}</span>
+            </div>
+        `).join('');
+    }
+
+    getChipSvg(icon) {
+        switch (icon) {
+            case 'croissant':
+            case 'bake':
+                return `<svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18.5 13.5c-1-1.5-2.5-2.5-4.5-3-2 .5-3.5 1.5-4.5 3-1 1.5-1 3.5-.5 5 .5 1.5 2 2.5 3.5 2.5h3c1.5 0 3-1 3.5-2.5.5-1.5.5-3.5-.5-5z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 10.5V5M9 7l-2-2M15 7l2-2"/></svg>`;
+            case 'leaf':
+            case 'clean':
+                return `<svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 21c3-6 7-10 14-11-1 7-5 11-11 14l-3-3z"/><path stroke-linecap="round" stroke-linejoin="round" d="M9 15l6-6"/></svg>`;
+            case 'tag':
+            case 'value':
+                return `<svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>`;
+            case 'lotus':
+                return `<svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4c-1.5 3-4 6-7 7 3 2 4 5 7 10 3-5 4-8 7-10-3-1-5.5-4-7-7z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 11c-2 2-3.5 4.5-4 7 2-1 3.5-1.5 4-7z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 11c2 2 3.5 4.5 4 7-2-1 3.5-1.5-4-7z"/></svg>`;
+            case 'cup':
+            case 'cake':
+            case 'food':
+                return `<svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 10h16v10H4z"/><path stroke-linecap="round" stroke-linejoin="round" d="M4 15h16"/><circle cx="12" cy="6" r="2"/><line x1="12" y1="8" x2="12" y2="10"/></svg>`;
+            case 'coffee':
+                return `<svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8h1a4 4 0 010 8h-1M3 8h14v7a4 4 0 01-4 4H7a4 4 0 01-4-4V8z"/><line x1="6" y1="2" x2="6" y2="4" stroke-linecap="round"/><line x1="10" y1="2" x2="10" y2="4" stroke-linecap="round"/><line x1="14" y1="2" x2="14" y2="4" stroke-linecap="round"/></svg>`;
+            case 'ambience':
+            case 'sparkles':
+                return `<svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3l1.8 4.7 4.7 1.8-4.7 1.8L12 16l-1.8-4.7-4.7-1.8 4.7-1.8L12 3z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19 16l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9.9-2.1z"/></svg>`;
+            case 'staff':
+            case 'users':
+                return `<svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20v-1a4 4 0 00-4-4H5a4 4 0 00-4 4v1"/><circle cx="9" cy="7" r="4"/><path stroke-linecap="round" stroke-linejoin="round" d="M23 20v-1a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>`;
+            case 'star':
+            default:
+                return `<svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><polygon stroke-linejoin="round" points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`;
+        }
+    }
+
+    renderReviewChips() {
+        const container = document.getElementById('reviewChipsContainer') || document.getElementById('chipsContainer');
+        if (!container || !this.data.reviewChips) return;
+
+        const activeDefaults = ['COFFEE', 'SERVICE', 'VALUE'];
+        container.className = 'grid grid-cols-2 gap-2.5 sm:gap-3 w-full';
+        container.innerHTML = this.data.reviewChips.map(chip => {
+            const isActive = (window.selectedChips && window.selectedChips.has(chip.key)) || activeDefaults.includes(chip.key);
+            const iconSvg = this.getChipSvg(chip.icon);
+            return `
+            <button type="button" onclick="toggleChip(this, '${chip.key}')"
+                class="chip ${isActive ? 'chip-active' : ''} px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-full border border-slate-200/90 bg-white text-slate-700 text-xs sm:text-[13px] font-semibold flex items-center justify-between gap-2 transition-all shadow-xs cursor-pointer select-none min-w-0 w-full">
+                <span class="flex items-center gap-2 min-w-0">
+                    <span class="chip-icon flex items-center justify-center flex-shrink-0">${iconSvg}</span>
+                    <span class="chip-label whitespace-nowrap">${chip.label}</span>
+                </span>
+                <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+            </button>
+            `;
+        }).join('');
+    }
+
+    renderGallery() {
+        const track = document.getElementById('galleryMarqueeTrack') || document.getElementById('galleryGrid');
+        if (!track || !this.data.gallery) return;
+
+        const renderCards = (items) => items.map((item, index) => `
+            <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-slate-100 flex-shrink-0"
+                data-category="${item.category}" onclick="openGalleryModal(${index})">
+                <img src="${item.src}" alt="${item.title}"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                <span class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-slate-800 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">${item.categoryLabel}</span>
+                <div class="absolute bottom-2.5 left-2.5 right-2.5">
+                    <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">${item.tag || item.title}</p>
+                    <span class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
+                        <span>Tap to view</span> <span>🔍</span>
+                    </span>
+                </div>
+            </div>
+        `).join('');
+
+        // Duplicate set for seamless continuous marquee loop
+        track.innerHTML = renderCards(this.data.gallery) + renderCards(this.data.gallery);
+
+        // Sync global GALLERY_ITEMS used by lightbox
+        window.GALLERY_ITEMS = this.data.gallery;
+        const countBadge = document.getElementById('galleryCountBadge');
+        if (countBadge) {
+            countBadge.textContent = `${this.data.gallery.length} Items`;
+        }
+        const showAllBtn = document.getElementById('galleryShowAllBtn');
+        if (showAllBtn) {
+            const countSpan = showAllBtn.querySelector('.count-badge');
+            if (countSpan) countSpan.textContent = this.data.gallery.length;
+        }
+    }
+
+    renderAboutHighlights() {
+        const container = document.getElementById('aboutHighlightsGrid');
+        if (!container || !this.data.about?.highlights) return;
+
+        container.innerHTML = this.data.about.highlights.map(item => `
+            <div class="flex items-center gap-2 p-2 rounded-xl bg-slate-50 border border-slate-100/60">
+                <span>${item.icon}</span>
+                <span>${item.text}</span>
+            </div>
+        `).join('');
+    }
+
+    renderTestimonials() {
+        const container = document.getElementById('testimonialsContainer');
+        if (!container || !this.data.testimonials) return;
+
+        container.innerHTML = this.data.testimonials.map(t => `
+            <div class="p-3 rounded-2xl bg-slate-50 border border-slate-100/80">
+                <div class="flex items-center justify-between mb-1">
+                    <div class="flex items-center gap-2">
+                        <div class="w-6 h-6 rounded-full ${t.avatarBg || 'bg-blue-600'} text-white text-[10px] font-bold flex items-center justify-center">
+                            ${t.initial || t.name.charAt(0)}
+                        </div>
+                        <span class="text-xs font-bold text-slate-800">${t.name}</span>
+                    </div>
+                    <span class="text-[10px] text-slate-400">${t.timeAgo}</span>
+                </div>
+                <div class="text-amber-400 text-[10px] mb-1">${'★'.repeat(t.rating || 5)}</div>
+                <p class="text-[11px] text-slate-600 leading-snug">"${t.quote}"</p>
+            </div>
+        `).join('');
+    }
+
+    /**
+     * UI INJECTION: Floating Button & Full CMS Drawer/Modal
+     */
+    injectEditorUI() {
+        // Floating Dev Toggle Button
+        const floatBtn = document.createElement('div');
+        floatBtn.id = 'devFloatingBar';
+        floatBtn.className = 'fixed bottom-4 right-4 z-50 flex items-center gap-2 select-none';
+        floatBtn.innerHTML = `
+            <button type="button" id="devToggleBtn"
+                class="px-3.5 py-2 rounded-2xl shadow-2xl font-bold text-xs flex items-center gap-1.5 transition-all active:scale-95 border backdrop-blur-md ${
+                    this.isDevMode 
+                    ? 'bg-amber-400 text-slate-950 border-amber-300 ring-2 ring-amber-400/50' 
+                    : 'bg-slate-900/90 text-white border-white/20 hover:bg-black'
+                }">
+                <span>🛠️</span>
+                <span id="devToggleLabel">${this.isDevMode ? 'Dev Mode: ON' : 'Dev Mode'}</span>
+            </button>
+            <button type="button" id="devOpenPanelBtn"
+                class="px-3.5 py-2 rounded-2xl shadow-2xl font-bold text-xs bg-indigo-600 hover:bg-indigo-700 text-white border border-indigo-400/30 flex items-center gap-1.5 transition-all active:scale-95 ${
+                    this.isDevMode ? 'inline-flex' : 'hidden'
+                }">
+                <span>⚙️ Control Center</span>
+            </button>
+        `;
+        document.body.appendChild(floatBtn);
+
+        document.getElementById('devToggleBtn').addEventListener('click', () => this.toggleDevMode());
+        document.getElementById('devOpenPanelBtn').addEventListener('click', () => this.openCMSPanel());
+
+        // Full CMS Modal Panel
+        const modal = document.createElement('div');
+        modal.id = 'devCMSModal';
+        modal.className = 'fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 hidden';
+        modal.innerHTML = `
+            <div class="bg-white w-full max-w-3xl rounded-3xl shadow-2xl border border-slate-100 flex flex-col max-h-[90vh] overflow-hidden">
+                <!-- Modal Header -->
+                <div class="bg-slate-900 text-white px-5 py-4 flex items-center justify-between border-b border-white/10">
+                    <div class="flex items-center gap-2.5">
+                        <span class="w-8 h-8 rounded-xl bg-amber-400 text-slate-950 font-bold flex items-center justify-center text-sm">🛠️</span>
+                        <div>
+                            <h3 class="font-extrabold text-sm sm:text-base leading-tight">Developer CMS & Master Control</h3>
+                            <p class="text-[11px] text-slate-400">Edit, manipulate & export any text, image, link, or review template</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button type="button" id="cmsCloseBtn" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold flex items-center justify-center text-sm transition-all">✕</button>
+                    </div>
+                </div>
+
+                <!-- Tabs Navigation -->
+                <div class="flex items-center gap-1 px-4 py-2 bg-slate-50 border-b border-slate-200 overflow-x-auto hide-scrollbar text-xs font-bold text-slate-600">
+                    <button type="button" class="cms-tab-btn px-3 py-1.5 rounded-xl bg-white text-indigo-600 shadow-sm border border-slate-200" data-tab="business">🏢 Business & Brand</button>
+                    <button type="button" class="cms-tab-btn px-3 py-1.5 rounded-xl hover:bg-white/80" data-tab="links">🔗 Links & URLs</button>
+                    <button type="button" class="cms-tab-btn px-3 py-1.5 rounded-xl hover:bg-white/80" data-tab="gallery">📸 Gallery (8 Items)</button>
+                    <button type="button" class="cms-tab-btn px-3 py-1.5 rounded-xl hover:bg-white/80" data-tab="specialities">🍓 Specialities</button>
+                    <button type="button" class="cms-tab-btn px-3 py-1.5 rounded-xl hover:bg-white/80" data-tab="reviews">💬 AI Reviews & Bank</button>
+                    <button type="button" class="cms-tab-btn px-3 py-1.5 rounded-xl hover:bg-white/80" data-tab="about">🌟 About & Testimonials</button>
+                    <button type="button" class="cms-tab-btn px-3 py-1.5 rounded-xl hover:bg-white/80" data-tab="json">📦 Raw JSON / Export</button>
+                </div>
+
+                <!-- Tab Content Body (Scrollable) -->
+                <div id="cmsTabContent" class="flex-1 overflow-y-auto p-5 space-y-4 text-xs">
+                    <!-- Populated dynamically -->
+                </div>
+
+                <!-- Footer Actions -->
+                <div class="bg-slate-50 px-5 py-3 border-t border-slate-200 flex items-center justify-between">
+                    <button type="button" id="cmsResetBtn" class="text-rose-600 hover:text-rose-700 font-bold text-xs flex items-center gap-1">
+                        <span>🔄</span> Reset to Defaults
+                    </button>
+                    <div class="flex items-center gap-2">
+                        <button type="button" id="cmsExportBtn" class="px-3.5 py-2 rounded-xl bg-slate-200 hover:bg-slate-300 font-bold text-slate-800 transition-all flex items-center gap-1.5">
+                            <span>📥</span> Export data.js
+                        </button>
+                        <button type="button" id="cmsSaveBtn" class="px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 font-bold text-white shadow-md shadow-indigo-600/20 transition-all flex items-center gap-1.5 active:scale-95">
+                            <span>💾</span> Save & Apply Changes
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(modal);
+
+        // Bind Modal Events
+        document.getElementById('cmsCloseBtn').addEventListener('click', () => this.closeCMSPanel());
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) this.closeCMSPanel();
+        });
+
+        // Tab Switchers
+        modal.querySelectorAll('.cms-tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                modal.querySelectorAll('.cms-tab-btn').forEach(b => {
+                    b.classList.remove('bg-white', 'text-indigo-600', 'shadow-sm', 'border', 'border-slate-200');
+                    b.classList.add('hover:bg-white/80');
+                });
+                btn.classList.add('bg-white', 'text-indigo-600', 'shadow-sm', 'border', 'border-slate-200');
+                btn.classList.remove('hover:bg-white/80');
+                this.activeTab = btn.getAttribute('data-tab');
+                this.renderTabContent();
+            });
+        });
+
+        // Save & Reset Buttons
+        document.getElementById('cmsSaveBtn').addEventListener('click', () => this.saveFromPanel());
+        document.getElementById('cmsResetBtn').addEventListener('click', () => {
+            if (confirm('Are you sure you want to reset all data back to original defaults? Any custom edits will be cleared.')) {
+                resetStoreData();
+                this.data = getStoreData();
+                this.renderAll();
+                this.renderTabContent();
+                this.showDevToast('Reset to original default configuration.');
+            }
+        });
+        document.getElementById('cmsExportBtn').addEventListener('click', () => this.exportConfigFile());
+    }
+
+    toggleDevMode() {
+        this.isDevMode = !this.isDevMode;
+        const btn = document.getElementById('devToggleBtn');
+        const label = document.getElementById('devToggleLabel');
+        const openPanelBtn = document.getElementById('devOpenPanelBtn');
+
+        if (this.isDevMode) {
+            btn.className = 'px-3.5 py-2 rounded-2xl shadow-2xl font-bold text-xs flex items-center gap-1.5 transition-all active:scale-95 border backdrop-blur-md bg-amber-400 text-slate-950 border-amber-300 ring-2 ring-amber-400/50';
+            label.textContent = 'Dev Mode: ON';
+            openPanelBtn.classList.remove('hidden');
+            openPanelBtn.classList.add('inline-flex');
+            this.enableDevModeStyles();
+            this.showDevToast('Dev Mode ON. Click "⚙️ Control Center" or edit elements directly!');
+        } else {
+            btn.className = 'px-3.5 py-2 rounded-2xl shadow-2xl font-bold text-xs flex items-center gap-1.5 transition-all active:scale-95 border backdrop-blur-md bg-slate-900/90 text-white border-white/20 hover:bg-black';
+            label.textContent = 'Dev Mode';
+            openPanelBtn.classList.add('hidden');
+            openPanelBtn.classList.remove('inline-flex');
+            this.disableDevModeStyles();
+            this.showDevToast('Dev Mode OFF.');
+        }
+    }
+
+    enableDevModeStyles() {
+        document.body.classList.add('dev-mode-active');
+        this.attachInlineEditHandlers();
+    }
+
+    disableDevModeStyles() {
+        document.body.classList.remove('dev-mode-active');
+        document.querySelectorAll('[contenteditable="true"]').forEach(el => {
+            if (el.id !== 'reviewOutputText') el.removeAttribute('contenteditable');
+        });
+    }
+
+    attachInlineEditHandlers() {
+        // Quick click on images in dev mode to swap URL
+        const imageHooks = [
+            { id: 'heroBannerImg', key: 'brand.heroImg', name: 'Hero Banner Image' },
+            { id: 'storeLogoImg', key: 'brand.logoImg', name: 'Circular Store Logo' }
+        ];
+
+        imageHooks.forEach(hook => {
+            const el = document.getElementById(hook.id);
+            if (!el) return;
+            el.style.cursor = 'pointer';
+            el.title = `[Dev Mode] Click to change ${hook.name}`;
+            el.onclick = (e) => {
+                if (!this.isDevMode) return;
+                e.stopPropagation();
+                const newUrl = prompt(`Enter new image URL or path for ${hook.name}:`, el.src);
+                if (newUrl && newUrl.trim()) {
+                    if (hook.key === 'brand.heroImg') this.data.brand.heroImg = newUrl.trim();
+                    if (hook.key === 'brand.logoImg') this.data.brand.logoImg = newUrl.trim();
+                    saveStoreData(this.data);
+                    this.renderAll();
+                    this.showDevToast(`Updated ${hook.name}!`);
+                }
+            };
+        });
+    }
+
+    openCMSPanel() {
+        this.renderTabContent();
+        document.getElementById('devCMSModal').classList.remove('hidden');
+    }
+
+    closeCMSPanel() {
+        document.getElementById('devCMSModal').classList.add('hidden');
+    }
+
+    renderTabContent() {
+        const container = document.getElementById('cmsTabContent');
+        if (!container) return;
+
+        const d = this.data;
+
+        if (this.activeTab === 'business') {
+            container.innerHTML = `
+                <div class="space-y-4">
+                    <h4 class="font-extrabold text-slate-800 text-sm border-b pb-2">Business & Brand Information</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block font-bold text-slate-700 mb-1">Business Name</label>
+                            <input type="text" id="inp_brand_name" value="${d.brand.name}" class="w-full p-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500">
+                        </div>
+                        <div>
+                            <label class="block font-bold text-slate-700 mb-1">Initials / Short Badge</label>
+                            <input type="text" id="inp_brand_initials" value="${d.brand.initials}" class="w-full p-2 border border-slate-300 rounded-xl">
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label class="block font-bold text-slate-700 mb-1">Tagline</label>
+                            <input type="text" id="inp_brand_tagline" value="${d.brand.tagline}" class="w-full p-2 border border-slate-300 rounded-xl">
+                        </div>
+                        <div>
+                            <label class="block font-bold text-slate-700 mb-1">Phone Number (Call link)</label>
+                            <input type="text" id="inp_contact_phone" value="${d.contact.phone}" class="w-full p-2 border border-slate-300 rounded-xl">
+                        </div>
+                        <div>
+                            <label class="block font-bold text-slate-700 mb-1">Phone Display Text</label>
+                            <input type="text" id="inp_contact_phoneDisplay" value="${d.contact.phoneDisplay}" class="w-full p-2 border border-slate-300 rounded-xl">
+                        </div>
+                        <div>
+                            <label class="block font-bold text-slate-700 mb-1">WhatsApp Number</label>
+                            <input type="text" id="inp_contact_whatsapp" value="${d.contact.whatsapp}" class="w-full p-2 border border-slate-300 rounded-xl">
+                        </div>
+                        <div>
+                            <label class="block font-bold text-slate-700 mb-1">Status / Hours Badge</label>
+                            <input type="text" id="inp_brand_status" value="${d.brand.statusBadge}" class="w-full p-2 border border-slate-300 rounded-xl">
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label class="block font-bold text-slate-700 mb-1">Full Physical Address</label>
+                            <input type="text" id="inp_contact_address" value="${d.contact.address}" class="w-full p-2 border border-slate-300 rounded-xl">
+                        </div>
+                        <div>
+                            <label class="block font-bold text-slate-700 mb-1">Short Address</label>
+                            <input type="text" id="inp_contact_shortAddress" value="${d.contact.shortAddress}" class="w-full p-2 border border-slate-300 rounded-xl">
+                        </div>
+                        <div>
+                            <label class="block font-bold text-slate-700 mb-1">Rating Value</label>
+                            <input type="number" step="0.1" id="inp_brand_rating" value="${d.brand.rating}" class="w-full p-2 border border-slate-300 rounded-xl">
+                        </div>
+                        <div>
+                            <label class="block font-bold text-slate-700 mb-1">Rating Count Text</label>
+                            <input type="text" id="inp_brand_ratingCount" value="${d.brand.ratingCountText}" class="w-full p-2 border border-slate-300 rounded-xl">
+                        </div>
+                        <div>
+                            <label class="block font-bold text-slate-700 mb-1">Badge Title</label>
+                            <input type="text" id="inp_brand_badgeText" value="${d.brand.badgeText}" class="w-full p-2 border border-slate-300 rounded-xl">
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label class="block font-bold text-slate-700 mb-1">Logo Image URL / Path</label>
+                            <input type="text" id="inp_brand_logo" value="${d.brand.logoImg}" class="w-full p-2 border border-slate-300 rounded-xl">
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label class="block font-bold text-slate-700 mb-1">Hero Banner Image URL / Path</label>
+                            <input type="text" id="inp_brand_hero" value="${d.brand.heroImg}" class="w-full p-2 border border-slate-300 rounded-xl">
+                        </div>
+                    </div>
+                </div>
+            `;
+        } else if (this.activeTab === 'links') {
+            container.innerHTML = `
+                <div class="space-y-4">
+                    <h4 class="font-extrabold text-slate-800 text-sm border-b pb-2">Actions, External Links & Maps</h4>
+                    <div class="space-y-3">
+                        <div>
+                            <label class="block font-bold text-slate-700 mb-1">Google Place ID</label>
+                            <input type="text" id="inp_links_placeId" value="${d.links.googlePlaceId}" class="w-full p-2 border border-slate-300 rounded-xl">
+                        </div>
+                        <div>
+                            <label class="block font-bold text-slate-700 mb-1">Google Review URL (Primary Redirect)</label>
+                            <input type="text" id="inp_links_reviewUrl" value="${d.links.googleReviewUrl}" class="w-full p-2 border border-slate-300 rounded-xl">
+                        </div>
+                        <div>
+                            <label class="block font-bold text-slate-700 mb-1">Google Maps Direct Listing URL</label>
+                            <input type="text" id="inp_links_mapsUrl" value="${d.links.googleMapsUrl}" class="w-full p-2 border border-slate-300 rounded-xl">
+                        </div>
+                        <div>
+                            <label class="block font-bold text-slate-700 mb-1">Google Maps Embed URL (Iframe)</label>
+                            <input type="text" id="inp_links_embedUrl" value="${d.links.mapsEmbedUrl}" class="w-full p-2 border border-slate-300 rounded-xl">
+                        </div>
+                        <div>
+                            <label class="block font-bold text-slate-700 mb-1">Instagram Profile URL</label>
+                            <input type="text" id="inp_links_instagramUrl" value="${d.links.instagramUrl || ''}" class="w-full p-2 border border-slate-300 rounded-xl" placeholder="https://www.instagram.com/yourhandle">
+                        </div>
+                        <div>
+                            <label class="block font-bold text-slate-700 mb-1">Menu Link (PDF or Web URL)</label>
+                            <input type="text" id="inp_links_menuUrl" value="${d.links.menuUrl || ''}" class="w-full p-2 border border-slate-300 rounded-xl" placeholder="e.g. /menu.pdf or https://...">
+                        </div>
+                    </div>
+                </div>
+            `;
+        } else if (this.activeTab === 'gallery') {
+            container.innerHTML = `
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between border-b pb-2">
+                        <h4 class="font-extrabold text-slate-800 text-sm">Culinary Gallery Items (${d.gallery.length})</h4>
+                        <button type="button" id="cmsAddGalleryItemBtn" class="px-2.5 py-1 rounded-xl bg-indigo-50 text-indigo-700 font-bold hover:bg-indigo-100">+ Add Item</button>
+                    </div>
+                    <div class="space-y-3" id="cmsGalleryItemList">
+                        ${d.gallery.map((item, idx) => `
+                            <div class="p-3 bg-slate-50 border border-slate-200 rounded-2xl flex flex-col sm:flex-row gap-3 items-start" data-gidx="${idx}">
+                                <img src="${item.src}" class="w-16 h-16 rounded-xl object-cover border flex-shrink-0">
+                                <div class="flex-1 w-full grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                    <input type="text" class="g-title p-1.5 border rounded-lg font-bold" value="${item.title}" placeholder="Dish Title">
+                                    <input type="text" class="g-tag p-1.5 border rounded-lg" value="${item.tag || item.title}" placeholder="Badge Tag">
+                                    <input type="text" class="g-src p-1.5 border rounded-lg sm:col-span-2 text-[10px]" value="${item.src}" placeholder="Image URL / Path">
+                                    <input type="text" class="g-desc p-1.5 border rounded-lg sm:col-span-2" value="${item.desc}" placeholder="Description">
+                                    <select class="g-cat p-1.5 border rounded-lg">
+                                        <option value="bakes" ${item.category === 'bakes' ? 'selected' : ''}>Cakes & Bakes</option>
+                                        <option value="brunch" ${item.category === 'brunch' ? 'selected' : ''}>Brunch & Savory</option>
+                                    </select>
+                                    <input type="text" class="g-ai p-1.5 border rounded-lg" value="${item.aiCategory || 'ALL'}" placeholder="AI Category Link (e.g. BISCOFF)">
+                                </div>
+                                <button type="button" class="g-delete text-rose-500 hover:text-rose-700 font-bold px-2 py-1 flex-shrink-0" title="Delete">🗑️</button>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+
+            // Bind add/delete handlers
+            document.getElementById('cmsAddGalleryItemBtn')?.addEventListener('click', () => {
+                this.data.gallery.push({
+                    id: 'new-dish-' + Date.now(),
+                    src: './assets/images/blue-door/cheesecake-cafe.jpg',
+                    title: 'New Specialty Item',
+                    category: 'bakes',
+                    categoryLabel: 'Specialty',
+                    tag: 'New Dish',
+                    desc: 'Freshly prepared artisanal specialty made daily in our cafe.',
+                    aiCategory: 'ALL'
+                });
+                this.renderTabContent();
+            });
+
+            container.querySelectorAll('.g-delete').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const row = e.target.closest('[data-gidx]');
+                    const idx = parseInt(row.getAttribute('data-gidx'), 10);
+                    if (confirm('Delete this gallery item?')) {
+                        this.data.gallery.splice(idx, 1);
+                        this.renderTabContent();
+                    }
+                });
+            });
+        } else if (this.activeTab === 'specialities') {
+            container.innerHTML = `
+                <div class="space-y-4">
+                    <h4 class="font-extrabold text-slate-800 text-sm border-b pb-2">Specialities Carousel (${d.specialities.length} Items)</h4>
+                    <div class="space-y-3">
+                        ${d.specialities.map((item, idx) => `
+                            <div class="p-3 bg-slate-50 border border-slate-200 rounded-2xl flex items-center gap-3" data-sidx="${idx}">
+                                <img src="${item.image}" class="w-12 h-12 rounded-full object-cover border flex-shrink-0">
+                                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 flex-1">
+                                    <input type="text" class="s-name p-1.5 border rounded-lg font-bold" value="${item.name}" placeholder="Name">
+                                    <input type="text" class="s-img p-1.5 border rounded-lg sm:col-span-2 text-[10px]" value="${item.image}" placeholder="Image URL">
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        } else if (this.activeTab === 'reviews') {
+            container.innerHTML = `
+                <div class="space-y-4">
+                    <h4 class="font-extrabold text-slate-800 text-sm border-b pb-2">AI Review Generator Categories & Knowledge Base</h4>
+                    <div class="p-3 bg-amber-50 rounded-2xl border border-amber-200 text-amber-900 leading-relaxed">
+                        💡 <strong>Prompt Engineering Bank:</strong> The review generator combines customizable openings, category items, and closings to generate organic 5-star Google reviews.
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1.5">Review Chip Categories (Comma-separated)</label>
+                        <input type="text" id="inp_chips_list" value="${d.reviewChips.map(c => c.label).join(', ')}" class="w-full p-2 border border-slate-300 rounded-xl">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1.5">English Opening Sentences (One per line)</label>
+                        <textarea id="inp_review_openings" rows="4" class="w-full p-2 border border-slate-300 rounded-xl font-mono text-xs">${(d.reviewBank.ENGLISH.openings || []).join('\n')}</textarea>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1.5">English Closing Sentences (One per line)</label>
+                        <textarea id="inp_review_closings" rows="3" class="w-full p-2 border border-slate-300 rounded-xl font-mono text-xs">${(d.reviewBank.ENGLISH.closings || []).join('\n')}</textarea>
+                    </div>
+                </div>
+            `;
+        } else if (this.activeTab === 'about') {
+            container.innerHTML = `
+                <div class="space-y-4">
+                    <h4 class="font-extrabold text-slate-800 text-sm border-b pb-2">About Us & Testimonials</h4>
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">About Us Title</label>
+                        <input type="text" id="inp_about_title" value="${d.about.title}" class="w-full p-2 border border-slate-300 rounded-xl">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">About Us Story / Description</label>
+                        <textarea id="inp_about_desc" rows="4" class="w-full p-2 border border-slate-300 rounded-xl leading-relaxed">${d.about.description}</textarea>
+                    </div>
+                    <div class="pt-2">
+                        <h5 class="font-bold text-slate-800 mb-2">Customer Testimonials</h5>
+                        <div class="space-y-3">
+                            ${d.testimonials.map((t, idx) => `
+                                <div class="p-3 bg-slate-50 border border-slate-200 rounded-2xl space-y-2" data-tidx="${idx}">
+                                    <div class="grid grid-cols-2 gap-2">
+                                        <input type="text" class="t-name p-1.5 border rounded-lg font-bold" value="${t.name}" placeholder="Customer Name">
+                                        <input type="text" class="t-time p-1.5 border rounded-lg" value="${t.timeAgo}" placeholder="e.g. 2 days ago">
+                                    </div>
+                                    <textarea class="t-quote w-full p-2 border rounded-lg text-xs" rows="2">${t.quote}</textarea>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        } else if (this.activeTab === 'json') {
+            container.innerHTML = `
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between border-b pb-2">
+                        <h4 class="font-extrabold text-slate-800 text-sm">Full Application JSON State</h4>
+                        <button type="button" id="copyJsonBtn" class="px-2.5 py-1 bg-slate-100 hover:bg-slate-200 rounded-lg font-bold text-xs">📋 Copy JSON</button>
+                    </div>
+                    <p class="text-slate-500 text-[11px]">You can edit this JSON directly and click "Save & Apply Changes" to update every aspect of the app at once.</p>
+                    <textarea id="rawJsonEditor" rows="16" class="w-full p-3 font-mono text-[11px] bg-slate-950 text-emerald-400 rounded-2xl border border-slate-800 leading-relaxed outline-none focus:ring-2 focus:ring-emerald-500">${JSON.stringify(d, null, 2)}</textarea>
+                </div>
+            `;
+
+            document.getElementById('copyJsonBtn')?.addEventListener('click', () => {
+                navigator.clipboard.writeText(JSON.stringify(d, null, 2));
+                this.showDevToast('JSON configuration copied to clipboard!');
+            });
+        }
+    }
+
+    saveFromPanel() {
+        try {
+            const d = this.data;
+
+            if (this.activeTab === 'json') {
+                const raw = document.getElementById('rawJsonEditor').value;
+                this.data = JSON.parse(raw);
+            } else {
+                // Collect Business Tab
+                if (document.getElementById('inp_brand_name')) {
+                    d.brand.name = document.getElementById('inp_brand_name').value;
+                    d.brand.initials = document.getElementById('inp_brand_initials').value;
+                    d.brand.tagline = document.getElementById('inp_brand_tagline').value;
+                    d.contact.phone = document.getElementById('inp_contact_phone').value;
+                    d.contact.phoneDisplay = document.getElementById('inp_contact_phoneDisplay').value;
+                    d.contact.whatsapp = document.getElementById('inp_contact_whatsapp').value;
+                    d.brand.statusBadge = document.getElementById('inp_brand_status').value;
+                    d.contact.address = document.getElementById('inp_contact_address').value;
+                    d.contact.shortAddress = document.getElementById('inp_contact_shortAddress').value;
+                    d.brand.rating = parseFloat(document.getElementById('inp_brand_rating').value) || 4.9;
+                    d.brand.ratingCountText = document.getElementById('inp_brand_ratingCount').value;
+                    d.brand.badgeText = document.getElementById('inp_brand_badgeText').value;
+                    d.brand.logoImg = document.getElementById('inp_brand_logo').value;
+                    d.brand.heroImg = document.getElementById('inp_brand_hero').value;
+                }
+
+                // Collect Links Tab
+                if (document.getElementById('inp_links_placeId')) {
+                    d.links.googlePlaceId = document.getElementById('inp_links_placeId').value;
+                    d.links.googleReviewUrl = document.getElementById('inp_links_reviewUrl').value;
+                    d.links.googleMapsUrl = document.getElementById('inp_links_mapsUrl').value;
+                    d.links.mapsEmbedUrl = document.getElementById('inp_links_embedUrl').value;
+                    d.links.instagramUrl = document.getElementById('inp_links_instagramUrl')?.value || d.links.instagramUrl;
+                    d.links.menuUrl = document.getElementById('inp_links_menuUrl').value;
+                }
+
+                // Collect Gallery Tab
+                const gRows = document.querySelectorAll('#cmsGalleryItemList [data-gidx]');
+                if (gRows.length > 0) {
+                    gRows.forEach((row, i) => {
+                        if (d.gallery[i]) {
+                            d.gallery[i].title = row.querySelector('.g-title').value;
+                            d.gallery[i].tag = row.querySelector('.g-tag').value;
+                            d.gallery[i].src = row.querySelector('.g-src').value;
+                            d.gallery[i].desc = row.querySelector('.g-desc').value;
+                            d.gallery[i].category = row.querySelector('.g-cat').value;
+                            d.gallery[i].categoryLabel = d.gallery[i].category === 'bakes' ? 'Cheesecake' : 'Brunch';
+                            d.gallery[i].aiCategory = row.querySelector('.g-ai').value;
+                        }
+                    });
+                }
+
+                // Collect Specialities
+                const sRows = document.querySelectorAll('[data-sidx]');
+                if (sRows.length > 0) {
+                    sRows.forEach((row, i) => {
+                        if (d.specialities[i]) {
+                            d.specialities[i].name = row.querySelector('.s-name').value;
+                            d.specialities[i].image = row.querySelector('.s-img').value;
+                        }
+                    });
+                }
+
+                // Collect Reviews Tab
+                if (document.getElementById('inp_review_openings')) {
+                    const openings = document.getElementById('inp_review_openings').value.split('\n').filter(s => s.trim());
+                    const closings = document.getElementById('inp_review_closings').value.split('\n').filter(s => s.trim());
+                    d.reviewBank.ENGLISH.openings = openings;
+                    d.reviewBank.ENGLISH.closings = closings;
+                }
+
+                // Collect About Tab
+                if (document.getElementById('inp_about_title')) {
+                    d.about.title = document.getElementById('inp_about_title').value;
+                    d.about.description = document.getElementById('inp_about_desc').value;
+                    const tRows = document.querySelectorAll('[data-tidx]');
+                    tRows.forEach((row, i) => {
+                        if (d.testimonials[i]) {
+                            d.testimonials[i].name = row.querySelector('.t-name').value;
+                            d.testimonials[i].timeAgo = row.querySelector('.t-time').value;
+                            d.testimonials[i].quote = row.querySelector('.t-quote').value;
+                        }
+                    });
+                }
+            }
+
+            // Persist to localStorage
+            saveStoreData(this.data);
+
+            // Re-render the application live
+            this.renderAll();
+            this.showDevToast('Changes saved and applied live!');
+            this.closeCMSPanel();
+        } catch (e) {
+            alert('Error parsing or saving data: ' + e.message);
+        }
+    }
+
+    exportConfigFile() {
+        const fileContent = `/**
+ * data.js
+ * MASTER APPLICATION DATA & CONFIGURATION STORE
+ * Exported from ONESCAN Live Developer Mode
+ * Generated at: ${new Date().toISOString()}
+ */
+
+export const DEFAULT_STORE_DATA = ${JSON.stringify(this.data, null, 4)};
+
+export function getStoreData() {
+    try {
+        const stored = localStorage.getItem('bluedoor_store_data');
+        if (stored) return JSON.parse(stored);
+    } catch (e) {}
+    return JSON.parse(JSON.stringify(DEFAULT_STORE_DATA));
+}
+
+export function saveStoreData(data) {
+    try {
+        localStorage.setItem('bluedoor_store_data', JSON.stringify(data));
+        return true;
+    } catch (e) {
+        return false;
+    }
+}
+
+export function resetStoreData() {
+    try {
+        localStorage.removeItem('bluedoor_store_data');
+        return true;
+    } catch (e) {
+        return false;
+    }
+}
+`;
+
+        const blob = new Blob([fileContent], { type: 'application/javascript;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'data.js';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        this.showDevToast('Downloaded updated data.js! Replace in your js/ directory.');
+    }
+
+    showDevToast(msg) {
+        if (window.showToast) {
+            window.showToast(msg, '🛠️');
+        } else {
+            alert(msg);
+        }
+    }
+}
+
+// Instantiate developer editor on DOMContentLoaded
+window.addEventListener('DOMContentLoaded', () => {
+    window.devEditor = new DeveloperEditor();
+});
