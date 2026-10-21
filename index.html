@@ -15,8 +15,8 @@
         :root {
             --brand-primary: #E11D48;
             --brand-primary-shadow: rgba(225, 29, 72, 0.35);
-            --brand-accent: #E11D48;
-            --brand-accent-glow: rgba(225, 29, 72, 0.25);
+            --brand-accent: #4F46E5;
+            --brand-accent-glow: rgba(79, 70, 229, 0.25);
             --brand-gradient: linear-gradient(135deg, #FFF1F2 0%, #FDF2F8 50%, #FEF3C7 100%);
         }
 
@@ -74,10 +74,10 @@
         }
 
         .chip.chip-active {
-            background: var(--brand-primary, #4F46E5) !important;
-            border-color: var(--brand-primary, #4F46E5) !important;
+            background: #E11D48 !important;
+            border-color: #E11D48 !important;
             color: #FFFFFF !important;
-            box-shadow: 0 4px 14px var(--brand-primary-shadow, rgba(79, 70, 229, 0.3)) !important;
+            box-shadow: 0 4px 14px rgba(225, 29, 72, 0.4) !important;
         }
 
         .chip.chip-active svg,
@@ -203,15 +203,14 @@
             class="sticky top-0 z-30 bg-white/80 backdrop-blur-md border-b border-slate-100 px-4 py-3 flex items-center justify-between">
             <div class="flex items-center gap-2">
                 <div id="storeBrandInitials"
-                    class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-xs shadow-md shadow-blue-500/20">
-                    BD
+                    class="w-8 h-8 rounded-full bg-gradient-to-tr from-pink-600 to-rose-600 text-white flex items-center justify-center font-black text-xs shadow-md shadow-pink-500/25">
+                    SB
                 </div>
                 <div>
                     <h1 id="storeHeaderName" class="text-xs font-bold text-slate-900 leading-tight">Scoop n Brew</h1>
                     <span id="storeStatusBadge"
                         class="text-[10px] text-emerald-600 font-semibold flex items-center gap-1">
-                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Open Now • 9 AM -
-                        10:30 PM
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Open Now • 11 AM - 11 PM
                     </span>
                 </div>
             </div>
@@ -239,7 +238,7 @@
             <section id="homeSection" class="relative">
                 <!-- Hero Photo Banner -->
                 <div class="relative h-60 w-full overflow-hidden bg-slate-900">
-                    <img id="heroBannerImg" src="./assets/images/scoop-n-brew/scoop-n-brew-dining-arch.png"
+                    <img id="heroBannerImg" src="./assets/images/scoop-n-brew/scoop-n-brew-header-banner.png"
                         alt="Scoop n Brew Ice Cream & Treats"
                         class="w-full h-full object-cover opacity-90 scale-105 hover:scale-100 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-black/30"></div>
@@ -253,7 +252,7 @@
                     <div class="absolute top-4 left-4">
                         <span id="heroCategoryBadge"
                             class="px-2.5 py-1 rounded-full bg-black/40 backdrop-blur-md text-white text-[10px] font-bold border border-white/20">
-                            ☕ 🍨 Ice Cream, Shakes & Cool Vibes
+                            🍨 Waffles, Hocco Ice Cream & Shakes
                         </span>
                     </div>
                 </div>
@@ -280,8 +279,8 @@
 
                     <div class="flex items-center justify-center gap-1.5 mt-1">
                         <div id="ratingStars" class="flex text-amber-400 text-xs">★★★★★</div>
-                        <span id="ratingValue" class="text-xs font-extrabold text-slate-800">4.2</span>
-                        <span id="ratingCountText" class="text-[11px] text-slate-500">(110+ reviews)</span>
+                        <span id="ratingValue" class="text-xs font-extrabold text-slate-800">4.9</span>
+                        <span id="ratingCountText" class="text-[11px] text-slate-500">(850+ reviews)</span>
                         <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google"
                             class="h-3 ml-1 opacity-80">
                     </div>
@@ -302,7 +301,7 @@
                             class="px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 text-[10px] font-bold border border-blue-200/60">☕
                             Shakes & Mojitos</span>
                         <span
-                            class="px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-700 text-[10px] font-bold border border-indigo-200/60">🍝
+                            class="px-2.5 py-1 rounded-full bg-pink-50 text-pink-700 text-[10px] font-bold border border-pink-200/60">🍨
                             Hocco Ice Cream</span>
                     </div>
                 </div>

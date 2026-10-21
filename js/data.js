@@ -18,7 +18,7 @@ export const DEFAULT_STORE_DATA = {
         categoryBadge: '🍨 Waffles, Hocco Ice Cream & Shakes',
         heroHandwriting: 'Good Food Brings\nPeople Together ✨',
         logoImg: './assets/images/scoop-n-brew/pixel-cafe-menu-board.png',
-        heroImg: './assets/images/scoop-n-brew/scoop-n-brew-dining-arch.png',
+        heroImg: './assets/images/scoop-n-brew/scoop-n-brew-header-banner.png',
         rating: 4.9,
         ratingStars: '★★★★★',
         ratingCountText: '850+ Google Reviews',
@@ -26,11 +26,11 @@ export const DEFAULT_STORE_DATA = {
     },
 
     theme: {
-        primary: '#DB2777',             // Vibrant Berry Pink
+        primary: '#E11D48',             // Vibrant Berry Pink
         primaryHover: '#BE185D',
         primaryLight: '#FDF2F8',
         primaryShadow: 'rgba(219, 39, 119, 0.35)',
-        accent: '#DB2777',
+        accent: '#4F46E5',
         accentGlow: 'rgba(219, 39, 119, 0.25)',
         secondary: '#1E3A8A',           // Royal Blue
         gradientBg: 'linear-gradient(135deg, #FFF1F2 0%, #FCE7F3 40%, #EFF6FF 100%)'
