@@ -80,14 +80,14 @@ export const DEFAULT_STORE_DATA = {
             id: 'spec-waffles',
             name: 'Nutella Waffle',
             image: './assets/images/scoop-n-brew/pixel-cafe-menu-board.png',
-            gradient: 'from-amber-400 to-orange-500',
+            gradient: 'from-pink-500 to-rose-600',
             categoryKey: 'WAFFLES'
         },
         {
             id: 'spec-hocco-cone',
             name: 'Hocco Nutty Cone',
             image: './assets/images/scoop-n-brew/hocco-nutty-cone.png',
-            gradient: 'from-orange-400 to-amber-500',
+            gradient: 'from-pink-500 to-rose-600',
             categoryKey: 'HOCCO'
         },
         {
@@ -101,34 +101,34 @@ export const DEFAULT_STORE_DATA = {
             id: 'spec-oreo-shake',
             name: 'Oreo Thick Shake',
             image: './assets/images/scoop-n-brew/iced-mojito-cup.png',
-            gradient: 'from-purple-500 to-indigo-600',
+            gradient: 'from-pink-500 to-rose-600',
             categoryKey: 'SHAKES'
         },
         {
             id: 'spec-loaded-fries',
             name: 'Loaded Fries',
             image: './assets/images/scoop-n-brew/scoop-n-brew-menu-poster.png',
-            gradient: 'from-rose-400 to-red-500',
+            gradient: 'from-pink-500 to-rose-600',
             categoryKey: 'FRIES'
         },
         {
             id: 'spec-mojito',
             name: 'Iced Mojito',
             image: './assets/images/scoop-n-brew/iced-mojito-cup.png',
-            gradient: 'from-teal-400 to-emerald-500',
+            gradient: 'from-pink-500 to-rose-600',
             categoryKey: 'MOJITOS'
         }
     ],
 
     reviewChips: [
-        { key: 'WAFFLES', label: 'Crispy Waffles', icon: 'bake' },
-        { key: 'MINI_PANCAKES', label: 'Mini Pancakes', icon: 'cup' },
-        { key: 'HOCCO', label: 'Hocco Ice Cream', icon: 'cup' },
-        { key: 'SHAKES', label: 'Thick Shakes', icon: 'food' },
-        { key: 'FRIES', label: 'Loaded Fries', icon: 'food' },
-        { key: 'BURGERS_SANDWICHES', label: 'Burgers & Buns', icon: 'food' },
-        { key: 'MOJITOS', label: 'Cool Mojitos', icon: 'coffee' },
-        { key: 'VALUE', label: 'Student Friendly', icon: 'tag' }
+        { key: 'ICE_CREAM', label: 'Ice Cream & Cones', icon: 'icecream' },
+        { key: 'WAFFLES', label: 'Waffles & Pancakes', icon: 'waffle' },
+        { key: 'SHAKES', label: 'Thick Shakes', icon: 'shake' },
+        { key: 'FOOD', label: 'Burgers & Fries', icon: 'food' },
+        { key: 'BEVERAGES', label: 'Mojitos & Coffee', icon: 'coffee' },
+        { key: 'SERVICE', label: 'Friendly Staff', icon: 'users' },
+        { key: 'AMBIENCE', label: 'Cozy Ambience', icon: 'sparkle' },
+        { key: 'ALL', label: 'Overall Experience', icon: 'star' }
     ],
 
     reviewBank: REVIEWS_DB,

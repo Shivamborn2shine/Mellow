@@ -373,8 +373,95 @@
 
                     <!-- 8 Multi-Select Chips (2 Columns x 4 Rows matching Target UI) -->
                     <div class="grid grid-cols-2 gap-2.5 sm:gap-3 w-full" id="chipsContainer">
-                        <!-- 1. Great Coffee -->
-                        <button type="button" onclick="toggleChip(this, 'COFFEE')"
+                        <!-- 1. Ice Cream & Cones -->
+                        <button type="button" onclick="toggleChip(this, 'ICE_CREAM')"
+                            class="chip px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-full border border-slate-200/90 bg-white text-slate-700 text-xs sm:text-[13px] font-semibold flex items-center justify-between gap-2 transition-all shadow-xs cursor-pointer select-none min-w-0 w-full">
+                            <span class="flex items-center gap-2 min-w-0">
+                                <span class="chip-icon flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor"
+                                        stroke-width="1.8" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M12 21l4-9H8l4 9z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M8 12a4 4 0 118 0" />
+                                        <circle cx="12" cy="6" r="2" />
+                                    </svg>
+                                </span>
+                                <span class="chip-label whitespace-nowrap">Ice Cream & Cones</span>
+                            </span>
+                            <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none"
+                                stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </button>
+
+                        <!-- 2. Waffles & Pancakes -->
+                        <button type="button" onclick="toggleChip(this, 'WAFFLES')"
+                            class="chip px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-full border border-slate-200/90 bg-white text-slate-700 text-xs sm:text-[13px] font-semibold flex items-center justify-between gap-2 transition-all shadow-xs cursor-pointer select-none min-w-0 w-full">
+                            <span class="flex items-center gap-2 min-w-0">
+                                <span class="chip-icon flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor"
+                                        stroke-width="1.8" viewBox="0 0 24 24">
+                                        <rect x="3" y="3" width="18" height="18" rx="3" stroke-width="1.8" />
+                                        <line x1="3" y1="9" x2="21" y2="9" />
+                                        <line x1="3" y1="15" x2="21" y2="15" />
+                                        <line x1="9" y1="3" x2="9" y2="21" />
+                                        <line x1="15" y1="3" x2="15" y2="21" />
+                                    </svg>
+                                </span>
+                                <span class="chip-label whitespace-nowrap">Waffles & Pancakes</span>
+                            </span>
+                            <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none"
+                                stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </button>
+
+                        <!-- 3. Thick Shakes -->
+                        <button type="button" onclick="toggleChip(this, 'SHAKES')"
+                            class="chip px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-full border border-slate-200/90 bg-white text-slate-700 text-xs sm:text-[13px] font-semibold flex items-center justify-between gap-2 transition-all shadow-xs cursor-pointer select-none min-w-0 w-full">
+                            <span class="flex items-center gap-2 min-w-0">
+                                <span class="chip-icon flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor"
+                                        stroke-width="1.8" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M16 2l-2 5M7 8h10l-1.5 12a2 2 0 01-2 2h-3a2 2 0 01-2-2L7 8z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M6 8a6 6 0 0112 0" />
+                                    </svg>
+                                </span>
+                                <span class="chip-label whitespace-nowrap">Thick Shakes</span>
+                            </span>
+                            <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none"
+                                stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </button>
+
+                        <!-- 4. Burgers & Fries -->
+                        <button type="button" onclick="toggleChip(this, 'FOOD')"
+                            class="chip px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-full border border-slate-200/90 bg-white text-slate-700 text-xs sm:text-[13px] font-semibold flex items-center justify-between gap-2 transition-all shadow-xs cursor-pointer select-none min-w-0 w-full">
+                            <span class="flex items-center gap-2 min-w-0">
+                                <span class="chip-icon flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor"
+                                        stroke-width="1.8" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M4 11a8 8 0 0116 0H4z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M4 15h16a2 2 0 012 2v1a2 2 0 01-2 2H4a2 2 0 01-2-2v-1a2 2 0 012-2z" />
+                                        <line x1="4" y1="13" x2="20" y2="13" />
+                                    </svg>
+                                </span>
+                                <span class="chip-label whitespace-nowrap">Burgers & Fries</span>
+                            </span>
+                            <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none"
+                                stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </button>
+
+                        <!-- 5. Mojitos & Coffee -->
+                        <button type="button" onclick="toggleChip(this, 'BEVERAGES')"
                             class="chip px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-full border border-slate-200/90 bg-white text-slate-700 text-xs sm:text-[13px] font-semibold flex items-center justify-between gap-2 transition-all shadow-xs cursor-pointer select-none min-w-0 w-full">
                             <span class="flex items-center gap-2 min-w-0">
                                 <span class="chip-icon flex items-center justify-center flex-shrink-0">
@@ -387,7 +474,7 @@
                                         <line x1="14" y1="2" x2="14" y2="4" stroke-linecap="round" />
                                     </svg>
                                 </span>
-                                <span class="chip-label whitespace-nowrap">Great Coffee</span>
+                                <span class="chip-label whitespace-nowrap">Mojitos & Coffee</span>
                             </span>
                             <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none"
                                 stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
@@ -395,49 +482,7 @@
                             </svg>
                         </button>
 
-                        <!-- 2. Fresh Bakes -->
-                        <button type="button" onclick="toggleChip(this, 'BAKES')"
-                            class="chip px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-full border border-slate-200/90 bg-white text-slate-700 text-xs sm:text-[13px] font-semibold flex items-center justify-between gap-2 transition-all shadow-xs cursor-pointer select-none min-w-0 w-full">
-                            <span class="flex items-center gap-2 min-w-0">
-                                <span class="chip-icon flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor"
-                                        stroke-width="1.8" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M18.5 13.5c-1-1.5-2.5-2.5-4.5-3-2 .5-3.5 1.5-4.5 3-1 1.5-1 3.5-.5 5 .5 1.5 2 2.5 3.5 2.5h3c1.5 0 3-1 3.5-2.5.5-1.5.5-3.5-.5-5z" />
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M12 10.5V5M9 7l-2-2M15 7l2-2" />
-                                    </svg>
-                                </span>
-                                <span class="chip-label whitespace-nowrap">Waffles & Cones</span>
-                            </span>
-                            <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none"
-                                stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                        </button>
-
-                        <!-- 3. Tasty Food -->
-                        <button type="button" onclick="toggleChip(this, 'FOOD')"
-                            class="chip px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-full border border-slate-200/90 bg-white text-slate-700 text-xs sm:text-[13px] font-semibold flex items-center justify-between gap-2 transition-all shadow-xs cursor-pointer select-none min-w-0 w-full">
-                            <span class="flex items-center gap-2 min-w-0">
-                                <span class="chip-icon flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor"
-                                        stroke-width="1.8" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 10h16v10H4z" />
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 15h16" />
-                                        <circle cx="12" cy="6" r="2" />
-                                        <line x1="12" y1="8" x2="12" y2="10" />
-                                    </svg>
-                                </span>
-                                <span class="chip-label whitespace-nowrap">Tasty Food</span>
-                            </span>
-                            <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none"
-                                stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                        </button>
-
-                        <!-- 4. Friendly Staff -->
+                        <!-- 6. Friendly Staff -->
                         <button type="button" onclick="toggleChip(this, 'SERVICE')"
                             class="chip px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-full border border-slate-200/90 bg-white text-slate-700 text-xs sm:text-[13px] font-semibold flex items-center justify-between gap-2 transition-all shadow-xs cursor-pointer select-none min-w-0 w-full">
                             <span class="flex items-center gap-2 min-w-0">
@@ -459,7 +504,7 @@
                             </svg>
                         </button>
 
-                        <!-- 5. Cozy Ambience -->
+                        <!-- 7. Cozy Ambience -->
                         <button type="button" onclick="toggleChip(this, 'AMBIENCE')"
                             class="chip px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-full border border-slate-200/90 bg-white text-slate-700 text-xs sm:text-[13px] font-semibold flex items-center justify-between gap-2 transition-all shadow-xs cursor-pointer select-none min-w-0 w-full">
                             <span class="flex items-center gap-2 min-w-0">
@@ -473,46 +518,6 @@
                                     </svg>
                                 </span>
                                 <span class="chip-label whitespace-nowrap">Cozy Ambience</span>
-                            </span>
-                            <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none"
-                                stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                        </button>
-
-                        <!-- 6. Cleanliness -->
-                        <button type="button" onclick="toggleChip(this, 'CLEANLINESS')"
-                            class="chip px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-full border border-slate-200/90 bg-white text-slate-700 text-xs sm:text-[13px] font-semibold flex items-center justify-between gap-2 transition-all shadow-xs cursor-pointer select-none min-w-0 w-full">
-                            <span class="flex items-center gap-2 min-w-0">
-                                <span class="chip-icon flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor"
-                                        stroke-width="1.8" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M5 21c3-6 7-10 14-11-1 7-5 11-11 14l-3-3z" />
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 15l6-6" />
-                                    </svg>
-                                </span>
-                                <span class="chip-label whitespace-nowrap">Cleanliness</span>
-                            </span>
-                            <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none"
-                                stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                        </button>
-
-                        <!-- 7. Value for Money -->
-                        <button type="button" onclick="toggleChip(this, 'VALUE')"
-                            class="chip px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-full border border-slate-200/90 bg-white text-slate-700 text-xs sm:text-[13px] font-semibold flex items-center justify-between gap-2 transition-all shadow-xs cursor-pointer select-none min-w-0 w-full">
-                            <span class="flex items-center gap-2 min-w-0">
-                                <span class="chip-icon flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor"
-                                        stroke-width="1.8" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z" />
-                                        <line x1="7" y1="7" x2="7.01" y2="7" />
-                                    </svg>
-                                </span>
-                                <span class="chip-label whitespace-nowrap">Value for Money</span>
                             </span>
                             <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none"
                                 stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
@@ -637,9 +642,7 @@
                         <!-- Review Text Output (Typewriter Animated) -->
                         <div id="reviewOutputText" contenteditable="false"
                             class="text-xs sm:text-[13px] text-slate-700 leading-relaxed font-medium min-h-[64px] focus:outline-none focus:ring-2 focus:ring-rose-400 rounded-xl p-2.5 break-words whitespace-normal selection:bg-rose-100">
-                            Tried this spot on a friend's recommendation and it exceeded all expectations! The perfect
-                            blend of warm hospitality, artisanal pastries, and rich brews. A must-visit for every food
-                            lover!
+                            Scoop n Brew is hands-down the best dessert cafe near GEHU Gate 1! Creamy Hocco ice creams, crispy Nutella waffles, thick Oreo shakes, and budget prices starting at just ₹20. Cute pink aesthetic and 10/10 service. Must visit!
                         </div>
 
                         <!-- Action Buttons: Edit Review & Copy to Google -->
@@ -806,7 +809,7 @@
                         <div class="flex-shrink-0 flex flex-col items-center w-20 cursor-pointer group"
                             onclick="quickSelectCategory('PANCAKES')">
                             <div
-                                class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-pink-500 to-rose-600 shadow-md group-hover:scale-105 transition-all">
+                                class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-pink-500 to-rose-600 shadow-md shadow-rose-500/20 group-hover:scale-105 transition-all">
                                 <img src="./assets/images/scoop-n-brew/pixel-cafe-menu-board.png" alt="Mini Pancakes"
                                     class="w-full h-full object-cover rounded-full">
                             </div>
@@ -818,7 +821,7 @@
                         <div class="flex-shrink-0 flex flex-col items-center w-20 cursor-pointer group"
                             onclick="quickSelectCategory('FRIES')">
                             <div
-                                class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-amber-400 to-orange-500 shadow-md group-hover:scale-105 transition-all">
+                                class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-pink-500 to-rose-600 shadow-md shadow-rose-500/20 group-hover:scale-105 transition-all">
                                 <img src="./assets/images/scoop-n-brew/scoop-n-brew-counter-angle.png"
                                     alt="Loaded Fries" class="w-full h-full object-cover rounded-full">
                             </div>
@@ -830,7 +833,7 @@
                         <div class="flex-shrink-0 flex flex-col items-center w-20 cursor-pointer group"
                             onclick="quickSelectCategory('SHAKES')">
                             <div
-                                class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-purple-500 to-indigo-600 shadow-md group-hover:scale-105 transition-all">
+                                class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-pink-500 to-rose-600 shadow-md shadow-rose-500/20 group-hover:scale-105 transition-all">
                                 <img src="./assets/images/scoop-n-brew/iced-mojito-cup.png" alt="Oreo Shake"
                                     class="w-full h-full object-cover rounded-full">
                             </div>
@@ -842,7 +845,7 @@
                         <div class="flex-shrink-0 flex flex-col items-center w-20 cursor-pointer group"
                             onclick="quickSelectCategory('SANDWICHES')">
                             <div
-                                class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-emerald-500 to-teal-600 shadow-md group-hover:scale-105 transition-all">
+                                class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-pink-500 to-rose-600 shadow-md shadow-rose-500/20 group-hover:scale-105 transition-all">
                                 <img src="./assets/images/scoop-n-brew/scoop-n-brew-pink-quotes-wall.png"
                                     alt="Grilled Sandwich" class="w-full h-full object-cover rounded-full">
                             </div>
@@ -855,7 +858,7 @@
                         <div class="flex-shrink-0 flex flex-col items-center w-20 cursor-pointer group"
                             onclick="quickSelectCategory('MOJITOS')">
                             <div
-                                class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-teal-400 to-emerald-500 shadow-md group-hover:scale-105 transition-all">
+                                class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-pink-500 to-rose-600 shadow-md shadow-rose-500/20 group-hover:scale-105 transition-all">
                                 <img src="./assets/images/scoop-n-brew/iced-mojito-cup.png" alt="Mint Mojito"
                                     class="w-full h-full object-cover rounded-full">
                             </div>
@@ -867,7 +870,7 @@
                         <div class="flex-shrink-0 flex flex-col items-center w-20 cursor-pointer group"
                             onclick="quickSelectCategory('COFFEE')">
                             <div
-                                class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-amber-600 to-amber-800 shadow-md group-hover:scale-105 transition-all">
+                                class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-pink-500 to-rose-600 shadow-md shadow-rose-500/20 group-hover:scale-105 transition-all">
                                 <img src="./assets/images/scoop-n-brew/scoop-n-brew-menu-poster.png" alt="Cold Coffee"
                                     class="w-full h-full object-cover rounded-full">
                             </div>
@@ -1515,7 +1518,7 @@
                     <a href="https://www.instagram.com/onescan360" target="_blank" rel="noopener noreferrer"
                         class="relative group flex-shrink-0" title="OneScan — Smart QR &amp; AI Solutions">
                         <div
-                            class="w-10 h-10 rounded-full p-[2px] bg-gradient-to-tr from-[#4F46E5] via-[#7C3AED] to-[#EC4899] shadow-xs group-hover:scale-105 transition-all">
+                            class="w-10 h-10 rounded-full p-[2px] bg-gradient-to-tr from-pink-500 to-rose-600 shadow-xs group-hover:scale-105 transition-all">
                             <img src="./assets/images/onescan-logo.jpg" alt="OneScan"
                                 class="w-full h-full rounded-full object-cover bg-white">
                         </div>
@@ -1925,13 +1928,24 @@
                 if (found && found.categoryKey) return found.categoryKey;
             }
             const map = {
-                WAFFLES: 'BAKES',
-                CAKES: 'BAKES',
-                DESSERTS: 'BAKES',
+                HOCCO: 'ICE_CREAM',
+                ICE_CREAM: 'ICE_CREAM',
+                WAFFLES: 'WAFFLES',
+                MINI_PANCAKES: 'WAFFLES',
+                PANCAKES: 'WAFFLES',
+                SHAKES: 'SHAKES',
                 FRIES: 'FOOD',
+                FOOD: 'FOOD',
+                BURGERS_SANDWICHES: 'FOOD',
                 SANDWICHES: 'FOOD',
-                COFFEE: 'COFFEE',
-                BEVERAGES: 'COFFEE',
+                MOJITOS: 'BEVERAGES',
+                COFFEE: 'BEVERAGES',
+                COFFEE_CHAI: 'BEVERAGES',
+                BEVERAGES: 'BEVERAGES',
+                SERVICE: 'SERVICE',
+                AMBIENCE: 'AMBIENCE',
+                CLEANLINESS: 'SERVICE',
+                VALUE: 'ALL',
                 ALL: 'ALL'
             };
             return map[item] || 'ALL';
@@ -1951,558 +1965,37 @@
             const chipMap = {
                 'HOCCO_CONE': 'ICE_CREAM',
                 'BOSS_BAR': 'ICE_CREAM',
-                'PANCAKES': 'FOOD',
+                'HOCCO': 'ICE_CREAM',
+                'ICE_CREAM': 'ICE_CREAM',
+                'PANCAKES': 'WAFFLES',
+                'MINI_PANCAKES': 'WAFFLES',
+                'WAFFLES': 'WAFFLES',
+                'SHAKES': 'SHAKES',
                 'FRIES': 'FOOD',
-                'CAKES': 'BAKES',
-                'ORANGE_CAKE': 'BAKES',
-                'HOT_CHOCOLATE': 'COFFEE',
-                'ICED_COFFEE': 'COFFEE'
+                'SANDWICHES': 'FOOD',
+                'FOOD': 'FOOD',
+                'MOJITOS': 'BEVERAGES',
+                'COFFEE': 'BEVERAGES',
+                'BEVERAGES': 'BEVERAGES'
             };
             const targetChip = chipMap[cat] || cat;
             window.chosenSpecificItems = null;
             selectedChips.clear();
             selectedChips.add(targetChip);
-            document.querySelectorAll('.chip').forEach(c => c.classList.remove('chip-active'));
-            const matchingBtn = Array.from(document.querySelectorAll('.chip')).find(b => b.getAttribute('onclick')?.includes(targetChip));
-            if (matchingBtn) matchingBtn.classList.add('chip-active');
+
+            // Sync visual chip states
+            document.querySelectorAll('#chipsContainer .chip').forEach(btn => {
+                const onclickStr = btn.getAttribute('onclick') || '';
+                if (onclickStr.includes("'" + targetChip + "'")) {
+                    btn.classList.add('chip-active');
+                } else {
+                    btn.classList.remove('chip-active');
+                }
+            });
+
+            generateAIReview();
             scrollToSection('aiSection');
-            generateAIReview();
-            setTimeout(scrollToReviewCTA, 350);
         }
-
-        // Language Switcher (English, Hinglish, Hindi)
-        function setLanguage(lang) {
-            currentLang = lang;
-            ['ENGLISH', 'HINGLISH', 'HINDI'].forEach(l => {
-                const btn = document.getElementById('langBtn_' + l);
-                if (l === lang) {
-                    btn?.classList.remove('text-slate-600', 'font-semibold');
-                    btn?.classList.add('bg-[#E11D48]', 'text-white', 'shadow-xs', 'font-bold');
-                } else {
-                    btn?.classList.remove('bg-[#E11D48]', 'text-white', 'shadow-xs', 'font-bold');
-                    btn?.classList.add('text-slate-600', 'hover:text-slate-900', 'font-semibold');
-                }
-            });
-
-            generateAIReview();
-        }
-
-        // ═══════════════════════════════════════════════════════════════
-        // HUMANIZED AI REVIEW GENERATION ENGINE v2.0
-        // ═══════════════════════════════════════════════════════════════
-        // Priority:
-        //   Step 0: Specific Menu Items Match (Waffles, Ice Cream, Shakes, etc.)
-        //   Step 1: Exact Chip Combo Match
-        //   Step 2: Partial Combo Match
-        //   Step 3: Assembled Fallback
-        // ═══════════════════════════════════════════════════════════════
-
-        function generateAIReview() {
-            const activeBank = (window.CURRENT_STORE_DATA && window.CURRENT_STORE_DATA.reviewBank) ? window.CURRENT_STORE_DATA.reviewBank : REVIEWS_DB;
-            const db = activeBank[currentLang] || activeBank.ENGLISH || REVIEWS_DB.ENGLISH;
-
-            let reviewText = "";
-
-            // ─── STEP 0: Check if specific menu items were chosen from popup menu ───
-            if (window.chosenSpecificItems && window.chosenSpecificItems.length > 0) {
-                const specificSorted = Array.from(window.chosenSpecificItems).sort();
-                const specificKey = specificSorted.join(',');
-
-                // Try exact specific combo (e.g. "COFFEE,CROISSANTS" or "CROISSANTS")
-                if (db.combos && db.combos[specificKey]) {
-                    reviewText = getRandomItem(db.combos[specificKey]);
-                }
-
-                // If no exact combo match, try largest matching subset of chosen items
-                if (!reviewText && db.combos) {
-                    let bestMatch = null;
-                    let bestMatchLen = 0;
-
-                    for (const comboKey of Object.keys(db.combos)) {
-                        const comboItems = comboKey.split(',');
-                        const isSubset = comboItems.every(item => specificSorted.includes(item));
-                        if (isSubset && comboItems.length > bestMatchLen) {
-                            bestMatch = comboKey;
-                            bestMatchLen = comboItems.length;
-                        }
-                    }
-
-                    if (bestMatch && bestMatchLen >= 1) {
-                        reviewText = getRandomItem(db.combos[bestMatch]);
-
-                        // Bridge in remaining specific items
-                        const matchedSet = new Set(bestMatch.split(','));
-                        const remaining = specificSorted.filter(item => !matchedSet.has(item));
-
-                        if (remaining.length > 0 && db.categories) {
-                            remaining.forEach(remItem => {
-                                if (remItem === 'ALL') return;
-                                const extraPool = db.categories[remItem] || db.categories[itemToChipCategory(remItem)] || [];
-                                if (extraPool.length > 0) {
-                                    const bridge = db.bridges ? getRandomItem(db.bridges) : 'Also,';
-                                    const extraPhrase = getRandomItem(extraPool);
-                                    let connector = reviewText.endsWith('!') || reviewText.endsWith('.') ? ' ' : '. ';
-                                    reviewText = reviewText + connector + bridge + ' ' + extraPhrase;
-                                }
-                            });
-                        }
-                    }
-                }
-            }
-
-            // ─── STEP 1: Try exact combo match with chips ───
-            if (!reviewText) {
-                const sortedChips = Array.from(selectedChips).sort().join(',');
-                if (db.combos && db.combos[sortedChips]) {
-                    reviewText = getRandomItem(db.combos[sortedChips]);
-                }
-            }
-
-            // ─── STEP 2: Try partial combo match (largest subset first) ───
-            if (!reviewText && db.combos) {
-                const chipArr = Array.from(selectedChips).sort();
-                let bestMatch = null;
-                let bestMatchLen = 0;
-
-                for (const comboKey of Object.keys(db.combos)) {
-                    const comboChips = comboKey.split(',');
-                    // Check if this combo is a subset of selected chips
-                    const isSubset = comboChips.every(c => selectedChips.has(c));
-                    if (isSubset && comboChips.length > bestMatchLen) {
-                        bestMatch = comboKey;
-                        bestMatchLen = comboChips.length;
-                    }
-                }
-
-                if (bestMatch && bestMatchLen >= 1) {
-                    reviewText = getRandomItem(db.combos[bestMatch]);
-
-                    // Append phrases for remaining unmatched chips via bridge
-                    const matchedChips = new Set(bestMatch.split(','));
-                    const remainingChips = chipArr.filter(c => !matchedChips.has(c));
-
-                    if (remainingChips.length > 0 && db.bridges && db.categories) {
-                        const bridge = getRandomItem(db.bridges);
-                        const extraPhrase = getRandomItem(
-                            db.categories[remainingChips[0]] || db.categories.ALL || []
-                        );
-                        if (extraPhrase) {
-                            // Ensure clean sentence connection
-                            let connector = reviewText.endsWith('!') || reviewText.endsWith('.') ? ' ' : '. ';
-                            reviewText = reviewText + connector + bridge + ' ' + extraPhrase;
-                        }
-                    }
-                }
-            }
-
-            // ─── STEP 3: Assembled fallback (opening + category phrases + closing) ───
-            if (!reviewText) {
-                const opening = getRandomItem(db.openings || []);
-                const closing = getRandomItem(db.closings || []);
-                const chipArr = Array.from(selectedChips);
-
-                const phrases = [];
-                chipArr.forEach(cat => {
-                    const pool = (db.categories && db.categories[cat]) || (db.categories && db.categories.ALL) || [];
-                    if (pool.length > 0) phrases.push(getRandomItem(pool));
-                });
-
-                if (phrases.length === 0) {
-                    reviewText = opening + ' ' + closing;
-                } else if (phrases.length === 1) {
-                    reviewText = opening + ' ' + ucFirst(phrases[0]) + ' ' + closing;
-                } else {
-                    const bridge = db.bridges ? getRandomItem(db.bridges) : 'Also,';
-                    reviewText = opening + ' ' + ucFirst(phrases[0]) + ' ' + bridge + ' ' + phrases[1] + ' ' + closing;
-                }
-            }
-
-            // ─── GUARANTEE: Ensure EVERY selected menu item is explicitly mentioned ───
-            if (window.chosenSpecificItems && window.chosenSpecificItems.length > 0) {
-                const dishKeywords = {
-                    'COFFEE': ['coffee', 'cappuccino', 'latte', 'brew', 'espresso', 'कॉफी', 'कैपुचीनो', 'कोल्ड ब्रू'],
-                    'WAFFLES': ['waffle', 'waffles', 'वॉफल', 'बेल्जियन वॉफल'],
-                    'HOCCO': ['hocco', 'ice cream', 'cone', 'बॉस बार', 'आइसक्रीम'],
-                    'CAKES': ['cake', 'cakes', 'pastry', 'pastries', 'केक', 'पेस्ट्री'],
-                    'FRIES': ['fries', 'फ्राइज', 'loaded fries'],
-                    'SANDWICHES': ['sandwich', 'sandwiches', 'wrap', 'wraps', 'सैंडविच', 'रैप'],
-                    'DESSERTS': ['dessert', 'desserts', 'sweet', 'ice cream', 'hocco', 'cone', 'डेसर्ट', 'मीठा', 'आइसक्रीम'],
-                    'BEVERAGES': ['beverage', 'beverages', 'drink', 'drinks', 'cooler', 'coolers', 'पेय', 'ड्रिंक', 'ड्रिंक्स']
-                };
-
-                const dishPhrases = {
-                    'ENGLISH': {
-                        'COFFEE': "Their specialty coffee was also crafted to perfection — aromatic, rich, and smooth.",
-                        'WAFFLES': "We also had their crispy fresh waffles drizzled with chocolate — absolutely decadent and delicious!",
-                        'HOCCO': "Finished with creamy Hocco ice cream in a crispy cone — the perfect sweet treat!",
-                        'CAKES': "Also tried a slice from their cake and pastry counter — amazingly moist and delicious.",
-                        'FRIES': "Their loaded fries were crispy and perfectly seasoned with generous toppings.",
-                        'SANDWICHES': "Their crispy grilled sandwiches were hearty and packed with fresh fillings.",
-                        'DESSERTS': "Finished with their signature dessert which was velvety, rich, and pure indulgence.",
-                        'BEVERAGES': "Their refreshing chilled beverages were crisp, cooling, and wonderfully presented."
-                    },
-                    'HINGLISH': {
-                        'COFFEE': "Sath me inki specialty coffee bhi try ki — ekdum smooth aur rich aroma tha.",
-                        'WAFFLES': "Inke crispy fresh waffles bhi try kiye — warm, chocolatey aur pure indulgence!",
-                        'HOCCO': "End me creamy Hocco ice cream li crispy cone me — ekdum refresh ho gaye!",
-                        'CAKES': "Counter se fresh cake aur pastry bhi li jo super soft aur delicious thi.",
-                        'FRIES': "Loaded fries bhi mast thi — crispy aur masaledar with proper toppings.",
-                        'SANDWICHES': "Grilled sandwiches aur wraps super crispy aur tasty fillings se loaded the.",
-                        'DESSERTS': "Meal ke baad inka signature dessert try kiya — ekdum velvety aur perfectly balanced sweet.",
-                        'BEVERAGES': "Chilled refreshing beverages bhi bohot crisp aur invigorating the."
-                    },
-                    'HINDI': {
-                        'COFFEE': "साथ में यहाँ की स्पेशल्टी कॉफी भी पी जो बहुत ही स्मूथ और सुगंधित थी।",
-                        'WAFFLES': "यहाँ के कुरकुरे ताज़ा वॉफल्स भी ट्राई किए — बिल्कुल गरम, चाकलेटी और बेहद स्वादिष्ट!",
-                        'HOCCO': "साथ में मखमली हॉक्को आइसक्रीम भी ली जो कुरकुरी कोन के साथ बहुत स्वादिष्ट लगी!",
-                        'CAKES': "ताज़ा केक और पेस्ट्री भी बहुत ही सॉफ्ट, मलाईदार और स्वादिष्ट थी।",
-                        'FRIES': "लोडेड फ्राइज भी बहुत ही कुरकुरी और स्वादिष्ट थीं।",
-                        'SANDWICHES': "ग्रिल्ड सैंडविच और रैप्स बहुत ही कुरकुरे और ताज़ा सामग्री से भरपूर थे।",
-                        'DESSERTS': "खाने के बाद यहाँ का ताज़ा डेसर्ट लिया जो बेहद मखमली और संतुलित मिठास से भरा था।",
-                        'BEVERAGES': "ठंडे ड्रिंक्स और पेय पदार्थ भी मन को तरोताज़ा कर देने वाले थे।"
-                    }
-                };
-
-                const activePhrases = dishPhrases[currentLang] || dishPhrases.ENGLISH;
-                const lowerReview = reviewText.toLowerCase();
-
-                window.chosenSpecificItems.forEach(itemKey => {
-                    if (itemKey === 'ALL') return;
-                    const keywords = dishKeywords[itemKey] || [];
-                    const isMentioned = keywords.some(kw => lowerReview.includes(kw.toLowerCase()));
-                    if (!isMentioned && activePhrases[itemKey]) {
-                        const connector = reviewText.endsWith('!') || reviewText.endsWith('.') ? ' ' : '. ';
-                        reviewText += connector + activePhrases[itemKey];
-                    }
-                });
-            }
-
-            // Clean up whitespace and double periods
-            reviewText = reviewText
-                .replace(/\s+/g, ' ')
-                .replace(/\.\./g, '.')
-                .replace(/\. \./g, '.')
-                .replace(/!\./, '!')
-                .trim();
-
-            animateTypewriter(reviewText);
-
-            // Log telemetry event if connected
-            if (window.OnescanTelemetry) {
-                window.OnescanTelemetry.track('review_generated', {
-                    language: currentLang,
-                    chips: Array.from(selectedChips)
-                });
-            }
-        }
-
-        // Capitalize first letter helper
-        function ucFirst(str) {
-            if (!str) return str;
-            return str.charAt(0).toUpperCase() + str.slice(1);
-        }
-
-        function animateTypewriter(text) {
-            const outEl = document.getElementById('reviewOutputText');
-            if (!outEl) return;
-
-            if (typingTimeout) clearTimeout(typingTimeout);
-            outEl.textContent = '';
-
-            const len = text.length;
-            let idx = 0;
-
-            function step() {
-                if (idx <= len) {
-                    outEl.textContent = text.slice(0, idx);
-                    idx++;
-                    typingTimeout = setTimeout(step, 14);
-                }
-            }
-            step();
-        }
-
-        // Edit Mode Toggle
-        function toggleEditMode() {
-            const outEl = document.getElementById('reviewOutputText');
-            const iconEl = document.getElementById('editBtnIcon');
-            const textEl = document.getElementById('editBtnText');
-
-            isEditing = !isEditing;
-            if (isEditing) {
-                outEl.contentEditable = "true";
-                outEl.focus();
-                outEl.classList.add('ring-2', 'ring-rose-400', 'bg-rose-50/30');
-                if (iconEl) iconEl.innerText = '💾';
-                if (textEl) textEl.innerText = 'Save Edits';
-                showToast('Editing enabled. Tap the text to type your own words.');
-            } else {
-                outEl.contentEditable = "false";
-                outEl.classList.remove('ring-2', 'ring-rose-400', 'bg-rose-50/30');
-                if (iconEl) iconEl.innerText = '✏️';
-                if (textEl) textEl.innerText = 'Edit Review';
-                showToast('Review text updated!');
-            }
-        }
-
-        // Copy Text & Redirect to Google Review Form
-        function copyAndOpenGoogle() {
-            const outEl = document.getElementById('reviewOutputText');
-            const text = (outEl?.textContent || outEl?.innerText || '').trim();
-
-            navigator.clipboard.writeText(text).then(() => {
-                showToast('Review copied! Opening Google Review page...');
-
-                // Track conversion telemetry back to dashboard
-                if (window.OnescanTelemetry) {
-                    window.OnescanTelemetry.track('review_copied', {
-                        textLength: text.length,
-                        language: currentLang,
-                        chips: Array.from(selectedChips)
-                    });
-                }
-
-                // Redirect to verified Scoop n Brew Google Maps Reviews page
-                setTimeout(() => {
-                    window.open(BUSINESS_CONFIG.googleReviewUrl, '_blank');
-                }, 600);
-
-            }).catch(() => {
-                showToast('Failed to copy. Please manually select and copy text.');
-            });
-        }
-
-        function copyReviewTextOnly() {
-            const outEl = document.getElementById('reviewOutputText');
-            const text = (outEl?.textContent || outEl?.innerText || '').trim();
-            navigator.clipboard.writeText(text).then(() => {
-                showToast('Review copied to clipboard! 📋');
-            });
-        }
-
-        function updateCharCount(el) {
-            document.getElementById('charCount').innerText = `${el.value.length}/300`;
-        }
-
-        // Smooth Scroll & Tab Switcher
-        function setActivePill(id) {
-            document.querySelectorAll('.nav-pill').forEach(p => {
-                p.classList.remove('bg-white', 'text-slate-900', 'shadow-sm');
-                p.classList.add('text-slate-500');
-            });
-
-            if (id === 'homeSection' || id === 'specialitiesSection') {
-                document.getElementById('pillHome')?.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
-            } else if (id === 'aiSection') {
-                document.getElementById('pillAI')?.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
-            } else if (id === 'gallerySection') {
-                document.getElementById('pillGallery')?.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
-            }
-        }
-
-        function scrollToSection(id) {
-            const el = document.getElementById(id);
-            if (el) {
-                el.scrollIntoView({ behavior: 'smooth' });
-            }
-            setActivePill(id);
-        }
-
-        // ═══════════════════════════════════════════════════════════════
-        // FULL-FEATURED CULINARY GALLERY & LIGHTBOX ENGINE
-        // ═══════════════════════════════════════════════════════════════
-        const GALLERY_ITEMS = [
-            {
-                id: 'hocco-nutty-cone',
-                src: './assets/images/scoop-n-brew/hocco-nutty-cone.png',
-                title: 'Hocco Nutty Chocolate Cone',
-                category: 'ice-cream',
-                categoryLabel: 'Ice Cream',
-                desc: 'Crunchy wafer cone loaded with nutty chocolate chunks — a Hocco fan favorite.',
-                aiCategory: 'ICE_CREAM'
-            },
-            {
-                id: 'cafe-menu',
-                src: './assets/images/scoop-n-brew/pixel-cafe-menu-board.png',
-                title: 'Pixel Cafe Menu',
-                category: 'ambience',
-                categoryLabel: 'Brunch',
-                desc: 'Full pixel-art cafe menu board — waffles, shakes, mojitos, pancakes, fries, chai & more.',
-                aiCategory: 'PANCAKES'
-            },
-            {
-                id: 'scoop-interior',
-                src: './assets/images/scoop-n-brew/scoop-n-brew-counter-angle.png',
-                title: 'Scoop n Brew Interior',
-                category: 'ambience',
-                categoryLabel: 'Savory',
-                desc: 'Cozy counter angles and vibrant pink walls at Scoop n Brew — the perfect backdrop for your next food pic.',
-                aiCategory: 'FRIES'
-            },
-            {
-                id: 'hocco-strawberry',
-                src: './assets/images/scoop-n-brew/hocco-strawberry-cheesecake.png',
-                title: 'Hocco Strawberry Cheesecake Cone',
-                category: 'ice-cream',
-                categoryLabel: 'Dessert',
-                desc: 'Strawberry cheesecake ice cream in a crispy wafer cone — creamy, fruity, and oh so satisfying.',
-                aiCategory: 'ICE_CREAM'
-            },
-            {
-                id: 'hocco-boss-bar',
-                src: './assets/images/scoop-n-brew/hocco-boss-bar.png',
-                title: 'Hocco Boss Bar',
-                category: 'ice-cream',
-                categoryLabel: 'Ice Cream',
-                desc: 'Thick compound chocolate-coated Boss Bar by Hocco — rich, indulgent, and the ultimate ice cream bar.',
-                aiCategory: 'ICE_CREAM'
-            },
-            {
-                id: 'dining-area',
-                src: './assets/images/scoop-n-brew/scoop-n-brew-dining-arch.png',
-                title: 'Scoop n Brew Dining',
-                category: 'ice-cream',
-                categoryLabel: 'Ambience',
-                desc: 'Royal blue illuminated arches and bubblegum pink walls — the iconic Scoop n Brew dining vibe near GEHU.',
-                aiCategory: 'AMBIENCE'
-            },
-            {
-                id: 'iced-mojito',
-                src: './assets/images/scoop-n-brew/iced-mojito-cup.png',
-                title: 'Cool Iced Mojito',
-                category: 'ice-cream',
-                categoryLabel: 'Drinks',
-                desc: 'Refreshing iced mojito in a clear cup with a striped straw — cool, fizzy, and perfect for hot Dehradun days.',
-                aiCategory: 'ICE_CREAM'
-            },
-            {
-                id: 'pink-wall',
-                src: './assets/images/scoop-n-brew/scoop-n-brew-pink-quotes-wall.png',
-                title: 'Pink Quotes Wall',
-                category: 'ice-cream',
-                categoryLabel: 'Ambience',
-                desc: 'Pink brick walls with motivational quotes — an aesthetic, Instagrammable corner at Scoop n Brew.',
-                aiCategory: 'AMBIENCE'
-            }
-        ];
-
-        let currentGalleryIndex = 0;
-        let activeGalleryCategory = 'all';
-
-        // Filter Gallery Items by Category
-        function filterGallery(category) {
-            activeGalleryCategory = category;
-            const cards = document.querySelectorAll('.gallery-card');
-            let visibleCount = 0;
-
-            cards.forEach(card => {
-                const cardCat = card.getAttribute('data-category');
-                if (category === 'all' || cardCat === category) {
-                    card.classList.remove('hidden');
-                    visibleCount++;
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
-
-            // Update filter buttons
-            document.querySelectorAll('.g-filter-btn').forEach(btn => {
-                btn.classList.remove('bg-slate-900', 'text-white');
-                btn.classList.add('bg-slate-100', 'text-slate-600');
-            });
-            const activeBtn = document.getElementById('gFilter-' + category);
-            if (activeBtn) {
-                activeBtn.classList.remove('bg-slate-100', 'text-slate-600');
-                activeBtn.classList.add('bg-slate-900', 'text-white');
-            }
-
-            // Update badge
-            const badge = document.getElementById('galleryCountBadge');
-            if (badge) {
-                badge.textContent = `${visibleCount} Item${visibleCount === 1 ? '' : 's'}`;
-            }
-        }
-
-        // Open Modal at specific index
-        function openGalleryModal(index) {
-            currentGalleryIndex = (index + GALLERY_ITEMS.length) % GALLERY_ITEMS.length;
-            renderModalState();
-            const modal = document.getElementById('photoModal');
-            modal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-
-        // Backward compatibility
-        function openPhotoModal(srcOrIndex) {
-            if (typeof srcOrIndex === 'number') {
-                openGalleryModal(srcOrIndex);
-            } else if (typeof srcOrIndex === 'string') {
-                const foundIndex = GALLERY_ITEMS.findIndex(item => item.src === srcOrIndex || srcOrIndex.includes(item.src.split('/').pop()));
-                openGalleryModal(foundIndex >= 0 ? foundIndex : 0);
-            } else {
-                openGalleryModal(0);
-            }
-        }
-
-        function closePhotoModal() {
-            const modal = document.getElementById('photoModal');
-            modal.classList.add('hidden');
-            document.body.style.overflow = '';
-        }
-
-        function navigateGallery(delta) {
-            currentGalleryIndex = (currentGalleryIndex + delta + GALLERY_ITEMS.length) % GALLERY_ITEMS.length;
-            renderModalState();
-        }
-
-        function renderModalState() {
-            const item = GALLERY_ITEMS[currentGalleryIndex];
-            if (!item) return;
-
-            const imgEl = document.getElementById('modalImg');
-            if (imgEl) {
-                imgEl.style.opacity = '0.3';
-                setTimeout(() => {
-                    imgEl.src = item.src;
-                    imgEl.alt = item.title;
-                    imgEl.style.opacity = '1';
-                }, 80);
-            }
-
-            const titleEl = document.getElementById('modalTitle');
-            if (titleEl) titleEl.textContent = item.title;
-
-            const descEl = document.getElementById('modalDesc');
-            if (descEl) descEl.textContent = item.desc;
-
-            const badgeEl = document.getElementById('modalCategoryBadge');
-            if (badgeEl) badgeEl.textContent = item.categoryLabel;
-
-            const counterEl = document.getElementById('modalCounter');
-            if (counterEl) counterEl.textContent = `${currentGalleryIndex + 1} / ${GALLERY_ITEMS.length}`;
-
-            // Render dot indicators
-            const dotsContainer = document.getElementById('modalDots');
-            if (dotsContainer) {
-                dotsContainer.innerHTML = GALLERY_ITEMS.map((_, i) => `
-                    <button type="button" onclick="openGalleryModal(${i})"
-                        class="h-1.5 rounded-full transition-all ${i === currentGalleryIndex ? 'w-5 bg-amber-400' : 'w-1.5 bg-white/30 hover:bg-white/60'}"
-                        title="View photo ${i + 1}">
-                    </button>
-                `).join('');
-            }
-        }
-
-        // Link directly from modal to AI Review
-        function reviewCurrentModalDish() {
-            const item = GALLERY_ITEMS[currentGalleryIndex];
-            closePhotoModal();
-            if (item && item.aiCategory) {
-                quickSelectCategory(item.aiCategory);
-                showToast(`Selected ${item.title}! Customizing your review...`, '✨');
-            } else {
-                scrollToSection('aiSection');
-            }
         }
 
         // Keyboard navigation for Lightbox
