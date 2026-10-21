@@ -755,9 +755,6 @@
                             <span class="text-[10px] font-bold text-slate-700 text-center mt-1.5 leading-tight">Cold Coffee<br><span class="text-pink-600 font-extrabold">₹69</span></span>
                         </div>
                     </div>
-                            <span class="text-[10px] font-bold text-slate-700 text-center mt-1.5 leading-tight">Orange
-                                Cake</span>
-                        </div>
                     </div>
                 </div>
 
@@ -1145,25 +1142,25 @@
                     </div>
 
                     <p id="aboutDescription" class="text-xs text-slate-600 leading-relaxed">
-                        Scoop n brew was founded with a love for artisanal European baking and rich, velvety
-                        Hocco ice cream cones, crunchy waffles, and thick milkshakes — the perfect hangout near GEHU. From Mini Pancakes to loaded
-                        Hocco ice cream cones, everything is served fresh with authentic flavors and
-                        chocolate, and pure passion.
+                        Scoop n Brew is your ultimate hangout spot near GEHU Gate 1, Clement Town — serving up
+                        Hocco ice cream cones, crispy Nutella waffles, thick milkshakes, loaded fries, and
+                        refreshing mojitos. With vibrant pink interiors, affordable student-friendly pricing,
+                        and a cozy vibe, it's where every snack craving gets satisfied.
                     </p>
 
                     <div id="aboutHighlightsGrid"
                         class="grid grid-cols-2 gap-2 pt-1 text-[11px] font-semibold text-slate-700">
                         <div class="flex items-center gap-2 p-2 rounded-xl bg-slate-50">
-                            <span>✨</span> 100% Real Dairy Butter
+                            <span>✨</span> Premium Hocco Ice Cream
                         </div>
                         <div class="flex items-center gap-2 p-2 rounded-xl bg-slate-50">
-                            <span>☕</span> Grade-1 Arabica Beans
+                            <span>☕</span> Crispy Fresh Waffles
                         </div>
                         <div class="flex items-center gap-2 p-2 rounded-xl bg-slate-50">
                             <span>🌿</span> Eggless Options Available
                         </div>
                         <div class="flex items-center gap-2 p-2 rounded-xl bg-slate-50">
-                            <span>🐾</span> Pet Friendly Patio
+                            <span>🐾</span> Student-Friendly Prices
                         </div>
                     </div>
                 </div>
@@ -1573,7 +1570,7 @@
                 if (found && found.categoryKey) return found.categoryKey;
             }
             const map = {
-                CROISSANTS: 'BAKES',
+                WAFFLES: 'BAKES',
                 CAKES: 'BAKES',
                 DESSERTS: 'BAKES',
                 FRIES: 'FOOD',
@@ -1769,7 +1766,8 @@
             if (window.chosenSpecificItems && window.chosenSpecificItems.length > 0) {
                 const dishKeywords = {
                     'COFFEE': ['coffee', 'cappuccino', 'latte', 'brew', 'espresso', 'कॉफी', 'कैपुचीनो', 'कोल्ड ब्रू'],
-                    'CROISSANTS': ['croissant', 'croissants', 'क्रॉसों', 'क्रॉसेंट'],
+                    'WAFFLES': ['waffle', 'waffles', 'वॉफल', 'बेल्जियन वॉफल'],
+                    'HOCCO': ['hocco', 'ice cream', 'cone', 'बॉस बार', 'आइसक्रीम'],
                     'CAKES': ['cake', 'cakes', 'pastry', 'pastries', 'केक', 'पेस्ट्री'],
                     'FRIES': ['fries', 'फ्राइज', 'loaded fries'],
                     'SANDWICHES': ['sandwich', 'sandwiches', 'wrap', 'wraps', 'सैंडविच', 'रैप'],
@@ -1780,7 +1778,8 @@
                 const dishPhrases = {
                     'ENGLISH': {
                         'COFFEE': "Their specialty coffee was also crafted to perfection — aromatic, rich, and smooth.",
-                        'CROISSANTS': "We also had their freshly baked croissants which were wonderfully warm, flaky, and buttery!",
+                        'WAFFLES': "We also had their crispy fresh waffles drizzled with chocolate — absolutely decadent and delicious!",
+                        'HOCCO': "Finished with creamy Hocco ice cream in a crispy cone — the perfect sweet treat!",
                         'CAKES': "Also tried a slice from their cake and pastry counter — amazingly moist and delicious.",
                         'FRIES': "Their loaded fries were crispy and perfectly seasoned with generous toppings.",
                         'SANDWICHES': "Their crispy grilled sandwiches were hearty and packed with fresh fillings.",
@@ -1789,7 +1788,8 @@
                     },
                     'HINGLISH': {
                         'COFFEE': "Sath me inki specialty coffee bhi try ki — ekdum smooth aur rich aroma tha.",
-                        'CROISSANTS': "Inke freshly baked butter croissants bhi try kiye — warm, flaky aur pure butter goodness!",
+                        'WAFFLES': "Inke crispy fresh waffles bhi try kiye — warm, chocolatey aur pure indulgence!",
+                        'HOCCO': "End me creamy Hocco ice cream li crispy cone me — ekdum refresh ho gaye!",
                         'CAKES': "Counter se fresh cake aur pastry bhi li jo super soft aur delicious thi.",
                         'FRIES': "Loaded fries bhi mast thi — crispy aur masaledar with proper toppings.",
                         'SANDWICHES': "Grilled sandwiches aur wraps super crispy aur tasty fillings se loaded the.",
@@ -1798,7 +1798,8 @@
                     },
                     'HINDI': {
                         'COFFEE': "साथ में यहाँ की स्पेशल्टी कॉफी भी पी जो बहुत ही स्मूथ और सुगंधित थी।",
-                        'CROISSANTS': "यहाँ के ताज़ा बेक किए हुए क्रॉसों भी ट्राई किए — बिल्कुल खस्ता, परतदार और मक्खन से भरपूर!",
+                        'WAFFLES': "यहाँ के कुरकुरे ताज़ा वॉफल्स भी ट्राई किए — बिल्कुल गरम, चाकलेटी और बेहद स्वादिष्ट!",
+                        'HOCCO': "साथ में मखमली हॉक्को आइसक्रीम भी ली जो कुरकुरी कोन के साथ बहुत स्वादिष्ट लगी!",
                         'CAKES': "ताज़ा केक और पेस्ट्री भी बहुत ही सॉफ्ट, मलाईदार और स्वादिष्ट थी।",
                         'FRIES': "लोडेड फ्राइज भी बहुत ही कुरकुरी और स्वादिष्ट थीं।",
                         'SANDWICHES': "ग्रिल्ड सैंडविच और रैप्स बहुत ही कुरकुरे और ताज़ा सामग्री से भरपूर थे।",
@@ -1961,15 +1962,15 @@
                 src: './assets/images/scoop-n-brew/hocco-nutty-cone.png',
                 title: 'Hocco Nutty Chocolate Cone',
                 category: 'ice-cream',
-                categoryLabel: 'Cheesecake',
+                categoryLabel: 'Ice Cream',
                 desc: 'Crunchy wafer cone loaded with nutty chocolate chunks — a Hocco fan favorite.',
                 aiCategory: 'ICE_CREAM'
             },
             {
-                id: 'fluffy-pancakes',
+                id: 'cafe-menu',
                 src: './assets/images/scoop-n-brew/pixel-cafe-menu-board.png',
                 title: 'Pixel Cafe Menu',
-                category: 'brunch',
+                category: 'ambience',
                 categoryLabel: 'Brunch',
                 desc: 'Full pixel-art cafe menu board — waffles, shakes, mojitos, pancakes, fries, chai & more.',
                 aiCategory: 'PANCAKES'
@@ -1978,7 +1979,7 @@
                 id: 'scoop-interior',
                 src: './assets/images/scoop-n-brew/scoop-n-brew-counter-angle.png',
                 title: 'Scoop n Brew Interior',
-                category: 'brunch',
+                category: 'ambience',
                 categoryLabel: 'Savory',
                 desc: 'Cozy counter angles and vibrant pink walls at Scoop n Brew — the perfect backdrop for your next food pic.',
                 aiCategory: 'FRIES'
@@ -1998,25 +1999,25 @@
                 title: 'Hocco Boss Bar',
                 category: 'ice-cream',
                 categoryLabel: 'Ice Cream',
-                desc: 'Charming personal mini celebration cake with delicate handcrafted buttercream floral decor.',
-                aiCategory: 'CAKES'
+                desc: 'Thick compound chocolate-coated Boss Bar by Hocco — rich, indulgent, and the ultimate ice cream bar.',
+                aiCategory: 'ICE_CREAM'
             },
             {
                 id: 'dining-area',
                 src: './assets/images/scoop-n-brew/scoop-n-brew-dining-arch.png',
                 title: 'Scoop n Brew Dining',
                 category: 'ice-cream',
-                categoryLabel: 'Artisanal Cake',
-                desc: 'Moist spiced sponge packed with fresh grated carrots, toasted walnuts, and silky cream cheese frosting.',
-                aiCategory: 'CAKES'
+                categoryLabel: 'Ambience',
+                desc: 'Royal blue illuminated arches and bubblegum pink walls — the iconic Scoop n Brew dining vibe near GEHU.',
+                aiCategory: 'AMBIENCE'
             },
             {
                 id: 'iced-mojito',
                 src: './assets/images/scoop-n-brew/iced-mojito-cup.png',
-                title: 'Signature New York Cheesecake',
+                title: 'Cool Iced Mojito',
                 category: 'ice-cream',
-                categoryLabel: 'Cheesecake',
-                desc: 'Dense, rich, and velvety classic New York style baked cheesecake served fresh from our pastry vitrine.',
+                categoryLabel: 'Drinks',
+                desc: 'Refreshing iced mojito in a clear cup with a striped straw — cool, fizzy, and perfect for hot Dehradun days.',
                 aiCategory: 'ICE_CREAM'
             },
             {
@@ -2024,9 +2025,9 @@
                 src: './assets/images/scoop-n-brew/scoop-n-brew-pink-quotes-wall.png',
                 title: 'Pink Quotes Wall',
                 category: 'ice-cream',
-                categoryLabel: 'Citrus Glaze',
-                desc: 'Fragrant zest-infused sponge topped with hand-caramelized candied orange slices and citrus syrup.',
-                aiCategory: 'CAKES'
+                categoryLabel: 'Ambience',
+                desc: 'Pink brick walls with motivational quotes — an aesthetic, Instagrammable corner at Scoop n Brew.',
+                aiCategory: 'AMBIENCE'
             }
         ];
 
@@ -2265,7 +2266,7 @@
             if (window.chosenSpecificItems && window.chosenSpecificItems.length > 0 && !window.chosenSpecificItems.includes('ALL')) {
                 const itemLabels = {
                     COFFEE: 'Coffee',
-                    CROISSANTS: 'Croissants',
+                    WAFFLES: 'Waffles',
                     CAKES: 'Cakes & Pastries',
                     FRIES: 'Fries & Snacks',
                     SANDWICHES: 'Sandwiches & Wraps',

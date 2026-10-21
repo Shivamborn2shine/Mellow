@@ -41,13 +41,13 @@ export const DEFAULT_STORE_DATA = {
         subheading: 'Choose one or more items',
         items: [
             { key: 'WAFFLES', categoryKey: 'WAFFLES', label: 'Waffles (Nutella/Choc ₹99)', image: './assets/images/scoop-n-brew/pixel-cafe-menu-board.png' },
-            { key: 'MINI_PANCAKES', categoryKey: 'PANCAKES', label: 'Mini Pancakes (@ ₹59)', image: './assets/images/blue-door/fluffy-pancakes.jpg' },
+            { key: 'MINI_PANCAKES', categoryKey: 'PANCAKES', label: 'Mini Pancakes (@ ₹59)', image: './assets/images/scoop-n-brew/pixel-cafe-menu-board.png' },
             { key: 'HOCCO', categoryKey: 'ICE_CREAM', label: 'Hocco Ice Cream Cones', image: './assets/images/scoop-n-brew/hocco-nutty-cone.png' },
-            { key: 'SHAKES', categoryKey: 'SHAKES', label: 'Thick Shakes (@ ₹69-79)', image: './assets/images/blue-door/beverage-drink.jpg' },
-            { key: 'FRIES', categoryKey: 'FRIES', label: 'Loaded & Peri Fries (@ ₹69-79)', image: './assets/images/blue-door/penne-pasta.jpg' },
-            { key: 'BURGERS_SANDWICHES', categoryKey: 'FOOD', label: 'Burgers & Sandwiches (@ ₹69-79)', image: './assets/images/blue-door/sandwich-wrap.jpg' },
+            { key: 'SHAKES', categoryKey: 'SHAKES', label: 'Thick Shakes (@ ₹69-79)', image: './assets/images/scoop-n-brew/iced-mojito-cup.png' },
+            { key: 'FRIES', categoryKey: 'FRIES', label: 'Loaded & Peri Fries (@ ₹69-79)', image: './assets/images/scoop-n-brew/scoop-n-brew-menu-poster.png' },
+            { key: 'BURGERS_SANDWICHES', categoryKey: 'FOOD', label: 'Burgers & Sandwiches (@ ₹69-79)', image: './assets/images/scoop-n-brew/scoop-n-brew-pink-quotes-wall.png' },
             { key: 'MOJITOS', categoryKey: 'MOJITOS', label: 'Mojitos & Iced Teas (@ ₹69)', image: './assets/images/scoop-n-brew/iced-mojito-cup.png' },
-            { key: 'COFFEE_CHAI', categoryKey: 'COFFEE', label: 'Chai (₹20) & Coffee (₹29)', image: './assets/images/blue-door/coffee-cup.jpg' },
+            { key: 'COFFEE_CHAI', categoryKey: 'COFFEE', label: 'Chai (₹20) & Coffee (₹29)', image: './assets/images/scoop-n-brew/scoop-n-brew-counter-angle.png' },
             { key: 'ALL', categoryKey: 'ALL', label: 'Not Sure', isNotSure: true }
         ]
     },
@@ -93,21 +93,21 @@ export const DEFAULT_STORE_DATA = {
         {
             id: 'spec-pancakes',
             name: 'Mini Pancakes',
-            image: './assets/images/blue-door/fluffy-pancakes.jpg',
+            image: './assets/images/scoop-n-brew/pixel-cafe-menu-board.png',
             gradient: 'from-pink-500 to-rose-600',
             categoryKey: 'MINI_PANCAKES'
         },
         {
             id: 'spec-oreo-shake',
             name: 'Oreo Thick Shake',
-            image: './assets/images/blue-door/beverage-drink.jpg',
+            image: './assets/images/scoop-n-brew/iced-mojito-cup.png',
             gradient: 'from-purple-500 to-indigo-600',
             categoryKey: 'SHAKES'
         },
         {
             id: 'spec-loaded-fries',
             name: 'Loaded Fries',
-            image: './assets/images/blue-door/penne-pasta.jpg',
+            image: './assets/images/scoop-n-brew/scoop-n-brew-menu-poster.png',
             gradient: 'from-rose-400 to-red-500',
             categoryKey: 'FRIES'
         },

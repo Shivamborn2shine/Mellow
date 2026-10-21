@@ -2,8 +2,8 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/blue-door", "destination": "/index.html" },
-    { "source": "/blue-door.html", "destination": "/index.html" },
+    { "source": "/scoop-n-brew", "destination": "/index.html" },
+    { "source": "/scoop-n-brew.html", "destination": "/index.html" },
     { "source": "/(.*)", "destination": "/$1" }
   ]
 }
