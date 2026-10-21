@@ -100,13 +100,25 @@
         }
 
         @keyframes fadeInOverlay {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         @keyframes slideUpModal {
-            from { opacity: 0; transform: translateY(40px) scale(0.95); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
 
         .modal-food-item .modal-circle {
@@ -115,8 +127,8 @@
         }
 
         .modal-food-item.selected .modal-circle {
-            border-color: var(--brand-accent, #2563EB);
-            box-shadow: 0 0 0 3px var(--brand-accent-glow, rgba(37, 99, 235, 0.25));
+            border-color: var(--brand-accent, #E11D48);
+            box-shadow: 0 0 0 3px var(--brand-accent-glow, rgba(225, 29, 72, 0.25));
             transform: scale(1.05);
         }
 
@@ -124,7 +136,7 @@
             opacity: 0;
             transform: scale(0);
             transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            background-color: var(--brand-accent, #2563EB);
+            background-color: var(--brand-accent, #E11D48);
         }
 
         .modal-food-item.selected .modal-checkmark {
@@ -138,8 +150,15 @@
         }
 
         @keyframes heartPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.15); }
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
         }
 
         /* Continuous Row Marquee Animation for Culinary Gallery */
@@ -210,7 +229,8 @@
                     <h1 id="storeHeaderName" class="text-xs font-bold text-slate-900 leading-tight">Scoop n Brew</h1>
                     <span id="storeStatusBadge"
                         class="text-[10px] text-emerald-600 font-semibold flex items-center gap-1">
-                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Open Now • 11 AM - 11 PM
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Open Now • 11 AM -
+                        11 PM
                     </span>
                 </div>
             </div>
@@ -244,10 +264,10 @@
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-black/30"></div>
 
                     <!-- Good Food Good Vibes Handwriting Badge -->
-                    <div id="heroHandwriting"
+                    <!-- <div id="heroHandwriting"
                         class="absolute top-4 right-4 text-amber-300 font-script text-2xl drop-shadow-md rotate-[-8deg] pointer-events-none select-none">
                         Good Food<br>&nbsp;&nbsp;Good Vibes ✨
-                    </div>
+                    </div> -->
 
                     <div class="absolute top-4 left-4">
                         <span id="heroCategoryBadge"
@@ -275,7 +295,8 @@
                     </div>
 
                     <!-- Business Title & Rating -->
-                    <h2 id="storeMainName" class="text-xl font-extrabold text-slate-900 tracking-tight">SCOOP N BREW</h2>
+                    <h2 id="storeMainName" class="text-xl font-extrabold text-slate-900 tracking-tight">SCOOP N BREW
+                    </h2>
 
                     <div class="flex items-center justify-center gap-1.5 mt-1">
                         <div id="ratingStars" class="flex text-amber-400 text-xs">★★★★★</div>
@@ -317,29 +338,38 @@
                     <!-- Header with Sparkle Icon, LOVED YOUR EXPERIENCE? and Review Us -->
                     <div class="flex items-center gap-3 mb-4">
                         <div
-                            class="w-11 h-11 rounded-2xl bg-[#EEF2FF] flex items-center justify-center flex-shrink-0 text-[#4F46E5] shadow-xs">
-                            <svg class="w-5 h-5 fill-current text-[#4F46E5]" viewBox="0 0 24 24">
+                            class="w-11 h-11 rounded-2xl bg-rose-50 border border-rose-100/80 flex items-center justify-center flex-shrink-0 text-[#E11D48] shadow-xs">
+                            <svg class="w-5 h-5 fill-current text-[#E11D48]" viewBox="0 0 24 24">
                                 <path d="M12 2L14.4 8.6L21 11L14.4 13.4L12 20L9.6 13.4L3 11L9.6 8.6L12 2Z" />
                             </svg>
                         </div>
                         <div class="min-w-0">
-                            <h3 class="text-base sm:text-lg font-black text-slate-900 leading-tight tracking-tight uppercase flex items-center gap-1.5">Loved your experience?
-                                <img src="./assets/images/scoop-n-brew/heart-radiance.png" alt="❤️" class="heart-bounce w-6 h-6 sm:w-7 sm:h-7 object-contain inline-block">
+                            <h3
+                                class="text-base sm:text-lg font-black text-slate-900 leading-tight tracking-tight uppercase flex items-center gap-1.5">
+                                Loved your experience?
+                                <img src="./assets/images/scoop-n-brew/heart-radiance.png" alt="❤️"
+                                    class="heart-bounce w-6 h-6 sm:w-7 sm:h-7 object-contain inline-block">
                             </h3>
                             <p class="text-xs text-slate-500 mt-0.5 font-semibold">Review Us</p>
                         </div>
                     </div>
 
                     <!-- Selected Menu Dishes Tag/Badge -->
-                    <div id="selectedMenuSummary" class="hidden mb-3 p-2.5 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50/70 border border-blue-200/70 flex items-center justify-between text-xs text-blue-900 shadow-xs">
+                    <div id="selectedMenuSummary"
+                        class="hidden mb-3 p-2.5 rounded-2xl bg-gradient-to-r from-rose-50 to-pink-50/80 border border-rose-200/70 flex items-center justify-between text-xs text-rose-950 shadow-xs">
                         <div class="flex items-center gap-1.5 overflow-hidden">
                             <span class="text-sm">🍽️</span>
                             <span class="font-bold text-slate-800">Your Order:</span>
-                            <span id="selectedMenuItemsText" class="font-semibold text-blue-700 truncate"></span>
+                            <span id="selectedMenuItemsText" class="font-semibold text-[#E11D48] truncate"></span>
                         </div>
-                        <button type="button" onclick="showWelcomeModal()" class="flex-shrink-0 text-blue-600 font-bold hover:text-blue-800 flex items-center gap-1 text-[11px] ml-2 px-2 py-0.5 rounded-lg bg-white/90 border border-blue-200/60 shadow-2xs transition-all active:scale-95">
+                        <button type="button" onclick="showWelcomeModal()"
+                            class="flex-shrink-0 text-[#E11D48] font-bold hover:text-rose-800 flex items-center gap-1 text-[11px] ml-2 px-2 py-0.5 rounded-lg bg-white/90 border border-rose-200/60 shadow-2xs transition-all active:scale-95">
                             <span>Change</span>
-                            <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                            </svg>
                         </button>
                     </div>
 
@@ -350,16 +380,19 @@
                             class="chip px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-full border border-slate-200/90 bg-white text-slate-700 text-xs sm:text-[13px] font-semibold flex items-center justify-between gap-2 transition-all shadow-xs cursor-pointer select-none min-w-0 w-full">
                             <span class="flex items-center gap-2 min-w-0">
                                 <span class="chip-icon flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 8h1a4 4 0 010 8h-1M3 8h14v7a4 4 0 01-4 4H7a4 4 0 01-4-4V8z"/>
-                                        <line x1="6" y1="2" x2="6" y2="4" stroke-linecap="round"/>
-                                        <line x1="10" y1="2" x2="10" y2="4" stroke-linecap="round"/>
-                                        <line x1="14" y1="2" x2="14" y2="4" stroke-linecap="round"/>
+                                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor"
+                                        stroke-width="1.8" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M17 8h1a4 4 0 010 8h-1M3 8h14v7a4 4 0 01-4 4H7a4 4 0 01-4-4V8z" />
+                                        <line x1="6" y1="2" x2="6" y2="4" stroke-linecap="round" />
+                                        <line x1="10" y1="2" x2="10" y2="4" stroke-linecap="round" />
+                                        <line x1="14" y1="2" x2="14" y2="4" stroke-linecap="round" />
                                     </svg>
                                 </span>
                                 <span class="chip-label whitespace-nowrap">Great Coffee</span>
                             </span>
-                            <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                            <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none"
+                                stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                         </button>
@@ -369,14 +402,18 @@
                             class="chip px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-full border border-slate-200/90 bg-white text-slate-700 text-xs sm:text-[13px] font-semibold flex items-center justify-between gap-2 transition-all shadow-xs cursor-pointer select-none min-w-0 w-full">
                             <span class="flex items-center gap-2 min-w-0">
                                 <span class="chip-icon flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M18.5 13.5c-1-1.5-2.5-2.5-4.5-3-2 .5-3.5 1.5-4.5 3-1 1.5-1 3.5-.5 5 .5 1.5 2 2.5 3.5 2.5h3c1.5 0 3-1 3.5-2.5.5-1.5.5-3.5-.5-5z"/>
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 10.5V5M9 7l-2-2M15 7l2-2"/>
+                                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor"
+                                        stroke-width="1.8" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M18.5 13.5c-1-1.5-2.5-2.5-4.5-3-2 .5-3.5 1.5-4.5 3-1 1.5-1 3.5-.5 5 .5 1.5 2 2.5 3.5 2.5h3c1.5 0 3-1 3.5-2.5.5-1.5.5-3.5-.5-5z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M12 10.5V5M9 7l-2-2M15 7l2-2" />
                                     </svg>
                                 </span>
                                 <span class="chip-label whitespace-nowrap">Waffles & Cones</span>
                             </span>
-                            <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                            <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none"
+                                stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                         </button>
@@ -386,16 +423,18 @@
                             class="chip px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-full border border-slate-200/90 bg-white text-slate-700 text-xs sm:text-[13px] font-semibold flex items-center justify-between gap-2 transition-all shadow-xs cursor-pointer select-none min-w-0 w-full">
                             <span class="flex items-center gap-2 min-w-0">
                                 <span class="chip-icon flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 10h16v10H4z"/>
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 15h16"/>
-                                        <circle cx="12" cy="6" r="2"/>
-                                        <line x1="12" y1="8" x2="12" y2="10"/>
+                                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor"
+                                        stroke-width="1.8" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 10h16v10H4z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 15h16" />
+                                        <circle cx="12" cy="6" r="2" />
+                                        <line x1="12" y1="8" x2="12" y2="10" />
                                     </svg>
                                 </span>
                                 <span class="chip-label whitespace-nowrap">Tasty Food</span>
                             </span>
-                            <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                            <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none"
+                                stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                         </button>
@@ -405,15 +444,19 @@
                             class="chip px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-full border border-slate-200/90 bg-white text-slate-700 text-xs sm:text-[13px] font-semibold flex items-center justify-between gap-2 transition-all shadow-xs cursor-pointer select-none min-w-0 w-full">
                             <span class="flex items-center gap-2 min-w-0">
                                 <span class="chip-icon flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 20v-1a4 4 0 00-4-4H5a4 4 0 00-4 4v1"/>
-                                        <circle cx="9" cy="7" r="4"/>
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M23 20v-1a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+                                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor"
+                                        stroke-width="1.8" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M17 20v-1a4 4 0 00-4-4H5a4 4 0 00-4 4v1" />
+                                        <circle cx="9" cy="7" r="4" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M23 20v-1a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
                                     </svg>
                                 </span>
                                 <span class="chip-label whitespace-nowrap">Friendly Staff</span>
                             </span>
-                            <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                            <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none"
+                                stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                         </button>
@@ -423,14 +466,18 @@
                             class="chip px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-full border border-slate-200/90 bg-white text-slate-700 text-xs sm:text-[13px] font-semibold flex items-center justify-between gap-2 transition-all shadow-xs cursor-pointer select-none min-w-0 w-full">
                             <span class="flex items-center gap-2 min-w-0">
                                 <span class="chip-icon flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3l1.8 4.7 4.7 1.8-4.7 1.8L12 16l-1.8-4.7-4.7-1.8 4.7-1.8L12 3z"/>
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 16l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9.9-2.1z"/>
+                                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor"
+                                        stroke-width="1.8" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M12 3l1.8 4.7 4.7 1.8-4.7 1.8L12 16l-1.8-4.7-4.7-1.8 4.7-1.8L12 3z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M19 16l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9.9-2.1z" />
                                     </svg>
                                 </span>
                                 <span class="chip-label whitespace-nowrap">Cozy Ambience</span>
                             </span>
-                            <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                            <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none"
+                                stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                         </button>
@@ -440,14 +487,17 @@
                             class="chip px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-full border border-slate-200/90 bg-white text-slate-700 text-xs sm:text-[13px] font-semibold flex items-center justify-between gap-2 transition-all shadow-xs cursor-pointer select-none min-w-0 w-full">
                             <span class="flex items-center gap-2 min-w-0">
                                 <span class="chip-icon flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 21c3-6 7-10 14-11-1 7-5 11-11 14l-3-3z"/>
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 15l6-6"/>
+                                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor"
+                                        stroke-width="1.8" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M5 21c3-6 7-10 14-11-1 7-5 11-11 14l-3-3z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 15l6-6" />
                                     </svg>
                                 </span>
                                 <span class="chip-label whitespace-nowrap">Cleanliness</span>
                             </span>
-                            <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                            <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none"
+                                stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                         </button>
@@ -457,14 +507,17 @@
                             class="chip px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-full border border-slate-200/90 bg-white text-slate-700 text-xs sm:text-[13px] font-semibold flex items-center justify-between gap-2 transition-all shadow-xs cursor-pointer select-none min-w-0 w-full">
                             <span class="flex items-center gap-2 min-w-0">
                                 <span class="chip-icon flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/>
-                                        <line x1="7" y1="7" x2="7.01" y2="7"/>
+                                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor"
+                                        stroke-width="1.8" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z" />
+                                        <line x1="7" y1="7" x2="7.01" y2="7" />
                                     </svg>
                                 </span>
                                 <span class="chip-label whitespace-nowrap">Value for Money</span>
                             </span>
-                            <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                            <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none"
+                                stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                         </button>
@@ -474,13 +527,16 @@
                             class="chip chip-active px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-full border border-slate-200/90 bg-white text-slate-700 text-xs sm:text-[13px] font-semibold flex items-center justify-between gap-2 transition-all shadow-xs cursor-pointer select-none min-w-0 w-full">
                             <span class="flex items-center gap-2 min-w-0">
                                 <span class="chip-icon flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                                        <polygon stroke-linejoin="round" points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor"
+                                        stroke-width="1.8" viewBox="0 0 24 24">
+                                        <polygon stroke-linejoin="round"
+                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                                     </svg>
                                 </span>
                                 <span class="chip-label whitespace-nowrap">Overall Experience</span>
                             </span>
-                            <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                            <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none"
+                                stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                         </button>
@@ -489,16 +545,19 @@
                     <!-- Choose Language Row (Inline Horizontal matching Target UI) -->
                     <div class="mt-4 flex items-center justify-between gap-2 px-0.5">
                         <div class="flex items-center gap-1.5">
-                            <svg class="w-4 h-4 text-[#4F46E5] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <circle cx="12" cy="12" r="10"/>
-                                <line x1="2" y1="12" x2="22" y2="12"/>
-                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                            <svg class="w-4 h-4 text-[#E11D48] flex-shrink-0" fill="none" stroke="currentColor"
+                                stroke-width="2" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10" />
+                                <line x1="2" y1="12" x2="22" y2="12" />
+                                <path
+                                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
                             </svg>
                             <span class="text-xs sm:text-[13px] font-bold text-slate-800">Choose Language</span>
                         </div>
-                        <div class="flex items-center p-0.5 bg-slate-100/90 rounded-full border border-slate-200/60" id="languageSelectorGroup">
+                        <div class="flex items-center p-0.5 bg-slate-100/90 rounded-full border border-slate-200/60"
+                            id="languageSelectorGroup">
                             <button type="button" onclick="setLanguage('ENGLISH')" id="langBtn_ENGLISH"
-                                class="lang-pill px-3 py-1 rounded-full font-bold text-xs transition-all bg-[#4F46E5] text-white shadow-xs">
+                                class="lang-pill px-3 py-1 rounded-full font-bold text-xs transition-all bg-[#E11D48] text-white shadow-xs shadow-rose-500/25">
                                 English
                             </button>
                             <button type="button" onclick="setLanguage('HINGLISH')" id="langBtn_HINGLISH"
@@ -517,14 +576,16 @@
                         <button type="button" onclick="generateAIReview(); scrollToReviewCTA();" id="generateBtn"
                             class="w-full bg-gradient-to-r from-[#4F46E5] via-[#7C3AED] to-[#EC4899] hover:opacity-95 text-white font-extrabold text-xs sm:text-sm py-3.5 sm:py-4 px-4 rounded-2xl shadow-xl shadow-indigo-500/25 flex items-center justify-center gap-2 transition-all active:scale-[0.98]">
                             <svg class="w-4 h-4 fill-current text-white flex-shrink-0" viewBox="0 0 24 24">
-                                <path d="M12 2L14.4 8.6L21 11L14.4 13.4L12 20L9.6 13.4L3 11L9.6 8.6L12 2Z"/>
+                                <path d="M12 2L14.4 8.6L21 11L14.4 13.4L12 20L9.6 13.4L3 11L9.6 8.6L12 2Z" />
                             </svg>
                             <span>Generate Review with AI</span>
-                            <svg class="w-4 h-4 text-white stroke-[2.5] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                            <svg class="w-4 h-4 text-white stroke-[2.5] flex-shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                             </svg>
                         </button>
-                        <p class="text-[11px] text-slate-400 font-medium text-center mt-2 flex items-center justify-center gap-2">
+                        <p
+                            class="text-[11px] text-slate-400 font-medium text-center mt-2 flex items-center justify-center gap-2">
                             <span>Takes a few seconds</span>
                             <span>•</span>
                             <span>100% real &amp; safe</span>
@@ -532,19 +593,23 @@
                     </div>
 
                     <!-- Generated Review Card ("Your AI Generated Review") -->
-                    <div class="mt-4 bg-white rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 border border-slate-100 shadow-sm relative w-full box-border">
+                    <div
+                        class="mt-4 bg-white rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 border border-slate-100 shadow-sm relative w-full box-border">
                         <!-- Header with sparkle badge & 5.0 rating badge -->
                         <div class="flex items-center justify-between mb-3">
                             <div class="flex items-center gap-2">
-                                <div class="w-7 h-7 rounded-xl bg-indigo-50 flex items-center justify-center text-indigo-600">
-                                    <svg class="w-4 h-4 text-indigo-600 fill-current" viewBox="0 0 24 24">
-                                        <path d="M12 2L14.4 8.6L21 11L14.4 13.4L12 20L9.6 13.4L3 11L9.6 8.6L12 2Z"/>
+                                <div
+                                    class="w-7 h-7 rounded-xl bg-rose-50 border border-rose-100/80 flex items-center justify-center text-[#E11D48]">
+                                    <svg class="w-4 h-4 text-[#E11D48] fill-current" viewBox="0 0 24 24">
+                                        <path d="M12 2L14.4 8.6L21 11L14.4 13.4L12 20L9.6 13.4L3 11L9.6 8.6L12 2Z" />
                                     </svg>
                                 </div>
-                                <span class="font-bold text-xs sm:text-sm text-[#4338CA]">Your AI Generated Review</span>
+                                <span class="font-bold text-xs sm:text-sm text-[#BE123C]">Your AI Generated
+                                    Review</span>
                             </div>
-                            <div class="px-2.5 py-1 rounded-full bg-slate-100/90 text-indigo-600 font-extrabold text-xs flex items-center gap-1 shadow-sm">
-                                <span class="text-indigo-600">★</span>
+                            <div
+                                class="px-2.5 py-1 rounded-full bg-rose-50 border border-rose-100 text-[#E11D48] font-extrabold text-xs flex items-center gap-1 shadow-sm">
+                                <span class="text-[#E11D48]">★</span>
                                 <span>5.0</span>
                             </div>
                         </div>
@@ -552,7 +617,8 @@
                         <!-- Rating stars with radiance burst rays -->
                         <div class="flex items-center justify-center gap-2 sm:gap-3 my-3">
                             <!-- Left radiance burst -->
-                            <svg class="w-5 h-5 text-indigo-300 stroke-current flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round">
+                            <svg class="w-5 h-5 text-rose-300 stroke-current flex-shrink-0" viewBox="0 0 24 24"
+                                fill="none" stroke-width="2.2" stroke-linecap="round">
                                 <line x1="2" y1="12" x2="8" y2="12" />
                                 <line x1="4" y1="5" x2="9.5" y2="8" />
                                 <line x1="4" y1="19" x2="9.5" y2="16" />
@@ -562,7 +628,8 @@
                                 <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                             </div>
                             <!-- Right radiance burst -->
-                            <svg class="w-5 h-5 text-indigo-300 stroke-current flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round">
+                            <svg class="w-5 h-5 text-rose-300 stroke-current flex-shrink-0" viewBox="0 0 24 24"
+                                fill="none" stroke-width="2.2" stroke-linecap="round">
                                 <line x1="22" y1="12" x2="16" y2="12" />
                                 <line x1="20" y1="5" x2="14.5" y2="8" />
                                 <line x1="20" y1="19" x2="14.5" y2="16" />
@@ -571,16 +638,20 @@
 
                         <!-- Review Text Output (Typewriter Animated) -->
                         <div id="reviewOutputText" contenteditable="false"
-                            class="text-xs sm:text-[13px] text-slate-700 leading-relaxed font-medium min-h-[64px] focus:outline-none focus:ring-2 focus:ring-indigo-400 rounded-xl p-2.5 break-words whitespace-normal selection:bg-indigo-100">
-                            Tried this spot on a friend's recommendation and it exceeded all expectations! The perfect blend of warm hospitality, artisanal pastries, and rich brews. A must-visit for every food lover!
+                            class="text-xs sm:text-[13px] text-slate-700 leading-relaxed font-medium min-h-[64px] focus:outline-none focus:ring-2 focus:ring-rose-400 rounded-xl p-2.5 break-words whitespace-normal selection:bg-rose-100">
+                            Tried this spot on a friend's recommendation and it exceeded all expectations! The perfect
+                            blend of warm hospitality, artisanal pastries, and rich brews. A must-visit for every food
+                            lover!
                         </div>
 
                         <!-- Action Buttons: Edit Review & Copy to Google -->
                         <div class="grid grid-cols-12 gap-2 mt-3.5 w-full">
                             <!-- Edit Review Button (5 cols) -->
                             <button type="button" onclick="toggleEditMode()" id="editReviewBtn"
-                                class="col-span-5 bg-white hover:bg-indigo-50/50 text-indigo-600 font-bold text-xs py-3 px-2 rounded-2xl border-[1.5px] border-indigo-400/80 shadow-sm transition-all flex items-center justify-center gap-1.5 active:scale-95 min-w-0">
-                                <svg id="editBtnSvg" class="w-4 h-4 text-indigo-600 stroke-current flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                class="col-span-5 bg-white hover:bg-rose-50/50 text-[#E11D48] font-bold text-xs py-3 px-2 rounded-2xl border-[1.5px] border-rose-300 shadow-sm transition-all flex items-center justify-center gap-1.5 active:scale-95 min-w-0">
+                                <svg id="editBtnSvg" class="w-4 h-4 text-[#E11D48] stroke-current flex-shrink-0"
+                                    fill="none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
                                     <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
                                     <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
                                 </svg>
@@ -592,18 +663,26 @@
                                 class="col-span-7 bg-[#1E1B4B] hover:bg-[#151336] text-white font-bold text-xs py-2.5 px-2.5 sm:px-3 rounded-2xl shadow-xl shadow-indigo-950/20 transition-all flex items-center justify-between gap-1 active:scale-95 min-w-0">
                                 <div class="flex items-center gap-1.5 sm:gap-2 min-w-0">
                                     <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24">
-                                        <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                                        <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                                        <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
-                                        <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                                        <path fill="#4285F4"
+                                            d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                                        <path fill="#34A853"
+                                            d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                                        <path fill="#FBBC05"
+                                            d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" />
+                                        <path fill="#EA4335"
+                                            d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" />
                                     </svg>
                                     <div class="text-left leading-tight min-w-0">
-                                        <div class="text-[10px] min-[380px]:text-[11px] font-bold text-white truncate">Copy &amp; Open Google</div>
-                                        <div class="text-[9px] min-[380px]:text-[9.5px] font-medium text-slate-300 truncate">Review Page</div>
+                                        <div class="text-[10px] min-[380px]:text-[11px] font-bold text-white truncate">
+                                            Copy &amp; Open Google</div>
+                                        <div
+                                            class="text-[9px] min-[380px]:text-[9.5px] font-medium text-slate-300 truncate">
+                                            Review Page</div>
                                     </div>
                                 </div>
-                                <svg class="w-3.5 h-3.5 flex-shrink-0 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                                <svg class="w-3.5 h-3.5 flex-shrink-0 text-white" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                 </svg>
                             </button>
                         </div>
@@ -616,65 +695,89 @@
             <!-- SOCIALS & QUICK ACTION STRIP (Between Reviews and Specialities) -->
             <!-- ═══════════════════════════════════════════════════════════════ -->
             <section id="socialsSection" class="px-3 pt-2 w-full max-w-full box-border">
-                <div class="bg-white rounded-3xl p-3.5 sm:p-4 border border-slate-100 shadow-xl shadow-slate-200/50 w-full max-w-full box-border">
+                <div
+                    class="bg-white rounded-3xl p-3.5 sm:p-4 border border-slate-100 shadow-xl shadow-slate-200/50 w-full max-w-full box-border">
                     <div class="grid grid-cols-6 gap-1.5 sm:gap-2">
                         <!-- Call -->
                         <a id="callStoreBtn" href="#" data-link="call" class="flex flex-col items-center gap-1.5 group">
-                            <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-emerald-500 text-white flex items-center justify-center shadow-md shadow-emerald-500/20 group-hover:scale-105 transition-all">
+                            <div
+                                class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-emerald-500 text-white flex items-center justify-center shadow-md shadow-emerald-500/20 group-hover:scale-105 transition-all">
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                                    <path
+                                        d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z">
+                                    </path>
                                 </svg>
                             </div>
                             <span class="text-[10px] sm:text-[11px] font-bold text-slate-700">Call</span>
                         </a>
 
                         <!-- WhatsApp -->
-                        <a id="whatsappStoreBtn" href="#" data-link="whatsapp" target="_blank" class="flex flex-col items-center gap-1.5 group">
-                            <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-emerald-600 text-white flex items-center justify-center shadow-md shadow-emerald-600/20 group-hover:scale-105 transition-all">
+                        <a id="whatsappStoreBtn" href="#" data-link="whatsapp" target="_blank"
+                            class="flex flex-col items-center gap-1.5 group">
+                            <div
+                                class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-emerald-600 text-white flex items-center justify-center shadow-md shadow-emerald-600/20 group-hover:scale-105 transition-all">
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                                    <path
+                                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                                 </svg>
                             </div>
                             <span class="text-[10px] sm:text-[11px] font-bold text-slate-700">WhatsApp</span>
                         </a>
 
                         <!-- Instagram -->
-                        <a id="instagramStoreBtn" href="#" data-link="instagram" target="_blank" class="flex flex-col items-center gap-1.5 group">
-                            <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 text-white flex items-center justify-center shadow-md shadow-pink-500/25 group-hover:scale-105 transition-all">
+                        <a id="instagramStoreBtn" href="#" data-link="instagram" target="_blank"
+                            class="flex flex-col items-center gap-1.5 group">
+                            <div
+                                class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 text-white flex items-center justify-center shadow-md shadow-pink-500/25 group-hover:scale-105 transition-all">
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                                 </svg>
                             </div>
                             <span class="text-[10px] sm:text-[11px] font-bold text-slate-700">Instagram</span>
                         </a>
 
                         <!-- Directions -->
-                        <a id="directionsBtn" href="#" data-link="directions" target="_blank" class="flex flex-col items-center gap-1.5 group">
-                            <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-tr from-rose-500 to-pink-500 text-white flex items-center justify-center shadow-md shadow-pink-500/20 group-hover:scale-105 transition-all">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        <a id="directionsBtn" href="#" data-link="directions" target="_blank"
+                            class="flex flex-col items-center gap-1.5 group">
+                            <div
+                                class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-tr from-rose-500 to-pink-500 text-white flex items-center justify-center shadow-md shadow-pink-500/20 group-hover:scale-105 transition-all">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                    </path>
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                 </svg>
                             </div>
                             <span class="text-[10px] sm:text-[11px] font-bold text-slate-700">Directions</span>
                         </a>
 
                         <!-- Menu (With search icon matching Image 1) -->
-                        <a id="menuBtn" href="#menu" onclick="scrollToSection('specialitiesRow')" class="flex flex-col items-center gap-1.5 group">
-                            <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-blue-500 text-white flex items-center justify-center shadow-md shadow-blue-500/20 group-hover:scale-105 transition-all">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                                    <circle cx="11" cy="11" r="7"/>
-                                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                        <a id="menuBtn" href="#menu" onclick="scrollToSection('specialitiesRow')"
+                            class="flex flex-col items-center gap-1.5 group">
+                            <div
+                                class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-blue-500 text-white flex items-center justify-center shadow-md shadow-blue-500/20 group-hover:scale-105 transition-all">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5"
+                                    viewBox="0 0 24 24">
+                                    <circle cx="11" cy="11" r="7" />
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
                                 </svg>
                             </div>
-                            <span id="menuBtnLabel" class="text-[10px] sm:text-[11px] font-bold text-slate-700">Menu</span>
+                            <span id="menuBtnLabel"
+                                class="text-[10px] sm:text-[11px] font-bold text-slate-700">Menu</span>
                         </a>
 
                         <!-- Share -->
                         <button type="button" onclick="sharePage()" class="flex flex-col items-center gap-1.5 group">
-                            <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-slate-800 text-white flex items-center justify-center shadow-md shadow-slate-800/20 group-hover:scale-105 transition-all">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
+                            <div
+                                class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-slate-800 text-white flex items-center justify-center shadow-md shadow-slate-800/20 group-hover:scale-105 transition-all">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z">
+                                    </path>
                                 </svg>
                             </div>
                             <span class="text-[10px] sm:text-[11px] font-bold text-slate-700">Share</span>
@@ -694,7 +797,8 @@
                             <span class="text-base">🔥</span>
                             <h3 class="text-sm font-extrabold text-slate-900">Our Specialities</h3>
                         </div>
-                        <span class="text-xs font-bold text-purple-600 hover:underline cursor-pointer"
+                        <span
+                            class="text-xs font-bold text-[#E11D48] hover:text-rose-700 hover:underline cursor-pointer"
                             onclick="scrollToSection('gallerySection')">View Gallery →</span>
                     </div>
 
@@ -703,577 +807,770 @@
                         <!-- Item 1: Mini Pancakes -->
                         <div class="flex-shrink-0 flex flex-col items-center w-20 cursor-pointer group"
                             onclick="quickSelectCategory('PANCAKES')">
-                            <div class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-pink-500 to-rose-600 shadow-md group-hover:scale-105 transition-all">
-                                <img src="./assets/images/scoop-n-brew/pixel-cafe-menu-board.png" alt="Mini Pancakes" class="w-full h-full object-cover rounded-full">
+                            <div
+                                class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-pink-500 to-rose-600 shadow-md group-hover:scale-105 transition-all">
+                                <img src="./assets/images/scoop-n-brew/pixel-cafe-menu-board.png" alt="Mini Pancakes"
+                                    class="w-full h-full object-cover rounded-full">
                             </div>
-                            <span class="text-[10px] font-bold text-slate-700 text-center mt-1.5 leading-tight">Mini Pancakes<br><span class="text-pink-600 font-extrabold">₹59</span></span>
+                            <span class="text-[10px] font-bold text-slate-700 text-center mt-1.5 leading-tight">Mini
+                                Pancakes<br><span class="text-pink-600 font-extrabold">₹59</span></span>
                         </div>
 
                         <!-- Item 2: Loaded Fries -->
                         <div class="flex-shrink-0 flex flex-col items-center w-20 cursor-pointer group"
                             onclick="quickSelectCategory('FRIES')">
-                            <div class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-amber-400 to-orange-500 shadow-md group-hover:scale-105 transition-all">
-                                <img src="./assets/images/scoop-n-brew/scoop-n-brew-counter-angle.png" alt="Loaded Fries" class="w-full h-full object-cover rounded-full">
+                            <div
+                                class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-amber-400 to-orange-500 shadow-md group-hover:scale-105 transition-all">
+                                <img src="./assets/images/scoop-n-brew/scoop-n-brew-counter-angle.png"
+                                    alt="Loaded Fries" class="w-full h-full object-cover rounded-full">
                             </div>
-                            <span class="text-[10px] font-bold text-slate-700 text-center mt-1.5 leading-tight">Loaded Fries<br><span class="text-pink-600 font-extrabold">₹79</span></span>
+                            <span class="text-[10px] font-bold text-slate-700 text-center mt-1.5 leading-tight">Loaded
+                                Fries<br><span class="text-pink-600 font-extrabold">₹79</span></span>
                         </div>
 
                         <!-- Item 3: Oreo Shake -->
                         <div class="flex-shrink-0 flex flex-col items-center w-20 cursor-pointer group"
                             onclick="quickSelectCategory('SHAKES')">
-                            <div class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-purple-500 to-indigo-600 shadow-md group-hover:scale-105 transition-all">
-                                <img src="./assets/images/scoop-n-brew/iced-mojito-cup.png" alt="Oreo Shake" class="w-full h-full object-cover rounded-full">
+                            <div
+                                class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-purple-500 to-indigo-600 shadow-md group-hover:scale-105 transition-all">
+                                <img src="./assets/images/scoop-n-brew/iced-mojito-cup.png" alt="Oreo Shake"
+                                    class="w-full h-full object-cover rounded-full">
                             </div>
-                            <span class="text-[10px] font-bold text-slate-700 text-center mt-1.5 leading-tight">Oreo Shake<br><span class="text-pink-600 font-extrabold">₹79</span></span>
+                            <span class="text-[10px] font-bold text-slate-700 text-center mt-1.5 leading-tight">Oreo
+                                Shake<br><span class="text-pink-600 font-extrabold">₹79</span></span>
                         </div>
 
                         <!-- Item 4: Grilled Sandwich -->
                         <div class="flex-shrink-0 flex flex-col items-center w-20 cursor-pointer group"
                             onclick="quickSelectCategory('SANDWICHES')">
-                            <div class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-emerald-500 to-teal-600 shadow-md group-hover:scale-105 transition-all">
-                                <img src="./assets/images/scoop-n-brew/scoop-n-brew-pink-quotes-wall.png" alt="Grilled Sandwich" class="w-full h-full object-cover rounded-full">
+                            <div
+                                class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-emerald-500 to-teal-600 shadow-md group-hover:scale-105 transition-all">
+                                <img src="./assets/images/scoop-n-brew/scoop-n-brew-pink-quotes-wall.png"
+                                    alt="Grilled Sandwich" class="w-full h-full object-cover rounded-full">
                             </div>
-                            <span class="text-[10px] font-bold text-slate-700 text-center mt-1.5 leading-tight">Sandwich<br><span class="text-pink-600 font-extrabold">₹69</span></span>
+                            <span
+                                class="text-[10px] font-bold text-slate-700 text-center mt-1.5 leading-tight">Sandwich<br><span
+                                    class="text-pink-600 font-extrabold">₹69</span></span>
                         </div>
 
                         <!-- Item 5: Mint Mojito -->
                         <div class="flex-shrink-0 flex flex-col items-center w-20 cursor-pointer group"
                             onclick="quickSelectCategory('MOJITOS')">
-                            <div class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-teal-400 to-emerald-500 shadow-md group-hover:scale-105 transition-all">
-                                <img src="./assets/images/scoop-n-brew/iced-mojito-cup.png" alt="Mint Mojito" class="w-full h-full object-cover rounded-full">
+                            <div
+                                class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-teal-400 to-emerald-500 shadow-md group-hover:scale-105 transition-all">
+                                <img src="./assets/images/scoop-n-brew/iced-mojito-cup.png" alt="Mint Mojito"
+                                    class="w-full h-full object-cover rounded-full">
                             </div>
-                            <span class="text-[10px] font-bold text-slate-700 text-center mt-1.5 leading-tight">Mint Mojito<br><span class="text-pink-600 font-extrabold">₹69</span></span>
+                            <span class="text-[10px] font-bold text-slate-700 text-center mt-1.5 leading-tight">Mint
+                                Mojito<br><span class="text-pink-600 font-extrabold">₹69</span></span>
                         </div>
 
                         <!-- Item 6: Cold Coffee -->
                         <div class="flex-shrink-0 flex flex-col items-center w-20 cursor-pointer group"
                             onclick="quickSelectCategory('COFFEE')">
-                            <div class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-amber-600 to-amber-800 shadow-md group-hover:scale-105 transition-all">
-                                <img src="./assets/images/scoop-n-brew/scoop-n-brew-menu-poster.png" alt="Cold Coffee" class="w-full h-full object-cover rounded-full">
+                            <div
+                                class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-amber-600 to-amber-800 shadow-md group-hover:scale-105 transition-all">
+                                <img src="./assets/images/scoop-n-brew/scoop-n-brew-menu-poster.png" alt="Cold Coffee"
+                                    class="w-full h-full object-cover rounded-full">
                             </div>
-                            <span class="text-[10px] font-bold text-slate-700 text-center mt-1.5 leading-tight">Cold Coffee<br><span class="text-pink-600 font-extrabold">₹69</span></span>
+                            <span class="text-[10px] font-bold text-slate-700 text-center mt-1.5 leading-tight">Cold
+                                Coffee<br><span class="text-pink-600 font-extrabold">₹69</span></span>
                         </div>
-                    </div>
-                    </div>
-                </div>
-
-                <!-- Feature Promo Banner (User Added Scoops, Shakes & Brews Banner) -->
-                <div class="px-3 mt-4">
-                    <div class="rounded-3xl overflow-hidden shadow-lg border border-slate-100 bg-slate-900 group">
-                        <img src="./assets/images/scoop-n-brew/scoops-of-happiness-banner.jpg"
-                            alt="Scoops of Happiness — Your Happy Place for Sweet Treats"
-                            class="w-full h-auto object-cover block">
                     </div>
                 </div>
+        </div>
 
-                <!-- Hours & Info Accordion -->
-                <div class="px-3 mt-4 space-y-2">
-                    <div
-                        class="bg-white rounded-2xl p-3.5 border border-slate-100 flex items-center justify-between shadow-sm">
-                        <div class="flex items-center gap-3">
-                            <span class="text-rose-500 text-base">⏰</span>
-                            <div>
-                                <span class="text-xs font-bold text-slate-800">Open Now • 9:00 AM – 10:30 PM</span>
-                                <p class="text-[10px] text-slate-400">All 7 Days • Dine-in, Takeaway & Swiggy/Zomato</p>
-                            </div>
-                        </div>
-                        <span class="text-xs text-slate-400">▼</span>
-                    </div>
+        <!-- Feature Promo Banner (User Added Scoops, Shakes & Brews Banner) -->
+        <div class="px-3 mt-4">
+            <div class="rounded-3xl overflow-hidden shadow-lg border border-slate-100 bg-slate-900 group">
+                <img src="./assets/images/scoop-n-brew/scoops-of-happiness-banner.jpg"
+                    alt="Scoops of Happiness — Your Happy Place for Sweet Treats"
+                    class="w-full h-auto object-cover block">
+            </div>
+        </div>
 
-                    <a id="addressLink" href="#" data-link="directions" target="_blank"
-                        class="bg-white rounded-2xl p-3.5 border border-slate-100 flex items-center justify-between shadow-sm hover:border-blue-200 transition-colors">
-                        <div class="flex items-center gap-3">
-                            <span class="text-blue-500 text-base">📍</span>
-                            <div>
-                                <span class="text-xs font-bold text-slate-800">Near GEHU Gate 1, Clement Town, Dehradun</span>
-                                <p class="text-[10px] text-slate-400">Tap for Maps &amp; Navigation</p>
-                            </div>
-                        </div>
-                        <span class="text-xs text-blue-500 font-bold">Directions →</span>
-                    </a>
-
-                    <div
-                        class="bg-white rounded-2xl p-3.5 border border-slate-100 flex items-center justify-between shadow-sm">
-                        <div class="flex items-center gap-3">
-                            <span class="text-emerald-500 text-base">💳</span>
-                            <div>
-                                <span class="text-xs font-bold text-slate-800">₹₹ • Moderate & Cozy</span>
-                                <p class="text-[10px] text-slate-400">Cards, UPI & Cash Accepted</p>
-                            </div>
-                        </div>
-                        <span
-                            class="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">Great
-                            Value</span>
+        <!-- Hours & Info Accordion -->
+        <div class="px-3 mt-4 space-y-2">
+            <div class="bg-white rounded-2xl p-3.5 border border-slate-100 flex items-center justify-between shadow-sm">
+                <div class="flex items-center gap-3">
+                    <span class="text-rose-500 text-base">⏰</span>
+                    <div>
+                        <span class="text-xs font-bold text-slate-800">Open Now • 9:00 AM – 10:30 PM</span>
+                        <p class="text-[10px] text-slate-400">All 7 Days • Dine-in, Takeaway & Swiggy/Zomato</p>
                     </div>
                 </div>
-            </section>
+                <span class="text-xs text-slate-400">▼</span>
+            </div>
 
-
-            <!-- ═══════════════════════════════════════════════════════════════ -->
-            <!-- SCREEN 3: GALLERY, MAP, ABOUT & TESTIMONIALS -->
-            <!-- ═══════════════════════════════════════════════════════════════ -->
-            <section id="gallerySection" class="px-3 space-y-4">
-
-                <!-- Culinary Gallery Row (Continuous Right-to-Left Moving Row with End Fades) -->
-                <div class="bg-white rounded-3xl p-4 sm:p-5 border border-slate-100 shadow-sm overflow-hidden">
-                    <div class="flex items-center justify-between mb-3">
-                        <div class="flex items-center gap-2">
-                            <span class="text-base">📸</span>
-                            <h3 class="text-sm font-extrabold text-slate-900">Culinary Gallery</h3>
-                        </div>
-                        <!-- Show All Button at Right Corner -->
-                        <button type="button" onclick="openGalleryModal(0)" id="galleryShowAllBtn"
-                            class="text-xs font-bold text-indigo-600 hover:text-indigo-700 bg-indigo-50 hover:bg-indigo-100 px-3 py-1.5 rounded-full transition-all flex items-center gap-1.5 active:scale-95 shadow-sm"
-                            title="View all photos">
-                            <span>Show All</span>
-                            <span
-                                class="count-badge text-[10px] bg-indigo-600 text-white px-1.5 py-0.2 rounded-full font-bold">8</span>
-                            <span>→</span>
-                        </button>
-                    </div>
-
-                    <!-- Moving Row: Fading out at ends & slowly moving leftward -->
-                    <div class="relative overflow-hidden gallery-fade-mask -mx-4 sm:-mx-5 px-4 sm:px-5">
-                        <!-- Left Fade Gradient -->
-                        <div
-                            class="pointer-events-none absolute inset-y-0 left-0 w-8 sm:w-14 bg-gradient-to-r from-white via-white/80 to-transparent z-10">
-                        </div>
-                        <!-- Right Fade Gradient -->
-                        <div
-                            class="pointer-events-none absolute inset-y-0 right-0 w-8 sm:w-14 bg-gradient-to-l from-white via-white/80 to-transparent z-10">
-                        </div>
-
-                        <!-- Continuous Moving Marquee Track (Right to Left) -->
-                        <div id="galleryMarqueeTrack" class="gallery-marquee-track gap-3 py-1">
-                        <!-- 1. Ambient Arch Dining Seating -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0" onclick="openGalleryModal(0)">
-                            <img src="./assets/images/scoop-n-brew/scoop-n-brew-dining-arch.png" alt="Backlit Arch Seating" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                            <span class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-pink-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Ambience</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Arch Seating</p>
-                                <span class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- 2. Official Cafe Menu Board -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0" onclick="openGalleryModal(1)">
-                            <img src="./assets/images/scoop-n-brew/pixel-cafe-menu-board.png" alt="Cafe Menu Board" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                            <span class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-pink-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Menu Board</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Cafe Menu</p>
-                                <span class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- 3. Hocco Strawberry Cheesecake Cone -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0" onclick="openGalleryModal(2)">
-                            <img src="./assets/images/scoop-n-brew/hocco-strawberry-cheesecake.png" alt="Hocco Strawberry Cheesecake Cone" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                            <span class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-rose-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Hocco Cone</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Strawberry Cone</p>
-                                <span class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- 4. Hocco Nutty Chocolate Cone -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0" onclick="openGalleryModal(3)">
-                            <img src="./assets/images/scoop-n-brew/hocco-nutty-cone.png" alt="Hocco Nutty Chocolate Cone" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                            <span class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-amber-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Hocco Cone</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Nutty Cone</p>
-                                <span class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- 5. Triple Neon Arches Bar -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0" onclick="openGalleryModal(4)">
-                            <img src="./assets/images/scoop-n-brew/scoops-of-happiness-banner.jpg" alt="Neon Arches Bar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                            <span class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-blue-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Counter</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Neon Arches Bar</p>
-                                <span class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- 6. Hocco BOSS Bar -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0" onclick="openGalleryModal(5)">
-                            <img src="./assets/images/scoop-n-brew/hocco-boss-bar.png" alt="Hocco BOSS Bar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                            <span class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-stone-800 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Boss Bar</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Hocco Boss Bar</p>
-                                <span class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- 7. Refreshing Iced Mojito Cup -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0" onclick="openGalleryModal(6)">
-                            <img src="./assets/images/scoop-n-brew/iced-mojito-cup.png" alt="Iced Mojito Cup" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                            <span class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-emerald-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Cool Mojito</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Iced Mojito</p>
-                                <span class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- 8. Pink Quotes Wall -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0" onclick="openGalleryModal(7)">
-                            <img src="./assets/images/scoop-n-brew/scoop-n-brew-pink-quotes-wall.png" alt="Pink Quote Wall" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                            <span class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-pink-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Vibes</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Pink Quote Wall</p>
-                                <span class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- 9. Cafe Corner View -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0" onclick="openGalleryModal(8)">
-                            <img src="./assets/images/scoop-n-brew/scoop-n-brew-counter-angle.png" alt="Cozy Cafe Corner" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                            <span class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-blue-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Hangout</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Cozy Corner</p>
-                                <span class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- 10. Student Deals Flyer Poster -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0" onclick="openGalleryModal(9)">
-                            <img src="./assets/images/scoop-n-brew/scoop-n-brew-menu-poster.png" alt="Full Menu & Prices" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                            <span class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-emerald-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Flyer Deals</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Student Deals</p>
-                                <span class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-                        <!-- 1. Ambient Arch Dining Seating -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0" onclick="openGalleryModal(0)">
-                            <img src="./assets/images/scoop-n-brew/scoop-n-brew-dining-arch.png" alt="Backlit Arch Seating" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                            <span class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-pink-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Ambience</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Arch Seating</p>
-                                <span class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- 2. Official Cafe Menu Board -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0" onclick="openGalleryModal(1)">
-                            <img src="./assets/images/scoop-n-brew/pixel-cafe-menu-board.png" alt="Cafe Menu Board" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                            <span class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-pink-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Menu Board</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Cafe Menu</p>
-                                <span class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- 3. Hocco Strawberry Cheesecake Cone -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0" onclick="openGalleryModal(2)">
-                            <img src="./assets/images/scoop-n-brew/hocco-strawberry-cheesecake.png" alt="Hocco Strawberry Cheesecake Cone" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                            <span class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-rose-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Hocco Cone</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Strawberry Cone</p>
-                                <span class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- 4. Hocco Nutty Chocolate Cone -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0" onclick="openGalleryModal(3)">
-                            <img src="./assets/images/scoop-n-brew/hocco-nutty-cone.png" alt="Hocco Nutty Chocolate Cone" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                            <span class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-amber-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Hocco Cone</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Nutty Cone</p>
-                                <span class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- 5. Triple Neon Arches Bar -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0" onclick="openGalleryModal(4)">
-                            <img src="./assets/images/scoop-n-brew/scoops-of-happiness-banner.jpg" alt="Neon Arches Bar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                            <span class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-blue-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Counter</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Neon Arches Bar</p>
-                                <span class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- 6. Hocco BOSS Bar -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0" onclick="openGalleryModal(5)">
-                            <img src="./assets/images/scoop-n-brew/hocco-boss-bar.png" alt="Hocco BOSS Bar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                            <span class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-stone-800 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Boss Bar</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Hocco Boss Bar</p>
-                                <span class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- 7. Refreshing Iced Mojito Cup -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0" onclick="openGalleryModal(6)">
-                            <img src="./assets/images/scoop-n-brew/iced-mojito-cup.png" alt="Iced Mojito Cup" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                            <span class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-emerald-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Cool Mojito</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Iced Mojito</p>
-                                <span class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- 8. Pink Quotes Wall -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0" onclick="openGalleryModal(7)">
-                            <img src="./assets/images/scoop-n-brew/scoop-n-brew-pink-quotes-wall.png" alt="Pink Quote Wall" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                            <span class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-pink-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Vibes</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Pink Quote Wall</p>
-                                <span class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- 9. Cafe Corner View -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0" onclick="openGalleryModal(8)">
-                            <img src="./assets/images/scoop-n-brew/scoop-n-brew-counter-angle.png" alt="Cozy Cafe Corner" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                            <span class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-blue-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Hangout</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Cozy Corner</p>
-                                <span class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- 10. Student Deals Flyer Poster -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0" onclick="openGalleryModal(9)">
-                            <img src="./assets/images/scoop-n-brew/scoop-n-brew-menu-poster.png" alt="Full Menu & Prices" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                            <span class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-emerald-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Flyer Deals</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Student Deals</p>
-                                <span class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-                        </div>
-                        </div>
-                </div>
-
-                <!-- Find Us Map Card -->
-                <div class="bg-white rounded-3xl p-5 border border-slate-100 shadow-sm">
-                    <div class="flex items-center justify-between mb-3">
-                        <div class="flex items-center gap-2">
-                            <span class="text-base text-rose-500">📍</span>
-                            <h3 class="text-sm font-extrabold text-slate-900">Find Us</h3>
-                        </div>
-                        <a id="mapHeaderLink" href="#" data-link="directions" target="_blank"
-                            class="text-xs font-bold text-indigo-600 hover:underline">Open in Maps →</a>
-                    </div>
-
-                    <div class="relative h-44 rounded-2xl overflow-hidden border border-slate-100 shadow-inner">
-                        <iframe id="mapEmbedIframe" src="about:blank" data-link="mapEmbed" width="100%" height="100%"
-                            style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="strict-origin-when-cross-origin">
-                        </iframe>
-
-                        <a id="mapFloatingBtn" href="#" data-link="directions" target="_blank"
-                            class="absolute top-3 left-3 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-lg border border-slate-100 text-xs font-bold text-slate-800 flex items-center gap-1.5 hover:bg-white transition-all">
-                            <span class="text-rose-500">📍</span>
-                            <span>Open in Google Maps</span>
-                        </a>
+            <a id="addressLink" href="#" data-link="directions" target="_blank"
+                class="bg-white rounded-2xl p-3.5 border border-slate-100 flex items-center justify-between shadow-sm hover:border-blue-200 transition-colors">
+                <div class="flex items-center gap-3">
+                    <span class="text-blue-500 text-base">📍</span>
+                    <div>
+                        <span class="text-xs font-bold text-slate-800">Near GEHU Gate 1, Clement Town, Dehradun</span>
+                        <p class="text-[10px] text-slate-400">Tap for Maps &amp; Navigation</p>
                     </div>
                 </div>
+                <span class="text-xs text-[#E11D48] font-bold hover:text-rose-700">Directions →</span>
+            </a>
 
-                <!-- About Us Section -->
-                <div class="bg-white rounded-3xl p-5 border border-slate-100 shadow-sm space-y-3">
+            <div class="bg-white rounded-2xl p-3.5 border border-slate-100 flex items-center justify-between shadow-sm">
+                <div class="flex items-center gap-3">
+                    <span class="text-emerald-500 text-base">💳</span>
+                    <div>
+                        <span class="text-xs font-bold text-slate-800">₹₹ • Moderate & Cozy</span>
+                        <p class="text-[10px] text-slate-400">Cards, UPI & Cash Accepted</p>
+                    </div>
+                </div>
+                <span class="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">Great
+                    Value</span>
+            </div>
+        </div>
+        </section>
+
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- SCREEN 3: GALLERY, MAP, ABOUT & TESTIMONIALS -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <section id="gallerySection" class="px-3 space-y-4">
+
+            <!-- Culinary Gallery Row (Continuous Right-to-Left Moving Row with End Fades) -->
+            <div class="bg-white rounded-3xl p-4 sm:p-5 border border-slate-100 shadow-sm overflow-hidden">
+                <div class="flex items-center justify-between mb-3">
                     <div class="flex items-center gap-2">
-                        <span class="text-base text-amber-500">☕</span>
-                        <h3 id="aboutTitle" class="text-sm font-extrabold text-slate-900">About Scoop n brew
-                        </h3>
+                        <span class="text-base">📸</span>
+                        <h3 class="text-sm font-extrabold text-slate-900">Culinary Gallery</h3>
+                    </div>
+                    <!-- Show All Button at Right Corner -->
+                    <button type="button" onclick="openGalleryModal(0)" id="galleryShowAllBtn"
+                        class="text-xs font-bold text-[#E11D48] hover:text-rose-700 bg-rose-50 hover:bg-rose-100 border border-rose-100 px-3 py-1.5 rounded-full transition-all flex items-center gap-1.5 active:scale-95 shadow-sm"
+                        title="View all photos">
+                        <span>Show All</span>
+                        <span
+                            class="count-badge text-[10px] bg-[#E11D48] text-white px-1.5 py-0.2 rounded-full font-bold">8</span>
+                        <span>→</span>
+                    </button>
+                </div>
+
+                <!-- Moving Row: Fading out at ends & slowly moving leftward -->
+                <div class="relative overflow-hidden gallery-fade-mask -mx-4 sm:-mx-5 px-4 sm:px-5">
+                    <!-- Left Fade Gradient -->
+                    <div
+                        class="pointer-events-none absolute inset-y-0 left-0 w-8 sm:w-14 bg-gradient-to-r from-white via-white/80 to-transparent z-10">
+                    </div>
+                    <!-- Right Fade Gradient -->
+                    <div
+                        class="pointer-events-none absolute inset-y-0 right-0 w-8 sm:w-14 bg-gradient-to-l from-white via-white/80 to-transparent z-10">
                     </div>
 
-                    <p id="aboutDescription" class="text-xs text-slate-600 leading-relaxed">
-                        Scoop n Brew is your ultimate hangout spot near GEHU Gate 1, Clement Town — serving up
-                        Hocco ice cream cones, crispy Nutella waffles, thick milkshakes, loaded fries, and
-                        refreshing mojitos. With vibrant pink interiors, affordable student-friendly pricing,
-                        and a cozy vibe, it's where every snack craving gets satisfied.
-                    </p>
+                    <!-- Continuous Moving Marquee Track (Right to Left) -->
+                    <div id="galleryMarqueeTrack" class="gallery-marquee-track gap-3 py-1">
+                        <!-- 1. Ambient Arch Dining Seating -->
+                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
+                            onclick="openGalleryModal(0)">
+                            <img src="./assets/images/scoop-n-brew/scoop-n-brew-dining-arch.png"
+                                alt="Backlit Arch Seating"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
+                            </div>
+                            <span
+                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-pink-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Ambience</span>
+                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
+                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Arch
+                                    Seating</p>
+                                <span
+                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
+                                    <span>Tap to view</span> <span>🔍</span>
+                                </span>
+                            </div>
+                        </div>
 
-                    <div id="aboutHighlightsGrid"
-                        class="grid grid-cols-2 gap-2 pt-1 text-[11px] font-semibold text-slate-700">
-                        <div class="flex items-center gap-2 p-2 rounded-xl bg-slate-50">
-                            <span>✨</span> Premium Hocco Ice Cream
+                        <!-- 2. Official Cafe Menu Board -->
+                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
+                            onclick="openGalleryModal(1)">
+                            <img src="./assets/images/scoop-n-brew/pixel-cafe-menu-board.png" alt="Cafe Menu Board"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
+                            </div>
+                            <span
+                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-pink-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Menu
+                                Board</span>
+                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
+                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Cafe Menu
+                                </p>
+                                <span
+                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
+                                    <span>Tap to view</span> <span>🔍</span>
+                                </span>
+                            </div>
                         </div>
-                        <div class="flex items-center gap-2 p-2 rounded-xl bg-slate-50">
-                            <span>☕</span> Crispy Fresh Waffles
+
+                        <!-- 3. Hocco Strawberry Cheesecake Cone -->
+                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
+                            onclick="openGalleryModal(2)">
+                            <img src="./assets/images/scoop-n-brew/hocco-strawberry-cheesecake.png"
+                                alt="Hocco Strawberry Cheesecake Cone"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
+                            </div>
+                            <span
+                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-rose-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Hocco
+                                Cone</span>
+                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
+                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Strawberry
+                                    Cone</p>
+                                <span
+                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
+                                    <span>Tap to view</span> <span>🔍</span>
+                                </span>
+                            </div>
                         </div>
-                        <div class="flex items-center gap-2 p-2 rounded-xl bg-slate-50">
-                            <span>🌿</span> Eggless Options Available
+
+                        <!-- 4. Hocco Nutty Chocolate Cone -->
+                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
+                            onclick="openGalleryModal(3)">
+                            <img src="./assets/images/scoop-n-brew/hocco-nutty-cone.png"
+                                alt="Hocco Nutty Chocolate Cone"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
+                            </div>
+                            <span
+                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-amber-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Hocco
+                                Cone</span>
+                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
+                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Nutty Cone
+                                </p>
+                                <span
+                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
+                                    <span>Tap to view</span> <span>🔍</span>
+                                </span>
+                            </div>
                         </div>
-                        <div class="flex items-center gap-2 p-2 rounded-xl bg-slate-50">
-                            <span>🐾</span> Student-Friendly Prices
+
+                        <!-- 5. Triple Neon Arches Bar -->
+                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
+                            onclick="openGalleryModal(4)">
+                            <img src="./assets/images/scoop-n-brew/scoops-of-happiness-banner.jpg" alt="Neon Arches Bar"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
+                            </div>
+                            <span
+                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-blue-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Counter</span>
+                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
+                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Neon
+                                    Arches Bar</p>
+                                <span
+                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
+                                    <span>Tap to view</span> <span>🔍</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- 6. Hocco BOSS Bar -->
+                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
+                            onclick="openGalleryModal(5)">
+                            <img src="./assets/images/scoop-n-brew/hocco-boss-bar.png" alt="Hocco BOSS Bar"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
+                            </div>
+                            <span
+                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-stone-800 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Boss
+                                Bar</span>
+                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
+                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Hocco Boss
+                                    Bar</p>
+                                <span
+                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
+                                    <span>Tap to view</span> <span>🔍</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- 7. Refreshing Iced Mojito Cup -->
+                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
+                            onclick="openGalleryModal(6)">
+                            <img src="./assets/images/scoop-n-brew/iced-mojito-cup.png" alt="Iced Mojito Cup"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
+                            </div>
+                            <span
+                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-emerald-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Cool
+                                Mojito</span>
+                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
+                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Iced
+                                    Mojito</p>
+                                <span
+                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
+                                    <span>Tap to view</span> <span>🔍</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- 8. Pink Quotes Wall -->
+                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
+                            onclick="openGalleryModal(7)">
+                            <img src="./assets/images/scoop-n-brew/scoop-n-brew-pink-quotes-wall.png"
+                                alt="Pink Quote Wall"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
+                            </div>
+                            <span
+                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-pink-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Vibes</span>
+                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
+                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Pink Quote
+                                    Wall</p>
+                                <span
+                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
+                                    <span>Tap to view</span> <span>🔍</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- 9. Cafe Corner View -->
+                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
+                            onclick="openGalleryModal(8)">
+                            <img src="./assets/images/scoop-n-brew/scoop-n-brew-counter-angle.png"
+                                alt="Cozy Cafe Corner"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
+                            </div>
+                            <span
+                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-blue-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Hangout</span>
+                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
+                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Cozy
+                                    Corner</p>
+                                <span
+                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
+                                    <span>Tap to view</span> <span>🔍</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- 10. Student Deals Flyer Poster -->
+                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
+                            onclick="openGalleryModal(9)">
+                            <img src="./assets/images/scoop-n-brew/scoop-n-brew-menu-poster.png"
+                                alt="Full Menu & Prices"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
+                            </div>
+                            <span
+                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-emerald-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Flyer
+                                Deals</span>
+                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
+                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Student
+                                    Deals</p>
+                                <span
+                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
+                                    <span>Tap to view</span> <span>🔍</span>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- 1. Ambient Arch Dining Seating -->
+                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
+                            onclick="openGalleryModal(0)">
+                            <img src="./assets/images/scoop-n-brew/scoop-n-brew-dining-arch.png"
+                                alt="Backlit Arch Seating"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
+                            </div>
+                            <span
+                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-pink-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Ambience</span>
+                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
+                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Arch
+                                    Seating</p>
+                                <span
+                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
+                                    <span>Tap to view</span> <span>🔍</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- 2. Official Cafe Menu Board -->
+                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
+                            onclick="openGalleryModal(1)">
+                            <img src="./assets/images/scoop-n-brew/pixel-cafe-menu-board.png" alt="Cafe Menu Board"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
+                            </div>
+                            <span
+                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-pink-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Menu
+                                Board</span>
+                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
+                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Cafe Menu
+                                </p>
+                                <span
+                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
+                                    <span>Tap to view</span> <span>🔍</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- 3. Hocco Strawberry Cheesecake Cone -->
+                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
+                            onclick="openGalleryModal(2)">
+                            <img src="./assets/images/scoop-n-brew/hocco-strawberry-cheesecake.png"
+                                alt="Hocco Strawberry Cheesecake Cone"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
+                            </div>
+                            <span
+                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-rose-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Hocco
+                                Cone</span>
+                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
+                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Strawberry
+                                    Cone</p>
+                                <span
+                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
+                                    <span>Tap to view</span> <span>🔍</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- 4. Hocco Nutty Chocolate Cone -->
+                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
+                            onclick="openGalleryModal(3)">
+                            <img src="./assets/images/scoop-n-brew/hocco-nutty-cone.png"
+                                alt="Hocco Nutty Chocolate Cone"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
+                            </div>
+                            <span
+                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-amber-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Hocco
+                                Cone</span>
+                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
+                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Nutty Cone
+                                </p>
+                                <span
+                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
+                                    <span>Tap to view</span> <span>🔍</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- 5. Triple Neon Arches Bar -->
+                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
+                            onclick="openGalleryModal(4)">
+                            <img src="./assets/images/scoop-n-brew/scoops-of-happiness-banner.jpg" alt="Neon Arches Bar"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
+                            </div>
+                            <span
+                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-blue-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Counter</span>
+                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
+                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Neon
+                                    Arches Bar</p>
+                                <span
+                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
+                                    <span>Tap to view</span> <span>🔍</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- 6. Hocco BOSS Bar -->
+                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
+                            onclick="openGalleryModal(5)">
+                            <img src="./assets/images/scoop-n-brew/hocco-boss-bar.png" alt="Hocco BOSS Bar"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
+                            </div>
+                            <span
+                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-stone-800 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Boss
+                                Bar</span>
+                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
+                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Hocco Boss
+                                    Bar</p>
+                                <span
+                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
+                                    <span>Tap to view</span> <span>🔍</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- 7. Refreshing Iced Mojito Cup -->
+                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
+                            onclick="openGalleryModal(6)">
+                            <img src="./assets/images/scoop-n-brew/iced-mojito-cup.png" alt="Iced Mojito Cup"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
+                            </div>
+                            <span
+                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-emerald-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Cool
+                                Mojito</span>
+                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
+                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Iced
+                                    Mojito</p>
+                                <span
+                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
+                                    <span>Tap to view</span> <span>🔍</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- 8. Pink Quotes Wall -->
+                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
+                            onclick="openGalleryModal(7)">
+                            <img src="./assets/images/scoop-n-brew/scoop-n-brew-pink-quotes-wall.png"
+                                alt="Pink Quote Wall"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
+                            </div>
+                            <span
+                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-pink-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Vibes</span>
+                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
+                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Pink Quote
+                                    Wall</p>
+                                <span
+                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
+                                    <span>Tap to view</span> <span>🔍</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- 9. Cafe Corner View -->
+                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
+                            onclick="openGalleryModal(8)">
+                            <img src="./assets/images/scoop-n-brew/scoop-n-brew-counter-angle.png"
+                                alt="Cozy Cafe Corner"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
+                            </div>
+                            <span
+                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-blue-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Hangout</span>
+                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
+                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Cozy
+                                    Corner</p>
+                                <span
+                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
+                                    <span>Tap to view</span> <span>🔍</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- 10. Student Deals Flyer Poster -->
+                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
+                            onclick="openGalleryModal(9)">
+                            <img src="./assets/images/scoop-n-brew/scoop-n-brew-menu-poster.png"
+                                alt="Full Menu & Prices"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
+                            </div>
+                            <span
+                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-emerald-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Flyer
+                                Deals</span>
+                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
+                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Student
+                                    Deals</p>
+                                <span
+                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
+                                    <span>Tap to view</span> <span>🔍</span>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Why People Love Us (Customer Testimonials) -->
-                <div class="bg-white rounded-3xl p-5 border border-slate-100 shadow-sm space-y-3">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="text-base text-rose-500">❤️</span>
-                            <h3 class="text-sm font-extrabold text-slate-900">Why People Love Us</h3>
-                        </div>
-                        <span class="text-xs font-bold text-slate-400">4.2 ★ Rating</span>
+            <!-- Find Us Map Card -->
+            <div class="bg-white rounded-3xl p-5 border border-slate-100 shadow-sm">
+                <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center gap-2">
+                        <span class="text-base text-rose-500">📍</span>
+                        <h3 class="text-sm font-extrabold text-slate-900">Find Us</h3>
                     </div>
-
-                    <div id="testimonialsContainer" class="space-y-2.5">
-                        <div class="p-3 rounded-2xl bg-slate-50 border border-slate-100/80">
-                            <div class="flex items-center justify-between mb-1">
-                                <div class="flex items-center gap-2">
-                                    <div
-                                        class="w-6 h-6 rounded-full bg-blue-600 text-white text-[10px] font-bold flex items-center justify-center">
-                                        R
-                                    </div>
-                                    <span class="text-xs font-bold text-slate-800">Rhea Sen</span>
-                                </div>
-                                <span class="text-[10px] text-slate-400">2 days ago</span>
-                            </div>
-                            <div class="text-amber-400 text-[10px] mb-1">★★★★★</div>
-                            <p class="text-[11px] text-slate-600 leading-snug">
-                                "The Hocco Nutty Chocolate cone was incredible — crunchy and chocolatey! Vibrant pink walls and
-                                sweetest baristas."
-                            </p>
-                        </div>
-
-                        <div class="p-3 rounded-2xl bg-slate-50 border border-slate-100/80">
-                            <div class="flex items-center justify-between mb-1">
-                                <div class="flex items-center gap-2">
-                                    <div
-                                        class="w-6 h-6 rounded-full bg-purple-600 text-white text-[10px] font-bold flex items-center justify-center">
-                                        K
-                                    </div>
-                                    <span class="text-xs font-bold text-slate-800">Karan Patel</span>
-                                </div>
-                                <span class="text-[10px] text-slate-400">1 week ago</span>
-                            </div>
-                            <div class="text-amber-400 text-[10px] mb-1">★★★★★</div>
-                            <p class="text-[11px] text-slate-600 leading-snug">
-                                "Nutella Waffle was crispy on the outside and gooey inside. Paired with their cold coffee it was
-                                an absolute 10/10!"
-                            </p>
-                        </div>
-                    </div>
+                    <a id="mapHeaderLink" href="#" data-link="directions" target="_blank"
+                        class="text-xs font-bold text-indigo-600 hover:underline">Open in Maps →</a>
                 </div>
 
-                <!-- ═══════════════════════════════════════════════════════════════ -->
-                <!-- ONESCAN BRAND MARKETING & CONTACT SECTION                     -->
-                <!-- ═══════════════════════════════════════════════════════════════ -->
-                <div class="p-4 pt-5 pb-3 flex flex-col items-center justify-center text-center">
-                    <!-- Marketing Tagline Pill -->
-                    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50 border border-indigo-100/80 text-indigo-700 text-[11px] font-bold mb-3 shadow-2xs">
-                        <span class="w-1.5 h-1.5 rounded-full bg-indigo-600 animate-pulse"></span>
-                        <span>Get <strong class="text-indigo-600 font-black">OneScan</strong> for your business</span>
-                    </div>
+                <div class="relative h-44 rounded-2xl overflow-hidden border border-slate-100 shadow-inner">
+                    <iframe id="mapEmbedIframe" src="about:blank" data-link="mapEmbed" width="100%" height="100%"
+                        style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin">
+                    </iframe>
 
-                    <!-- Profile Avatar + Instagram + Email in front of it -->
-                    <div class="inline-flex items-center gap-2.5 sm:gap-3 bg-white p-2 px-3 sm:px-4 rounded-2xl border border-slate-200/90 shadow-sm max-w-full">
-                        <!-- Small Circular OneScan Profile Avatar -->
-                        <a href="https://www.instagram.com/onescan360" target="_blank" rel="noopener noreferrer"
-                            class="relative group flex-shrink-0" title="OneScan — Smart QR &amp; AI Solutions">
-                            <div class="w-10 h-10 rounded-full p-[2px] bg-gradient-to-tr from-[#4F46E5] via-[#7C3AED] to-[#EC4899] shadow-xs group-hover:scale-105 transition-all">
-                                <img src="./assets/images/onescan-logo.jpg" alt="OneScan"
-                                    class="w-full h-full rounded-full object-cover bg-white">
-                            </div>
-                        </a>
-
-                        <!-- In Front of Avatar: Instagram & Email Contact -->
-                        <div class="flex items-center gap-2 sm:gap-2.5 flex-wrap">
-                            <!-- Instagram Contact -->
-                            <a href="https://www.instagram.com/onescan360" target="_blank" rel="noopener noreferrer"
-                                class="h-9 px-3 rounded-full bg-slate-50 hover:bg-pink-50 border border-slate-200/80 hover:border-pink-300 flex items-center gap-1.5 text-slate-700 hover:text-pink-600 transition-all group active:scale-95"
-                                title="Follow OneScan on Instagram (@onescan360)">
-                                <svg class="w-3.5 h-3.5 text-pink-600 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
-                                </svg>
-                                <span class="text-xs font-bold text-slate-800 group-hover:text-pink-600">@onescan360</span>
-                            </a>
-
-                            <!-- Email Contact -->
-                            <a href="mailto:onescan360@gmail.com"
-                                class="h-9 px-3 rounded-full bg-slate-50 hover:bg-indigo-50 border border-slate-200/80 hover:border-indigo-300 flex items-center gap-1.5 text-slate-700 hover:text-indigo-600 transition-all group active:scale-95"
-                                title="Email OneScan (onescan360@gmail.com)">
-                                <svg class="w-3.5 h-3.5 text-indigo-600 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                                </svg>
-                                <span class="text-xs font-bold text-slate-800 group-hover:text-indigo-600">Email</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Direct Email address text link for quick copy / read -->
-                    <a href="mailto:onescan360@gmail.com" class="text-[11px] font-medium text-slate-500 hover:text-indigo-600 transition-colors mt-2 flex items-center gap-1">
-                        <span>Contact:</span>
-                        <span class="font-semibold text-slate-700 underline decoration-slate-300 hover:text-indigo-600">onescan360@gmail.com</span>
+                    <a id="mapFloatingBtn" href="#" data-link="directions" target="_blank"
+                        class="absolute top-3 left-3 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-lg border border-slate-100 text-xs font-bold text-slate-800 flex items-center gap-1.5 hover:bg-white transition-all">
+                        <span class="text-rose-500">📍</span>
+                        <span>Open in Google Maps</span>
                     </a>
                 </div>
+            </div>
 
-                <!-- Footer -->
-                <div class="text-center pt-2 pb-6 text-slate-400 text-[10px] space-y-1">
-                    <p>Powered by <a href="https://www.instagram.com/onescan360" id="footerPoweredBy" target="_blank" rel="noopener noreferrer" class="text-slate-700 font-bold hover:text-indigo-600 transition-colors">ONESCAN Reviews</a>
-                        <span id="footerPoweredBySub">• AI Experience Engine</span>
-                    </p>
-                    <p id="footerCopyright">© 2026 Scoop n Brew. All rights reserved.</p>
+            <!-- About Us Section -->
+            <div class="bg-white rounded-3xl p-5 border border-slate-100 shadow-sm space-y-3">
+                <div class="flex items-center gap-2">
+                    <span class="text-base text-amber-500">☕</span>
+                    <h3 id="aboutTitle" class="text-sm font-extrabold text-slate-900">About Scoop n brew
+                    </h3>
                 </div>
 
-            </section>
+                <p id="aboutDescription" class="text-xs text-slate-600 leading-relaxed">
+                    Scoop n Brew is your ultimate hangout spot near GEHU Gate 1, Clement Town — serving up
+                    Hocco ice cream cones, crispy Nutella waffles, thick milkshakes, loaded fries, and
+                    refreshing mojitos. With vibrant pink interiors, affordable student-friendly pricing,
+                    and a cozy vibe, it's where every snack craving gets satisfied.
+                </p>
+
+                <div id="aboutHighlightsGrid"
+                    class="grid grid-cols-2 gap-2 pt-1 text-[11px] font-semibold text-slate-700">
+                    <div class="flex items-center gap-2 p-2 rounded-xl bg-slate-50">
+                        <span>✨</span> Premium Hocco Ice Cream
+                    </div>
+                    <div class="flex items-center gap-2 p-2 rounded-xl bg-slate-50">
+                        <span>☕</span> Crispy Fresh Waffles
+                    </div>
+                    <div class="flex items-center gap-2 p-2 rounded-xl bg-slate-50">
+                        <span>🌿</span> Eggless Options Available
+                    </div>
+                    <div class="flex items-center gap-2 p-2 rounded-xl bg-slate-50">
+                        <span>🐾</span> Student-Friendly Prices
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why People Love Us (Customer Testimonials) -->
+            <div class="bg-white rounded-3xl p-5 border border-slate-100 shadow-sm space-y-3">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <span class="text-base text-rose-500">❤️</span>
+                        <h3 class="text-sm font-extrabold text-slate-900">Why People Love Us</h3>
+                    </div>
+                    <span class="text-xs font-bold text-slate-400">4.2 ★ Rating</span>
+                </div>
+
+                <div id="testimonialsContainer" class="space-y-2.5">
+                    <div class="p-3 rounded-2xl bg-slate-50 border border-slate-100/80">
+                        <div class="flex items-center justify-between mb-1">
+                            <div class="flex items-center gap-2">
+                                <div
+                                    class="w-6 h-6 rounded-full bg-blue-600 text-white text-[10px] font-bold flex items-center justify-center">
+                                    R
+                                </div>
+                                <span class="text-xs font-bold text-slate-800">Rhea Sen</span>
+                            </div>
+                            <span class="text-[10px] text-slate-400">2 days ago</span>
+                        </div>
+                        <div class="text-amber-400 text-[10px] mb-1">★★★★★</div>
+                        <p class="text-[11px] text-slate-600 leading-snug">
+                            "The Hocco Nutty Chocolate cone was incredible — crunchy and chocolatey! Vibrant pink walls
+                            and
+                            sweetest baristas."
+                        </p>
+                    </div>
+
+                    <div class="p-3 rounded-2xl bg-slate-50 border border-slate-100/80">
+                        <div class="flex items-center justify-between mb-1">
+                            <div class="flex items-center gap-2">
+                                <div
+                                    class="w-6 h-6 rounded-full bg-purple-600 text-white text-[10px] font-bold flex items-center justify-center">
+                                    K
+                                </div>
+                                <span class="text-xs font-bold text-slate-800">Karan Patel</span>
+                            </div>
+                            <span class="text-[10px] text-slate-400">1 week ago</span>
+                        </div>
+                        <div class="text-amber-400 text-[10px] mb-1">★★★★★</div>
+                        <p class="text-[11px] text-slate-600 leading-snug">
+                            "Nutella Waffle was crispy on the outside and gooey inside. Paired with their cold coffee it
+                            was
+                            an absolute 10/10!"
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══════════════════════════════════════════════════════════════ -->
+            <!-- ONESCAN BRAND MARKETING & CONTACT SECTION                     -->
+            <!-- ═══════════════════════════════════════════════════════════════ -->
+            <div class="p-4 pt-5 pb-3 flex flex-col items-center justify-center text-center">
+                <!-- Marketing Tagline Pill -->
+                <div
+                    class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-rose-50 via-pink-50 to-rose-50 border border-rose-100/80 text-[#E11D48] text-[11px] font-bold mb-3 shadow-2xs">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#E11D48] animate-pulse"></span>
+                    <span>Get <strong class="text-[#E11D48] font-black">OneScan</strong> for your business</span>
+                </div>
+
+                <!-- Profile Avatar + Instagram + Email in front of it -->
+                <div
+                    class="inline-flex items-center gap-2.5 sm:gap-3 bg-white p-2 px-3 sm:px-4 rounded-2xl border border-slate-200/90 shadow-sm max-w-full">
+                    <!-- Small Circular OneScan Profile Avatar -->
+                    <a href="https://www.instagram.com/onescan360" target="_blank" rel="noopener noreferrer"
+                        class="relative group flex-shrink-0" title="OneScan — Smart QR &amp; AI Solutions">
+                        <div
+                            class="w-10 h-10 rounded-full p-[2px] bg-gradient-to-tr from-[#4F46E5] via-[#7C3AED] to-[#EC4899] shadow-xs group-hover:scale-105 transition-all">
+                            <img src="./assets/images/onescan-logo.jpg" alt="OneScan"
+                                class="w-full h-full rounded-full object-cover bg-white">
+                        </div>
+                    </a>
+
+                    <!-- In Front of Avatar: Instagram & Email Contact -->
+                    <div class="flex items-center gap-2 sm:gap-2.5 flex-wrap">
+                        <!-- Instagram Contact -->
+                        <a href="https://www.instagram.com/onescan360" target="_blank" rel="noopener noreferrer"
+                            class="h-9 px-3 rounded-full bg-slate-50 hover:bg-pink-50 border border-slate-200/80 hover:border-pink-300 flex items-center gap-1.5 text-slate-700 hover:text-pink-600 transition-all group active:scale-95"
+                            title="Follow OneScan on Instagram (@onescan360)">
+                            <svg class="w-3.5 h-3.5 text-pink-600 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                            </svg>
+                            <span class="text-xs font-bold text-slate-800 group-hover:text-pink-600">@onescan360</span>
+                        </a>
+
+                        <!-- Email Contact -->
+                        <a href="mailto:onescan360@gmail.com"
+                            class="h-9 px-3 rounded-full bg-slate-50 hover:bg-indigo-50 border border-slate-200/80 hover:border-indigo-300 flex items-center gap-1.5 text-slate-700 hover:text-indigo-600 transition-all group active:scale-95"
+                            title="Email OneScan (onescan360@gmail.com)">
+                            <svg class="w-3.5 h-3.5 text-indigo-600 flex-shrink-0" fill="none" stroke="currentColor"
+                                stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            <span class="text-xs font-bold text-slate-800 group-hover:text-indigo-600">Email</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Direct Email address text link for quick copy / read -->
+                <a href="mailto:onescan360@gmail.com"
+                    class="text-[11px] font-medium text-slate-500 hover:text-indigo-600 transition-colors mt-2 flex items-center gap-1">
+                    <span>Contact:</span>
+                    <span
+                        class="font-semibold text-slate-700 underline decoration-slate-300 hover:text-indigo-600">onescan360@gmail.com</span>
+                </a>
+            </div>
+
+            <!-- Footer -->
+            <div class="text-center pt-2 pb-6 text-slate-400 text-[10px] space-y-1">
+                <p>Powered by <a href="https://www.instagram.com/onescan360" id="footerPoweredBy" target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-slate-700 font-bold hover:text-indigo-600 transition-colors">ONESCAN Reviews</a>
+                    <span id="footerPoweredBySub">• AI Experience Engine</span>
+                </p>
+                <p id="footerCopyright">© 2026 Scoop n Brew. All rights reserved.</p>
+            </div>
+
+        </section>
         </div>
 
     </main>
@@ -1283,10 +1580,12 @@
     <!-- ═══════════════════════════════════════════════════════════════ -->
     <div id="welcomeModal" class="fixed inset-0 z-[60] flex items-end sm:items-center justify-center hidden">
         <!-- Backdrop -->
-        <div class="absolute inset-0 bg-black/50 backdrop-blur-sm welcome-modal-overlay" onclick="skipWelcomeModal()"></div>
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-sm welcome-modal-overlay" onclick="skipWelcomeModal()">
+        </div>
 
         <!-- Modal Card -->
-        <div class="relative w-full max-w-[420px] bg-white rounded-t-[32px] sm:rounded-[32px] p-6 pb-8 shadow-2xl welcome-modal-card z-10 max-h-[90vh] overflow-y-auto">
+        <div
+            class="relative w-full max-w-[420px] bg-white rounded-t-[32px] sm:rounded-[32px] p-6 pb-8 shadow-2xl welcome-modal-card z-10 max-h-[90vh] overflow-y-auto">
 
             <!-- Close Button -->
             <button type="button" onclick="skipWelcomeModal()"
@@ -1297,100 +1596,157 @@
 
             <!-- Heart Icon -->
             <div class="flex justify-center mb-2">
-                <img src="./assets/images/scoop-n-brew/heart-radiance.png" alt="❤️" class="heart-bounce w-12 h-12 object-contain">
+                <img src="./assets/images/scoop-n-brew/heart-radiance.png" alt="❤️"
+                    class="heart-bounce w-12 h-12 object-contain">
             </div>
 
             <!-- Script Heading -->
-            <p class="text-center font-script text-2xl text-indigo-500 mb-3">Your experience matters</p>
+            <p class="text-center font-script text-2xl text-[#E11D48] mb-3">Your experience matters</p>
 
             <!-- Main Question -->
-            <h2 id="welcomeModalHeading" class="text-center text-xl sm:text-[22px] font-extrabold text-slate-900 leading-snug mb-1">
+            <h2 id="welcomeModalHeading"
+                class="text-center text-xl sm:text-[22px] font-extrabold text-slate-900 leading-snug mb-1">
                 What did you treat yourself to<br>at Scoop n brew?
             </h2>
             <p class="text-center text-xs text-slate-400 font-medium mb-5">Choose one or more items</p>
 
-                        <!-- Food Item Grid (Real Menu Items from Scoop n Brew Flyer) -->
-                        <!-- Food Item Grid (100% Real Menu Items) -->
+            <!-- Food Item Grid (Real Menu Items from Scoop n Brew Flyer) -->
+            <!-- Food Item Grid (100% Real Menu Items) -->
             <div class="grid grid-cols-3 gap-x-4 gap-y-5 mb-6" id="welcomeFoodGrid">
                 <!-- Waffles -->
-                <button type="button" class="modal-food-item flex flex-col items-center gap-1.5" onclick="toggleWelcomeItem(this, 'WAFFLES', 'WAFFLES')">
-                    <div class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
-                        <img src="./assets/images/scoop-n-brew/pixel-cafe-menu-board.png" alt="Waffles" class="w-full h-full object-cover">
-                        <div class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-[#DB2777] text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">✓</div>
+                <button type="button" class="modal-food-item flex flex-col items-center gap-1.5"
+                    onclick="toggleWelcomeItem(this, 'WAFFLES', 'WAFFLES')">
+                    <div
+                        class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
+                        <img src="./assets/images/scoop-n-brew/pixel-cafe-menu-board.png" alt="Waffles"
+                            class="w-full h-full object-cover">
+                        <div
+                            class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-[#DB2777] text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">
+                            ✓</div>
                     </div>
-                    <span class="text-[11px] font-bold text-slate-700 text-center leading-tight">Nutella Waffle<br><span class="text-[10px] text-pink-600 font-extrabold">₹99</span></span>
+                    <span class="text-[11px] font-bold text-slate-700 text-center leading-tight">Nutella Waffle<br><span
+                            class="text-[10px] text-pink-600 font-extrabold">₹99</span></span>
                 </button>
 
                 <!-- Mini Pancakes -->
-                <button type="button" class="modal-food-item flex flex-col items-center gap-1.5" onclick="toggleWelcomeItem(this, 'MINI_PANCAKES', 'MINI_PANCAKES')">
-                    <div class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
-                        <img src="./assets/images/scoop-n-brew/pixel-cafe-menu-board.png" alt="Mini Pancakes" class="w-full h-full object-cover">
-                        <div class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-[#DB2777] text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">✓</div>
+                <button type="button" class="modal-food-item flex flex-col items-center gap-1.5"
+                    onclick="toggleWelcomeItem(this, 'MINI_PANCAKES', 'MINI_PANCAKES')">
+                    <div
+                        class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
+                        <img src="./assets/images/scoop-n-brew/pixel-cafe-menu-board.png" alt="Mini Pancakes"
+                            class="w-full h-full object-cover">
+                        <div
+                            class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-[#DB2777] text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">
+                            ✓</div>
                     </div>
-                    <span class="text-[11px] font-bold text-slate-700 text-center leading-tight">Mini Pancakes<br><span class="text-[10px] text-pink-600 font-extrabold">₹59</span></span>
+                    <span class="text-[11px] font-bold text-slate-700 text-center leading-tight">Mini Pancakes<br><span
+                            class="text-[10px] text-pink-600 font-extrabold">₹59</span></span>
                 </button>
 
                 <!-- Hocco Ice Cream -->
-                <button type="button" class="modal-food-item flex flex-col items-center gap-1.5" onclick="toggleWelcomeItem(this, 'HOCCO', 'HOCCO')">
-                    <div class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
-                        <img src="./assets/images/scoop-n-brew/hocco-nutty-cone.png" alt="Hocco Ice Cream" class="w-full h-full object-cover">
-                        <div class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-[#DB2777] text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">✓</div>
+                <button type="button" class="modal-food-item flex flex-col items-center gap-1.5"
+                    onclick="toggleWelcomeItem(this, 'HOCCO', 'HOCCO')">
+                    <div
+                        class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
+                        <img src="./assets/images/scoop-n-brew/hocco-nutty-cone.png" alt="Hocco Ice Cream"
+                            class="w-full h-full object-cover">
+                        <div
+                            class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-[#DB2777] text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">
+                            ✓</div>
                     </div>
-                    <span class="text-[11px] font-bold text-slate-700 text-center leading-tight">Hocco Cone<br><span class="text-[10px] text-pink-600 font-extrabold">Nutty/Berry</span></span>
+                    <span class="text-[11px] font-bold text-slate-700 text-center leading-tight">Hocco Cone<br><span
+                            class="text-[10px] text-pink-600 font-extrabold">Nutty/Berry</span></span>
                 </button>
 
                 <!-- Oreo & Thick Shakes -->
-                <button type="button" class="modal-food-item flex flex-col items-center gap-1.5" onclick="toggleWelcomeItem(this, 'SHAKES', 'SHAKES')">
-                    <div class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
-                        <img src="./assets/images/scoop-n-brew/iced-mojito-cup.png" alt="Thick Shakes" class="w-full h-full object-cover">
-                        <div class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-[#DB2777] text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">✓</div>
+                <button type="button" class="modal-food-item flex flex-col items-center gap-1.5"
+                    onclick="toggleWelcomeItem(this, 'SHAKES', 'SHAKES')">
+                    <div
+                        class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
+                        <img src="./assets/images/scoop-n-brew/iced-mojito-cup.png" alt="Thick Shakes"
+                            class="w-full h-full object-cover">
+                        <div
+                            class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-[#DB2777] text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">
+                            ✓</div>
                     </div>
-                    <span class="text-[11px] font-bold text-slate-700 text-center leading-tight">Oreo Shake<br><span class="text-[10px] text-pink-600 font-extrabold">₹79</span></span>
+                    <span class="text-[11px] font-bold text-slate-700 text-center leading-tight">Oreo Shake<br><span
+                            class="text-[10px] text-pink-600 font-extrabold">₹79</span></span>
                 </button>
 
                 <!-- Loaded & Peri Fries -->
-                <button type="button" class="modal-food-item flex flex-col items-center gap-1.5" onclick="toggleWelcomeItem(this, 'FRIES', 'FRIES')">
-                    <div class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
-                        <img src="./assets/images/scoop-n-brew/scoop-n-brew-counter-angle.png" alt="Loaded Fries" class="w-full h-full object-cover">
-                        <div class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-[#DB2777] text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">✓</div>
+                <button type="button" class="modal-food-item flex flex-col items-center gap-1.5"
+                    onclick="toggleWelcomeItem(this, 'FRIES', 'FRIES')">
+                    <div
+                        class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
+                        <img src="./assets/images/scoop-n-brew/scoop-n-brew-counter-angle.png" alt="Loaded Fries"
+                            class="w-full h-full object-cover">
+                        <div
+                            class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-[#DB2777] text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">
+                            ✓</div>
                     </div>
-                    <span class="text-[11px] font-bold text-slate-700 text-center leading-tight">Loaded Fries<br><span class="text-[10px] text-pink-600 font-extrabold">₹79</span></span>
+                    <span class="text-[11px] font-bold text-slate-700 text-center leading-tight">Loaded Fries<br><span
+                            class="text-[10px] text-pink-600 font-extrabold">₹79</span></span>
                 </button>
 
                 <!-- Veg Burger & Sandwich -->
-                <button type="button" class="modal-food-item flex flex-col items-center gap-1.5" onclick="toggleWelcomeItem(this, 'BURGERS_SANDWICHES', 'BURGERS_SANDWICHES')">
-                    <div class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
-                        <img src="./assets/images/scoop-n-brew/scoop-n-brew-pink-quotes-wall.png" alt="Burger & Sandwich" class="w-full h-full object-cover">
-                        <div class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-[#DB2777] text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">✓</div>
+                <button type="button" class="modal-food-item flex flex-col items-center gap-1.5"
+                    onclick="toggleWelcomeItem(this, 'BURGERS_SANDWICHES', 'BURGERS_SANDWICHES')">
+                    <div
+                        class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
+                        <img src="./assets/images/scoop-n-brew/scoop-n-brew-pink-quotes-wall.png"
+                            alt="Burger & Sandwich" class="w-full h-full object-cover">
+                        <div
+                            class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-[#DB2777] text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">
+                            ✓</div>
                     </div>
-                    <span class="text-[11px] font-bold text-slate-700 text-center leading-tight">Burger/Sandwich<br><span class="text-[10px] text-pink-600 font-extrabold">₹69-79</span></span>
+                    <span
+                        class="text-[11px] font-bold text-slate-700 text-center leading-tight">Burger/Sandwich<br><span
+                            class="text-[10px] text-pink-600 font-extrabold">₹69-79</span></span>
                 </button>
 
                 <!-- Mojitos & Iced Teas -->
-                <button type="button" class="modal-food-item flex flex-col items-center gap-1.5" onclick="toggleWelcomeItem(this, 'MOJITOS', 'MOJITOS')">
-                    <div class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
-                        <img src="./assets/images/scoop-n-brew/iced-mojito-cup.png" alt="Iced Mojito" class="w-full h-full object-cover">
-                        <div class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-[#DB2777] text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">✓</div>
+                <button type="button" class="modal-food-item flex flex-col items-center gap-1.5"
+                    onclick="toggleWelcomeItem(this, 'MOJITOS', 'MOJITOS')">
+                    <div
+                        class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
+                        <img src="./assets/images/scoop-n-brew/iced-mojito-cup.png" alt="Iced Mojito"
+                            class="w-full h-full object-cover">
+                        <div
+                            class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-[#DB2777] text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">
+                            ✓</div>
                     </div>
-                    <span class="text-[11px] font-bold text-slate-700 text-center leading-tight">Cool Mojito<br><span class="text-[10px] text-pink-600 font-extrabold">₹69</span></span>
+                    <span class="text-[11px] font-bold text-slate-700 text-center leading-tight">Cool Mojito<br><span
+                            class="text-[10px] text-pink-600 font-extrabold">₹69</span></span>
                 </button>
 
                 <!-- Hot Chai & Coffee -->
-                <button type="button" class="modal-food-item flex flex-col items-center gap-1.5" onclick="toggleWelcomeItem(this, 'COFFEE_CHAI', 'COFFEE_CHAI')">
-                    <div class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
-                        <img src="./assets/images/scoop-n-brew/scoop-n-brew-menu-poster.png" alt="Coffee & Chai" class="w-full h-full object-cover">
-                        <div class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-[#DB2777] text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">✓</div>
+                <button type="button" class="modal-food-item flex flex-col items-center gap-1.5"
+                    onclick="toggleWelcomeItem(this, 'COFFEE_CHAI', 'COFFEE_CHAI')">
+                    <div
+                        class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
+                        <img src="./assets/images/scoop-n-brew/scoop-n-brew-menu-poster.png" alt="Coffee & Chai"
+                            class="w-full h-full object-cover">
+                        <div
+                            class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-[#DB2777] text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">
+                            ✓</div>
                     </div>
-                    <span class="text-[11px] font-bold text-slate-700 text-center leading-tight">Chai & Coffee<br><span class="text-[10px] text-pink-600 font-extrabold">₹20-29</span></span>
+                    <span class="text-[11px] font-bold text-slate-700 text-center leading-tight">Chai & Coffee<br><span
+                            class="text-[10px] text-pink-600 font-extrabold">₹20-29</span></span>
                 </button>
 
                 <!-- Not Sure -->
-                <button type="button" class="modal-food-item flex flex-col items-center gap-1.5" onclick="toggleWelcomeItem(this, 'ALL', 'ALL')">
-                    <div class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-100 flex items-center justify-center">
-                        <svg class="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M12 18h.01"/>
+                <button type="button" class="modal-food-item flex flex-col items-center gap-1.5"
+                    onclick="toggleWelcomeItem(this, 'ALL', 'ALL')">
+                    <div
+                        class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-100 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" stroke-width="1.5"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M12 18h.01" />
                         </svg>
-                        <div class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-[#DB2777] text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">✓</div>
+                        <div
+                            class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-[#DB2777] text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">
+                            ✓</div>
                     </div>
                     <span class="text-[11px] font-bold text-slate-700 text-center leading-tight">Not Sure</span>
                 </button>
@@ -1402,12 +1758,13 @@
                 disabled>
                 <span>View My Review</span>
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
             </button>
 
             <!-- Skip Link -->
-            <button type="button" onclick="skipWelcomeModal()" class="w-full text-center text-xs text-slate-400 font-semibold mt-3 hover:text-slate-600 transition-colors">
+            <button type="button" onclick="skipWelcomeModal()"
+                class="w-full text-center text-xs text-slate-400 font-semibold mt-3 hover:text-slate-600 transition-colors">
                 Skip for now
             </button>
         </div>
@@ -1459,14 +1816,15 @@
 
             <!-- Details & Caption -->
             <div class="space-y-1">
-                <h4 id="modalTitle" class="text-sm font-extrabold text-white leading-snug">Hocco Nutty Chocolate Cone</h4>
+                <h4 id="modalTitle" class="text-sm font-extrabold text-white leading-snug">Hocco Nutty Chocolate Cone
+                </h4>
                 <p id="modalDesc" class="text-xs text-slate-300 leading-relaxed">Creamy layered artisanal cheesecake
                     with crunchy nuts and rich chocolate coating on a crispy wafer cone.</p>
             </div>
 
             <!-- Quick Action: Review with AI Button -->
             <button type="button" id="modalReviewBtn" onclick="reviewCurrentModalDish()"
-                class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold text-xs py-2.5 px-3 rounded-xl shadow-lg shadow-indigo-600/30 flex items-center justify-center gap-1.5 transition-all active:scale-95">
+                class="w-full bg-gradient-to-r from-[#E11D48] to-[#BE123C] hover:opacity-95 text-white font-bold text-xs py-2.5 px-3 rounded-xl shadow-lg shadow-rose-500/25 flex items-center justify-center gap-1.5 transition-all active:scale-95">
                 <span>✨</span>
                 <span>Review this Dish with AI</span>
                 <span>→</span>
@@ -1621,9 +1979,9 @@
                 const btn = document.getElementById('langBtn_' + l);
                 if (l === lang) {
                     btn?.classList.remove('text-slate-600', 'font-semibold');
-                    btn?.classList.add('bg-[#4F46E5]', 'text-white', 'shadow-xs', 'font-bold');
+                    btn?.classList.add('bg-[#E11D48]', 'text-white', 'shadow-xs', 'font-bold');
                 } else {
-                    btn?.classList.remove('bg-[#4F46E5]', 'text-white', 'shadow-xs', 'font-bold');
+                    btn?.classList.remove('bg-[#E11D48]', 'text-white', 'shadow-xs', 'font-bold');
                     btn?.classList.add('text-slate-600', 'hover:text-slate-900', 'font-semibold');
                 }
             });
@@ -1876,13 +2234,13 @@
             if (isEditing) {
                 outEl.contentEditable = "true";
                 outEl.focus();
-                outEl.classList.add('ring-2', 'ring-indigo-500', 'bg-indigo-50/30');
+                outEl.classList.add('ring-2', 'ring-rose-400', 'bg-rose-50/30');
                 if (iconEl) iconEl.innerText = '💾';
                 if (textEl) textEl.innerText = 'Save Edits';
                 showToast('Editing enabled. Tap the text to type your own words.');
             } else {
                 outEl.contentEditable = "false";
-                outEl.classList.remove('ring-2', 'ring-indigo-500', 'bg-indigo-50/30');
+                outEl.classList.remove('ring-2', 'ring-rose-400', 'bg-rose-50/30');
                 if (iconEl) iconEl.innerText = '✏️';
                 if (textEl) textEl.innerText = 'Edit Review';
                 showToast('Review text updated!');
