@@ -17,7 +17,7 @@ export const DEFAULT_STORE_DATA = {
         statusBadge: 'Open Now • Near GEHU Gate 1',
         categoryBadge: '🍨 Waffles, Hocco Ice Cream & Shakes',
         heroHandwriting: 'Good Food Brings\nPeople Together ✨',
-        logoImg: './assets/images/scoop-n-brew/pixel-cafe-menu-board.png',
+        logoImg: './assets/images/scoop-n-brew/scoop-n-brew-logo.png',
         heroImg: './assets/images/scoop-n-brew/Scoop-n-Brew-Café-Badge.png',
         rating: 4.9,
         ratingStars: '★★★★★',
