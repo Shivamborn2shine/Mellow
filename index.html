@@ -75,9 +75,16 @@
 
         .chip.chip-active {
             background: #E11D48 !important;
+            background-color: #E11D48 !important;
             border-color: #E11D48 !important;
             color: #FFFFFF !important;
             box-shadow: 0 4px 14px rgba(225, 29, 72, 0.4) !important;
+        }
+
+        .chip.chip-active span,
+        .chip.chip-active .chip-label,
+        .chip.chip-active .chip-icon {
+            color: #FFFFFF !important;
         }
 
         .chip.chip-active svg,
@@ -86,8 +93,15 @@
             stroke: #FFFFFF !important;
         }
 
+        .chip.chip-active polygon {
+            stroke: #FFFFFF !important;
+            fill: #FFFFFF !important;
+        }
+
         .chip.chip-active .chip-check {
             display: inline-flex !important;
+            color: #FFFFFF !important;
+            stroke: #FFFFFF !important;
         }
 
         /* Welcome Experience Modal Styles */
@@ -642,8 +656,7 @@
                         <!-- Review Text Output (Typewriter Animated) -->
                         <div id="reviewOutputText" contenteditable="false"
                             class="text-xs sm:text-[13px] text-slate-700 leading-relaxed font-medium min-h-[64px] focus:outline-none focus:ring-2 focus:ring-rose-400 rounded-xl p-2.5 break-words whitespace-normal selection:bg-rose-100">
-                            Scoop n Brew is hands-down the best dessert cafe near GEHU Gate 1! Creamy Hocco ice creams, crispy Nutella waffles, thick Oreo shakes, and budget prices starting at just ₹20. Cute pink aesthetic and 10/10 service. Must visit!
-                        </div>
+                            Scoop n Brew is hands-down the best dessert cafe near GEHU Gate 1! Creamy Hocco ice creams, crispy Nutella waffles, thick Oreo shakes, and pocket-friendly prices starting at just ₹20. Cute pink aesthetic and 10/10 service. Must visit!</div>
 
                         <!-- Action Buttons: Edit Review & Copy to Google -->
                         <div class="grid grid-cols-12 gap-2 mt-3.5 w-full">
@@ -1631,7 +1644,7 @@
 
                 <!-- Mini Pancakes -->
                 <button type="button" class="modal-food-item flex flex-col items-center gap-1.5"
-                    onclick="toggleWelcomeItem(this, 'MINI_PANCAKES', 'MINI_PANCAKES')">
+                    onclick="toggleWelcomeItem(this, 'MINI_PANCAKES', 'WAFFLES')">
                     <div
                         class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
                         <img src="./assets/images/scoop-n-brew/pixel-cafe-menu-board.png" alt="Mini Pancakes"
@@ -1646,7 +1659,7 @@
 
                 <!-- Hocco Ice Cream -->
                 <button type="button" class="modal-food-item flex flex-col items-center gap-1.5"
-                    onclick="toggleWelcomeItem(this, 'HOCCO', 'HOCCO')">
+                    onclick="toggleWelcomeItem(this, 'HOCCO', 'ICE_CREAM')">
                     <div
                         class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
                         <img src="./assets/images/scoop-n-brew/hocco-nutty-cone.png" alt="Hocco Ice Cream"
@@ -1676,7 +1689,7 @@
 
                 <!-- Loaded & Peri Fries -->
                 <button type="button" class="modal-food-item flex flex-col items-center gap-1.5"
-                    onclick="toggleWelcomeItem(this, 'FRIES', 'FRIES')">
+                    onclick="toggleWelcomeItem(this, 'FRIES', 'FOOD')">
                     <div
                         class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
                         <img src="./assets/images/scoop-n-brew/scoop-n-brew-counter-angle.png" alt="Loaded Fries"
@@ -1691,7 +1704,7 @@
 
                 <!-- Veg Burger & Sandwich -->
                 <button type="button" class="modal-food-item flex flex-col items-center gap-1.5"
-                    onclick="toggleWelcomeItem(this, 'BURGERS_SANDWICHES', 'BURGERS_SANDWICHES')">
+                    onclick="toggleWelcomeItem(this, 'BURGERS_SANDWICHES', 'FOOD')">
                     <div
                         class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
                         <img src="./assets/images/scoop-n-brew/scoop-n-brew-pink-quotes-wall.png"
@@ -1707,7 +1720,7 @@
 
                 <!-- Mojitos & Iced Teas -->
                 <button type="button" class="modal-food-item flex flex-col items-center gap-1.5"
-                    onclick="toggleWelcomeItem(this, 'MOJITOS', 'MOJITOS')">
+                    onclick="toggleWelcomeItem(this, 'MOJITOS', 'BEVERAGES')">
                     <div
                         class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
                         <img src="./assets/images/scoop-n-brew/iced-mojito-cup.png" alt="Iced Mojito"
@@ -1722,7 +1735,7 @@
 
                 <!-- Hot Chai & Coffee -->
                 <button type="button" class="modal-food-item flex flex-col items-center gap-1.5"
-                    onclick="toggleWelcomeItem(this, 'COFFEE_CHAI', 'COFFEE_CHAI')">
+                    onclick="toggleWelcomeItem(this, 'COFFEE_CHAI', 'BEVERAGES')">
                     <div
                         class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
                         <img src="./assets/images/scoop-n-brew/scoop-n-brew-menu-poster.png" alt="Coffee & Chai"
@@ -1875,42 +1888,43 @@
 
         // Toggle Chips Selection
         function toggleChip(btn, categoryKey) {
-            // Keep specific food items if toggling experience/atmosphere chips (SERVICE, CLEANLINESS, AMBIENCE, VALUE)
-            // If toggling food category chips, intelligently sync specific items
-            if (categoryKey === 'BAKES' && selectedChips.has('BAKES')) {
-                if (window.chosenSpecificItems) {
-                    window.chosenSpecificItems = window.chosenSpecificItems.filter(i => !['CROISSANTS', 'CAKES', 'DESSERTS'].includes(i));
-                    if (window.chosenSpecificItems.length === 0) window.chosenSpecificItems = null;
-                }
-            } else if (categoryKey === 'FOOD' && selectedChips.has('FOOD')) {
-                if (window.chosenSpecificItems) {
-                    window.chosenSpecificItems = window.chosenSpecificItems.filter(i => !['FRIES', 'SANDWICHES'].includes(i));
-                    if (window.chosenSpecificItems.length === 0) window.chosenSpecificItems = null;
-                }
-            } else if (categoryKey === 'COFFEE' && selectedChips.has('COFFEE')) {
-                if (window.chosenSpecificItems) {
-                    window.chosenSpecificItems = window.chosenSpecificItems.filter(i => !['COFFEE', 'BEVERAGES'].includes(i));
-                    if (window.chosenSpecificItems.length === 0) window.chosenSpecificItems = null;
-                }
-            } else if (categoryKey === 'ALL') {
+            if (categoryKey === 'ALL') {
+                selectedChips.clear();
+                selectedChips.add('ALL');
                 window.chosenSpecificItems = null;
-            }
-
-            if (selectedChips.has(categoryKey)) {
-                if (selectedChips.size > 1) {
-                    selectedChips.delete(categoryKey);
-                    btn.classList.remove('chip-active');
-                } else {
-                    showToast('Please keep at least 1 item selected');
-                    return;
-                }
+                document.querySelectorAll('#chipsContainer .chip').forEach(c => {
+                    if (c === btn) {
+                        c.classList.add('chip-active');
+                    } else {
+                        c.classList.remove('chip-active');
+                    }
+                });
             } else {
-                if (selectedChips.size >= 5) {
-                    showToast('You can select up to 5 items ✨');
-                    return;
+                if (selectedChips.has('ALL')) {
+                    selectedChips.delete('ALL');
+                    const allBtn = document.querySelector("#chipsContainer .chip[onclick*='ALL']");
+                    if (allBtn) allBtn.classList.remove('chip-active');
                 }
-                selectedChips.add(categoryKey);
-                btn.classList.add('chip-active');
+
+                if (selectedChips.has(categoryKey)) {
+                    if (selectedChips.size > 1) {
+                        selectedChips.delete(categoryKey);
+                        btn.classList.remove('chip-active');
+                    } else {
+                        selectedChips.delete(categoryKey);
+                        btn.classList.remove('chip-active');
+                        selectedChips.add('ALL');
+                        const allBtn = document.querySelector("#chipsContainer .chip[onclick*='ALL']");
+                        if (allBtn) allBtn.classList.add('chip-active');
+                    }
+                } else {
+                    if (selectedChips.size >= 5) {
+                        showToast('You can select up to 5 items ✨');
+                        return;
+                    }
+                    selectedChips.add(categoryKey);
+                    btn.classList.add('chip-active');
+                }
             }
 
             if (typeof updateSelectedMenuSummary === 'function') {
@@ -1982,20 +1996,559 @@
             window.chosenSpecificItems = null;
             selectedChips.clear();
             selectedChips.add(targetChip);
+            document.querySelectorAll('.chip').forEach(c => c.classList.remove('chip-active'));
+            const matchingBtn = Array.from(document.querySelectorAll('.chip')).find(b => b.getAttribute('onclick')?.includes(targetChip));
+            if (matchingBtn) matchingBtn.classList.add('chip-active');
+            scrollToSection('aiSection');
+            generateAIReview();
+            setTimeout(scrollToReviewCTA, 350);
+        }
 
-            // Sync visual chip states
-            document.querySelectorAll('#chipsContainer .chip').forEach(btn => {
-                const onclickStr = btn.getAttribute('onclick') || '';
-                if (onclickStr.includes("'" + targetChip + "'")) {
-                    btn.classList.add('chip-active');
+        // Language Switcher (English, Hinglish, Hindi)
+        function setLanguage(lang) {
+            currentLang = lang;
+            ['ENGLISH', 'HINGLISH', 'HINDI'].forEach(l => {
+                const btn = document.getElementById('langBtn_' + l);
+                if (l === lang) {
+                    btn?.classList.remove('text-slate-600', 'font-semibold');
+                    btn?.classList.add('bg-[#E11D48]', 'text-white', 'shadow-xs', 'font-bold');
                 } else {
-                    btn.classList.remove('chip-active');
+                    btn?.classList.remove('bg-[#E11D48]', 'text-white', 'shadow-xs', 'font-bold');
+                    btn?.classList.add('text-slate-600', 'hover:text-slate-900', 'font-semibold');
                 }
             });
 
             generateAIReview();
-            scrollToSection('aiSection');
         }
+
+        function generateAIReview() {
+            const activeBank = (window.CURRENT_STORE_DATA && window.CURRENT_STORE_DATA.reviewBank) ? window.CURRENT_STORE_DATA.reviewBank : REVIEWS_DB;
+            const db = activeBank[currentLang] || activeBank.ENGLISH || REVIEWS_DB.ENGLISH;
+
+            let reviewText = "";
+
+            // ─── STEP 0: Check if specific menu items were chosen from popup menu ───
+            if (window.chosenSpecificItems && window.chosenSpecificItems.length > 0) {
+                const specificSorted = Array.from(window.chosenSpecificItems).sort();
+                const specificKey = specificSorted.join(',');
+
+                // Try exact specific combo (e.g. "COFFEE,CROISSANTS" or "CROISSANTS")
+                if (db.combos && db.combos[specificKey]) {
+                    reviewText = getRandomItem(db.combos[specificKey]);
+                }
+
+                // If no exact combo match, try largest matching subset of chosen items
+                if (!reviewText && db.combos) {
+                    let bestMatch = null;
+                    let bestMatchLen = 0;
+
+                    for (const comboKey of Object.keys(db.combos)) {
+                        const comboItems = comboKey.split(',');
+                        const isSubset = comboItems.every(item => specificSorted.includes(item));
+                        if (isSubset && comboItems.length > bestMatchLen) {
+                            bestMatch = comboKey;
+                            bestMatchLen = comboItems.length;
+                        }
+                    }
+
+                    if (bestMatch && bestMatchLen >= 1) {
+                        reviewText = getRandomItem(db.combos[bestMatch]);
+
+                        // Bridge in remaining specific items
+                        const matchedSet = new Set(bestMatch.split(','));
+                        const remaining = specificSorted.filter(item => !matchedSet.has(item));
+
+                        if (remaining.length > 0 && db.categories) {
+                            remaining.forEach(remItem => {
+                                if (remItem === 'ALL') return;
+                                const extraPool = db.categories[remItem] || db.categories[itemToChipCategory(remItem)] || [];
+                                if (extraPool.length > 0) {
+                                    const bridge = db.bridges ? getRandomItem(db.bridges) : 'Also,';
+                                    const extraPhrase = getRandomItem(extraPool);
+                                    let connector = reviewText.endsWith('!') || reviewText.endsWith('.') ? ' ' : '. ';
+                                    reviewText = reviewText + connector + bridge + ' ' + extraPhrase;
+                                }
+                            });
+                        }
+                    }
+                }
+            }
+
+            // ─── STEP 1: Try exact combo match with chips ───
+            if (!reviewText) {
+                const sortedChips = Array.from(selectedChips).sort().join(',');
+                if (db.combos && db.combos[sortedChips]) {
+                    reviewText = getRandomItem(db.combos[sortedChips]);
+                }
+            }
+
+            // ─── STEP 2: Try partial combo match (largest subset first) ───
+            if (!reviewText && db.combos) {
+                const chipArr = Array.from(selectedChips).sort();
+                let bestMatch = null;
+                let bestMatchLen = 0;
+
+                for (const comboKey of Object.keys(db.combos)) {
+                    const comboChips = comboKey.split(',');
+                    // Check if this combo is a subset of selected chips
+                    const isSubset = comboChips.every(c => selectedChips.has(c));
+                    if (isSubset && comboChips.length > bestMatchLen) {
+                        bestMatch = comboKey;
+                        bestMatchLen = comboChips.length;
+                    }
+                }
+
+                if (bestMatch && bestMatchLen >= 1) {
+                    reviewText = getRandomItem(db.combos[bestMatch]);
+
+                    // Append phrases for remaining unmatched chips via bridge
+                    const matchedChips = new Set(bestMatch.split(','));
+                    const remainingChips = chipArr.filter(c => !matchedChips.has(c));
+
+                    if (remainingChips.length > 0 && db.bridges && db.categories) {
+                        const bridge = getRandomItem(db.bridges);
+                        const extraPhrase = getRandomItem(
+                            db.categories[remainingChips[0]] || db.categories.ALL || []
+                        );
+                        if (extraPhrase) {
+                            // Ensure clean sentence connection
+                            let connector = reviewText.endsWith('!') || reviewText.endsWith('.') ? ' ' : '. ';
+                            reviewText = reviewText + connector + bridge + ' ' + extraPhrase;
+                        }
+                    }
+                }
+            }
+
+            // ─── STEP 3: Assembled fallback (opening + category phrases + closing) ───
+            if (!reviewText) {
+                const opening = getRandomItem(db.openings || []);
+                const closing = getRandomItem(db.closings || []);
+                const chipArr = Array.from(selectedChips);
+
+                const phrases = [];
+                chipArr.forEach(cat => {
+                    const pool = (db.categories && db.categories[cat]) || (db.categories && db.categories.ALL) || [];
+                    if (pool.length > 0) phrases.push(getRandomItem(pool));
+                });
+
+                if (phrases.length === 0) {
+                    reviewText = opening + ' ' + closing;
+                } else if (phrases.length === 1) {
+                    reviewText = opening + ' ' + ucFirst(phrases[0]) + ' ' + closing;
+                } else {
+                    const bridge = db.bridges ? getRandomItem(db.bridges) : 'Also,';
+                    reviewText = opening + ' ' + ucFirst(phrases[0]) + ' ' + bridge + ' ' + phrases[1] + ' ' + closing;
+                }
+            }
+
+            // ─── GUARANTEE: Ensure EVERY selected menu item is explicitly mentioned ───
+            if (window.chosenSpecificItems && window.chosenSpecificItems.length > 0) {
+                const dishKeywords = {
+                    'ICE_CREAM': ['ice cream', 'cone', 'hocco', 'बॉस बार', 'आइसक्रीम', 'scoop'],
+                    'HOCCO': ['ice cream', 'cone', 'hocco', 'बॉस बार', 'आइसक्रीम', 'scoop'],
+                    'WAFFLES': ['waffle', 'waffles', 'वॉफल', 'बेल्जियन वॉफल', 'nutella'],
+                    'MINI_PANCAKES': ['pancake', 'pancakes', 'पैनकेक', 'मिनी पैनकेक'],
+                    'PANCAKES': ['pancake', 'pancakes', 'पैनकेक', 'मिनी पैनकेक'],
+                    'SHAKES': ['shake', 'shakes', 'oreo shake', 'शेक', 'मिल्कशेक'],
+                    'FRIES': ['fries', 'फ्राइज', 'loaded fries', 'peri peri'],
+                    'FOOD': ['burger', 'sandwich', 'fries', 'बर्गर', 'सैंडविच', 'फ्राइज'],
+                    'BURGERS_SANDWICHES': ['burger', 'sandwich', 'बर्गर', 'सैंडविच'],
+                    'SANDWICHES': ['sandwich', 'सैंडविच'],
+                    'MOJITOS': ['mojito', 'cooler', 'मोजिटो', 'ड्रिंक', 'iced tea'],
+                    'BEVERAGES': ['mojito', 'cooler', 'coffee', 'chai', 'मोजिटो', 'कॉफी', 'चाय'],
+                    'COFFEE': ['coffee', 'chai', 'कॉफी', 'चाय', 'cold coffee'],
+                    'COFFEE_CHAI': ['coffee', 'chai', 'कॉफी', 'चाय', 'cold coffee']
+                };
+
+                const dishPhrases = {
+                    'ENGLISH': {
+                        'ICE_CREAM': "Finished with creamy Hocco ice cream in a crispy wafer cone — the ultimate sweet treat!",
+                        'HOCCO': "Finished with creamy Hocco ice cream in a crispy wafer cone — the ultimate sweet treat!",
+                        'WAFFLES': "Their freshly pressed Nutella waffle was crispy on the outside and wonderfully decadent!",
+                        'MINI_PANCAKES': "The warm mini pancakes drizzled with rich chocolate for ₹59 were fluffy and delicious!",
+                        'PANCAKES': "The warm mini pancakes drizzled with rich chocolate for ₹59 were fluffy and delicious!",
+                        'SHAKES': "Their Oreo thick shake was rich, creamy, and chilled to perfection — truly indulgent!",
+                        'FRIES': "Their loaded cheesy fries were piping hot, crisp, and packed with savory flavor!",
+                        'FOOD': "The crispy grilled sandwich and loaded fries were hot, fresh, and delightfully satisfying!",
+                        'BURGERS_SANDWICHES': "The crispy grilled sandwich and veg burger were hot, fresh, and delightfully satisfying!",
+                        'SANDWICHES': "Their crispy grilled sandwich was hearty and packed with fresh fillings.",
+                        'MOJITOS': "The chilled mint and watermelon mojito was crisp, fizzy, and wonderfully refreshing!",
+                        'BEVERAGES': "The chilled mint mojito and creamy cold coffee were crisp, fizzy, and wonderfully refreshing!",
+                        'COFFEE': "Their rich cold coffee and aromatic kesar chai were brewed to pure perfection!",
+                        'COFFEE_CHAI': "Their rich cold coffee and aromatic kesar chai were brewed to pure perfection!"
+                    },
+                    'HINGLISH': {
+                        'ICE_CREAM': "End me creamy Hocco ice cream li crispy cone me — ekdum refresh ho gaye!",
+                        'HOCCO': "End me creamy Hocco ice cream li crispy cone me — ekdum refresh ho gaye!",
+                        'WAFFLES': "Inka freshly made Nutella waffle bhi try kiya jo super crispy aur warm tha!",
+                        'MINI_PANCAKES': "Saath me warm mini pancakes bhi liye chocolate sauce ke saath — bohot soft aur tasty the!",
+                        'PANCAKES': "Saath me warm mini pancakes bhi liye chocolate sauce ke saath — bohot soft aur tasty the!",
+                        'SHAKES': "Inka Oreo thick shake bhi try kiya jo super rich, thick aur creamy tha!",
+                        'FRIES': "Loaded cheesy fries bhi try ki jo super hot, crispy aur masaledar thi!",
+                        'FOOD': "Grilled sandwich aur loaded cheesy fries dono super fresh aur filling the!",
+                        'BURGERS_SANDWICHES': "Grilled sandwich aur veg burger super crispy aur fresh fillings se loaded the!",
+                        'SANDWICHES': "Grilled sandwich super crispy aur tasty fillings se loaded tha.",
+                        'MOJITOS': "Chilled mint mojito bhi order kiya jo ekdum fizzy aur refreshing tha!",
+                        'BEVERAGES': "Chilled mint mojito aur creamy cold coffee dono hi bohot refreshing the!",
+                        'COFFEE': "Creamy cold coffee aur hot kesar chai ka taste bhi ekdum spot on tha!",
+                        'COFFEE_CHAI': "Creamy cold coffee aur hot kesar chai ka taste bhi ekdum spot on tha!"
+                    },
+                    'HINDI': {
+                        'ICE_CREAM': "साथ में मलाईदार हॉक्को आइसक्रीम भी ली जो कुरकुरी कोन के साथ बहुत स्वादिष्ट लगी!",
+                        'HOCCO': "साथ में मलाईदार हॉक्को आइसक्रीम भी ली जो कुरकुरी कोन के साथ बहुत स्वादिष्ट लगी!",
+                        'WAFFLES': "यहाँ का कुरकुरा ताज़ा न्यूटेला वॉफल भी चखा जो गर्म और बेहद स्वादिष्ट था!",
+                        'MINI_PANCAKES': "साथ में गर्म चाकलेट मिनी पैनकेक्स भी लिए जो बहुत ही मुलायम और स्वादिष्ट थे!",
+                        'PANCAKES': "साथ में गर्म चाकलेट मिनी पैनकेक्स भी लिए जो बहुत ही मुलायम और स्वादिष्ट थे!",
+                        'SHAKES': "यहाँ का ओरियो थिक शेक भी पिया जो बहुत ही गाढ़ा, मलाईदार और स्वादिष्ट था!",
+                        'FRIES': "यहाँ की चीज़ी लोडेड फ्राइज भी बहुत ही कुरकुरी और स्वादिष्ट थीं!",
+                        'FOOD': "ग्रिल्ड सैंडविच और लोडेड फ्राइज भी बहुत ही ताज़ा और कुरकुरी थीं!",
+                        'BURGERS_SANDWICHES': "ग्रिल्ड सैंडविच और वेज बर्गर बहुत ही ताज़ा और कुरकुरे थे!",
+                        'SANDWICHES': "ग्रिल्ड सैंडविच बहुत ही कुरकुरा और स्वादिष्ट था।",
+                        'MOJITOS': "ठंडा मिंट मोजिटो भी बहुत ही ताज़ा और मन को तरोताज़ा कर देने वाला था!",
+                        'BEVERAGES': "ठंडा मिंट मोजिटो और मलाईदार कोल्ड कॉफी बहुत ही ताज़ा और स्वादिष्ट थी!",
+                        'COFFEE': "मलाईदार कोल्ड कॉफी और केसर चाय का स्वाद भी बेहद लाजवाब था!",
+                        'COFFEE_CHAI': "मलाईदार कोल्ड कॉफी और केसर चाय का स्वाद भी बेहद लाजवाब था!"
+                    }
+                };
+
+                const activePhrases = dishPhrases[currentLang] || dishPhrases.ENGLISH;
+                const lowerReview = reviewText.toLowerCase();
+
+                window.chosenSpecificItems.forEach(itemKey => {
+                    if (itemKey === 'ALL') return;
+                    const keywords = dishKeywords[itemKey] || [];
+                    const isMentioned = keywords.some(kw => lowerReview.includes(kw.toLowerCase()));
+                    if (!isMentioned && activePhrases[itemKey]) {
+                        const connector = reviewText.endsWith('!') || reviewText.endsWith('.') ? ' ' : '. ';
+                        reviewText += connector + activePhrases[itemKey];
+                    }
+                });
+            }
+
+            // Clean up whitespace and double periods
+            reviewText = reviewText
+                .replace(/\s+/g, ' ')
+                .replace(/\.\./g, '.')
+                .replace(/\. \./g, '.')
+                .replace(/!\./, '!')
+                .trim();
+
+            animateTypewriter(reviewText);
+
+            if (window.OnescanTelemetry) {
+                window.OnescanTelemetry.track('review_generated', {
+                    language: currentLang,
+                    chips: Array.from(selectedChips)
+                });
+            }
+        }
+
+        function ucFirst(str) {
+            if (!str) return str;
+            return str.charAt(0).toUpperCase() + str.slice(1);
+        }
+
+        function animateTypewriter(text) {
+            const outEl = document.getElementById('reviewOutputText');
+            if (!outEl) return;
+
+            if (typingTimeout) clearTimeout(typingTimeout);
+            outEl.textContent = '';
+
+            const len = text.length;
+            let idx = 0;
+
+            function step() {
+                if (idx <= len) {
+                    outEl.textContent = text.slice(0, idx);
+                    idx++;
+                    typingTimeout = setTimeout(step, 14);
+                }
+            }
+            step();
+        }
+
+        // Edit Mode Toggle
+        function toggleEditMode() {
+            const outEl = document.getElementById('reviewOutputText');
+            const iconEl = document.getElementById('editBtnIcon');
+            const textEl = document.getElementById('editBtnText');
+
+            isEditing = !isEditing;
+            if (isEditing) {
+                outEl.contentEditable = "true";
+                outEl.focus();
+                outEl.classList.add('ring-2', 'ring-rose-400', 'bg-rose-50/30');
+                if (iconEl) iconEl.innerText = '💾';
+                if (textEl) textEl.innerText = 'Save Edits';
+                showToast('Editing enabled. Tap the text to type your own words.');
+            } else {
+                outEl.contentEditable = "false";
+                outEl.classList.remove('ring-2', 'ring-rose-400', 'bg-rose-50/30');
+                if (iconEl) iconEl.innerText = '✏️';
+                if (textEl) textEl.innerText = 'Edit Review';
+                showToast('Review text updated!');
+            }
+        }
+
+        // Copy Text & Redirect to Google Review Form
+        function copyAndOpenGoogle() {
+            const outEl = document.getElementById('reviewOutputText');
+            const text = (outEl?.textContent || outEl?.innerText || '').trim();
+
+            navigator.clipboard.writeText(text).then(() => {
+                showToast('Review copied! Opening Google Review page...');
+
+                // Track conversion telemetry back to dashboard
+                if (window.OnescanTelemetry) {
+                    window.OnescanTelemetry.track('review_copied', {
+                        textLength: text.length,
+                        language: currentLang,
+                        chips: Array.from(selectedChips)
+                    });
+                }
+
+                // Redirect to verified Scoop n Brew Google Maps Reviews page
+                setTimeout(() => {
+                    window.open(BUSINESS_CONFIG.googleReviewUrl, '_blank');
+                }, 600);
+
+            }).catch(() => {
+                showToast('Failed to copy. Please manually select and copy text.');
+            });
+        }
+
+        function copyReviewTextOnly() {
+            const outEl = document.getElementById('reviewOutputText');
+            const text = (outEl?.textContent || outEl?.innerText || '').trim();
+            navigator.clipboard.writeText(text).then(() => {
+                showToast('Review copied to clipboard! 📋');
+            });
+        }
+
+        function updateCharCount(el) {
+            document.getElementById('charCount').innerText = `${el.value.length}/300`;
+        }
+
+        // Smooth Scroll & Tab Switcher
+        function setActivePill(id) {
+            document.querySelectorAll('.nav-pill').forEach(p => {
+                p.classList.remove('bg-white', 'text-slate-900', 'shadow-sm');
+                p.classList.add('text-slate-500');
+            });
+
+            if (id === 'homeSection' || id === 'specialitiesSection') {
+                document.getElementById('pillHome')?.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
+            } else if (id === 'aiSection') {
+                document.getElementById('pillAI')?.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
+            } else if (id === 'gallerySection') {
+                document.getElementById('pillGallery')?.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
+            }
+        }
+
+        function scrollToSection(id) {
+            const el = document.getElementById(id);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+            }
+            setActivePill(id);
+        }
+
+        // ═══════════════════════════════════════════════════════════════
+        // FULL-FEATURED CULINARY GALLERY & LIGHTBOX ENGINE
+        // ═══════════════════════════════════════════════════════════════
+        const GALLERY_ITEMS = [
+            {
+                id: 'hocco-nutty-cone',
+                src: './assets/images/scoop-n-brew/hocco-nutty-cone.png',
+                title: 'Hocco Nutty Chocolate Cone',
+                category: 'ice-cream',
+                categoryLabel: 'Ice Cream',
+                desc: 'Crunchy wafer cone loaded with nutty chocolate chunks — a Hocco fan favorite.',
+                aiCategory: 'ICE_CREAM'
+            },
+            {
+                id: 'cafe-menu',
+                src: './assets/images/scoop-n-brew/pixel-cafe-menu-board.png',
+                title: 'Pixel Cafe Menu',
+                category: 'ambience',
+                categoryLabel: 'Brunch',
+                desc: 'Full pixel-art cafe menu board — waffles, shakes, mojitos, pancakes, fries, chai & more.',
+                aiCategory: 'PANCAKES'
+            },
+            {
+                id: 'scoop-interior',
+                src: './assets/images/scoop-n-brew/scoop-n-brew-counter-angle.png',
+                title: 'Scoop n Brew Interior',
+                category: 'ambience',
+                categoryLabel: 'Savory',
+                desc: 'Cozy counter angles and vibrant pink walls at Scoop n Brew — the perfect backdrop for your next food pic.',
+                aiCategory: 'FRIES'
+            },
+            {
+                id: 'hocco-strawberry',
+                src: './assets/images/scoop-n-brew/hocco-strawberry-cheesecake.png',
+                title: 'Hocco Strawberry Cheesecake Cone',
+                category: 'ice-cream',
+                categoryLabel: 'Dessert',
+                desc: 'Strawberry cheesecake ice cream in a crispy wafer cone — creamy, fruity, and oh so satisfying.',
+                aiCategory: 'ICE_CREAM'
+            },
+            {
+                id: 'hocco-boss-bar',
+                src: './assets/images/scoop-n-brew/hocco-boss-bar.png',
+                title: 'Hocco Boss Bar',
+                category: 'ice-cream',
+                categoryLabel: 'Ice Cream',
+                desc: 'Thick compound chocolate-coated Boss Bar by Hocco — rich, indulgent, and the ultimate ice cream bar.',
+                aiCategory: 'ICE_CREAM'
+            },
+            {
+                id: 'dining-area',
+                src: './assets/images/scoop-n-brew/scoop-n-brew-dining-arch.png',
+                title: 'Scoop n Brew Dining',
+                category: 'ice-cream',
+                categoryLabel: 'Ambience',
+                desc: 'Royal blue illuminated arches and bubblegum pink walls — the iconic Scoop n Brew dining vibe near GEHU.',
+                aiCategory: 'AMBIENCE'
+            },
+            {
+                id: 'iced-mojito',
+                src: './assets/images/scoop-n-brew/iced-mojito-cup.png',
+                title: 'Cool Iced Mojito',
+                category: 'ice-cream',
+                categoryLabel: 'Drinks',
+                desc: 'Refreshing iced mojito in a clear cup with a striped straw — cool, fizzy, and perfect for hot Dehradun days.',
+                aiCategory: 'ICE_CREAM'
+            },
+            {
+                id: 'pink-wall',
+                src: './assets/images/scoop-n-brew/scoop-n-brew-pink-quotes-wall.png',
+                title: 'Pink Quotes Wall',
+                category: 'ice-cream',
+                categoryLabel: 'Ambience',
+                desc: 'Pink brick walls with motivational quotes — an aesthetic, Instagrammable corner at Scoop n Brew.',
+                aiCategory: 'AMBIENCE'
+            }
+        ];
+
+        let currentGalleryIndex = 0;
+        let activeGalleryCategory = 'all';
+
+        // Filter Gallery Items by Category
+        function filterGallery(category) {
+            activeGalleryCategory = category;
+            const cards = document.querySelectorAll('.gallery-card');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                if (category === 'all' || cardCat === category) {
+                    card.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            // Update filter buttons
+            document.querySelectorAll('.g-filter-btn').forEach(btn => {
+                btn.classList.remove('bg-slate-900', 'text-white');
+                btn.classList.add('bg-slate-100', 'text-slate-600');
+            });
+            const activeBtn = document.getElementById('gFilter-' + category);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-slate-100', 'text-slate-600');
+                activeBtn.classList.add('bg-slate-900', 'text-white');
+            }
+
+            // Update badge
+            const badge = document.getElementById('galleryCountBadge');
+            if (badge) {
+                badge.textContent = `${visibleCount} Item${visibleCount === 1 ? '' : 's'}`;
+            }
+        }
+
+        // Open Modal at specific index
+        function openGalleryModal(index) {
+            currentGalleryIndex = (index + GALLERY_ITEMS.length) % GALLERY_ITEMS.length;
+            renderModalState();
+            const modal = document.getElementById('photoModal');
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Backward compatibility
+        function openPhotoModal(srcOrIndex) {
+            if (typeof srcOrIndex === 'number') {
+                openGalleryModal(srcOrIndex);
+            } else if (typeof srcOrIndex === 'string') {
+                const foundIndex = GALLERY_ITEMS.findIndex(item => item.src === srcOrIndex || srcOrIndex.includes(item.src.split('/').pop()));
+                openGalleryModal(foundIndex >= 0 ? foundIndex : 0);
+            } else {
+                openGalleryModal(0);
+            }
+        }
+
+        function closePhotoModal() {
+            const modal = document.getElementById('photoModal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        function navigateGallery(delta) {
+            currentGalleryIndex = (currentGalleryIndex + delta + GALLERY_ITEMS.length) % GALLERY_ITEMS.length;
+            renderModalState();
+        }
+
+        function renderModalState() {
+            const item = GALLERY_ITEMS[currentGalleryIndex];
+            if (!item) return;
+
+            const imgEl = document.getElementById('modalImg');
+            if (imgEl) {
+                imgEl.style.opacity = '0.3';
+                setTimeout(() => {
+                    imgEl.src = item.src;
+                    imgEl.alt = item.title;
+                    imgEl.style.opacity = '1';
+                }, 80);
+            }
+
+            const titleEl = document.getElementById('modalTitle');
+            if (titleEl) titleEl.textContent = item.title;
+
+            const descEl = document.getElementById('modalDesc');
+            if (descEl) descEl.textContent = item.desc;
+
+            const badgeEl = document.getElementById('modalCategoryBadge');
+            if (badgeEl) badgeEl.textContent = item.categoryLabel;
+
+            const counterEl = document.getElementById('modalCounter');
+            if (counterEl) counterEl.textContent = `${currentGalleryIndex + 1} / ${GALLERY_ITEMS.length}`;
+
+            // Render dot indicators
+            const dotsContainer = document.getElementById('modalDots');
+            if (dotsContainer) {
+                dotsContainer.innerHTML = GALLERY_ITEMS.map((_, i) => `
+                    <button type="button" onclick="openGalleryModal(${i})"
+                        class="h-1.5 rounded-full transition-all ${i === currentGalleryIndex ? 'w-5 bg-amber-400' : 'w-1.5 bg-white/30 hover:bg-white/60'}"
+                        title="View photo ${i + 1}">
+                    </button>
+                `).join('');
+            }
+        }
+
+        // Link directly from modal to AI Review
+        function reviewCurrentModalDish() {
+            const item = GALLERY_ITEMS[currentGalleryIndex];
+            closePhotoModal();
+            if (item && item.aiCategory) {
+                quickSelectCategory(item.aiCategory);
+                showToast(`Selected ${item.title}! Customizing your review...`, '✨');
+            } else {
+                scrollToSection('aiSection');
+            }
         }
 
         // Keyboard navigation for Lightbox
@@ -2137,17 +2690,17 @@
         function submitWelcomeModal() {
             if (welcomeSelectedItems.size === 0) return;
 
-            // Save chosen specific menu items (e.g. WAFFLES, ICE_CREAM, SHAKES, etc.)
             window.chosenSpecificItems = Array.from(welcomeSelectedItems);
 
-            // Map welcome selections to AI review chips
             selectedChips.clear();
-            welcomeMappedCategories.forEach(cat => selectedChips.add(cat));
+            welcomeMappedCategories.forEach(cat => {
+                const mappedChip = itemToChipCategory(cat);
+                selectedChips.add(mappedChip);
+            });
             if (selectedChips.size === 0) {
                 selectedChips.add('ALL');
             }
 
-            // Update chip UI in the AI section to reflect selections
             document.querySelectorAll('#chipsContainer .chip').forEach(chipBtn => {
                 const onclickAttr = chipBtn.getAttribute('onclick') || '';
                 const match = onclickAttr.match(/toggleChip\(this,\s*'(\w+)'\)/);
@@ -2161,13 +2714,9 @@
                 }
             });
 
-            // Update visible badge
             updateSelectedMenuSummary();
-
-            // Close the modal
             closeWelcomeModal();
 
-            // Generate review with the selected items and scroll to AI section
             generateAIReview();
             setTimeout(() => {
                 scrollToSection('aiSection');
