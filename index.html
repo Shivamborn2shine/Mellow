@@ -1592,7 +1592,7 @@
     <!-- ═══════════════════════════════════════════════════════════════ -->
     <!-- WELCOME EXPERIENCE MODAL (Appears on Landing) -->
     <!-- ═══════════════════════════════════════════════════════════════ -->
-    <div id="welcomeModal" class="fixed inset-0 z-[60] flex items-end sm:items-center justify-center hidden">
+    <div id="welcomeModal" class="fixed inset-0 z-[60] flex items-end sm:items-center justify-center hidden" style="display: none !important;">
         <!-- Backdrop -->
         <div class="absolute inset-0 bg-black/50 backdrop-blur-sm welcome-modal-overlay" onclick="skipWelcomeModal()">
         </div>
@@ -2739,6 +2739,8 @@
         }
 
         function showWelcomeModal() {
+            // Pop-up feature temporarily disabled
+            return;
             const modal = document.getElementById('welcomeModal');
             if (modal) {
                 // Sync grid buttons with welcomeSelectedItems
@@ -2769,10 +2771,10 @@
             applyLinks();      // Wire all links from SITE_LINKS config
             generateAIReview();
 
-            // Show welcome modal after a short delay for smooth entry
-            setTimeout(() => {
-                showWelcomeModal();
-            }, 800);
+            // Welcome modal auto-popup temporarily disabled
+            // setTimeout(() => {
+            //     showWelcomeModal();
+            // }, 800);
 
             // Setup Scroll Spy to synchronize top nav pills on scroll
             const scrollBody = document.getElementById('mainScrollBody');
