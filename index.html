@@ -514,6 +514,15 @@
                             class="px-2.5 py-1 rounded-full bg-pink-50 text-pink-700 text-[10px] font-bold border border-pink-200/60">🍨
                             Hocco Ice Cream</span>
                     </div>
+
+                    <!-- Primary Direct Action: Generate Review with AI Button -->
+                    <button type="button" onclick="goToReviewTourStep()"
+                        class="w-full mt-3.5 py-3.5 px-4 rounded-2xl bg-gradient-to-r from-[#E11D48] via-rose-500 to-pink-500 hover:opacity-95 text-white font-extrabold text-xs sm:text-sm shadow-lg shadow-rose-500/25 flex items-center justify-center gap-2 transition-all active:scale-[0.98] cursor-pointer"
+                        title="Generate Review with AI">
+                        <span class="text-base">✨</span>
+                        <span>Generate Review with AI</span>
+                        <span class="text-xs font-black">➔</span>
+                    </button>
                 </div>
 
                 <!-- GOOGLE REVIEW FLOATING BUTTON (Positioned bottom until tapped) -->
@@ -1017,48 +1026,60 @@
 
                     <div id="specialitiesRowContainer"
                         class="flex gap-3 overflow-x-auto hide-scrollbar pb-2 pt-1 -mx-3 px-3">
-                        <!-- Item 1: Mini Pancakes -->
+                        <!-- Item 1: Nutella Waffle -->
+                        <div class="flex-shrink-0 flex flex-col items-center w-20 cursor-pointer group"
+                            onclick="quickSelectCategory('WAFFLES')">
+                            <div
+                                class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-pink-500 to-rose-600 shadow-md shadow-rose-500/20 group-hover:scale-105 transition-all">
+                                <img src="./assets/images/specialities/nutella-waffle.jpg" alt="Nutella Waffle"
+                                    class="w-full h-full object-cover rounded-full">
+                            </div>
+                            <span class="text-[10px] font-bold text-slate-700 text-center mt-1.5 leading-tight">Nutella
+                                Waffle<br><span class="text-pink-600 font-extrabold">₹99</span></span>
+                        </div>
+
+                        <!-- Item 2: Mini Pancakes -->
                         <div class="flex-shrink-0 flex flex-col items-center w-20 cursor-pointer group"
                             onclick="quickSelectCategory('PANCAKES')">
                             <div
                                 class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-pink-500 to-rose-600 shadow-md shadow-rose-500/20 group-hover:scale-105 transition-all">
-                                <img src="./assets/images/scoop-n-brew/pixel-cafe-menu-board.png" alt="Mini Pancakes"
+                                <img src="./assets/images/specialities/mini-pancakes.jpg" alt="Mini Pancakes"
                                     class="w-full h-full object-cover rounded-full">
                             </div>
                             <span class="text-[10px] font-bold text-slate-700 text-center mt-1.5 leading-tight">Mini
                                 Pancakes<br><span class="text-pink-600 font-extrabold">₹59</span></span>
                         </div>
 
-                        <!-- Item 2: Loaded Fries -->
+                        <!-- Item 3: Loaded Fries -->
                         <div class="flex-shrink-0 flex flex-col items-center w-20 cursor-pointer group"
                             onclick="quickSelectCategory('FRIES')">
                             <div
                                 class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-pink-500 to-rose-600 shadow-md shadow-rose-500/20 group-hover:scale-105 transition-all">
-                                <img src="./assets/images/scoop-n-brew/scoop-n-brew-counter-angle.png"
+                                <img src="./assets/images/specialities/loaded-fries.jpg"
                                     alt="Loaded Fries" class="w-full h-full object-cover rounded-full">
                             </div>
                             <span class="text-[10px] font-bold text-slate-700 text-center mt-1.5 leading-tight">Loaded
                                 Fries<br><span class="text-pink-600 font-extrabold">₹79</span></span>
                         </div>
 
-                        <!-- Item 3: Oreo Shake -->
+                        <!-- Item 4: Oreo Shake -->
                         <div class="flex-shrink-0 flex flex-col items-center w-20 cursor-pointer group"
                             onclick="quickSelectCategory('SHAKES')">
                             <div
                                 class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-pink-500 to-rose-600 shadow-md shadow-rose-500/20 group-hover:scale-105 transition-all">
-                                <img src="./assets/images/scoop-n-brew/iced-mojito-cup.png" alt="Oreo Shake"
+                                <img src="./assets/images/specialities/oreo-shake.jpg" alt="Oreo Shake"
                                     class="w-full h-full object-cover rounded-full">
                             </div>
                             <span class="text-[10px] font-bold text-slate-700 text-center mt-1.5 leading-tight">Oreo
                                 Shake<br><span class="text-pink-600 font-extrabold">₹79</span></span>
                         </div>
 
-                        <!-- Item 4: Grilled Sandwich -->
+                        <!-- Item 5: Grilled Sandwich -->
                         <div class="flex-shrink-0 flex flex-col items-center w-20 cursor-pointer group"
                             onclick="quickSelectCategory('SANDWICHES')">
                             <div
                                 class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-pink-500 to-rose-600 shadow-md shadow-rose-500/20 group-hover:scale-105 transition-all">
-                                <img src="./assets/images/scoop-n-brew/scoop-n-brew-pink-quotes-wall.png"
+                                <img src="./assets/images/specialities/sandwich.jpg"
                                     alt="Grilled Sandwich" class="w-full h-full object-cover rounded-full">
                             </div>
                             <span
@@ -1066,24 +1087,24 @@
                                     class="text-pink-600 font-extrabold">₹69</span></span>
                         </div>
 
-                        <!-- Item 5: Mint Mojito -->
+                        <!-- Item 6: Mint Mojito -->
                         <div class="flex-shrink-0 flex flex-col items-center w-20 cursor-pointer group"
                             onclick="quickSelectCategory('MOJITOS')">
                             <div
                                 class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-pink-500 to-rose-600 shadow-md shadow-rose-500/20 group-hover:scale-105 transition-all">
-                                <img src="./assets/images/scoop-n-brew/iced-mojito-cup.png" alt="Mint Mojito"
+                                <img src="./assets/images/specialities/mint-mojito.jpg" alt="Mint Mojito"
                                     class="w-full h-full object-cover rounded-full">
                             </div>
                             <span class="text-[10px] font-bold text-slate-700 text-center mt-1.5 leading-tight">Mint
                                 Mojito<br><span class="text-pink-600 font-extrabold">₹69</span></span>
                         </div>
 
-                        <!-- Item 6: Cold Coffee -->
+                        <!-- Item 7: Cold Coffee -->
                         <div class="flex-shrink-0 flex flex-col items-center w-20 cursor-pointer group"
                             onclick="quickSelectCategory('COFFEE')">
                             <div
                                 class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-pink-500 to-rose-600 shadow-md shadow-rose-500/20 group-hover:scale-105 transition-all">
-                                <img src="./assets/images/scoop-n-brew/scoop-n-brew-menu-poster.png" alt="Cold Coffee"
+                                <img src="./assets/images/specialities/cold-coffee.jpg" alt="Cold Coffee"
                                     class="w-full h-full object-cover rounded-full">
                             </div>
                             <span class="text-[10px] font-bold text-slate-700 text-center mt-1.5 leading-tight">Cold
@@ -1147,461 +1168,65 @@
         <!-- ═══════════════════════════════════════════════════════════════ -->
         <section id="gallerySection" class="px-3 space-y-4">
 
-            <!-- Culinary Gallery Row (Continuous Right-to-Left Moving Row with End Fades) -->
+            <!-- STORE PHOTO GALLERY (Wireless Style with 6 real scoopnbrew_gallery photos) -->
             <div class="bg-white rounded-3xl p-4 sm:p-5 border border-slate-100 shadow-sm overflow-hidden">
-                <div class="flex items-center justify-between mb-3">
-                    <div class="flex items-center gap-2">
-                        <span class="text-base">📸</span>
-                        <h3 class="text-sm font-extrabold text-slate-900">Culinary Gallery</h3>
+                <div class="flex items-center justify-between mb-3.5">
+                    <div>
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-base">📸</span>
+                            <h3 class="text-sm font-black uppercase tracking-wider text-slate-800">Store Gallery</h3>
+                        </div>
+                        <p class="text-xs text-slate-500 font-medium mt-0.5">Inside Scoop n Brew Cafe &amp; sweet vibes</p>
                     </div>
-                    <!-- Show All Button at Right Corner -->
-                    <button type="button" onclick="openGalleryModal(0)" id="galleryShowAllBtn"
-                        class="text-xs font-bold text-[#E11D48] hover:text-rose-700 bg-rose-50 hover:bg-rose-100 border border-rose-100 px-3 py-1.5 rounded-full transition-all flex items-center gap-1.5 active:scale-95 shadow-sm"
-                        title="View all photos">
-                        <span>Show All</span>
-                        <span
-                            class="count-badge text-[10px] bg-[#E11D48] text-white px-1.5 py-0.2 rounded-full font-bold">8</span>
-                        <span>→</span>
+                    <span id="galleryCountBadge"
+                        class="text-[11px] font-bold px-3 py-1 rounded-full border border-amber-300 bg-amber-50/80 text-amber-800 shadow-2xs">
+                        6 Photos
+                    </span>
+                </div>
+
+                <!-- Horizontal Carousel Slider Track -->
+                <div class="relative group/slider my-1">
+                    <!-- Left Chevron Navigation Button -->
+                    <button type="button" id="galleryPrevBtn" onclick="scrollGalleryTrack(-1)"
+                        class="w-9 h-9 rounded-full bg-white text-slate-800 shadow-md border border-slate-200/90 flex items-center justify-center font-black text-sm cursor-pointer hover:bg-slate-50 active:scale-90 transition-all absolute left-1 top-1/2 -translate-y-1/2 z-10 hover:shadow-lg"
+                        aria-label="Previous Photo">
+                        <svg class="w-4 h-4 text-slate-700" fill="none" stroke="currentColor" stroke-width="2.5"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+
+                    <div id="galleryCarouselTrack"
+                        class="flex gap-3 overflow-x-auto hide-scrollbar scroll-smooth snap-x snap-mandatory py-1 px-1">
+                        <!-- Cards dynamically rendered from STORE_GALLERY (all 6 scoopnbrew_gallery images without repetition) -->
+                    </div>
+
+                    <!-- Right Chevron Navigation Button -->
+                    <button type="button" id="galleryNextBtn" onclick="scrollGalleryTrack(1)"
+                        class="w-9 h-9 rounded-full bg-white text-slate-800 shadow-md border border-slate-200/90 flex items-center justify-center font-black text-sm cursor-pointer hover:bg-slate-50 active:scale-90 transition-all absolute right-1 top-1/2 -translate-y-1/2 z-10 hover:shadow-lg"
+                        aria-label="Next Photo">
+                        <svg class="w-4 h-4 text-slate-700" fill="none" stroke="currentColor" stroke-width="2.5"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
                     </button>
                 </div>
 
-                <!-- Moving Row: Fading out at ends & slowly moving leftward -->
-                <div class="relative overflow-hidden gallery-fade-mask -mx-4 sm:-mx-5 px-4 sm:px-5">
-                    <!-- Left Fade Gradient -->
-                    <div
-                        class="pointer-events-none absolute inset-y-0 left-0 w-8 sm:w-14 bg-gradient-to-r from-white via-white/80 to-transparent z-10">
-                    </div>
-                    <!-- Right Fade Gradient -->
-                    <div
-                        class="pointer-events-none absolute inset-y-0 right-0 w-8 sm:w-14 bg-gradient-to-l from-white via-white/80 to-transparent z-10">
-                    </div>
-
-                    <!-- Continuous Moving Marquee Track (Right to Left) -->
-                    <div id="galleryMarqueeTrack" class="gallery-marquee-track gap-3 py-1">
-                        <!-- 1. Ambient Arch Dining Seating -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
-                            onclick="openGalleryModal(0)">
-                            <img src="./assets/images/scoop-n-brew/scoop-n-brew-dining-arch.png"
-                                alt="Backlit Arch Seating"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
-                            </div>
-                            <span
-                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-pink-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Ambience</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Arch
-                                    Seating</p>
-                                <span
-                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- 2. Official Cafe Menu Board -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
-                            onclick="openGalleryModal(1)">
-                            <img src="./assets/images/scoop-n-brew/pixel-cafe-menu-board.png" alt="Cafe Menu Board"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
-                            </div>
-                            <span
-                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-pink-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Menu
-                                Board</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Cafe Menu
-                                </p>
-                                <span
-                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- 3. Hocco Strawberry Cheesecake Cone -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
-                            onclick="openGalleryModal(2)">
-                            <img src="./assets/images/scoop-n-brew/hocco-strawberry-cheesecake.png"
-                                alt="Hocco Strawberry Cheesecake Cone"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
-                            </div>
-                            <span
-                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-rose-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Hocco
-                                Cone</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Strawberry
-                                    Cone</p>
-                                <span
-                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- 4. Hocco Nutty Chocolate Cone -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
-                            onclick="openGalleryModal(3)">
-                            <img src="./assets/images/scoop-n-brew/hocco-nutty-cone.png"
-                                alt="Hocco Nutty Chocolate Cone"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
-                            </div>
-                            <span
-                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-amber-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Hocco
-                                Cone</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Nutty Cone
-                                </p>
-                                <span
-                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- 5. Triple Neon Arches Bar -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
-                            onclick="openGalleryModal(4)">
-                            <img src="./assets/images/scoop-n-brew/scoops-of-happiness-banner.jpg" alt="Neon Arches Bar"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
-                            </div>
-                            <span
-                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-blue-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Counter</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Neon
-                                    Arches Bar</p>
-                                <span
-                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- 6. Hocco BOSS Bar -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
-                            onclick="openGalleryModal(5)">
-                            <img src="./assets/images/scoop-n-brew/hocco-boss-bar.png" alt="Hocco BOSS Bar"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
-                            </div>
-                            <span
-                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-stone-800 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Boss
-                                Bar</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Hocco Boss
-                                    Bar</p>
-                                <span
-                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- 7. Refreshing Iced Mojito Cup -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
-                            onclick="openGalleryModal(6)">
-                            <img src="./assets/images/scoop-n-brew/iced-mojito-cup.png" alt="Iced Mojito Cup"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
-                            </div>
-                            <span
-                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-emerald-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Cool
-                                Mojito</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Iced
-                                    Mojito</p>
-                                <span
-                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- 8. Pink Quotes Wall -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
-                            onclick="openGalleryModal(7)">
-                            <img src="./assets/images/scoop-n-brew/scoop-n-brew-pink-quotes-wall.png"
-                                alt="Pink Quote Wall"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
-                            </div>
-                            <span
-                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-pink-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Vibes</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Pink Quote
-                                    Wall</p>
-                                <span
-                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- 9. Cafe Corner View -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
-                            onclick="openGalleryModal(8)">
-                            <img src="./assets/images/scoop-n-brew/scoop-n-brew-counter-angle.png"
-                                alt="Cozy Cafe Corner"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
-                            </div>
-                            <span
-                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-blue-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Hangout</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Cozy
-                                    Corner</p>
-                                <span
-                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- 10. Student Deals Flyer Poster -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
-                            onclick="openGalleryModal(9)">
-                            <img src="./assets/images/scoop-n-brew/scoop-n-brew-menu-poster.png"
-                                alt="Full Menu & Prices"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
-                            </div>
-                            <span
-                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-emerald-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Flyer
-                                Deals</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Student
-                                    Deals</p>
-                                <span
-                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-                        <!-- 1. Ambient Arch Dining Seating -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
-                            onclick="openGalleryModal(0)">
-                            <img src="./assets/images/scoop-n-brew/scoop-n-brew-dining-arch.png"
-                                alt="Backlit Arch Seating"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
-                            </div>
-                            <span
-                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-pink-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Ambience</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Arch
-                                    Seating</p>
-                                <span
-                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- 2. Official Cafe Menu Board -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
-                            onclick="openGalleryModal(1)">
-                            <img src="./assets/images/scoop-n-brew/pixel-cafe-menu-board.png" alt="Cafe Menu Board"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
-                            </div>
-                            <span
-                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-pink-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Menu
-                                Board</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Cafe Menu
-                                </p>
-                                <span
-                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- 3. Hocco Strawberry Cheesecake Cone -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
-                            onclick="openGalleryModal(2)">
-                            <img src="./assets/images/scoop-n-brew/hocco-strawberry-cheesecake.png"
-                                alt="Hocco Strawberry Cheesecake Cone"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
-                            </div>
-                            <span
-                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-rose-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Hocco
-                                Cone</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Strawberry
-                                    Cone</p>
-                                <span
-                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- 4. Hocco Nutty Chocolate Cone -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
-                            onclick="openGalleryModal(3)">
-                            <img src="./assets/images/scoop-n-brew/hocco-nutty-cone.png"
-                                alt="Hocco Nutty Chocolate Cone"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
-                            </div>
-                            <span
-                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-amber-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Hocco
-                                Cone</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Nutty Cone
-                                </p>
-                                <span
-                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- 5. Triple Neon Arches Bar -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
-                            onclick="openGalleryModal(4)">
-                            <img src="./assets/images/scoop-n-brew/scoops-of-happiness-banner.jpg" alt="Neon Arches Bar"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
-                            </div>
-                            <span
-                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-blue-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Counter</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Neon
-                                    Arches Bar</p>
-                                <span
-                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- 6. Hocco BOSS Bar -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
-                            onclick="openGalleryModal(5)">
-                            <img src="./assets/images/scoop-n-brew/hocco-boss-bar.png" alt="Hocco BOSS Bar"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
-                            </div>
-                            <span
-                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-stone-800 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Boss
-                                Bar</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Hocco Boss
-                                    Bar</p>
-                                <span
-                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- 7. Refreshing Iced Mojito Cup -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
-                            onclick="openGalleryModal(6)">
-                            <img src="./assets/images/scoop-n-brew/iced-mojito-cup.png" alt="Iced Mojito Cup"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
-                            </div>
-                            <span
-                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-emerald-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Cool
-                                Mojito</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Iced
-                                    Mojito</p>
-                                <span
-                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- 8. Pink Quotes Wall -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
-                            onclick="openGalleryModal(7)">
-                            <img src="./assets/images/scoop-n-brew/scoop-n-brew-pink-quotes-wall.png"
-                                alt="Pink Quote Wall"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
-                            </div>
-                            <span
-                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-pink-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Vibes</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Pink Quote
-                                    Wall</p>
-                                <span
-                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- 9. Cafe Corner View -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
-                            onclick="openGalleryModal(8)">
-                            <img src="./assets/images/scoop-n-brew/scoop-n-brew-counter-angle.png"
-                                alt="Cozy Cafe Corner"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
-                            </div>
-                            <span
-                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-blue-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Hangout</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Cozy
-                                    Corner</p>
-                                <span
-                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- 10. Student Deals Flyer Poster -->
-                        <div class="gallery-card group relative w-36 sm:w-44 h-40 sm:h-48 rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-pink-100 flex-shrink-0"
-                            onclick="openGalleryModal(9)">
-                            <img src="./assets/images/scoop-n-brew/scoop-n-brew-menu-poster.png"
-                                alt="Full Menu & Prices"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 group-hover:opacity-90 transition-opacity">
-                            </div>
-                            <span
-                                class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-white/95 text-emerald-700 text-[8px] font-extrabold backdrop-blur-sm shadow-sm">Flyer
-                                Deals</span>
-                            <div class="absolute bottom-2.5 left-2.5 right-2.5">
-                                <p class="text-white text-xs font-bold truncate leading-tight drop-shadow-sm">Student
-                                    Deals</p>
-                                <span
-                                    class="text-[10px] text-amber-300 font-semibold flex items-center gap-1 mt-0.5 opacity-90 group-hover:opacity-100">
-                                    <span>Tap to view</span> <span>🔍</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+                <!-- Carousel Dots Indicator -->
+                <div id="galleryDots" class="flex items-center justify-center gap-1.5 mt-2.5 mb-3">
+                    <!-- Dots dynamically rendered -->
                 </div>
+
+                <!-- View All 6 Photos Button -->
+                <button type="button" onclick="openFullGalleryModal()"
+                    class="w-full py-3 px-4 rounded-2xl bg-[#FFFDF5] hover:bg-[#FFF9E6] border-2 border-amber-300/90 hover:border-amber-400 text-amber-950 font-black text-xs sm:text-sm flex items-center justify-center gap-2 shadow-2xs transition-all active:scale-[0.99] cursor-pointer">
+                    <svg class="w-4 h-4 text-amber-600" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    <span id="galleryViewAllBtnText">View All 6 Photos</span>
+                </button>
             </div>
 
             <!-- Find Us Map Card -->
@@ -2115,7 +1740,7 @@
                     onclick="toggleWelcomeItem(this, 'WAFFLES', 'WAFFLES')">
                     <div
                         class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
-                        <img src="./assets/images/scoop-n-brew/pixel-cafe-menu-board.png" alt="Waffles"
+                        <img src="./assets/images/specialities/nutella-waffle.jpg" alt="Waffles"
                             class="w-full h-full object-cover">
                         <div
                             class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-[#DB2777] text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">
@@ -2130,7 +1755,7 @@
                     onclick="toggleWelcomeItem(this, 'MINI_PANCAKES', 'WAFFLES')">
                     <div
                         class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
-                        <img src="./assets/images/scoop-n-brew/pixel-cafe-menu-board.png" alt="Mini Pancakes"
+                        <img src="./assets/images/specialities/mini-pancakes.jpg" alt="Mini Pancakes"
                             class="w-full h-full object-cover">
                         <div
                             class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-[#DB2777] text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">
@@ -2160,7 +1785,7 @@
                     onclick="toggleWelcomeItem(this, 'SHAKES', 'SHAKES')">
                     <div
                         class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
-                        <img src="./assets/images/scoop-n-brew/iced-mojito-cup.png" alt="Thick Shakes"
+                        <img src="./assets/images/specialities/oreo-shake.jpg" alt="Thick Shakes"
                             class="w-full h-full object-cover">
                         <div
                             class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-[#DB2777] text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">
@@ -2175,7 +1800,7 @@
                     onclick="toggleWelcomeItem(this, 'FRIES', 'FOOD')">
                     <div
                         class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
-                        <img src="./assets/images/scoop-n-brew/scoop-n-brew-counter-angle.png" alt="Loaded Fries"
+                        <img src="./assets/images/specialities/loaded-fries.jpg" alt="Loaded Fries"
                             class="w-full h-full object-cover">
                         <div
                             class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-[#DB2777] text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">
@@ -2190,7 +1815,7 @@
                     onclick="toggleWelcomeItem(this, 'BURGERS_SANDWICHES', 'FOOD')">
                     <div
                         class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
-                        <img src="./assets/images/scoop-n-brew/scoop-n-brew-pink-quotes-wall.png"
+                        <img src="./assets/images/specialities/sandwich.jpg"
                             alt="Burger & Sandwich" class="w-full h-full object-cover">
                         <div
                             class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-[#DB2777] text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">
@@ -2206,7 +1831,7 @@
                     onclick="toggleWelcomeItem(this, 'MOJITOS', 'BEVERAGES')">
                     <div
                         class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
-                        <img src="./assets/images/scoop-n-brew/iced-mojito-cup.png" alt="Iced Mojito"
+                        <img src="./assets/images/specialities/mint-mojito.jpg" alt="Iced Mojito"
                             class="w-full h-full object-cover">
                         <div
                             class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-[#DB2777] text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">
@@ -2221,7 +1846,7 @@
                     onclick="toggleWelcomeItem(this, 'COFFEE_CHAI', 'BEVERAGES')">
                     <div
                         class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
-                        <img src="./assets/images/scoop-n-brew/scoop-n-brew-menu-poster.png" alt="Coffee & Chai"
+                        <img src="./assets/images/specialities/cold-coffee.jpg" alt="Coffee & Chai"
                             class="w-full h-full object-cover">
                         <div
                             class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-[#DB2777] text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">
@@ -2267,69 +1892,70 @@
         </div>
     </div>
 
-    <!-- Photo Lightbox Modal (Full Featured with Next/Prev/Touch/Keyboard) -->
-    <div id="photoModal"
-        class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-3 sm:p-5 hidden select-none"
-        onclick="closePhotoModal()">
-        <div class="w-full max-w-md bg-slate-900 border border-white/10 rounded-3xl p-4 sm:p-5 flex flex-col gap-3 shadow-2xl relative"
+    <!-- FULL STORE GALLERY MODAL (GRID VIEW) -->
+    <div id="fullGalleryModal"
+        class="fixed inset-0 z-[105] hidden bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-3 sm:p-4"
+        onclick="closeFullGalleryModal()">
+        <div class="max-w-lg w-full max-h-[90vh] bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-slate-800 flex flex-col"
             onclick="event.stopPropagation()">
-
-            <!-- Top Controls: Category Pill, Counter & Close Button -->
-            <div class="flex items-center justify-between pb-0.5">
-                <div class="flex items-center gap-2">
-                    <span id="modalCategoryBadge"
-                        class="px-2.5 py-0.5 rounded-full bg-white/10 text-amber-300 text-[10px] font-extrabold tracking-wide uppercase border border-white/10">
-                        Cheesecake
-                    </span>
-                    <span id="modalCounter" class="text-xs font-bold text-slate-400">1 / 8</span>
-                </div>
-                <button type="button" onclick="closePhotoModal()"
-                    class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-sm font-bold transition-all active:scale-95"
-                    title="Close Lightbox">
+            <!-- Modal Header -->
+            <div class="p-4 border-b border-slate-800 flex items-center justify-between flex-shrink-0">
+                <button type="button" onclick="closeFullGalleryModal()"
+                    class="w-9 h-9 rounded-full bg-slate-800 hover:bg-slate-700 text-white flex items-center justify-center text-sm font-bold transition-all cursor-pointer"
+                    aria-label="Close">
                     ✕
                 </button>
+                <!-- Center Header -->
+                <div class="text-center">
+                    <h3 class="text-sm sm:text-base font-black text-white tracking-tight">Store Gallery</h3>
+                    <p id="fullGallerySubtitle" class="text-[11px] text-slate-400 font-medium">6 Photos • Scoop n Brew</p>
+                </div>
+                <!-- Right Empty Spacer for symmetry -->
+                <div class="w-9"></div>
             </div>
 
-            <!-- Main Image & Navigation Arrows -->
-            <div class="relative w-full h-64 sm:h-72 rounded-2xl overflow-hidden bg-black/60 flex items-center justify-center group"
-                id="modalTouchArea">
-                <img id="modalImg" src="" alt="Culinary item preview"
-                    class="w-full h-full object-cover transition-opacity duration-200">
-
-                <!-- Previous Arrow Button -->
-                <button type="button" onclick="navigateGallery(-1)"
-                    class="absolute left-2.5 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center text-xl font-bold backdrop-blur-md transition-all active:scale-90 border border-white/20 shadow-xl"
-                    title="Previous Photo">
-                    ‹
-                </button>
-
-                <!-- Next Arrow Button -->
-                <button type="button" onclick="navigateGallery(1)"
-                    class="absolute right-2.5 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center text-xl font-bold backdrop-blur-md transition-all active:scale-90 border border-white/20 shadow-xl"
-                    title="Next Photo">
-                    ›
-                </button>
+            <!-- 2-Column Responsive Grid -->
+            <div id="fullGalleryGrid" class="grid grid-cols-2 gap-3 p-4 overflow-y-auto flex-1">
+                <!-- Injected dynamically from STORE_GALLERY -->
             </div>
+        </div>
+    </div>
 
-            <!-- Details & Caption -->
-            <div class="space-y-1">
-                <h4 id="modalTitle" class="text-sm font-extrabold text-white leading-snug">Hocco Nutty Chocolate Cone
-                </h4>
-                <p id="modalDesc" class="text-xs text-slate-300 leading-relaxed">Creamy layered artisanal cheesecake
-                    with crunchy nuts and rich chocolate coating on a crispy wafer cone.</p>
+    <!-- HIGH-RES SINGLE PHOTO LIGHTBOX MODAL -->
+    <div id="galleryModal"
+        class="fixed inset-0 z-[110] hidden bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-3 sm:p-4"
+        onclick="closeGalleryModal()">
+        <div class="max-w-md w-full bg-white rounded-3xl overflow-hidden shadow-2xl border border-slate-200"
+            onclick="event.stopPropagation()">
+            <div class="relative aspect-[4/3] sm:aspect-square bg-slate-950 flex items-center justify-center" id="modalTouchArea">
+                <img id="galleryModalImg" src="" alt="" class="w-full h-full object-contain">
+                <!-- Top Actions Bar -->
+                <div class="absolute top-3 inset-x-3 flex items-center justify-between pointer-events-none">
+                    <span id="galleryModalCounter"
+                        class="px-2.5 py-1 rounded-full bg-black/60 text-white text-[11px] font-bold backdrop-blur-sm border border-white/10 pointer-events-auto shadow-xs">
+                        1 of 6
+                    </span>
+                    <button type="button" onclick="closeGalleryModal()"
+                        class="w-8 h-8 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center text-sm font-bold transition-all pointer-events-auto cursor-pointer">✕</button>
+                </div>
+                <!-- Prev / Next Navigation Arrows -->
+                <button type="button" onclick="prevLightboxPhoto()"
+                    class="absolute left-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/50 hover:bg-black/75 text-white flex items-center justify-center text-base font-bold transition-all cursor-pointer">‹</button>
+                <button type="button" onclick="nextLightboxPhoto()"
+                    class="absolute right-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/50 hover:bg-black/75 text-white flex items-center justify-center text-base font-bold transition-all cursor-pointer">›</button>
             </div>
-
-            <!-- Quick Action: Review with AI Button -->
-            <button type="button" id="modalReviewBtn" onclick="reviewCurrentModalDish()"
-                class="w-full bg-gradient-to-r from-[#E11D48] to-[#BE123C] hover:opacity-95 text-white font-bold text-xs py-2.5 px-3 rounded-xl shadow-lg shadow-rose-500/25 flex items-center justify-center gap-1.5 transition-all active:scale-95">
-                <span>✨</span>
-                <span>Review this Dish with AI</span>
-                <span>→</span>
-            </button>
-
-            <!-- Dot Indicators -->
-            <div id="modalDots" class="flex items-center justify-center gap-1.5 pt-0.5">
-                <!-- Rendered dynamically -->
+            <div class="p-4">
+                <div class="flex items-center justify-between gap-2">
+                    <span id="galleryModalBadge"
+                        class="text-[10px] font-black uppercase tracking-wider text-rose-600 bg-rose-50 px-2.5 py-0.5 rounded border border-rose-200"></span>
+                    <button type="button" onclick="reviewCurrentModalDish()"
+                        class="px-3.5 py-1.5 rounded-full bg-gradient-to-r from-[#E11D48] to-[#BE123C] text-white text-xs font-black shadow-xs hover:opacity-90 flex items-center gap-1.5 transition-all cursor-pointer active:scale-95"
+                        title="Generate Review with AI">
+                        <span>✨ Generate Review with AI</span>
+                    </button>
+                </div>
+                <h4 id="galleryModalTitle" class="text-sm sm:text-base font-bold text-slate-900 mt-2"></h4>
+                <p id="galleryModalDesc" class="text-xs text-slate-600 mt-1 leading-relaxed"></p>
             </div>
         </div>
     </div>
@@ -2415,7 +2041,16 @@
             }
 
             generateAIReview();
-            scrollToReviewCTA();
+            if (currentHighlightedEl) {
+                const selSec = document.getElementById('reviewSelectionSection');
+                if (currentHighlightedEl === selSec) {
+                    updateBackdropHole(selSec);
+                    const selPopup = document.getElementById('reviewSelectGuidePopup');
+                    if (selPopup && !selPopup.classList.contains('hidden')) {
+                        positionTourElementPopup(selSec, selPopup);
+                    }
+                }
+            }
         }
 
         // Specific item to category fallback helper
@@ -2482,9 +2117,11 @@
             document.querySelectorAll('.chip').forEach(c => c.classList.remove('chip-active'));
             const matchingBtn = Array.from(document.querySelectorAll('.chip')).find(b => b.getAttribute('onclick')?.includes(targetChip));
             if (matchingBtn) matchingBtn.classList.add('chip-active');
-            scrollToSection('aiSection');
+            if (typeof updateSelectedMenuSummary === 'function') {
+                updateSelectedMenuSummary();
+            }
             generateAIReview();
-            setTimeout(scrollToReviewCTA, 350);
+            goToReviewTourStep();
         }
 
         // Language Switcher (English, Hinglish, Hindi)
@@ -2861,217 +2498,266 @@
         }
 
         // ═══════════════════════════════════════════════════════════════
-        // FULL-FEATURED CULINARY GALLERY & LIGHTBOX ENGINE
+        // STORE GALLERY & HIGH-RES LIGHTBOX ENGINE (WIRELESS REFERENCE)
+        // 100% Real Scoop n Brew Photos from scoopnbrew_gallery (No Repetition)
         // ═══════════════════════════════════════════════════════════════
-        const GALLERY_ITEMS = [
+        const STORE_GALLERY = [
             {
-                id: 'hocco-nutty-cone',
-                src: './assets/images/scoop-n-brew/hocco-nutty-cone.png',
-                title: 'Hocco Nutty Chocolate Cone',
-                category: 'ice-cream',
-                categoryLabel: 'Ice Cream',
-                desc: 'Crunchy wafer cone loaded with nutty chocolate chunks — a Hocco fan favorite.',
-                aiCategory: 'ICE_CREAM'
+                id: 1,
+                title: "Scoop n Brew Cafe Storefront",
+                tag: "OUR CAFE",
+                desc: "Charming outdoor seating with green turf, cozy mood lighting, and welcoming cafe vibes near GEHU Gate 1.",
+                image: "./assets/images/gallery/gallery-1.jpg",
+                aiCategory: "AMBIENCE"
             },
             {
-                id: 'cafe-menu',
-                src: './assets/images/scoop-n-brew/pixel-cafe-menu-board.png',
-                title: 'Pixel Cafe Menu',
-                category: 'ambience',
-                categoryLabel: 'Brunch',
-                desc: 'Full pixel-art cafe menu board — waffles, shakes, mojitos, pancakes, fries, chai & more.',
-                aiCategory: 'PANCAKES'
+                id: 2,
+                title: "Neon Pink Arch Seating",
+                tag: "PHOTO SPOT",
+                desc: "Aesthetic backlit pink arch with plush velvet seats and cute ice cream wall frames — perfect for photos & dates!",
+                image: "./assets/images/gallery/gallery-2.jpg",
+                aiCategory: "AMBIENCE"
             },
             {
-                id: 'scoop-interior',
-                src: './assets/images/scoop-n-brew/scoop-n-brew-counter-angle.png',
-                title: 'Scoop n Brew Interior',
-                category: 'ambience',
-                categoryLabel: 'Savory',
-                desc: 'Cozy counter angles and vibrant pink walls at Scoop n Brew — the perfect backdrop for your next food pic.',
-                aiCategory: 'FRIES'
+                id: 3,
+                title: "Beverage & Shake Bar",
+                tag: "LIVE COUNTER",
+                desc: "Behind the counter with premium flavor syrups, thick shake blenders, waffle makers, and warm glow arches.",
+                image: "./assets/images/gallery/gallery-3.jpg",
+                aiCategory: "SHAKES"
             },
             {
-                id: 'hocco-strawberry',
-                src: './assets/images/scoop-n-brew/hocco-strawberry-cheesecake.png',
-                title: 'Hocco Strawberry Cheesecake Cone',
-                category: 'ice-cream',
-                categoryLabel: 'Dessert',
-                desc: 'Strawberry cheesecake ice cream in a crispy wafer cone — creamy, fruity, and oh so satisfying.',
-                aiCategory: 'ICE_CREAM'
+                id: 4,
+                title: "Artisanal Syrups & Bar Counter",
+                tag: "CRAFT DRINKS",
+                desc: "Gourmet Barisco syrups and fresh brewing stations ready to whip up mouthwatering mojitos, shakes, and cold coffee.",
+                image: "./assets/images/gallery/gallery-4.jpg",
+                aiCategory: "BEVERAGES"
             },
             {
-                id: 'hocco-boss-bar',
-                src: './assets/images/scoop-n-brew/hocco-boss-bar.png',
-                title: 'Hocco Boss Bar',
-                category: 'ice-cream',
-                categoryLabel: 'Ice Cream',
-                desc: 'Thick compound chocolate-coated Boss Bar by Hocco — rich, indulgent, and the ultimate ice cream bar.',
-                aiCategory: 'ICE_CREAM'
+                id: 5,
+                title: "Scoop n Brew Official Emblem",
+                tag: "OUR IDENTITY",
+                desc: "Ice Cream, Coffee, Thick Shakes & More — served fresh with love, passion, and sweetness at Clement Town.",
+                image: "./assets/images/gallery/gallery-5.jpg",
+                aiCategory: "ALL"
             },
             {
-                id: 'dining-area',
-                src: './assets/images/scoop-n-brew/scoop-n-brew-dining-arch.png',
-                title: 'Scoop n Brew Dining',
-                category: 'ice-cream',
-                categoryLabel: 'Ambience',
-                desc: 'Royal blue illuminated arches and bubblegum pink walls — the iconic Scoop n Brew dining vibe near GEHU.',
-                aiCategory: 'AMBIENCE'
-            },
-            {
-                id: 'iced-mojito',
-                src: './assets/images/scoop-n-brew/iced-mojito-cup.png',
-                title: 'Cool Iced Mojito',
-                category: 'ice-cream',
-                categoryLabel: 'Drinks',
-                desc: 'Refreshing iced mojito in a clear cup with a striped straw — cool, fizzy, and perfect for hot Dehradun days.',
-                aiCategory: 'ICE_CREAM'
-            },
-            {
-                id: 'pink-wall',
-                src: './assets/images/scoop-n-brew/scoop-n-brew-pink-quotes-wall.png',
-                title: 'Pink Quotes Wall',
-                category: 'ice-cream',
-                categoryLabel: 'Ambience',
-                desc: 'Pink brick walls with motivational quotes — an aesthetic, Instagrammable corner at Scoop n Brew.',
-                aiCategory: 'AMBIENCE'
+                id: 6,
+                title: "Pink Brick Quotes Wall",
+                tag: "INSTAGRAMMABLE",
+                desc: "Vibrant candy-pink brick texture with cute foodie quotes and ice cream frames — an awesome selfie backdrop!",
+                image: "./assets/images/gallery/gallery-6.jpg",
+                aiCategory: "ICE_CREAM"
             }
         ];
 
-        let currentGalleryIndex = 0;
-        let activeGalleryCategory = 'all';
+        // Legacy compatibility alias
+        const GALLERY_ITEMS = STORE_GALLERY;
 
-        // Filter Gallery Items by Category
-        function filterGallery(category) {
-            activeGalleryCategory = category;
-            const cards = document.querySelectorAll('.gallery-card');
-            let visibleCount = 0;
+        let currentLightboxIndex = 0;
 
-            cards.forEach(card => {
-                const cardCat = card.getAttribute('data-category');
-                if (category === 'all' || cardCat === category) {
-                    card.classList.remove('hidden');
-                    visibleCount++;
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
+        function renderStoreGallery() {
+            const track = document.getElementById('galleryCarouselTrack');
+            const dots = document.getElementById('galleryDots');
+            const countBadge = document.getElementById('galleryCountBadge');
+            const viewAllBtnText = document.getElementById('galleryViewAllBtnText');
 
-            // Update filter buttons
-            document.querySelectorAll('.g-filter-btn').forEach(btn => {
-                btn.classList.remove('bg-slate-900', 'text-white');
-                btn.classList.add('bg-slate-100', 'text-slate-600');
-            });
-            const activeBtn = document.getElementById('gFilter-' + category);
-            if (activeBtn) {
-                activeBtn.classList.remove('bg-slate-100', 'text-slate-600');
-                activeBtn.classList.add('bg-slate-900', 'text-white');
+            if (countBadge) countBadge.textContent = `${STORE_GALLERY.length} Photos`;
+            if (viewAllBtnText) viewAllBtnText.textContent = `View All ${STORE_GALLERY.length} Photos`;
+
+            if (track) {
+                track.innerHTML = STORE_GALLERY.map((item, idx) => `
+                    <div onclick="openPhotoLightbox(${idx})" class="gallery-card w-[140px] sm:w-[155px] flex-shrink-0 aspect-[4/5] rounded-2xl overflow-hidden relative shadow-sm border ${idx === 0 ? 'border-2 border-rose-400 ring-2 ring-rose-400/20 shadow-md' : 'border border-slate-200/90'} snap-start cursor-pointer group bg-slate-900 transition-all hover:scale-[1.02]">
+                        <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent p-2.5 sm:p-3 flex flex-col justify-end">
+                            <span class="text-[8.5px] sm:text-[9px] font-black uppercase tracking-wider text-rose-300 bg-black/75 px-2 py-0.5 rounded-md border border-rose-400/60 w-fit mb-1 shadow-2xs">
+                                ${item.tag}
+                            </span>
+                            <h4 class="text-xs sm:text-[13px] font-bold text-white leading-tight drop-shadow-xs line-clamp-1">
+                                ${item.title}
+                            </h4>
+                        </div>
+                    </div>
+                `).join('');
             }
 
-            // Update badge
-            const badge = document.getElementById('galleryCountBadge');
-            if (badge) {
-                badge.textContent = `${visibleCount} Item${visibleCount === 1 ? '' : 's'}`;
-            }
-        }
-
-        // Open Modal at specific index
-        function openGalleryModal(index) {
-            currentGalleryIndex = (index + GALLERY_ITEMS.length) % GALLERY_ITEMS.length;
-            renderModalState();
-            const modal = document.getElementById('photoModal');
-            modal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-
-        // Backward compatibility
-        function openPhotoModal(srcOrIndex) {
-            if (typeof srcOrIndex === 'number') {
-                openGalleryModal(srcOrIndex);
-            } else if (typeof srcOrIndex === 'string') {
-                const foundIndex = GALLERY_ITEMS.findIndex(item => item.src === srcOrIndex || srcOrIndex.includes(item.src.split('/').pop()));
-                openGalleryModal(foundIndex >= 0 ? foundIndex : 0);
-            } else {
-                openGalleryModal(0);
-            }
-        }
-
-        function closePhotoModal() {
-            const modal = document.getElementById('photoModal');
-            modal.classList.add('hidden');
-            document.body.style.overflow = '';
-        }
-
-        function navigateGallery(delta) {
-            currentGalleryIndex = (currentGalleryIndex + delta + GALLERY_ITEMS.length) % GALLERY_ITEMS.length;
-            renderModalState();
-        }
-
-        function renderModalState() {
-            const item = GALLERY_ITEMS[currentGalleryIndex];
-            if (!item) return;
-
-            const imgEl = document.getElementById('modalImg');
-            if (imgEl) {
-                imgEl.style.opacity = '0.3';
-                setTimeout(() => {
-                    imgEl.src = item.src;
-                    imgEl.alt = item.title;
-                    imgEl.style.opacity = '1';
-                }, 80);
+            if (dots) {
+                dots.innerHTML = STORE_GALLERY.map((_, idx) => `
+                    <button type="button" onclick="scrollGalleryToIndex(${idx})" class="gallery-dot transition-all duration-300 ${idx === 0 ? 'w-5 h-1.5 rounded-full bg-rose-500' : 'w-1.5 h-1.5 rounded-full bg-slate-300 hover:bg-slate-400'}" aria-label="Go to slide ${idx + 1}"></button>
+                `).join('');
             }
 
-            const titleEl = document.getElementById('modalTitle');
-            if (titleEl) titleEl.textContent = item.title;
+            renderFullGalleryModal();
+        }
 
-            const descEl = document.getElementById('modalDesc');
-            if (descEl) descEl.textContent = item.desc;
+        function renderFullGalleryModal() {
+            const grid = document.getElementById('fullGalleryGrid');
+            const subtitle = document.getElementById('fullGallerySubtitle');
+            if (subtitle) subtitle.textContent = `${STORE_GALLERY.length} Photos • Scoop n Brew`;
 
-            const badgeEl = document.getElementById('modalCategoryBadge');
-            if (badgeEl) badgeEl.textContent = item.categoryLabel;
-
-            const counterEl = document.getElementById('modalCounter');
-            if (counterEl) counterEl.textContent = `${currentGalleryIndex + 1} / ${GALLERY_ITEMS.length}`;
-
-            // Render dot indicators
-            const dotsContainer = document.getElementById('modalDots');
-            if (dotsContainer) {
-                dotsContainer.innerHTML = GALLERY_ITEMS.map((_, i) => `
-                    <button type="button" onclick="openGalleryModal(${i})"
-                        class="h-1.5 rounded-full transition-all ${i === currentGalleryIndex ? 'w-5 bg-amber-400' : 'w-1.5 bg-white/30 hover:bg-white/60'}"
-                        title="View photo ${i + 1}">
-                    </button>
+            if (grid) {
+                grid.innerHTML = STORE_GALLERY.map((item, idx) => `
+                    <div onclick="openPhotoLightbox(${idx})" class="group relative rounded-2xl overflow-hidden aspect-[4/5] bg-slate-900 border border-slate-800/80 shadow-md cursor-pointer hover:border-rose-400/80 transition-all">
+                        <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent p-3 flex items-end justify-between pointer-events-none">
+                            <h4 class="text-xs sm:text-[13px] font-bold text-white drop-shadow-md leading-tight line-clamp-1">${item.title}</h4>
+                            <span class="px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-sm border border-white/10 text-[10px] font-black text-white/90 shadow-2xs flex-shrink-0">${idx + 1}/${STORE_GALLERY.length}</span>
+                        </div>
+                    </div>
                 `).join('');
             }
         }
 
-        // Link directly from modal to AI Review
+        function scrollGalleryTrack(direction) {
+            const track = document.getElementById('galleryCarouselTrack');
+            if (!track) return;
+            const scrollAmount = 160;
+            track.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+        }
+
+        function scrollGalleryToIndex(index) {
+            const track = document.getElementById('galleryCarouselTrack');
+            if (!track) return;
+            const cards = track.querySelectorAll('.gallery-card');
+            if (cards[index]) {
+                cards[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+            }
+            updateActiveGalleryDot(index);
+        }
+
+        function updateActiveGalleryDot(activeIdx) {
+            const dots = document.querySelectorAll('.gallery-dot');
+            dots.forEach((dot, idx) => {
+                if (idx === activeIdx) {
+                    dot.className = 'gallery-dot transition-all duration-300 w-5 h-1.5 rounded-full bg-rose-500';
+                } else {
+                    dot.className = 'gallery-dot transition-all duration-300 w-1.5 h-1.5 rounded-full bg-slate-300 hover:bg-slate-400';
+                }
+            });
+        }
+
+        function openFullGalleryModal() {
+            const modal = document.getElementById('fullGalleryModal');
+            if (modal) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeFullGalleryModal() {
+            const modal = document.getElementById('fullGalleryModal');
+            if (modal) {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                document.body.style.overflow = '';
+            }
+        }
+
+        function openPhotoLightbox(index) {
+            currentLightboxIndex = index;
+            const item = STORE_GALLERY[index];
+            if (!item) return;
+
+            const imgEl = document.getElementById('galleryModalImg');
+            if (imgEl) imgEl.src = item.image;
+            const titleEl = document.getElementById('galleryModalTitle');
+            if (titleEl) titleEl.textContent = item.title;
+            const badgeEl = document.getElementById('galleryModalBadge');
+            if (badgeEl) badgeEl.textContent = item.tag;
+            const descEl = document.getElementById('galleryModalDesc');
+            if (descEl) descEl.textContent = item.desc;
+            const counter = document.getElementById('galleryModalCounter');
+            if (counter) counter.textContent = `${index + 1} of ${STORE_GALLERY.length}`;
+
+            const modal = document.getElementById('galleryModal');
+            if (modal) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeGalleryModal() {
+            const modal = document.getElementById('galleryModal');
+            if (modal) {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Backward compatibility wrappers
+        function openGalleryModal(index) {
+            openPhotoLightbox(typeof index === 'number' ? index : 0);
+        }
+
+        function openPhotoModal(srcOrIndex) {
+            if (typeof srcOrIndex === 'number') {
+                openPhotoLightbox(srcOrIndex);
+            } else if (typeof srcOrIndex === 'string') {
+                const foundIndex = STORE_GALLERY.findIndex(item => item.image === srcOrIndex || srcOrIndex.includes(item.image.split('/').pop()));
+                openPhotoLightbox(foundIndex >= 0 ? foundIndex : 0);
+            } else {
+                openPhotoLightbox(0);
+            }
+        }
+
+        function closePhotoModal() {
+            closeGalleryModal();
+            closeFullGalleryModal();
+        }
+
+        function prevLightboxPhoto() {
+            if (currentLightboxIndex > 0) {
+                openPhotoLightbox(currentLightboxIndex - 1);
+            } else {
+                openPhotoLightbox(STORE_GALLERY.length - 1);
+            }
+        }
+
+        function nextLightboxPhoto() {
+            if (currentLightboxIndex < STORE_GALLERY.length - 1) {
+                openPhotoLightbox(currentLightboxIndex + 1);
+            } else {
+                openPhotoLightbox(0);
+            }
+        }
+
         function reviewCurrentModalDish() {
-            const item = GALLERY_ITEMS[currentGalleryIndex];
-            closePhotoModal();
+            const item = STORE_GALLERY[currentLightboxIndex];
+            closeGalleryModal();
+            closeFullGalleryModal();
             if (item && item.aiCategory) {
                 quickSelectCategory(item.aiCategory);
-                showToast(`Selected ${item.title}! Customizing your review...`, '✨');
+                showToast(`Selected ${item.title}! Pick your favorite treats below ✨`, '✨');
             } else {
-                scrollToSection('aiSection');
+                goToReviewTourStep();
+                showToast('Pick what you enjoyed below ✨', '✨');
             }
         }
 
         // Keyboard navigation for Lightbox
         window.addEventListener('keydown', (e) => {
-            const modal = document.getElementById('photoModal');
+            const modal = document.getElementById('galleryModal');
+            const fullModal = document.getElementById('fullGalleryModal');
             if (modal && !modal.classList.contains('hidden')) {
                 if (e.key === 'ArrowLeft') {
-                    navigateGallery(-1);
+                    prevLightboxPhoto();
                 } else if (e.key === 'ArrowRight') {
-                    navigateGallery(1);
+                    nextLightboxPhoto();
                 } else if (e.key === 'Escape') {
-                    closePhotoModal();
+                    closeGalleryModal();
+                }
+            } else if (fullModal && !fullModal.classList.contains('hidden')) {
+                if (e.key === 'Escape') {
+                    closeFullGalleryModal();
                 }
             }
         });
 
-        // Touch Swipe Navigation for Mobile
+        // Touch Swipe Navigation for Mobile Lightbox
         window.addEventListener('DOMContentLoaded', () => {
             let touchStartX = 0;
             let touchEndX = 0;
@@ -3087,14 +2773,35 @@
                     const diff = touchEndX - touchStartX;
                     if (Math.abs(diff) > 40) {
                         if (diff < 0) {
-                            navigateGallery(1); // Swipe left -> Next
+                            nextLightboxPhoto(); // Swipe left -> Next
                         } else {
-                            navigateGallery(-1); // Swipe right -> Prev
+                            prevLightboxPhoto(); // Swipe right -> Prev
                         }
                     }
                 }, { passive: true });
             }
+
+            // Sync track scroll with active dot
+            const galleryTrack = document.getElementById('galleryCarouselTrack');
+            if (galleryTrack) {
+                galleryTrack.addEventListener('scroll', () => {
+                    const scrollLeft = galleryTrack.scrollLeft;
+                    const cardWidth = 140 + 12;
+                    const activeIdx = Math.round(scrollLeft / cardWidth);
+                    updateActiveGalleryDot(Math.min(activeIdx, STORE_GALLERY.length - 1));
+                }, { passive: true });
+            }
+
+            // Initialize gallery rendering
+            renderStoreGallery();
         });
+
+        // Also run immediately in case DOM is already ready
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            setTimeout(renderStoreGallery, 0);
+        } else {
+            document.addEventListener('DOMContentLoaded', renderStoreGallery);
+        }
 
         // Share API
         function sharePage() {
@@ -3401,8 +3108,14 @@
 
             backdrop.classList.remove('hidden');
 
-            // Scroll so selection section is comfortably visible
-            selSec.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            // Scroll so "Loved your experience?" selection section is comfortably visible at top
+            const scrollBody = document.getElementById('mainScrollBody');
+            if (scrollBody) {
+                const targetTop = selSec.offsetTop - 20;
+                scrollBody.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' });
+            } else {
+                selSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
 
             setTimeout(() => {
                 selSec.classList.add('tour-highlight-review', 'tour-pulse-review');
@@ -3455,7 +3168,7 @@
 
         function handleGenerateReviewClick() {
             regenerateReview(true);
-            goToReviewOutputStep();
+            goToReviewTourStep();
         }
 
         function regenerateReview(animate = true) {

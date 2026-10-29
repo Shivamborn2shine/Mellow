@@ -40,14 +40,14 @@ export const DEFAULT_STORE_DATA = {
         heading: 'What did you treat yourself to<br>at Scoop n brew?',
         subheading: 'Choose one or more items',
         items: [
-            { key: 'WAFFLES', categoryKey: 'WAFFLES', label: 'Waffles (Nutella/Choc ₹99)', image: './assets/images/scoop-n-brew/pixel-cafe-menu-board.png' },
-            { key: 'MINI_PANCAKES', categoryKey: 'PANCAKES', label: 'Mini Pancakes (@ ₹59)', image: './assets/images/scoop-n-brew/pixel-cafe-menu-board.png' },
+            { key: 'WAFFLES', categoryKey: 'WAFFLES', label: 'Waffles (Nutella/Choc ₹99)', image: './assets/images/specialities/nutella-waffle.jpg' },
+            { key: 'MINI_PANCAKES', categoryKey: 'PANCAKES', label: 'Mini Pancakes (@ ₹59)', image: './assets/images/specialities/mini-pancakes.jpg' },
             { key: 'HOCCO', categoryKey: 'ICE_CREAM', label: 'Hocco Ice Cream Cones', image: './assets/images/scoop-n-brew/hocco-nutty-cone.png' },
-            { key: 'SHAKES', categoryKey: 'SHAKES', label: 'Thick Shakes (@ ₹69-79)', image: './assets/images/scoop-n-brew/iced-mojito-cup.png' },
-            { key: 'FRIES', categoryKey: 'FRIES', label: 'Loaded & Peri Fries (@ ₹69-79)', image: './assets/images/scoop-n-brew/scoop-n-brew-menu-poster.png' },
-            { key: 'BURGERS_SANDWICHES', categoryKey: 'FOOD', label: 'Burgers & Sandwiches (@ ₹69-79)', image: './assets/images/scoop-n-brew/scoop-n-brew-pink-quotes-wall.png' },
-            { key: 'MOJITOS', categoryKey: 'MOJITOS', label: 'Mojitos & Iced Teas (@ ₹69)', image: './assets/images/scoop-n-brew/iced-mojito-cup.png' },
-            { key: 'COFFEE_CHAI', categoryKey: 'COFFEE', label: 'Chai (₹20) & Coffee (₹29)', image: './assets/images/scoop-n-brew/scoop-n-brew-counter-angle.png' },
+            { key: 'SHAKES', categoryKey: 'SHAKES', label: 'Thick Shakes (@ ₹69-79)', image: './assets/images/specialities/oreo-shake.jpg' },
+            { key: 'FRIES', categoryKey: 'FRIES', label: 'Loaded & Peri Fries (@ ₹69-79)', image: './assets/images/specialities/loaded-fries.jpg' },
+            { key: 'BURGERS_SANDWICHES', categoryKey: 'FOOD', label: 'Burgers & Sandwiches (@ ₹69-79)', image: './assets/images/specialities/sandwich.jpg' },
+            { key: 'MOJITOS', categoryKey: 'MOJITOS', label: 'Mojitos & Iced Teas (@ ₹69)', image: './assets/images/specialities/mint-mojito.jpg' },
+            { key: 'COFFEE_CHAI', categoryKey: 'COFFEE', label: 'Chai (₹20) & Coffee (₹29)', image: './assets/images/specialities/cold-coffee.jpg' },
             { key: 'ALL', categoryKey: 'ALL', label: 'Not Sure', isNotSure: true }
         ]
     },
@@ -79,44 +79,51 @@ export const DEFAULT_STORE_DATA = {
         {
             id: 'spec-waffles',
             name: 'Nutella Waffle',
-            image: './assets/images/scoop-n-brew/pixel-cafe-menu-board.png',
+            image: './assets/images/specialities/nutella-waffle.jpg',
             gradient: 'from-pink-500 to-rose-600',
             categoryKey: 'WAFFLES'
         },
         {
-            id: 'spec-hocco-cone',
-            name: 'Hocco Nutty Cone',
-            image: './assets/images/scoop-n-brew/hocco-nutty-cone.png',
-            gradient: 'from-pink-500 to-rose-600',
-            categoryKey: 'HOCCO'
-        },
-        {
             id: 'spec-pancakes',
             name: 'Mini Pancakes',
-            image: './assets/images/scoop-n-brew/pixel-cafe-menu-board.png',
+            image: './assets/images/specialities/mini-pancakes.jpg',
             gradient: 'from-pink-500 to-rose-600',
             categoryKey: 'MINI_PANCAKES'
         },
         {
-            id: 'spec-oreo-shake',
-            name: 'Oreo Thick Shake',
-            image: './assets/images/scoop-n-brew/iced-mojito-cup.png',
-            gradient: 'from-pink-500 to-rose-600',
-            categoryKey: 'SHAKES'
-        },
-        {
             id: 'spec-loaded-fries',
             name: 'Loaded Fries',
-            image: './assets/images/scoop-n-brew/scoop-n-brew-menu-poster.png',
+            image: './assets/images/specialities/loaded-fries.jpg',
             gradient: 'from-pink-500 to-rose-600',
             categoryKey: 'FRIES'
         },
         {
+            id: 'spec-oreo-shake',
+            name: 'Oreo Thick Shake',
+            image: './assets/images/specialities/oreo-shake.jpg',
+            gradient: 'from-pink-500 to-rose-600',
+            categoryKey: 'SHAKES'
+        },
+        {
+            id: 'spec-sandwich',
+            name: 'Grilled Sandwich',
+            image: './assets/images/specialities/sandwich.jpg',
+            gradient: 'from-pink-500 to-rose-600',
+            categoryKey: 'SANDWICHES'
+        },
+        {
             id: 'spec-mojito',
-            name: 'Iced Mojito',
-            image: './assets/images/scoop-n-brew/iced-mojito-cup.png',
+            name: 'Mint Mojito',
+            image: './assets/images/specialities/mint-mojito.jpg',
             gradient: 'from-pink-500 to-rose-600',
             categoryKey: 'MOJITOS'
+        },
+        {
+            id: 'spec-coffee',
+            name: 'Cold Coffee',
+            image: './assets/images/specialities/cold-coffee.jpg',
+            gradient: 'from-pink-500 to-rose-600',
+            categoryKey: 'COFFEE'
         }
     ],
 
@@ -136,103 +143,63 @@ export const DEFAULT_STORE_DATA = {
     gallery: [
         {
             id: 'g-1',
-            src: './assets/images/scoop-n-brew/scoop-n-brew-dining-arch.png',
-            title: 'Ambient Arch Dining Seating',
+            src: './assets/images/gallery/gallery-1.jpg',
+            title: 'Scoop n Brew Cafe Storefront',
             category: 'ambience',
-            categoryLabel: 'Ambience',
-            tag: 'Backlit Arch Seating',
-            desc: 'Plush velvet berry seating with warm illuminated arched backdrop and modern tables.',
+            categoryLabel: 'Storefront',
+            tag: 'OUR CAFE',
+            desc: 'Charming outdoor seating with green turf, cozy mood lighting, and welcoming cafe vibes near GEHU Gate 1.',
             aiCategory: 'AMBIENCE'
         },
         {
             id: 'g-2',
-            src: './assets/images/scoop-n-brew/pixel-cafe-menu-board.png',
-            title: 'Official Cafe Menu Board',
-            category: 'menu',
-            categoryLabel: 'Full Menu',
-            tag: 'Menu Board',
-            desc: 'Waffles ₹99, Pancakes ₹59, Fries ₹69, Shakes ₹69-79, Chai ₹20-25, and Hot Coffee ₹29.',
-            aiCategory: 'VALUE'
+            src: './assets/images/gallery/gallery-2.jpg',
+            title: 'Neon Pink Arch Seating',
+            category: 'ambience',
+            categoryLabel: 'Interior',
+            tag: 'PHOTO SPOT',
+            desc: 'Aesthetic backlit pink arch with plush velvet seats and cute ice cream wall frames — perfect for photos & dates!',
+            aiCategory: 'AMBIENCE'
         },
         {
             id: 'g-3',
-            src: './assets/images/scoop-n-brew/hocco-strawberry-cheesecake.png',
-            title: 'Hocco Strawberry Cheesecake Cone',
-            category: 'icecream',
-            categoryLabel: 'Ice Cream',
-            tag: 'Strawberry Cheesecake',
-            desc: 'Authentic Hocco strawberry cheesecake ice cream filled in a crispy wafer cone.',
-            aiCategory: 'HOCCO'
+            src: './assets/images/gallery/gallery-3.jpg',
+            title: 'Beverage & Shake Bar',
+            category: 'beverage',
+            categoryLabel: 'Barista',
+            tag: 'LIVE COUNTER',
+            desc: 'Behind the counter with premium flavor syrups, thick shake blenders, waffle makers, and warm glow arches.',
+            aiCategory: 'SHAKES'
         },
         {
             id: 'g-4',
-            src: './assets/images/scoop-n-brew/hocco-nutty-cone.png',
-            title: 'Hocco Nutty Chocolate Cone',
-            category: 'icecream',
-            categoryLabel: 'Ice Cream',
-            tag: 'Nutty Chocolate',
-            desc: 'Crunchy roasted nuts over rich chocolate ice cream in a classic Hocco waffle cone.',
-            aiCategory: 'HOCCO'
+            src: './assets/images/gallery/gallery-4.jpg',
+            title: 'Artisanal Syrups & Bar Counter',
+            category: 'beverage',
+            categoryLabel: 'Drinks',
+            tag: 'CRAFT DRINKS',
+            desc: 'Gourmet Barisco syrups and fresh brewing stations ready to whip up mouthwatering mojitos, shakes, and cold coffee.',
+            aiCategory: 'BEVERAGES'
         },
         {
             id: 'g-5',
-            src: './assets/images/scoop-n-brew/scoop-n-brew-counter-arches.png',
-            title: 'Triple Neon Arches Counter',
-            category: 'ambience',
-            categoryLabel: 'Counter',
-            tag: 'Illuminated Bar',
-            desc: 'Triple glowing neon arches with waffle maker, blender station & Barisco syrups.',
-            aiCategory: 'AMBIENCE'
+            src: './assets/images/gallery/gallery-5.jpg',
+            title: 'Scoop n Brew Official Emblem',
+            category: 'brand',
+            categoryLabel: 'Brand',
+            tag: 'OUR IDENTITY',
+            desc: 'Ice Cream, Coffee, Thick Shakes & More — served fresh with love, passion, and sweetness at Clement Town.',
+            aiCategory: 'ALL'
         },
         {
             id: 'g-6',
-            src: './assets/images/scoop-n-brew/hocco-boss-bar.png',
-            title: 'Hocco BOSS Bar',
-            category: 'icecream',
-            categoryLabel: 'Ice Cream',
-            tag: 'Hocco Boss Bar',
-            desc: 'Decadent chocolate compound-coated premium Hocco ice cream bar.',
-            aiCategory: 'HOCCO'
-        },
-        {
-            id: 'g-7',
-            src: './assets/images/scoop-n-brew/iced-mojito-cup.png',
-            title: 'Refreshing Iced Mojito Cup',
-            category: 'beverage',
-            categoryLabel: 'Mojito',
-            tag: 'Chilled Mojito',
-            desc: 'Fizzy, ice-cold refreshing cooler served in custom cup with retro striped straw.',
-            aiCategory: 'MOJITOS'
-        },
-        {
-            id: 'g-8',
-            src: './assets/images/scoop-n-brew/scoop-n-brew-pink-quotes-wall.png',
-            title: 'Pink Wall & Dessert Quotes',
+            src: './assets/images/gallery/gallery-6.jpg',
+            title: 'Pink Brick Quotes Wall',
             category: 'ambience',
-            categoryLabel: 'Interior',
-            tag: 'Pink Brick Wall',
-            desc: 'Cute framed ice cream quotes and vibrant pink brick wall aesthetic for selfies.',
-            aiCategory: 'AMBIENCE'
-        },
-        {
-            id: 'g-9',
-            src: './assets/images/scoop-n-brew/scoop-n-brew-counter-angle.png',
-            title: 'Cozy Cafe Corner View',
-            category: 'ambience',
-            categoryLabel: 'Vibes',
-            tag: 'Cozy Hangout',
-            desc: 'Warm amber lighting and relaxing cafe seating right opposite Pratap Cricket Turf.',
-            aiCategory: 'AMBIENCE'
-        },
-        {
-            id: 'g-10',
-            src: './assets/images/scoop-n-brew/scoop-n-brew-menu-poster.png',
-            title: 'Student Deals & Snacks Poster',
-            category: 'menu',
-            categoryLabel: 'Poster',
-            tag: 'Student Deals',
-            desc: 'Good Food Brings People Together — full flyer with combos and student specials.',
-            aiCategory: 'VALUE'
+            categoryLabel: 'Wall Art',
+            tag: 'INSTAGRAMMABLE',
+            desc: 'Vibrant candy-pink brick texture with cute foodie quotes and ice cream frames — an awesome selfie backdrop!',
+            aiCategory: 'ICE_CREAM'
         }
     ],
 
