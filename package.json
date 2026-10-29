@@ -4,7 +4,7 @@
   "description": "Standalone AI-Powered Google Reviews & Experience Landing Page for Scoop n Brew",
   "main": "index.html",
   "scripts": {
-    "dev": "npx serve . -l 3000",
+    "dev": "npx serve . -l 3001",
     "start": "npx serve . -l 3000",
     "preview": "npx serve . -l 8080",
     "new-client": "node scripts/create-client.js"

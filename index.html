@@ -202,6 +202,52 @@
             -webkit-mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%);
         }
 
+        /* Golden Shimmering Bar for Choose Language (Matching Wireless) */
+        .golden-shine-bar {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 50%, #FDE68A 100%);
+            border: 1.5px solid #F59E0B;
+        }
+
+        .golden-shine-bar::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(60deg, transparent 35%, rgba(255, 255, 255, 0.75) 50%, transparent 65%);
+            transform: rotate(25deg);
+            animation: shineSweep 3.2s infinite ease-in-out;
+            pointer-events: none;
+        }
+
+        @keyframes shineSweep {
+            0% {
+                transform: translateX(-150%) rotate(45deg);
+            }
+
+            100% {
+                transform: translateX(250%) rotate(45deg);
+            }
+        }
+
+        @keyframes goldenPulse {
+            0%,
+            100% {
+                box-shadow: 0 0 0 1.5px #F59E0B, 0 0 12px rgba(245, 158, 11, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 0 3px #FBBF24, 0 0 20px rgba(245, 158, 11, 0.6);
+            }
+        }
+
+        .golden-pulse-glow {
+            animation: goldenPulse 2.2s infinite ease-in-out;
+        }
+
         /* Developer Visual Edit Mode Styles */
         body.dev-mode-active img:hover {
             outline: 3px dashed #F59E0B !important;
@@ -214,6 +260,137 @@
             outline: 2px dashed #6366F1 !important;
             outline-offset: 2px;
             cursor: text;
+        }
+
+        /* Guided Walkthrough Spotlight Backdrop */
+        .tour-backdrop-blur {
+            backdrop-filter: blur(12px) !important;
+            -webkit-backdrop-filter: blur(12px) !important;
+            background-color: rgba(15, 23, 42, 0.58) !important;
+        }
+
+        /* Guided Spotlight Highlight for Review Section */
+        .tour-highlight-review {
+            position: relative !important;
+            z-index: 92 !important;
+            background: #ffffff !important;
+            border-radius: 1.5rem !important;
+            border: 2px solid #F59E0B !important;
+            box-shadow: 0 0 0 3px #F59E0B, 0 0 36px rgba(245, 158, 11, 0.8) !important;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        }
+
+        @keyframes pulseGlowGold {
+            0%, 100% {
+                box-shadow: 0 0 0 2.5px #F59E0B, 0 0 24px rgba(245, 158, 11, 0.65);
+            }
+            50% {
+                box-shadow: 0 0 0 5.5px #FBBF24, 0 0 42px rgba(245, 158, 11, 0.95);
+            }
+        }
+
+        .tour-pulse-review {
+            animation: pulseGlowGold 1.8s infinite ease-in-out !important;
+        }
+
+        @keyframes copyBtnGlow {
+            0%, 100% {
+                box-shadow: 0 0 0 3px #F59E0B, 0 0 20px rgba(245, 158, 11, 0.7);
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 0 0 5.5px #FBBF24, 0 0 32px rgba(245, 158, 11, 1);
+                transform: scale(1.02);
+            }
+        }
+
+        .tour-pulse-button {
+            animation: copyBtnGlow 1.2s infinite ease-in-out !important;
+            position: relative !important;
+            z-index: 96 !important;
+        }
+
+        @keyframes fingerBounce {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-7px) scale(1.15);
+            }
+        }
+
+        .finger-bounce {
+            display: inline-block;
+            animation: fingerBounce 1.2s infinite ease-in-out;
+        }
+
+        @keyframes heroBadgePopIn {
+            0% {
+                opacity: 0;
+                transform: translateX(-50%) scale(0.2) rotate(-8deg);
+            }
+            70% {
+                opacity: 1;
+                transform: translateX(-50%) scale(1.1) rotate(2deg);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(-50%) scale(1) rotate(0deg);
+            }
+        }
+
+        @keyframes heroBadgeFloatPulse {
+            0%, 100% {
+                filter: drop-shadow(0 8px 22px rgba(245, 158, 11, 0.75));
+                transform: translateX(-50%) scale(1);
+            }
+            50% {
+                filter: drop-shadow(0 14px 32px rgba(245, 158, 11, 0.95));
+                transform: translateX(-50%) scale(1.04);
+            }
+        }
+
+        .hero-badge-floating {
+            position: fixed !important;
+            top: auto !important;
+            bottom: max(1.5rem, calc(1.2rem + env(safe-area-inset-bottom, 0px))) !important;
+            left: 50% !important;
+            width: 146px !important;
+            max-width: 44vw !important;
+            z-index: 45 !important;
+            cursor: pointer !important;
+            pointer-events: auto !important;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), bottom 0.3s ease, opacity 0.3s ease !important;
+        }
+
+        .hero-badge-hidden {
+            opacity: 0 !important;
+            transform: translateX(-50%) scale(0.2) !important;
+            pointer-events: none !important;
+        }
+
+        .hero-badge-animate {
+            animation: heroBadgePopIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
+            pointer-events: auto !important;
+        }
+
+        .hero-badge-idle-glow {
+            animation: heroBadgeFloatPulse 2.2s ease-in-out infinite !important;
+        }
+
+        .hero-badge-floating:hover {
+            animation-play-state: paused !important;
+            transform: translateX(-50%) scale(1.08) !important;
+        }
+
+        .hero-badge-floating:active {
+            transform: translateX(-50%) scale(0.94) !important;
+        }
+
+        .hero-badge-dismissed {
+            display: none !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
         }
     </style>
 </head>
@@ -253,8 +430,8 @@
                 <button onclick="scrollToSection('homeSection')"
                     class="nav-pill active px-3 py-1 rounded-full bg-white text-slate-900 shadow-sm transition-all"
                     id="pillHome">Home</button>
-                <button onclick="scrollToSection('aiSection')"
-                    class="nav-pill px-3 py-1 rounded-full text-slate-500 hover:text-slate-900 transition-all"
+                <button onclick="startGuidedReview()"
+                    class="nav-pill px-3 py-1 rounded-full text-slate-500 hover:text-slate-900 transition-all cursor-pointer"
                     id="pillAI">✨ AI Review</button>
                 <button onclick="scrollToSection('gallerySection')"
                     class="nav-pill px-3 py-1 rounded-full text-slate-500 hover:text-slate-900 transition-all"
@@ -338,6 +515,14 @@
                             Hocco Ice Cream</span>
                     </div>
                 </div>
+
+                <!-- GOOGLE REVIEW FLOATING BUTTON (Positioned bottom until tapped) -->
+                <button id="heroGoogleReviewBtn" type="button" onclick="startGuidedReviewFromHero()"
+                    class="hero-badge-floating hero-badge-hidden cursor-pointer focus:outline-none select-none group"
+                    title="Give Review on Google" aria-label="Give Review on Google">
+                    <img src="./assets/images/scoop-n-brew/google-review-badge.png" alt="Give Review on Google"
+                        class="w-full h-auto block select-none">
+                </button>
             </section>
 
             <!-- ═══════════════════════════════════════════════════════════════ -->
@@ -347,8 +532,11 @@
                 <div
                     class="bg-white rounded-3xl p-4 sm:p-5 border border-slate-100 shadow-xl shadow-slate-200/50 relative overflow-hidden w-full max-w-full box-border">
 
+                    <!-- Guided Spotlight Selection Section Wrapper -->
+                    <div id="reviewSelectionSection" class="transition-all rounded-3xl">
+
                     <!-- Header with Sparkle Icon, LOVED YOUR EXPERIENCE? and Review Us -->
-                    <div class="flex items-center gap-3 mb-4">
+                    <div class="flex items-center gap-3 mb-4 cursor-pointer" onclick="goToReviewTourStep()">
                         <div
                             class="w-11 h-11 rounded-2xl bg-rose-50 border border-rose-100/80 flex items-center justify-center flex-shrink-0 text-[#E11D48] shadow-xs">
                             <svg class="w-5 h-5 fill-current text-[#E11D48]" viewBox="0 0 24 24">
@@ -559,39 +747,38 @@
                         </button>
                     </div>
 
-                    <!-- Choose Language Row (Inline Horizontal matching Target UI) -->
-                    <div class="mt-4 flex items-center justify-between gap-2 px-0.5">
-                        <div class="flex items-center gap-1.5">
-                            <svg class="w-4 h-4 text-[#E11D48] flex-shrink-0" fill="none" stroke="currentColor"
-                                stroke-width="2" viewBox="0 0 24 24">
-                                <circle cx="12" cy="12" r="10" />
-                                <line x1="2" y1="12" x2="22" y2="12" />
-                                <path
-                                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-                            </svg>
-                            <span class="text-xs sm:text-[13px] font-bold text-slate-800">Choose Language</span>
+                    <!-- Choose Language Row (Golden Shimmering Bar matching Wireless) -->
+                    <div
+                        class="golden-shine-bar golden-pulse-glow rounded-2xl p-2.5 sm:p-3 mb-3 mt-4 flex items-center justify-between gap-2 transition-all">
+                        <div class="flex items-center gap-2 text-xs sm:text-[13px] font-black text-amber-950 min-w-0">
+                            <div
+                                class="w-6 h-6 rounded-lg bg-amber-400 text-slate-950 flex items-center justify-center flex-shrink-0 shadow-2xs font-bold text-xs">
+                                🌐
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="tracking-tight leading-tight font-black">Choose Language</span>
+                                <span class="text-[9.5px] sm:text-[10px] text-amber-900/80 font-bold leading-tight">Pick for review draft</span>
+                            </div>
                         </div>
-                        <div class="flex items-center p-0.5 bg-slate-100/90 rounded-full border border-slate-200/60"
+                        <div
+                            class="inline-flex p-1 rounded-full bg-white/95 border border-amber-300 text-xs font-bold shadow-xs z-10 flex-shrink-0"
                             id="languageSelectorGroup">
-                            <button type="button" onclick="setLanguage('ENGLISH')" id="langBtn_ENGLISH"
-                                class="lang-pill px-3 py-1 rounded-full font-bold text-xs transition-all bg-[#E11D48] text-white shadow-xs shadow-rose-500/25">
-                                English
-                            </button>
-                            <button type="button" onclick="setLanguage('HINGLISH')" id="langBtn_HINGLISH"
-                                class="lang-pill px-3 py-1 rounded-full font-semibold text-xs transition-all text-slate-600 hover:text-slate-900">
-                                Hinglish
-                            </button>
-                            <button type="button" onclick="setLanguage('HINDI')" id="langBtn_HINDI"
-                                class="lang-pill px-3 py-1 rounded-full font-semibold text-xs transition-all text-slate-600 hover:text-slate-900">
-                                Hindi
-                            </button>
+                            <button type="button" id="langBtn_ENGLISH"
+                                class="lang-btn px-3 py-1 rounded-full transition-all bg-gradient-to-r from-amber-400 to-yellow-400 text-slate-950 font-black shadow-xs cursor-pointer"
+                                onclick="setLanguage('ENGLISH', this)">English</button>
+                            <button type="button" id="langBtn_HINGLISH"
+                                class="lang-btn px-3 py-1 rounded-full transition-all text-slate-600 hover:text-slate-950 font-bold cursor-pointer"
+                                onclick="setLanguage('HINGLISH', this)">Hinglish</button>
+                            <button type="button" id="langBtn_HINDI"
+                                class="lang-btn px-3 py-1 rounded-full transition-all text-slate-600 hover:text-slate-950 font-bold cursor-pointer"
+                                onclick="setLanguage('HINDI', this)">Hindi</button>
                         </div>
                     </div>
 
                     <!-- Generate Review Button & Subtitle -->
                     <div class="mt-4 w-full">
-                        <button type="button" onclick="generateAIReview(); scrollToReviewCTA();" id="generateBtn"
-                            class="w-full bg-gradient-to-r from-[#4F46E5] via-[#7C3AED] to-[#EC4899] hover:opacity-95 text-white font-extrabold text-xs sm:text-sm py-3.5 sm:py-4 px-4 rounded-2xl shadow-xl shadow-indigo-500/25 flex items-center justify-center gap-2 transition-all active:scale-[0.98]">
+                        <button type="button" onclick="handleGenerateReviewClick()" id="generateBtn"
+                            class="w-full bg-gradient-to-r from-[#4F46E5] via-[#7C3AED] to-[#EC4899] hover:opacity-95 text-white font-extrabold text-xs sm:text-sm py-3.5 sm:py-4 px-4 rounded-2xl shadow-xl shadow-indigo-500/25 flex items-center justify-center gap-2 transition-all active:scale-[0.98] cursor-pointer">
                             <svg class="w-4 h-4 fill-current text-white flex-shrink-0" viewBox="0 0 24 24">
                                 <path d="M12 2L14.4 8.6L21 11L14.4 13.4L12 20L9.6 13.4L3 11L9.6 8.6L12 2Z" />
                             </svg>
@@ -609,10 +796,12 @@
                         </p>
                     </div>
 
-                    <!-- Generated Review Card ("Your AI Generated Review") -->
-                    <div
-                        class="mt-4 bg-white rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 border border-slate-100 shadow-sm relative w-full box-border">
-                        <!-- Header with sparkle badge & 5.0 rating badge -->
+                    </div><!-- End #reviewSelectionSection -->
+
+                    <!-- DEDICATED REVIEW OUTPUT CARD (Image 2: Review Draft + Action Buttons) -->
+                    <div id="reviewOutputCard"
+                        class="mt-4 bg-white rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 border border-slate-100 shadow-sm relative w-full box-border transition-all">
+                        <!-- Header with sparkle badge, Regenerate button & 5.0 rating badge -->
                         <div class="flex items-center justify-between mb-3">
                             <div class="flex items-center gap-2">
                                 <div
@@ -621,13 +810,23 @@
                                         <path d="M12 2L14.4 8.6L21 11L14.4 13.4L12 20L9.6 13.4L3 11L9.6 8.6L12 2Z" />
                                     </svg>
                                 </div>
-                                <span class="font-bold text-xs sm:text-sm text-[#BE123C]">Your AI Generated
-                                    Review</span>
+                                <span class="font-bold text-xs sm:text-sm text-[#BE123C]">Your AI Generated Review</span>
                             </div>
-                            <div
-                                class="px-2.5 py-1 rounded-full bg-rose-50 border border-rose-100 text-[#E11D48] font-extrabold text-xs flex items-center gap-1 shadow-sm">
-                                <span class="text-[#E11D48]">★</span>
-                                <span>5.0</span>
+                            <div class="flex items-center gap-1.5">
+                                <button type="button" onclick="regenerateReview(true)" title="Regenerate review"
+                                    class="px-2.5 py-1 rounded-full bg-rose-50 hover:bg-rose-100 text-[#E11D48] border border-rose-200 font-bold text-xs flex items-center gap-1 shadow-2xs transition-all active:scale-90 group cursor-pointer">
+                                    <svg class="w-3.5 h-3.5 text-[#E11D48] transition-transform duration-500 group-hover:rotate-180" fill="none"
+                                        stroke="currentColor" stroke-width="2.3" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                                    </svg>
+                                    <span class="text-[11px]">Regenerate</span>
+                                </button>
+                                <div
+                                    class="px-2 py-0.5 rounded-full bg-rose-50 border border-rose-100 text-[#E11D48] font-extrabold text-xs flex items-center gap-0.5 shadow-sm">
+                                    <span class="text-[#E11D48]">★</span>
+                                    <span>5.0</span>
+                                </div>
                             </div>
                         </div>
 
@@ -1590,6 +1789,290 @@
     </main>
 
     <!-- ═══════════════════════════════════════════════════════════════ -->
+    <!-- GUIDED WALKTHROUGH BACKDROP OVERLAY (Spotlight Cutout)         -->
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <div id="tourBackdrop" class="fixed inset-0 z-[88] hidden tour-backdrop-blur transition-opacity duration-300"
+        onclick="closeAllTourPopups()"></div>
+
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <!-- REVIEW SELECTION GUIDE POPUP (Step 1 of 2: Setup)              -->
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <div id="reviewSelectGuidePopup"
+        class="fixed z-[99] hidden max-w-sm w-[92%] left-1/2 -translate-x-1/2 bg-white rounded-3xl p-4 sm:p-5 shadow-[0_25px_60px_rgba(0,0,0,0.38)] border-2 border-amber-400 text-slate-900 transition-all duration-300">
+        <!-- Close button -->
+        <button type="button" onclick="closeAllTourPopups()"
+            class="absolute top-3.5 right-3.5 w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-400 hover:text-slate-700 font-bold flex items-center justify-center text-xs transition-all cursor-pointer"
+            aria-label="Close">
+            ✕
+        </button>
+
+        <!-- Top Mini Step Indicator -->
+        <div class="flex items-center gap-2 mb-2 pr-6">
+            <span
+                class="inline-block px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 text-[10px] font-black uppercase tracking-wider">
+                Step 1 of 2 • Review Setup
+            </span>
+        </div>
+
+        <!-- Main Instruction Card with Text on Left, Hand on Right & Button written 'Next' under hand -->
+        <div
+            class="p-3 sm:p-3.5 rounded-2xl bg-gradient-to-r from-amber-50 via-yellow-50 to-amber-50/80 border border-amber-200/90 flex items-center justify-between gap-3 shadow-2xs">
+            <!-- Left: Text -->
+            <div class="flex-1 min-w-0">
+                <h3 class="text-sm sm:text-[14.5px] font-black text-[#0B1A30] leading-snug">
+                    Select your favorite treats and preferred language above.
+                </h3>
+            </div>
+
+            <!-- Right: Hand above and Button written 'Next' directly under it -->
+            <div class="flex flex-col items-center gap-1 flex-shrink-0">
+                <span class="finger-bounce text-xl select-none leading-none">👇</span>
+                <button type="button" onclick="goToReviewOutputStep()"
+                    class="py-1.5 px-4 rounded-xl bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-500 hover:to-yellow-500 text-slate-950 font-black text-xs shadow-md shadow-amber-400/30 flex items-center justify-center gap-1 active:scale-95 transition-all cursor-pointer">
+                    <span>Next</span>
+                    <span class="text-xs font-black">➔</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Bottom row: Skip Guide -->
+        <div class="mt-2.5 pt-1.5 flex items-center justify-between text-xs border-t border-slate-100">
+            <button type="button" onclick="closeAllTourPopups()"
+                class="text-[11px] font-bold text-slate-400 hover:text-slate-700 py-0.5 px-1 cursor-pointer">
+                Skip Guide
+            </button>
+            <span class="text-[10px] text-slate-400 font-semibold">Touch dishes above to customize</span>
+        </div>
+
+        <!-- Downward Pointing Triangle Beak -->
+        <div
+            class="popup-beak-down absolute -bottom-2.5 left-1/2 -translate-x-1/2 w-5 h-5 bg-white rotate-45 border-r border-b border-amber-400 shadow-sm pointer-events-none">
+        </div>
+        <!-- Upward Pointing Triangle Beak (when positioned below) -->
+        <div
+            class="popup-beak-up hidden absolute -top-2.5 left-1/2 -translate-x-1/2 w-5 h-5 bg-white rotate-45 border-l border-t border-amber-400 shadow-sm pointer-events-none">
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <!-- REVIEW OUTPUT GUIDE POPUP (Step 2 of 2: Regenerate & Post)     -->
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <div id="reviewSubmitGuidePopup"
+        class="fixed z-[99] hidden max-w-sm w-[92%] left-1/2 -translate-x-1/2 bg-white rounded-3xl p-4 sm:p-5 shadow-[0_25px_60px_rgba(0,0,0,0.38)] border-2 border-amber-400 text-slate-900 transition-all duration-300">
+        <!-- Close button -->
+        <button type="button" onclick="closeAllTourPopups()"
+            class="absolute top-3.5 right-3.5 w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-400 hover:text-slate-700 font-bold flex items-center justify-center text-xs transition-all cursor-pointer"
+            aria-label="Close">
+            ✕
+        </button>
+
+        <!-- Top Row: 'Your Review Is Ready! ✨' on left + Hand at right top pointing UP to Copy Button with Click Here -->
+        <div class="flex items-start justify-between gap-3 pr-8">
+            <div class="flex-1 min-w-0">
+                <span
+                    class="inline-block px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-900 text-[10px] font-black uppercase tracking-wider mb-1.5">
+                    Step 2 of 2 • Ready to Post
+                </span>
+                <h3 class="text-base sm:text-lg font-black text-[#0B1A30] leading-tight">
+                    Your Review Is Ready! ✨
+                </h3>
+            </div>
+
+            <!-- Hand at right top pointing upward for copy and open google button with 'Click Here' -->
+            <div class="flex flex-col items-center flex-shrink-0 select-none pt-1">
+                <span class="finger-bounce text-2xl leading-none">👆</span>
+                <span class="text-[10px] font-black text-amber-600 mt-1 uppercase tracking-tight">Click Here</span>
+            </div>
+        </div>
+
+        <!-- Circular Regenerate Review Button in the Middle -->
+        <div class="flex items-center justify-center gap-2 my-3">
+            <button type="button" onclick="regenerateReview(true)" title="Regenerate review"
+                class="w-9 h-9 rounded-full bg-amber-100 hover:bg-amber-200 border border-amber-300 text-amber-900 flex items-center justify-center transition-all active:scale-90 shadow-2xs cursor-pointer group">
+                <svg class="w-4 h-4 text-amber-800 transition-transform duration-500 group-hover:rotate-180" fill="none"
+                    stroke="currentColor" stroke-width="2.3" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
+            </button>
+            <span class="text-xs font-semibold text-slate-600">Regenerate review</span>
+        </div>
+
+        <!-- Back Button under the Regenerate button -->
+        <div class="flex items-center justify-center pt-2.5 border-t border-slate-100">
+            <button type="button" onclick="goToReviewTourStep()"
+                class="text-xs font-bold text-slate-500 hover:text-slate-800 py-1.5 px-4 rounded-xl hover:bg-slate-100 transition-all cursor-pointer flex items-center gap-1.5">
+                <span>⬅</span>
+                <span>Back</span>
+            </button>
+        </div>
+
+        <!-- Downward Pointing Triangle Beak -->
+        <div
+            class="popup-beak-down absolute -bottom-2.5 left-1/2 -translate-x-1/2 w-5 h-5 bg-white rotate-45 border-r border-b border-amber-400 shadow-sm pointer-events-none">
+        </div>
+        <!-- Upward Pointing Triangle Beak (when positioned below) -->
+        <div
+            class="popup-beak-up hidden absolute -top-2.5 left-1/2 -translate-x-1/2 w-5 h-5 bg-white rotate-45 border-l border-t border-amber-400 shadow-sm pointer-events-none">
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <!-- GOOGLE REVIEW GUIDE MODAL (3 STEPS TO POST)                   -->
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <div id="googleGuideModal"
+        class="fixed inset-0 z-[100] hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-5 overflow-y-auto">
+        <div class="max-w-md sm:max-w-[490px] w-full bg-white rounded-[32px] p-5 sm:p-6 shadow-[0_25px_60px_-15px_rgba(245,158,11,0.25)] border-2 border-amber-300/80 text-slate-900 relative my-auto max-h-[95vh] overflow-y-auto"
+            onclick="event.stopPropagation()">
+            <!-- Close Button -->
+            <button type="button" onclick="closeGoogleGuideModal()"
+                class="absolute top-4 right-4 sm:top-5 sm:right-5 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 font-bold flex items-center justify-center text-sm cursor-pointer transition-all z-20"
+                aria-label="Close">✕</button>
+
+            <!-- Success Header -->
+            <div class="text-center mb-3 sm:mb-4">
+                <div
+                    class="w-14 h-14 mx-auto rounded-[20px] bg-[#FFF5D1] border border-amber-200 flex items-center justify-center text-[#C97B00] text-2xl font-black mb-2 shadow-2xs">
+                    ✓
+                </div>
+                <span
+                    class="inline-block px-3.5 py-0.5 rounded-full bg-[#E6F8F0] text-[#0D8A58] text-[10.5px] sm:text-xs font-black uppercase tracking-wider mb-1.5 border border-[#B3E8D3]">
+                    REVIEW COPIED TO CLIPBOARD!
+                </span>
+                <h3 class="text-xl sm:text-2xl font-black text-[#0B1A30] tracking-tight">
+                    Just 3 Simple Steps on Google ✨
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-500 font-medium mt-0.5">
+                    Follow this quick guide to complete your review.
+                </p>
+            </div>
+
+            <!-- Realistic Google Review Form Mockup -->
+            <div
+                class="w-full p-4 sm:p-4.5 rounded-2xl border border-slate-200/90 bg-white shadow-2xs flex flex-col justify-between relative overflow-visible my-2 sm:my-3">
+                <!-- Google Logo & Store Profile Row -->
+                <div class="mb-2">
+                    <div class="text-base font-black tracking-tight mb-2 flex items-center gap-0.5">
+                        <span class="text-[#4285F4]">G</span><span class="text-[#EA4335]">o</span><span
+                            class="text-[#FBBC05]">o</span><span class="text-[#4285F4]">g</span><span
+                            class="text-[#34A853]">l</span><span class="text-[#EA4335]">e</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <div
+                            class="w-8 h-8 rounded-full overflow-hidden bg-white flex-shrink-0 border border-slate-200">
+                            <img src="./assets/images/scoop-n-brew/scoop-n-brew-logo.png" alt="Scoop n Brew"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div class="min-w-0">
+                            <h4 class="text-xs font-black text-slate-900 leading-tight">Scoop n Brew</h4>
+                            <p class="text-[9.5px] text-slate-400 font-medium flex items-center gap-0.5 leading-tight">
+                                <span>Posting publicly across Google</span>
+                                <span class="text-[9px]">ⓘ</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5 Stars Rating Row with Callout 1 -->
+                <div class="relative py-1 my-0.5">
+                    <!-- Floating Badge 1 (Give 5 Stars) pointing to stars -->
+                    <div class="absolute -top-1 right-0 flex flex-col items-end z-10 pointer-events-none">
+                        <div
+                            class="py-0.5 px-2.5 rounded-full bg-[#FEF3C7] border border-amber-300 text-slate-950 font-black text-[10px] shadow-sm flex items-center gap-1">
+                            <span
+                                class="w-3.5 h-3.5 rounded-full bg-[#FFB800] text-slate-950 flex items-center justify-center text-[8.5px] font-black">1</span>
+                            <span>Give 5 Stars</span>
+                        </div>
+                        <!-- Curved arrow pointing down-left to 5th star -->
+                        <svg class="w-7 h-7 text-[#F59E0B] -mt-1 mr-3 drop-shadow-xs" viewBox="0 0 28 28" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 2 C22 14, 15 20, 6 22" />
+                            <path d="M12 17 L6 22 L11 27" />
+                        </svg>
+                    </div>
+
+                    <div class="flex items-center justify-center gap-1 text-amber-400 text-xl sm:text-2xl select-none">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <div class="text-[10px] text-slate-400 text-center font-medium mt-0.5">Exceptional</div>
+                </div>
+
+                <!-- Review Input Box Mockup with Callout 2 -->
+                <div class="relative rounded-xl border border-blue-400/80 p-2.5 sm:p-3 my-1.5 bg-white">
+                    <!-- Floating Badge 2 (Paste Your Review) -->
+                    <div class="absolute -top-3.5 right-1 sm:right-2 flex flex-col items-end z-10 pointer-events-none">
+                        <div
+                            class="py-0.5 px-2.5 rounded-full bg-[#FEF3C7] border border-amber-300 text-slate-950 font-black text-[10px] shadow-sm flex items-center gap-1">
+                            <span
+                                class="w-3.5 h-3.5 rounded-full bg-[#FFB800] text-slate-950 flex items-center justify-center text-[8.5px] font-black">2</span>
+                            <span>Paste Your Review</span>
+                        </div>
+                        <!-- Curved arrow pointing down-left into the review bubble -->
+                        <svg class="w-7 h-7 text-[#F59E0B] -mt-1 mr-3 drop-shadow-xs" viewBox="0 0 28 28" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 2 C22 14, 15 20, 6 22" />
+                            <path d="M12 17 L6 22 L11 27" />
+                        </svg>
+                    </div>
+
+                    <p class="text-[10px] text-slate-400 font-medium mb-1.5 leading-tight">Share details of your own experience at this place</p>
+                    <!-- Yellow chat bubble holding the pasted review text -->
+                    <div
+                        class="p-2 sm:p-2.5 rounded-xl bg-[#FFF9E6] border border-amber-200 text-[10.5px] sm:text-[11px] text-slate-800 font-medium leading-relaxed shadow-2xs">
+                        <span id="googleGuideModalReviewText">Scoop n Brew is hands-down the best dessert cafe near GEHU Gate 1! Creamy Hocco ice creams, crispy Nutella waffles, thick Oreo shakes, and pocket-friendly prices starting at just ₹20.</span>
+                    </div>
+                </div>
+
+                <!-- Add Photos button -->
+                <div
+                    class="w-full py-1.5 px-3 rounded-xl bg-slate-100 text-[#1A73E8] text-[11px] font-bold flex items-center justify-center gap-1.5 mt-1">
+                    <svg class="w-3.5 h-3.5 text-[#1A73E8]" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                        <circle cx="12" cy="13" r="3" />
+                    </svg>
+                    <span>Add photos and videos</span>
+                </div>
+
+                <!-- Bottom Google Action buttons with Callout 3 -->
+                <div class="flex items-center justify-end gap-2 pt-2.5 mt-1 border-t border-slate-100 relative">
+                    <!-- Floating Badge 3 (Tap Post) pointing down to Post button -->
+                    <div class="absolute -top-4 right-1 flex flex-col items-center z-10 pointer-events-none">
+                        <div
+                            class="py-0.5 px-2.5 rounded-full bg-[#FEF3C7] border border-amber-300 text-slate-950 font-black text-[10px] shadow-sm flex items-center gap-1">
+                            <span
+                                class="w-3.5 h-3.5 rounded-full bg-[#FFB800] text-slate-950 flex items-center justify-center text-[8.5px] font-black">3</span>
+                            <span>Tap Post</span>
+                        </div>
+                        <svg class="w-5 h-6 text-[#F59E0B] -mt-0.5 drop-shadow-xs" viewBox="0 0 20 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M10 2 L10 18" />
+                            <path d="M5 13 L10 19 L15 13" />
+                        </svg>
+                    </div>
+
+                    <span class="text-xs font-semibold text-slate-500 px-2 py-1">Cancel</span>
+                    <button type="button" onclick="confirmOpenGoogleMaps()"
+                        class="py-1.5 px-4 rounded-lg bg-[#1A73E8] hover:bg-[#1557b0] text-white font-bold text-xs shadow-xs transition-all cursor-pointer">
+                        Post
+                    </button>
+                </div>
+            </div>
+
+            <!-- Big Final CTA Button -->
+            <button type="button" onclick="confirmOpenGoogleMaps()"
+                class="w-full mt-2.5 block transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] cursor-pointer focus:outline-none drop-shadow-[0_12px_28px_rgba(217,70,239,0.45)]">
+                <img src="./assets/images/scoop-n-brew/google-review-cta-btn.png" alt="Make Your Review Count - Last Step"
+                    class="w-full h-auto object-contain block mx-auto select-none pointer-events-none">
+            </button>
+            <p class="text-center text-[10.5px] sm:text-[11px] text-slate-500 font-semibold mt-2.5">
+                Thank you for supporting Scoop n Brew, Clement Town! ❤️
+            </p>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════ -->
     <!-- WELCOME EXPERIENCE MODAL (Appears on Landing) -->
     <!-- ═══════════════════════════════════════════════════════════════ -->
     <div id="welcomeModal" class="fixed inset-0 z-[60] flex items-end sm:items-center justify-center hidden" style="display: none !important;">
@@ -2005,23 +2488,32 @@
         }
 
         // Language Switcher (English, Hinglish, Hindi)
-        function setLanguage(lang) {
+        function setLanguage(lang, btnEl) {
             currentLang = lang;
-            ['ENGLISH', 'HINGLISH', 'HINDI'].forEach(l => {
-                const btn = document.getElementById('langBtn_' + l);
-                if (l === lang) {
-                    btn?.classList.remove('text-slate-600', 'font-semibold');
-                    btn?.classList.add('bg-[#E11D48]', 'text-white', 'shadow-xs', 'font-bold');
-                } else {
-                    btn?.classList.remove('bg-[#E11D48]', 'text-white', 'shadow-xs', 'font-bold');
-                    btn?.classList.add('text-slate-600', 'hover:text-slate-900', 'font-semibold');
-                }
+            document.querySelectorAll('.lang-btn').forEach(b => {
+                b.classList.remove('bg-gradient-to-r', 'from-amber-400', 'to-yellow-400', 'text-slate-950', 'font-black', 'shadow-xs');
+                b.classList.add('text-slate-600', 'font-bold');
             });
+            const targetBtn = btnEl || document.getElementById('langBtn_' + lang) || (window.event ? window.event.target : null);
+            if (targetBtn) {
+                targetBtn.classList.add('bg-gradient-to-r', 'from-amber-400', 'to-yellow-400', 'text-slate-950', 'font-black', 'shadow-xs');
+                targetBtn.classList.remove('text-slate-600');
+            }
 
             generateAIReview();
+            if (currentHighlightedEl) {
+                const selSec = document.getElementById('reviewSelectionSection');
+                if (currentHighlightedEl === selSec) {
+                    updateBackdropHole(selSec);
+                    const selPopup = document.getElementById('reviewSelectGuidePopup');
+                    if (selPopup && !selPopup.classList.contains('hidden')) {
+                        positionTourElementPopup(selSec, selPopup);
+                    }
+                }
+            }
         }
 
-        function generateAIReview() {
+        function generateAIReview(animate = true) {
             const activeBank = (window.CURRENT_STORE_DATA && window.CURRENT_STORE_DATA.reviewBank) ? window.CURRENT_STORE_DATA.reviewBank : REVIEWS_DB;
             const db = activeBank[currentLang] || activeBank.ENGLISH || REVIEWS_DB.ENGLISH;
 
@@ -2233,7 +2725,21 @@
                 .replace(/!\./, '!')
                 .trim();
 
-            animateTypewriter(reviewText);
+            const outEl = document.getElementById('reviewOutputText');
+            if (outEl) {
+                if (animate) {
+                    animateTypewriter(reviewText);
+                } else {
+                    if (typingTimeout) clearTimeout(typingTimeout);
+                    outEl.textContent = reviewText;
+                }
+            }
+
+            // Sync with Google Guide Modal text if present
+            const modalTextEl = document.getElementById('googleGuideModalReviewText');
+            if (modalTextEl) {
+                modalTextEl.textContent = reviewText;
+            }
 
             if (window.OnescanTelemetry) {
                 window.OnescanTelemetry.track('review_generated', {
@@ -2291,15 +2797,16 @@
             }
         }
 
-        // Copy Text & Redirect to Google Review Form
+        // Copy Text & Redirect to Google Review Form (Opens 3-Step Guide Modal)
         function copyAndOpenGoogle() {
             const outEl = document.getElementById('reviewOutputText');
             const text = (outEl?.textContent || outEl?.innerText || '').trim();
 
-            navigator.clipboard.writeText(text).then(() => {
-                showToast('Review copied! Opening Google Review page...');
+            closeAllTourPopups();
 
-                // Track conversion telemetry back to dashboard
+            navigator.clipboard.writeText(text).then(() => {
+                showToast('Review copied to clipboard! 📋', '✨');
+
                 if (window.OnescanTelemetry) {
                     window.OnescanTelemetry.track('review_copied', {
                         textLength: text.length,
@@ -2308,13 +2815,12 @@
                     });
                 }
 
-                // Redirect to verified Scoop n Brew Google Maps Reviews page
                 setTimeout(() => {
-                    window.open(BUSINESS_CONFIG.googleReviewUrl, '_blank');
-                }, 600);
+                    openGoogleGuideModal();
+                }, 300);
 
             }).catch(() => {
-                showToast('Failed to copy. Please manually select and copy text.');
+                openGoogleGuideModal();
             });
         }
 
@@ -2766,15 +3272,280 @@
             }
         }
 
+        /* ═══════════════════════════════════════════════════════════════
+           HANDHOLDING GUIDED REVIEW SYSTEM (MATCHING WIRELESS)
+           ═══════════════════════════════════════════════════════════════ */
+        let currentHighlightedEl = null;
+        let isHeroReviewBtnTapped = false;
+
+        function updateBackdropHole(targetEl) {
+            const backdrop = document.getElementById('tourBackdrop');
+            if (!backdrop) return;
+            if (!targetEl) {
+                backdrop.style.clipPath = 'none';
+                currentHighlightedEl = null;
+                return;
+            }
+            currentHighlightedEl = targetEl;
+            const r = targetEl.getBoundingClientRect();
+            const pad = 6;
+            const top = Math.max(0, Math.floor(r.top - pad));
+            const bottom = Math.min(window.innerHeight, Math.ceil(r.bottom + pad));
+            const left = Math.max(0, Math.floor(r.left - pad));
+            const right = Math.min(window.innerWidth, Math.ceil(r.right + pad));
+
+            // Donut polygon cutout hole: Inside is 100% crystal-clear & unblurred, outside is deeply blurred
+            backdrop.style.clipPath = `polygon(
+                0px 0px,
+                100vw 0px,
+                100vw 100vh,
+                0px 100vh,
+                0px 0px,
+                ${left}px ${top}px,
+                ${left}px ${bottom}px,
+                ${right}px ${bottom}px,
+                ${right}px ${top}px,
+                ${left}px ${top}px
+            )`;
+        }
+
+        function positionTourElementPopup(targetEl, popupEl) {
+            if (!targetEl || !popupEl) return;
+            const rect = targetEl.getBoundingClientRect();
+            const popupHeight = popupEl.offsetHeight || 220;
+            const beakDown = popupEl.querySelector('.popup-beak-down');
+            const beakUp = popupEl.querySelector('.popup-beak-up');
+
+            // The Submit guide popup (#reviewSubmitGuidePopup) has the upward pointing finger '👆 Click Here'
+            // and must ALWAYS be positioned directly BELOW outputCard so it never overlaps and points up at the copy button!
+            if (popupEl.id === 'reviewSubmitGuidePopup') {
+                popupEl.style.top = `${Math.round(rect.bottom + 14)}px`;
+                popupEl.style.bottom = 'auto';
+                if (beakDown) beakDown.classList.add('hidden');
+                if (beakUp) beakUp.classList.remove('hidden');
+                return;
+            }
+
+            // For selection guide (#reviewSelectGuidePopup): if space above, place above; otherwise below
+            if (rect.top >= popupHeight + 14) {
+                popupEl.style.top = `${Math.max(10, rect.top - popupHeight - 14)}px`;
+                popupEl.style.bottom = 'auto';
+                if (beakDown) beakDown.classList.remove('hidden');
+                if (beakUp) beakUp.classList.add('hidden');
+            } else {
+                popupEl.style.top = `${Math.round(rect.bottom + 14)}px`;
+                popupEl.style.bottom = 'auto';
+                if (beakDown) beakDown.classList.add('hidden');
+                if (beakUp) beakUp.classList.remove('hidden');
+            }
+        }
+
+        function closeAllTourPopups() {
+            clearTourHighlights();
+            updateBackdropHole(null);
+            const copyBtn = document.getElementById('copyToGoogleBtn');
+            if (copyBtn) copyBtn.classList.remove('tour-pulse-button');
+            const backdrop = document.getElementById('tourBackdrop');
+            const selPopup = document.getElementById('reviewSelectGuidePopup');
+            const submitPopup = document.getElementById('reviewSubmitGuidePopup');
+            if (backdrop) backdrop.classList.add('hidden');
+            if (selPopup) selPopup.classList.add('hidden');
+            if (submitPopup) submitPopup.classList.add('hidden');
+        }
+
+        function clearTourHighlights() {
+            document.querySelectorAll('.tour-highlight-review, .tour-pulse-review, .tour-pulse-button').forEach(el => {
+                el.classList.remove('tour-highlight-review', 'tour-pulse-review', 'tour-pulse-button');
+            });
+        }
+
+        function startGuidedReviewFromHero() {
+            isHeroReviewBtnTapped = true;
+            const heroBtn = document.getElementById('heroGoogleReviewBtn');
+            if (heroBtn) {
+                heroBtn.classList.remove('hero-badge-floating');
+                heroBtn.classList.add('hero-badge-dismissed');
+            }
+            goToReviewTourStep();
+        }
+
+        function startGuidedReview() {
+            isHeroReviewBtnTapped = true;
+            const heroBtn = document.getElementById('heroGoogleReviewBtn');
+            if (heroBtn) {
+                heroBtn.classList.remove('hero-badge-floating');
+                heroBtn.classList.add('hero-badge-dismissed');
+            }
+            goToReviewTourStep();
+        }
+
+        function goToReviewTourStep() {
+            isHeroReviewBtnTapped = true;
+            const heroBtn = document.getElementById('heroGoogleReviewBtn');
+            if (heroBtn) {
+                heroBtn.classList.remove('hero-badge-floating');
+                heroBtn.classList.add('hero-badge-dismissed');
+            }
+
+            const submitPopup = document.getElementById('reviewSubmitGuidePopup');
+            const outputCard = document.getElementById('reviewOutputCard');
+            const copyBtn = document.getElementById('copyToGoogleBtn');
+            if (submitPopup) submitPopup.classList.add('hidden');
+            if (outputCard) outputCard.classList.remove('tour-highlight-review', 'tour-pulse-review');
+            if (copyBtn) copyBtn.classList.remove('tour-pulse-button');
+
+            const selSec = document.getElementById('reviewSelectionSection');
+            const selPopup = document.getElementById('reviewSelectGuidePopup');
+            const backdrop = document.getElementById('tourBackdrop');
+            if (!selSec || !backdrop) return;
+
+            backdrop.classList.remove('hidden');
+
+            // Scroll so selection section is comfortably visible
+            selSec.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            setTimeout(() => {
+                selSec.classList.add('tour-highlight-review', 'tour-pulse-review');
+                updateBackdropHole(selSec);
+
+                if (selPopup) {
+                    selPopup.classList.remove('hidden');
+                    positionTourElementPopup(selSec, selPopup);
+                }
+            }, 450);
+        }
+
+        function goToReviewOutputStep() {
+            const selSec = document.getElementById('reviewSelectionSection');
+            const selPopup = document.getElementById('reviewSelectGuidePopup');
+            if (selSec) selSec.classList.remove('tour-highlight-review', 'tour-pulse-review');
+            if (selPopup) selPopup.classList.add('hidden');
+
+            const outputCard = document.getElementById('reviewOutputCard');
+            const submitPopup = document.getElementById('reviewSubmitGuidePopup');
+            const copyBtn = document.getElementById('copyToGoogleBtn');
+            const backdrop = document.getElementById('tourBackdrop');
+            if (!outputCard || !backdrop) return;
+
+            backdrop.classList.remove('hidden');
+
+            // Generate review text immediately without animation so outputCard is at final height
+            regenerateReview(false);
+
+            outputCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+            setTimeout(() => {
+                outputCard.classList.add('tour-highlight-review', 'tour-pulse-review');
+                if (copyBtn) copyBtn.classList.add('tour-pulse-button');
+                updateBackdropHole(outputCard);
+
+                if (submitPopup) {
+                    submitPopup.classList.remove('hidden');
+                    positionTourElementPopup(outputCard, submitPopup);
+                }
+            }, 360);
+
+            setTimeout(() => {
+                updateBackdropHole(outputCard);
+                if (submitPopup && !submitPopup.classList.contains('hidden')) {
+                    positionTourElementPopup(outputCard, submitPopup);
+                }
+            }, 720);
+        }
+
+        function handleGenerateReviewClick() {
+            regenerateReview(true);
+            goToReviewOutputStep();
+        }
+
+        function regenerateReview(animate = true) {
+            generateAIReview(animate);
+
+            // Update text inside Google Guide Modal chat bubble
+            const outEl = document.getElementById('reviewOutputText');
+            const text = (outEl?.textContent || outEl?.innerText || '').trim();
+            const modalTextEl = document.getElementById('googleGuideModalReviewText');
+            if (modalTextEl && text) {
+                modalTextEl.textContent = text;
+            }
+
+            if (animate) {
+                showToast('Fresh review generated! ✨', '🎲');
+            }
+
+            // If output card is spotlighted, refresh position after a slight delay
+            const outputCard = document.getElementById('reviewOutputCard');
+            const submitPopup = document.getElementById('reviewSubmitGuidePopup');
+            if (currentHighlightedEl === outputCard) {
+                setTimeout(() => {
+                    updateBackdropHole(outputCard);
+                    if (submitPopup && !submitPopup.classList.contains('hidden')) {
+                        positionTourElementPopup(outputCard, submitPopup);
+                    }
+                }, 200);
+            }
+        }
+
+        function openGoogleGuideModal() {
+            const outEl = document.getElementById('reviewOutputText');
+            const text = (outEl?.textContent || outEl?.innerText || '').trim();
+            const modalTextEl = document.getElementById('googleGuideModalReviewText');
+            if (modalTextEl && text) {
+                modalTextEl.textContent = text;
+            }
+            const modal = document.getElementById('googleGuideModal');
+            if (modal) modal.classList.remove('hidden');
+        }
+
+        function closeGoogleGuideModal() {
+            const modal = document.getElementById('googleGuideModal');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        function confirmOpenGoogleMaps() {
+            closeGoogleGuideModal();
+            const rUrl = BUSINESS_CONFIG.googleReviewUrl || BUSINESS_CONFIG.googleMapsUrl || '#';
+            window.open(rUrl, '_blank');
+        }
+
         // Auto-run on load
         window.addEventListener('DOMContentLoaded', () => {
             applyLinks();      // Wire all links from SITE_LINKS config
             generateAIReview();
 
-            // Welcome modal auto-popup temporarily disabled
-            // setTimeout(() => {
-            //     showWelcomeModal();
-            // }, 800);
+            // Guided Tour Spotlight Sync on scroll and resize
+            const handleTourReposition = () => {
+                if (currentHighlightedEl) {
+                    updateBackdropHole(currentHighlightedEl);
+                    const selPopup = document.getElementById('reviewSelectGuidePopup');
+                    const submitPopup = document.getElementById('reviewSubmitGuidePopup');
+                    if (selPopup && !selPopup.classList.contains('hidden')) {
+                        positionTourElementPopup(currentHighlightedEl, selPopup);
+                    }
+                    if (submitPopup && !submitPopup.classList.contains('hidden')) {
+                        positionTourElementPopup(currentHighlightedEl, submitPopup);
+                    }
+                }
+            };
+
+            window.addEventListener('scroll', handleTourReposition, { passive: true });
+            window.addEventListener('resize', handleTourReposition);
+            const scrollBodyEl = document.getElementById('mainScrollBody');
+            if (scrollBodyEl) {
+                scrollBodyEl.addEventListener('scroll', handleTourReposition, { passive: true });
+            }
+
+            // Pop up the floating Google Review button with spring bounce animation after 1.2s
+            setTimeout(() => {
+                const heroBtn = document.getElementById('heroGoogleReviewBtn');
+                if (heroBtn && !isHeroReviewBtnTapped) {
+                    heroBtn.classList.remove('hero-badge-hidden');
+                    heroBtn.classList.add('hero-badge-animate');
+                    setTimeout(() => {
+                        heroBtn.classList.add('hero-badge-idle-glow');
+                    }, 850);
+                }
+            }, 1200);
 
             // Setup Scroll Spy to synchronize top nav pills on scroll
             const scrollBody = document.getElementById('mainScrollBody');
