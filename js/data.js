@@ -17,7 +17,7 @@ export const DEFAULT_STORE_DATA = {
         statusBadge: 'Open Now • Near GEHU Gate 1',
         categoryBadge: '🍨 Waffles, Hocco Ice Cream & Shakes',
         heroHandwriting: 'Good Food Brings\nPeople Together ✨',
-        logoImg: './assets/images/scoop-n-brew/scoop-n-brew-logo.png',
+        logoImg: './assets/images/scoop-n-brew/scoop-n-brew-profile-logo.jpg',
         heroImg: './assets/images/scoop-n-brew/scoop-n-brew-top-banner.jpg',
         rating: 4.9,
         ratingStars: '★★★★★',
@@ -258,7 +258,7 @@ export const DEFAULT_STORE_DATA = {
     }
 };
 
-const STORAGE_KEY = 'scoopnbrew_store_data_v4';
+const STORAGE_KEY = 'scoopnbrew_store_data_v5';
 
 export function getStoreData() {
     try {
@@ -268,6 +268,7 @@ export function getStoreData() {
             parsed.reviewBank = REVIEWS_DB;
             if (parsed.brand) {
                 parsed.brand.heroImg = './assets/images/scoop-n-brew/scoop-n-brew-top-banner.jpg';
+                parsed.brand.logoImg = './assets/images/scoop-n-brew/scoop-n-brew-profile-logo.jpg';
             }
             return parsed;
         }

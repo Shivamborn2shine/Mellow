@@ -82,7 +82,8 @@ class DeveloperEditor {
 
         // 2. Hero & Identity
         this.setImg('heroBannerImg', './assets/images/scoop-n-brew/scoop-n-brew-top-banner.jpg', d.brand.name);
-        this.setImg('storeLogoImg', d.brand.logoImg, d.brand.name + ' Logo');
+        this.setImg('storeLogoImg', './assets/images/scoop-n-brew/scoop-n-brew-profile-logo.jpg', d.brand.name + ' Logo');
+        this.setImg('headerLogoImg', './assets/images/scoop-n-brew/scoop-n-brew-profile-logo.jpg', d.brand.name + ' Logo');
         this.setText('heroCategoryBadge', d.brand.categoryBadge);
         this.setText('storeMainName', d.brand.name);
         this.setText('storeTagline', d.brand.tagline);
