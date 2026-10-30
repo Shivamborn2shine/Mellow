@@ -234,6 +234,7 @@
         }
 
         @keyframes goldenPulse {
+
             0%,
             100% {
                 box-shadow: 0 0 0 1.5px #F59E0B, 0 0 12px rgba(245, 158, 11, 0.3);
@@ -281,9 +282,12 @@
         }
 
         @keyframes pulseGlowGold {
-            0%, 100% {
+
+            0%,
+            100% {
                 box-shadow: 0 0 0 2.5px #F59E0B, 0 0 24px rgba(245, 158, 11, 0.65);
             }
+
             50% {
                 box-shadow: 0 0 0 5.5px #FBBF24, 0 0 42px rgba(245, 158, 11, 0.95);
             }
@@ -294,10 +298,13 @@
         }
 
         @keyframes copyBtnGlow {
-            0%, 100% {
+
+            0%,
+            100% {
                 box-shadow: 0 0 0 3px #F59E0B, 0 0 20px rgba(245, 158, 11, 0.7);
                 transform: scale(1);
             }
+
             50% {
                 box-shadow: 0 0 0 5.5px #FBBF24, 0 0 32px rgba(245, 158, 11, 1);
                 transform: scale(1.02);
@@ -311,9 +318,12 @@
         }
 
         @keyframes fingerBounce {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0) scale(1);
             }
+
             50% {
                 transform: translateY(-7px) scale(1.15);
             }
@@ -329,10 +339,12 @@
                 opacity: 0;
                 transform: translateX(-50%) scale(0.2) rotate(-8deg);
             }
+
             70% {
                 opacity: 1;
                 transform: translateX(-50%) scale(1.1) rotate(2deg);
             }
+
             100% {
                 opacity: 1;
                 transform: translateX(-50%) scale(1) rotate(0deg);
@@ -340,10 +352,13 @@
         }
 
         @keyframes heroBadgeFloatPulse {
-            0%, 100% {
+
+            0%,
+            100% {
                 filter: drop-shadow(0 8px 22px rgba(245, 158, 11, 0.75));
                 transform: translateX(-50%) scale(1);
             }
+
             50% {
                 filter: drop-shadow(0 14px 32px rgba(245, 158, 11, 0.95));
                 transform: translateX(-50%) scale(1.04);
@@ -412,8 +427,10 @@
         <header
             class="sticky top-0 z-30 bg-white/80 backdrop-blur-md border-b border-slate-100 px-4 py-3 flex items-center justify-between">
             <div class="flex items-center gap-2">
-                <div id="storeBrandInitials" class="w-9 h-9 rounded-full overflow-hidden border border-pink-200 shadow-sm flex items-center justify-center bg-white flex-shrink-0">
-                    <img id="headerLogoImg" src="./assets/images/scoop-n-brew/scoop-n-brew-profile-logo.jpg" alt="Scoop n Brew Logo" class="w-full h-full object-cover scale-110">
+                <div id="storeBrandInitials"
+                    class="w-9 h-9 rounded-full overflow-hidden border border-pink-200 shadow-sm flex items-center justify-center bg-white flex-shrink-0">
+                    <img id="headerLogoImg" src="./assets/images/scoop-n-brew/scoop-n-brew-profile-logo.jpg"
+                        alt="Scoop n Brew Logo" class="w-full h-full object-cover scale-110">
                 </div>
                 <div>
                     <h1 id="storeHeaderName" class="text-xs font-bold text-slate-900 leading-tight">Scoop n Brew</h1>
@@ -449,8 +466,7 @@
                 <!-- Hero Photo Banner (Strictly Using Uploaded Scoop n Brew Banner) -->
                 <div class="relative w-full overflow-hidden bg-slate-900">
                     <img id="heroBannerImg" src="./assets/images/scoop-n-brew/scoop-n-brew-top-banner.jpg"
-                        alt="Scoop n Brew Cafe Menu Banner"
-                        class="w-full h-auto block object-contain">
+                        alt="Scoop n Brew Cafe Menu Banner" class="w-full h-auto block object-contain">
                 </div>
 
                 <!-- Main Store Card -->
@@ -460,7 +476,8 @@
                     <div class="relative mb-2 inline-block">
                         <div
                             class="w-24 h-24 rounded-full border-4 border-pink-100 shadow-xl overflow-hidden bg-white flex items-center justify-center">
-                            <img id="storeLogoImg" src="./assets/images/scoop-n-brew/scoop-n-brew-profile-logo.jpg" alt="Scoop n Brew Logo" class="w-full h-full object-cover scale-110 rounded-full">
+                            <img id="storeLogoImg" src="./assets/images/scoop-n-brew/scoop-n-brew-profile-logo.jpg"
+                                alt="Scoop n Brew Logo" class="w-full h-full object-cover scale-110 rounded-full">
                         </div>
                         <span
                             class="absolute bottom-1 right-1 w-5 h-5 rounded-full bg-emerald-500 text-white flex items-center justify-center text-[10px] border-2 border-white shadow"
@@ -530,266 +547,268 @@
                     <!-- Guided Spotlight Selection Section Wrapper -->
                     <div id="reviewSelectionSection" class="transition-all rounded-3xl">
 
-                    <!-- Header with Sparkle Icon, LOVED YOUR EXPERIENCE? and Review Us -->
-                    <div class="flex items-center gap-3 mb-4 cursor-pointer" onclick="goToReviewTourStep()">
-                        <div
-                            class="w-11 h-11 rounded-2xl bg-rose-50 border border-rose-100/80 flex items-center justify-center flex-shrink-0 text-[#E11D48] shadow-xs">
-                            <svg class="w-5 h-5 fill-current text-[#E11D48]" viewBox="0 0 24 24">
-                                <path d="M12 2L14.4 8.6L21 11L14.4 13.4L12 20L9.6 13.4L3 11L9.6 8.6L12 2Z" />
-                            </svg>
-                        </div>
-                        <div class="min-w-0">
-                            <h3
-                                class="text-base sm:text-lg font-black text-slate-900 leading-tight tracking-tight uppercase flex items-center gap-1.5">
-                                Loved your experience?
-                                <img src="./assets/images/scoop-n-brew/heart-radiance.png" alt="❤️"
-                                    class="heart-bounce w-6 h-6 sm:w-7 sm:h-7 object-contain inline-block">
-                            </h3>
-                            <p class="text-xs text-slate-500 mt-0.5 font-semibold">Review Us</p>
-                        </div>
-                    </div>
-
-                    <!-- Selected Menu Dishes Tag/Badge -->
-                    <div id="selectedMenuSummary"
-                        class="hidden mb-3 p-2.5 rounded-2xl bg-gradient-to-r from-rose-50 to-pink-50/80 border border-rose-200/70 flex items-center justify-between text-xs text-rose-950 shadow-xs">
-                        <div class="flex items-center gap-1.5 overflow-hidden">
-                            <span class="text-sm">🍽️</span>
-                            <span class="font-bold text-slate-800">Your Order:</span>
-                            <span id="selectedMenuItemsText" class="font-semibold text-[#E11D48] truncate"></span>
-                        </div>
-                        <button type="button" onclick="showWelcomeModal()"
-                            class="flex-shrink-0 text-[#E11D48] font-bold hover:text-rose-800 flex items-center gap-1 text-[11px] ml-2 px-2 py-0.5 rounded-lg bg-white/90 border border-rose-200/60 shadow-2xs transition-all active:scale-95">
-                            <span>Change</span>
-                            <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.2"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                            </svg>
-                        </button>
-                    </div>
-
-                    <!-- 8 Multi-Select Chips (2 Columns x 4 Rows matching Target UI) -->
-                    <div class="grid grid-cols-2 gap-2.5 sm:gap-3 w-full" id="chipsContainer">
-                        <!-- 1. Ice Cream & Cones -->
-                        <button type="button" onclick="toggleChip(this, 'ICE_CREAM')"
-                            class="chip px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-full border border-slate-200/90 bg-white text-slate-700 text-xs sm:text-[13px] font-semibold flex items-center justify-between gap-2 transition-all shadow-xs cursor-pointer select-none min-w-0 w-full">
-                            <span class="flex items-center gap-2 min-w-0">
-                                <span class="chip-icon flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor"
-                                        stroke-width="1.8" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M12 21l4-9H8l4 9z" />
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M8 12a4 4 0 118 0" />
-                                        <circle cx="12" cy="6" r="2" />
-                                    </svg>
-                                </span>
-                                <span class="chip-label whitespace-nowrap">Ice Cream & Cones</span>
-                            </span>
-                            <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none"
-                                stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                        </button>
-
-                        <!-- 2. Waffles & Pancakes -->
-                        <button type="button" onclick="toggleChip(this, 'WAFFLES')"
-                            class="chip px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-full border border-slate-200/90 bg-white text-slate-700 text-xs sm:text-[13px] font-semibold flex items-center justify-between gap-2 transition-all shadow-xs cursor-pointer select-none min-w-0 w-full">
-                            <span class="flex items-center gap-2 min-w-0">
-                                <span class="chip-icon flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor"
-                                        stroke-width="1.8" viewBox="0 0 24 24">
-                                        <rect x="3" y="3" width="18" height="18" rx="3" stroke-width="1.8" />
-                                        <line x1="3" y1="9" x2="21" y2="9" />
-                                        <line x1="3" y1="15" x2="21" y2="15" />
-                                        <line x1="9" y1="3" x2="9" y2="21" />
-                                        <line x1="15" y1="3" x2="15" y2="21" />
-                                    </svg>
-                                </span>
-                                <span class="chip-label whitespace-nowrap">Waffles & Pancakes</span>
-                            </span>
-                            <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none"
-                                stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                        </button>
-
-                        <!-- 3. Thick Shakes -->
-                        <button type="button" onclick="toggleChip(this, 'SHAKES')"
-                            class="chip px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-full border border-slate-200/90 bg-white text-slate-700 text-xs sm:text-[13px] font-semibold flex items-center justify-between gap-2 transition-all shadow-xs cursor-pointer select-none min-w-0 w-full">
-                            <span class="flex items-center gap-2 min-w-0">
-                                <span class="chip-icon flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor"
-                                        stroke-width="1.8" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M16 2l-2 5M7 8h10l-1.5 12a2 2 0 01-2 2h-3a2 2 0 01-2-2L7 8z" />
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M6 8a6 6 0 0112 0" />
-                                    </svg>
-                                </span>
-                                <span class="chip-label whitespace-nowrap">Thick Shakes</span>
-                            </span>
-                            <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none"
-                                stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                        </button>
-
-                        <!-- 4. Burgers & Fries -->
-                        <button type="button" onclick="toggleChip(this, 'FOOD')"
-                            class="chip px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-full border border-slate-200/90 bg-white text-slate-700 text-xs sm:text-[13px] font-semibold flex items-center justify-between gap-2 transition-all shadow-xs cursor-pointer select-none min-w-0 w-full">
-                            <span class="flex items-center gap-2 min-w-0">
-                                <span class="chip-icon flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor"
-                                        stroke-width="1.8" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M4 11a8 8 0 0116 0H4z" />
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M4 15h16a2 2 0 012 2v1a2 2 0 01-2 2H4a2 2 0 01-2-2v-1a2 2 0 012-2z" />
-                                        <line x1="4" y1="13" x2="20" y2="13" />
-                                    </svg>
-                                </span>
-                                <span class="chip-label whitespace-nowrap">Burgers & Fries</span>
-                            </span>
-                            <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none"
-                                stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                        </button>
-
-                        <!-- 5. Mojitos & Coffee -->
-                        <button type="button" onclick="toggleChip(this, 'BEVERAGES')"
-                            class="chip px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-full border border-slate-200/90 bg-white text-slate-700 text-xs sm:text-[13px] font-semibold flex items-center justify-between gap-2 transition-all shadow-xs cursor-pointer select-none min-w-0 w-full">
-                            <span class="flex items-center gap-2 min-w-0">
-                                <span class="chip-icon flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor"
-                                        stroke-width="1.8" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M17 8h1a4 4 0 010 8h-1M3 8h14v7a4 4 0 01-4 4H7a4 4 0 01-4-4V8z" />
-                                        <line x1="6" y1="2" x2="6" y2="4" stroke-linecap="round" />
-                                        <line x1="10" y1="2" x2="10" y2="4" stroke-linecap="round" />
-                                        <line x1="14" y1="2" x2="14" y2="4" stroke-linecap="round" />
-                                    </svg>
-                                </span>
-                                <span class="chip-label whitespace-nowrap">Mojitos & Coffee</span>
-                            </span>
-                            <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none"
-                                stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                        </button>
-
-                        <!-- 6. Friendly Staff -->
-                        <button type="button" onclick="toggleChip(this, 'SERVICE')"
-                            class="chip px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-full border border-slate-200/90 bg-white text-slate-700 text-xs sm:text-[13px] font-semibold flex items-center justify-between gap-2 transition-all shadow-xs cursor-pointer select-none min-w-0 w-full">
-                            <span class="flex items-center gap-2 min-w-0">
-                                <span class="chip-icon flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor"
-                                        stroke-width="1.8" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M17 20v-1a4 4 0 00-4-4H5a4 4 0 00-4 4v1" />
-                                        <circle cx="9" cy="7" r="4" />
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M23 20v-1a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
-                                    </svg>
-                                </span>
-                                <span class="chip-label whitespace-nowrap">Friendly Staff</span>
-                            </span>
-                            <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none"
-                                stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                        </button>
-
-                        <!-- 7. Cozy Ambience -->
-                        <button type="button" onclick="toggleChip(this, 'AMBIENCE')"
-                            class="chip px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-full border border-slate-200/90 bg-white text-slate-700 text-xs sm:text-[13px] font-semibold flex items-center justify-between gap-2 transition-all shadow-xs cursor-pointer select-none min-w-0 w-full">
-                            <span class="flex items-center gap-2 min-w-0">
-                                <span class="chip-icon flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor"
-                                        stroke-width="1.8" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M12 3l1.8 4.7 4.7 1.8-4.7 1.8L12 16l-1.8-4.7-4.7-1.8 4.7-1.8L12 3z" />
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M19 16l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9.9-2.1z" />
-                                    </svg>
-                                </span>
-                                <span class="chip-label whitespace-nowrap">Cozy Ambience</span>
-                            </span>
-                            <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none"
-                                stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                        </button>
-
-                        <!-- 8. Overall Experience (Active by default) -->
-                        <button type="button" onclick="toggleChip(this, 'ALL')"
-                            class="chip chip-active px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-full border border-slate-200/90 bg-white text-slate-700 text-xs sm:text-[13px] font-semibold flex items-center justify-between gap-2 transition-all shadow-xs cursor-pointer select-none min-w-0 w-full">
-                            <span class="flex items-center gap-2 min-w-0">
-                                <span class="chip-icon flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor"
-                                        stroke-width="1.8" viewBox="0 0 24 24">
-                                        <polygon stroke-linejoin="round"
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg>
-                                </span>
-                                <span class="chip-label whitespace-nowrap">Overall Experience</span>
-                            </span>
-                            <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none"
-                                stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                        </button>
-                    </div>
-
-                    <!-- Choose Language Row (Golden Shimmering Bar matching Wireless) -->
-                    <div
-                        class="golden-shine-bar golden-pulse-glow rounded-2xl p-2.5 sm:p-3 mb-3 mt-4 flex items-center justify-between gap-2 transition-all">
-                        <div class="flex items-center gap-2 text-xs sm:text-[13px] font-black text-amber-950 min-w-0">
+                        <!-- Header with Sparkle Icon, LOVED YOUR EXPERIENCE? and Review Us -->
+                        <div class="flex items-center gap-3 mb-4 cursor-pointer" onclick="goToReviewTourStep()">
                             <div
-                                class="w-6 h-6 rounded-lg bg-amber-400 text-slate-950 flex items-center justify-center flex-shrink-0 shadow-2xs font-bold text-xs">
-                                🌐
+                                class="w-11 h-11 rounded-2xl bg-rose-50 border border-rose-100/80 flex items-center justify-center flex-shrink-0 text-[#E11D48] shadow-xs">
+                                <svg class="w-5 h-5 fill-current text-[#E11D48]" viewBox="0 0 24 24">
+                                    <path d="M12 2L14.4 8.6L21 11L14.4 13.4L12 20L9.6 13.4L3 11L9.6 8.6L12 2Z" />
+                                </svg>
                             </div>
-                            <div class="flex flex-col">
-                                <span class="tracking-tight leading-tight font-black">Choose Language</span>
-                                <span class="text-[9.5px] sm:text-[10px] text-amber-900/80 font-bold leading-tight">Pick for review draft</span>
+                            <div class="min-w-0">
+                                <h3
+                                    class="text-base sm:text-lg font-black text-slate-900 leading-tight tracking-tight uppercase flex items-center gap-1.5">
+                                    Loved your experience?
+                                    <img src="./assets/images/scoop-n-brew/heart-radiance.png" alt="❤️"
+                                        class="heart-bounce w-6 h-6 sm:w-7 sm:h-7 object-contain inline-block">
+                                </h3>
+                                <p class="text-xs text-slate-500 mt-0.5 font-semibold">Review Us</p>
                             </div>
                         </div>
-                        <div
-                            class="inline-flex p-1 rounded-full bg-white/95 border border-amber-300 text-xs font-bold shadow-xs z-10 flex-shrink-0"
-                            id="languageSelectorGroup">
-                            <button type="button" id="langBtn_ENGLISH"
-                                class="lang-btn px-3 py-1 rounded-full transition-all bg-gradient-to-r from-amber-400 to-yellow-400 text-slate-950 font-black shadow-xs cursor-pointer"
-                                onclick="setLanguage('ENGLISH', this)">English</button>
-                            <button type="button" id="langBtn_HINGLISH"
-                                class="lang-btn px-3 py-1 rounded-full transition-all text-slate-600 hover:text-slate-950 font-bold cursor-pointer"
-                                onclick="setLanguage('HINGLISH', this)">Hinglish</button>
-                            <button type="button" id="langBtn_HINDI"
-                                class="lang-btn px-3 py-1 rounded-full transition-all text-slate-600 hover:text-slate-950 font-bold cursor-pointer"
-                                onclick="setLanguage('HINDI', this)">Hindi</button>
-                        </div>
-                    </div>
 
-                    <!-- Generate Review Button & Subtitle -->
-                    <div class="mt-4 w-full">
-                        <button type="button" onclick="handleGenerateReviewClick()" id="generateBtn"
-                            class="w-full bg-gradient-to-r from-[#4F46E5] via-[#7C3AED] to-[#EC4899] hover:opacity-95 text-white font-extrabold text-xs sm:text-sm py-3.5 sm:py-4 px-4 rounded-2xl shadow-xl shadow-indigo-500/25 flex items-center justify-center gap-2 transition-all active:scale-[0.98] cursor-pointer">
-                            <svg class="w-4 h-4 fill-current text-white flex-shrink-0" viewBox="0 0 24 24">
-                                <path d="M12 2L14.4 8.6L21 11L14.4 13.4L12 20L9.6 13.4L3 11L9.6 8.6L12 2Z" />
-                            </svg>
-                            <span>Generate Review with AI</span>
-                            <svg class="w-4 h-4 text-white stroke-[2.5] flex-shrink-0" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                            </svg>
-                        </button>
-                        <p
-                            class="text-[11px] text-slate-400 font-medium text-center mt-2 flex items-center justify-center gap-2">
-                            <span>Takes a few seconds</span>
-                            <span>•</span>
-                            <span>100% real &amp; safe</span>
-                        </p>
-                    </div>
+                        <!-- Selected Menu Dishes Tag/Badge -->
+                        <div id="selectedMenuSummary"
+                            class="hidden mb-3 p-2.5 rounded-2xl bg-gradient-to-r from-rose-50 to-pink-50/80 border border-rose-200/70 flex items-center justify-between text-xs text-rose-950 shadow-xs">
+                            <div class="flex items-center gap-1.5 overflow-hidden">
+                                <span class="text-sm">🍽️</span>
+                                <span class="font-bold text-slate-800">Your Order:</span>
+                                <span id="selectedMenuItemsText" class="font-semibold text-[#E11D48] truncate"></span>
+                            </div>
+                            <button type="button" onclick="showWelcomeModal()"
+                                class="flex-shrink-0 text-[#E11D48] font-bold hover:text-rose-800 flex items-center gap-1 text-[11px] ml-2 px-2 py-0.5 rounded-lg bg-white/90 border border-rose-200/60 shadow-2xs transition-all active:scale-95">
+                                <span>Change</span>
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.2"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- 8 Multi-Select Chips (2 Columns x 4 Rows matching Target UI) -->
+                        <div class="grid grid-cols-2 gap-2.5 sm:gap-3 w-full" id="chipsContainer">
+                            <!-- 1. Ice Cream & Cones -->
+                            <button type="button" onclick="toggleChip(this, 'ICE_CREAM')"
+                                class="chip px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-full border border-slate-200/90 bg-white text-slate-700 text-xs sm:text-[13px] font-semibold flex items-center justify-between gap-2 transition-all shadow-xs cursor-pointer select-none min-w-0 w-full">
+                                <span class="flex items-center gap-2 min-w-0">
+                                    <span class="chip-icon flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor"
+                                            stroke-width="1.8" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M12 21l4-9H8l4 9z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M8 12a4 4 0 118 0" />
+                                            <circle cx="12" cy="6" r="2" />
+                                        </svg>
+                                    </span>
+                                    <span class="chip-label whitespace-nowrap">Ice Cream & Cones</span>
+                                </span>
+                                <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none"
+                                    stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </button>
+
+                            <!-- 2. Waffles & Pancakes -->
+                            <button type="button" onclick="toggleChip(this, 'WAFFLES')"
+                                class="chip px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-full border border-slate-200/90 bg-white text-slate-700 text-xs sm:text-[13px] font-semibold flex items-center justify-between gap-2 transition-all shadow-xs cursor-pointer select-none min-w-0 w-full">
+                                <span class="flex items-center gap-2 min-w-0">
+                                    <span class="chip-icon flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor"
+                                            stroke-width="1.8" viewBox="0 0 24 24">
+                                            <rect x="3" y="3" width="18" height="18" rx="3" stroke-width="1.8" />
+                                            <line x1="3" y1="9" x2="21" y2="9" />
+                                            <line x1="3" y1="15" x2="21" y2="15" />
+                                            <line x1="9" y1="3" x2="9" y2="21" />
+                                            <line x1="15" y1="3" x2="15" y2="21" />
+                                        </svg>
+                                    </span>
+                                    <span class="chip-label whitespace-nowrap">Waffles & Pancakes</span>
+                                </span>
+                                <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none"
+                                    stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </button>
+
+                            <!-- 3. Thick Shakes -->
+                            <button type="button" onclick="toggleChip(this, 'SHAKES')"
+                                class="chip px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-full border border-slate-200/90 bg-white text-slate-700 text-xs sm:text-[13px] font-semibold flex items-center justify-between gap-2 transition-all shadow-xs cursor-pointer select-none min-w-0 w-full">
+                                <span class="flex items-center gap-2 min-w-0">
+                                    <span class="chip-icon flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor"
+                                            stroke-width="1.8" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M16 2l-2 5M7 8h10l-1.5 12a2 2 0 01-2 2h-3a2 2 0 01-2-2L7 8z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M6 8a6 6 0 0112 0" />
+                                        </svg>
+                                    </span>
+                                    <span class="chip-label whitespace-nowrap">Thick Shakes</span>
+                                </span>
+                                <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none"
+                                    stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </button>
+
+                            <!-- 4. Burgers & Fries -->
+                            <button type="button" onclick="toggleChip(this, 'FOOD')"
+                                class="chip px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-full border border-slate-200/90 bg-white text-slate-700 text-xs sm:text-[13px] font-semibold flex items-center justify-between gap-2 transition-all shadow-xs cursor-pointer select-none min-w-0 w-full">
+                                <span class="flex items-center gap-2 min-w-0">
+                                    <span class="chip-icon flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor"
+                                            stroke-width="1.8" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M4 11a8 8 0 0116 0H4z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M4 15h16a2 2 0 012 2v1a2 2 0 01-2 2H4a2 2 0 01-2-2v-1a2 2 0 012-2z" />
+                                            <line x1="4" y1="13" x2="20" y2="13" />
+                                        </svg>
+                                    </span>
+                                    <span class="chip-label whitespace-nowrap">Burgers & Fries</span>
+                                </span>
+                                <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none"
+                                    stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </button>
+
+                            <!-- 5. Mojitos & Coffee -->
+                            <button type="button" onclick="toggleChip(this, 'BEVERAGES')"
+                                class="chip px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-full border border-slate-200/90 bg-white text-slate-700 text-xs sm:text-[13px] font-semibold flex items-center justify-between gap-2 transition-all shadow-xs cursor-pointer select-none min-w-0 w-full">
+                                <span class="flex items-center gap-2 min-w-0">
+                                    <span class="chip-icon flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor"
+                                            stroke-width="1.8" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M17 8h1a4 4 0 010 8h-1M3 8h14v7a4 4 0 01-4 4H7a4 4 0 01-4-4V8z" />
+                                            <line x1="6" y1="2" x2="6" y2="4" stroke-linecap="round" />
+                                            <line x1="10" y1="2" x2="10" y2="4" stroke-linecap="round" />
+                                            <line x1="14" y1="2" x2="14" y2="4" stroke-linecap="round" />
+                                        </svg>
+                                    </span>
+                                    <span class="chip-label whitespace-nowrap">Mojitos & Coffee</span>
+                                </span>
+                                <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none"
+                                    stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </button>
+
+                            <!-- 6. Friendly Staff -->
+                            <button type="button" onclick="toggleChip(this, 'SERVICE')"
+                                class="chip px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-full border border-slate-200/90 bg-white text-slate-700 text-xs sm:text-[13px] font-semibold flex items-center justify-between gap-2 transition-all shadow-xs cursor-pointer select-none min-w-0 w-full">
+                                <span class="flex items-center gap-2 min-w-0">
+                                    <span class="chip-icon flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor"
+                                            stroke-width="1.8" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M17 20v-1a4 4 0 00-4-4H5a4 4 0 00-4 4v1" />
+                                            <circle cx="9" cy="7" r="4" />
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M23 20v-1a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+                                        </svg>
+                                    </span>
+                                    <span class="chip-label whitespace-nowrap">Friendly Staff</span>
+                                </span>
+                                <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none"
+                                    stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </button>
+
+                            <!-- 7. Cozy Ambience -->
+                            <button type="button" onclick="toggleChip(this, 'AMBIENCE')"
+                                class="chip px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-full border border-slate-200/90 bg-white text-slate-700 text-xs sm:text-[13px] font-semibold flex items-center justify-between gap-2 transition-all shadow-xs cursor-pointer select-none min-w-0 w-full">
+                                <span class="flex items-center gap-2 min-w-0">
+                                    <span class="chip-icon flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor"
+                                            stroke-width="1.8" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M12 3l1.8 4.7 4.7 1.8-4.7 1.8L12 16l-1.8-4.7-4.7-1.8 4.7-1.8L12 3z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M19 16l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9.9-2.1z" />
+                                        </svg>
+                                    </span>
+                                    <span class="chip-label whitespace-nowrap">Cozy Ambience</span>
+                                </span>
+                                <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none"
+                                    stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </button>
+
+                            <!-- 8. Overall Experience (Active by default) -->
+                            <button type="button" onclick="toggleChip(this, 'ALL')"
+                                class="chip chip-active px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-full border border-slate-200/90 bg-white text-slate-700 text-xs sm:text-[13px] font-semibold flex items-center justify-between gap-2 transition-all shadow-xs cursor-pointer select-none min-w-0 w-full">
+                                <span class="flex items-center gap-2 min-w-0">
+                                    <span class="chip-icon flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor"
+                                            stroke-width="1.8" viewBox="0 0 24 24">
+                                            <polygon stroke-linejoin="round"
+                                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                        </svg>
+                                    </span>
+                                    <span class="chip-label whitespace-nowrap">Overall Experience</span>
+                                </span>
+                                <svg class="chip-check w-3.5 h-3.5 flex-shrink-0 text-white" fill="none"
+                                    stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Choose Language Row (Golden Shimmering Bar matching Wireless) -->
+                        <div
+                            class="golden-shine-bar golden-pulse-glow rounded-2xl p-2.5 sm:p-3 mb-3 mt-4 flex items-center justify-between gap-2 transition-all">
+                            <div
+                                class="flex items-center gap-2 text-xs sm:text-[13px] font-black text-amber-950 min-w-0">
+                                <div
+                                    class="w-6 h-6 rounded-lg bg-amber-400 text-slate-950 flex items-center justify-center flex-shrink-0 shadow-2xs font-bold text-xs">
+                                    🌐
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="tracking-tight leading-tight font-black">Choose Language</span>
+                                    <span
+                                        class="text-[9.5px] sm:text-[10px] text-amber-900/80 font-bold leading-tight">Pick
+                                        for review draft</span>
+                                </div>
+                            </div>
+                            <div class="inline-flex p-1 rounded-full bg-white/95 border border-amber-300 text-xs font-bold shadow-xs z-10 flex-shrink-0"
+                                id="languageSelectorGroup">
+                                <button type="button" id="langBtn_ENGLISH"
+                                    class="lang-btn px-3 py-1 rounded-full transition-all bg-gradient-to-r from-amber-400 to-yellow-400 text-slate-950 font-black shadow-xs cursor-pointer"
+                                    onclick="setLanguage('ENGLISH', this)">English</button>
+                                <button type="button" id="langBtn_HINGLISH"
+                                    class="lang-btn px-3 py-1 rounded-full transition-all text-slate-600 hover:text-slate-950 font-bold cursor-pointer"
+                                    onclick="setLanguage('HINGLISH', this)">Hinglish</button>
+                                <button type="button" id="langBtn_HINDI"
+                                    class="lang-btn px-3 py-1 rounded-full transition-all text-slate-600 hover:text-slate-950 font-bold cursor-pointer"
+                                    onclick="setLanguage('HINDI', this)">Hindi</button>
+                            </div>
+                        </div>
+
+                        <!-- Generate Review Button & Subtitle -->
+                        <div class="mt-4 w-full">
+                            <button type="button" onclick="handleGenerateReviewClick()" id="generateBtn"
+                                class="w-full bg-gradient-to-r from-[#4F46E5] via-[#7C3AED] to-[#EC4899] hover:opacity-95 text-white font-extrabold text-xs sm:text-sm py-3.5 sm:py-4 px-4 rounded-2xl shadow-xl shadow-indigo-500/25 flex items-center justify-center gap-2 transition-all active:scale-[0.98] cursor-pointer">
+                                <svg class="w-4 h-4 fill-current text-white flex-shrink-0" viewBox="0 0 24 24">
+                                    <path d="M12 2L14.4 8.6L21 11L14.4 13.4L12 20L9.6 13.4L3 11L9.6 8.6L12 2Z" />
+                                </svg>
+                                <span>Generate Review with AI</span>
+                                <svg class="w-4 h-4 text-white stroke-[2.5] flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </button>
+                            <p
+                                class="text-[11px] text-slate-400 font-medium text-center mt-2 flex items-center justify-center gap-2">
+                                <span>Takes a few seconds</span>
+                                <span>•</span>
+                                <span>100% real &amp; safe</span>
+                            </p>
+                        </div>
 
                     </div><!-- End #reviewSelectionSection -->
 
@@ -805,13 +824,14 @@
                                         <path d="M12 2L14.4 8.6L21 11L14.4 13.4L12 20L9.6 13.4L3 11L9.6 8.6L12 2Z" />
                                     </svg>
                                 </div>
-                                <span class="font-bold text-xs sm:text-sm text-[#BE123C]">Your AI Generated Review</span>
+                                <span class="font-bold text-xs sm:text-sm text-[#BE123C]">Your AI Generated
+                                    Review</span>
                             </div>
                             <div class="flex items-center gap-1.5">
                                 <button type="button" onclick="regenerateReview(true)" title="Regenerate review"
                                     class="px-2.5 py-1 rounded-full bg-rose-50 hover:bg-rose-100 text-[#E11D48] border border-rose-200 font-bold text-xs flex items-center gap-1 shadow-2xs transition-all active:scale-90 group cursor-pointer">
-                                    <svg class="w-3.5 h-3.5 text-[#E11D48] transition-transform duration-500 group-hover:rotate-180" fill="none"
-                                        stroke="currentColor" stroke-width="2.3" viewBox="0 0 24 24">
+                                    <svg class="w-3.5 h-3.5 text-[#E11D48] transition-transform duration-500 group-hover:rotate-180"
+                                        fill="none" stroke="currentColor" stroke-width="2.3" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                                     </svg>
@@ -850,7 +870,9 @@
                         <!-- Review Text Output (Typewriter Animated) -->
                         <div id="reviewOutputText" contenteditable="false"
                             class="text-xs sm:text-[13px] text-slate-700 leading-relaxed font-medium min-h-[64px] focus:outline-none focus:ring-2 focus:ring-rose-400 rounded-xl p-2.5 break-words whitespace-normal selection:bg-rose-100">
-                            Scoop n Brew is hands-down the best dessert cafe near GEHU Gate 1! Creamy Hocco ice creams, crispy Nutella waffles, thick Oreo shakes, and pocket-friendly prices starting at just ₹20. Cute pink aesthetic and 10/10 service. Must visit!</div>
+                            Scoop n Brew is hands-down the best dessert cafe near GEHU Gate 1! Creamy Hocco ice creams,
+                            crispy Nutella waffles, thick Oreo shakes, and pocket-friendly prices starting at just ₹20.
+                            Cute pink aesthetic and 10/10 service. Must visit!</div>
 
                         <!-- Action Buttons: Edit Review & Copy to Google -->
                         <div class="grid grid-cols-12 gap-2 mt-3.5 w-full">
@@ -1041,8 +1063,8 @@
                             onclick="quickSelectCategory('FRIES')">
                             <div
                                 class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-pink-500 to-rose-600 shadow-md shadow-rose-500/20 group-hover:scale-105 transition-all">
-                                <img src="./assets/images/specialities/loaded-fries.jpg"
-                                    alt="Loaded Fries" class="w-full h-full object-cover rounded-full">
+                                <img src="./assets/images/specialities/loaded-fries.jpg" alt="Loaded Fries"
+                                    class="w-full h-full object-cover rounded-full">
                             </div>
                             <span class="text-[10px] font-bold text-slate-700 text-center mt-1.5 leading-tight">Loaded
                                 Fries<br><span class="text-pink-600 font-extrabold">₹79</span></span>
@@ -1065,8 +1087,8 @@
                             onclick="quickSelectCategory('SANDWICHES')">
                             <div
                                 class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-pink-500 to-rose-600 shadow-md shadow-rose-500/20 group-hover:scale-105 transition-all">
-                                <img src="./assets/images/specialities/sandwich.jpg"
-                                    alt="Grilled Sandwich" class="w-full h-full object-cover rounded-full">
+                                <img src="./assets/images/specialities/sandwich.jpg" alt="Grilled Sandwich"
+                                    class="w-full h-full object-cover rounded-full">
                             </div>
                             <span
                                 class="text-[10px] font-bold text-slate-700 text-center mt-1.5 leading-tight">Sandwich<br><span
@@ -1139,7 +1161,7 @@
                     <span class="text-emerald-500 text-base">💳</span>
                     <div>
                         <span class="text-xs font-bold text-slate-800">₹₹ • Moderate & Cozy</span>
-                        <p class="text-[10px] text-slate-400">Cards, UPI & Cash Accepted</p>
+                        <p class="text-[10px] text-slate-400">UPI & Cash Accepted</p>
                     </div>
                 </div>
                 <span class="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">Great
@@ -1162,7 +1184,8 @@
                             <span class="text-base">📸</span>
                             <h3 class="text-sm font-black uppercase tracking-wider text-slate-800">Store Gallery</h3>
                         </div>
-                        <p class="text-xs text-slate-500 font-medium mt-0.5">Inside Scoop n Brew Cafe &amp; sweet vibes</p>
+                        <p class="text-xs text-slate-500 font-medium mt-0.5">Inside Scoop n Brew Cafe &amp; sweet vibes
+                        </p>
                     </div>
                     <span id="galleryCountBadge"
                         class="text-[11px] font-bold px-3 py-1 rounded-full border border-amber-300 bg-amber-50/80 text-amber-800 shadow-2xs">
@@ -1626,11 +1649,14 @@
                         </svg>
                     </div>
 
-                    <p class="text-[10px] text-slate-400 font-medium mb-1.5 leading-tight">Share details of your own experience at this place</p>
+                    <p class="text-[10px] text-slate-400 font-medium mb-1.5 leading-tight">Share details of your own
+                        experience at this place</p>
                     <!-- Yellow chat bubble holding the pasted review text -->
                     <div
                         class="p-2 sm:p-2.5 rounded-xl bg-[#FFF9E6] border border-amber-200 text-[10.5px] sm:text-[11px] text-slate-800 font-medium leading-relaxed shadow-2xs">
-                        <span id="googleGuideModalReviewText">Scoop n Brew is hands-down the best dessert cafe near GEHU Gate 1! Creamy Hocco ice creams, crispy Nutella waffles, thick Oreo shakes, and pocket-friendly prices starting at just ₹20.</span>
+                        <span id="googleGuideModalReviewText">Scoop n Brew is hands-down the best dessert cafe near GEHU
+                            Gate 1! Creamy Hocco ice creams, crispy Nutella waffles, thick Oreo shakes, and
+                            pocket-friendly prices starting at just ₹20.</span>
                     </div>
                 </div>
 
@@ -1674,7 +1700,8 @@
             <!-- Big Final CTA Button -->
             <button type="button" onclick="confirmOpenGoogleMaps()"
                 class="w-full mt-2.5 block transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] cursor-pointer focus:outline-none drop-shadow-[0_12px_28px_rgba(217,70,239,0.45)]">
-                <img src="./assets/images/scoop-n-brew/google-review-cta-btn.png" alt="Make Your Review Count - Last Step"
+                <img src="./assets/images/scoop-n-brew/google-review-cta-btn.png"
+                    alt="Make Your Review Count - Last Step"
                     class="w-full h-auto object-contain block mx-auto select-none pointer-events-none">
             </button>
             <p class="text-center text-[10.5px] sm:text-[11px] text-slate-500 font-semibold mt-2.5">
@@ -1686,7 +1713,8 @@
     <!-- ═══════════════════════════════════════════════════════════════ -->
     <!-- WELCOME EXPERIENCE MODAL (Appears on Landing) -->
     <!-- ═══════════════════════════════════════════════════════════════ -->
-    <div id="welcomeModal" class="fixed inset-0 z-[60] flex items-end sm:items-center justify-center hidden" style="display: none !important;">
+    <div id="welcomeModal" class="fixed inset-0 z-[60] flex items-end sm:items-center justify-center hidden"
+        style="display: none !important;">
         <!-- Backdrop -->
         <div class="absolute inset-0 bg-black/50 backdrop-blur-sm welcome-modal-overlay" onclick="skipWelcomeModal()">
         </div>
@@ -1801,8 +1829,8 @@
                     onclick="toggleWelcomeItem(this, 'BURGERS_SANDWICHES', 'FOOD')">
                     <div
                         class="modal-circle relative w-[72px] h-[72px] rounded-full overflow-hidden shadow-sm bg-slate-50">
-                        <img src="./assets/images/specialities/sandwich.jpg"
-                            alt="Burger & Sandwich" class="w-full h-full object-cover">
+                        <img src="./assets/images/specialities/sandwich.jpg" alt="Burger & Sandwich"
+                            class="w-full h-full object-cover">
                         <div
                             class="modal-checkmark absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-[#DB2777] text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm">
                             ✓</div>
@@ -1894,7 +1922,8 @@
                 <!-- Center Header -->
                 <div class="text-center">
                     <h3 class="text-sm sm:text-base font-black text-white tracking-tight">Store Gallery</h3>
-                    <p id="fullGallerySubtitle" class="text-[11px] text-slate-400 font-medium">6 Photos • Scoop n Brew</p>
+                    <p id="fullGallerySubtitle" class="text-[11px] text-slate-400 font-medium">6 Photos • Scoop n Brew
+                    </p>
                 </div>
                 <!-- Right Empty Spacer for symmetry -->
                 <div class="w-9"></div>
@@ -1913,7 +1942,8 @@
         onclick="closeGalleryModal()">
         <div class="max-w-md w-full bg-white rounded-3xl overflow-hidden shadow-2xl border border-slate-200"
             onclick="event.stopPropagation()">
-            <div class="relative aspect-[4/3] sm:aspect-square bg-slate-950 flex items-center justify-center" id="modalTouchArea">
+            <div class="relative aspect-[4/3] sm:aspect-square bg-slate-950 flex items-center justify-center"
+                id="modalTouchArea">
                 <img id="galleryModalImg" src="" alt="" class="w-full h-full object-contain">
                 <!-- Top Actions Bar -->
                 <div class="absolute top-3 inset-x-3 flex items-center justify-between pointer-events-none">
