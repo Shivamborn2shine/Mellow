@@ -79,6 +79,7 @@ export const DEFAULT_STORE_DATA = {
         {
             id: 'spec-waffles',
             name: 'Nutella Waffle',
+            price: '₹99',
             image: './assets/images/specialities/nutella-waffle.jpg',
             gradient: 'from-pink-500 to-rose-600',
             categoryKey: 'WAFFLES'
@@ -86,6 +87,7 @@ export const DEFAULT_STORE_DATA = {
         {
             id: 'spec-pancakes',
             name: 'Mini Pancakes',
+            price: '₹59',
             image: './assets/images/specialities/mini-pancakes.jpg',
             gradient: 'from-pink-500 to-rose-600',
             categoryKey: 'MINI_PANCAKES'
@@ -93,20 +95,23 @@ export const DEFAULT_STORE_DATA = {
         {
             id: 'spec-loaded-fries',
             name: 'Loaded Fries',
+            price: '₹79',
             image: './assets/images/specialities/loaded-fries.jpg',
             gradient: 'from-pink-500 to-rose-600',
             categoryKey: 'FRIES'
         },
         {
             id: 'spec-oreo-shake',
-            name: 'Oreo Thick Shake',
+            name: 'Oreo Shake',
+            price: '₹79',
             image: './assets/images/specialities/oreo-shake.jpg',
             gradient: 'from-pink-500 to-rose-600',
             categoryKey: 'SHAKES'
         },
         {
             id: 'spec-sandwich',
-            name: 'Grilled Sandwich',
+            name: 'Sandwich',
+            price: '₹69',
             image: './assets/images/specialities/sandwich.jpg',
             gradient: 'from-pink-500 to-rose-600',
             categoryKey: 'SANDWICHES'
@@ -114,6 +119,7 @@ export const DEFAULT_STORE_DATA = {
         {
             id: 'spec-mojito',
             name: 'Mint Mojito',
+            price: '₹69',
             image: './assets/images/specialities/mint-mojito.jpg',
             gradient: 'from-pink-500 to-rose-600',
             categoryKey: 'MOJITOS'
@@ -121,6 +127,7 @@ export const DEFAULT_STORE_DATA = {
         {
             id: 'spec-coffee',
             name: 'Cold Coffee',
+            price: '₹69',
             image: './assets/images/specialities/cold-coffee.jpg',
             gradient: 'from-pink-500 to-rose-600',
             categoryKey: 'COFFEE'
@@ -251,10 +258,16 @@ export const DEFAULT_STORE_DATA = {
     }
 };
 
+const STORAGE_KEY = 'scoopnbrew_store_data_v3';
+
 export function getStoreData() {
     try {
-        const stored = localStorage.getItem('scoopnbrew_store_data');
-        if (stored) return JSON.parse(stored);
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (stored) {
+            const parsed = JSON.parse(stored);
+            parsed.reviewBank = REVIEWS_DB;
+            return parsed;
+        }
     } catch (e) {
         console.warn('Failed to parse stored data', e);
     }
@@ -263,7 +276,7 @@ export function getStoreData() {
 
 export function saveStoreData(data) {
     try {
-        localStorage.setItem('scoopnbrew_store_data', JSON.stringify(data));
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
         return true;
     } catch (e) {
         return false;
@@ -272,6 +285,7 @@ export function saveStoreData(data) {
 
 export function resetStoreData() {
     try {
+        localStorage.removeItem(STORAGE_KEY);
         localStorage.removeItem('scoopnbrew_store_data');
         return true;
     } catch (e) {

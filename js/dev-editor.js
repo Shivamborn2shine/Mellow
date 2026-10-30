@@ -242,16 +242,22 @@ class DeveloperEditor {
         container.innerHTML = this.data.specialities.map(item => `
             <div class="flex-shrink-0 flex flex-col items-center w-20 cursor-pointer group"
                 onclick="quickSelectCategory('${item.categoryKey}')" title="Filter by ${item.name}">
-                <div class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr ${item.gradient || 'from-amber-400 to-orange-500'} shadow-md group-hover:scale-105 transition-all">
+                <div class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr ${item.gradient || 'from-pink-500 to-rose-600'} shadow-md shadow-rose-500/20 group-hover:scale-105 transition-all">
                     <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover rounded-full">
                 </div>
-                <span class="text-[10px] font-bold text-slate-700 text-center mt-1.5 leading-tight">${item.name}</span>
+                <span class="text-[10px] font-bold text-slate-700 text-center mt-1.5 leading-tight">${item.name}${item.price ? `<br><span class="text-pink-600 font-extrabold">${item.price}</span>` : ''}</span>
             </div>
         `).join('');
     }
 
     getChipSvg(icon) {
         switch (icon) {
+            case 'icecream':
+                return `<svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21l4-9H8l4 9z"/><path stroke-linecap="round" stroke-linejoin="round" d="M8 12a4 4 0 118 0"/><circle cx="12" cy="6" r="2"/></svg>`;
+            case 'waffle':
+                return `<svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3" stroke-width="1.8"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg>`;
+            case 'shake':
+                return `<svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 2l-2 5M7 8h10l-1.5 12a2 2 0 01-2 2h-3a2 2 0 01-2-2L7 8z"/><path stroke-linecap="round" stroke-linejoin="round" d="M6 8a6 6 0 0112 0"/></svg>`;
             case 'croissant':
             case 'bake':
                 return `<svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18.5 13.5c-1-1.5-2.5-2.5-4.5-3-2 .5-3.5 1.5-4.5 3-1 1.5-1 3.5-.5 5 .5 1.5 2 2.5 3.5 2.5h3c1.5 0 3-1 3.5-2.5.5-1.5.5-3.5-.5-5z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 10.5V5M9 7l-2-2M15 7l2-2"/></svg>`;
@@ -266,10 +272,11 @@ class DeveloperEditor {
             case 'cup':
             case 'cake':
             case 'food':
-                return `<svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 10h16v10H4z"/><path stroke-linecap="round" stroke-linejoin="round" d="M4 15h16"/><circle cx="12" cy="6" r="2"/><line x1="12" y1="8" x2="12" y2="10"/></svg>`;
+                return `<svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 11a8 8 0 0116 0H4z"/><path stroke-linecap="round" stroke-linejoin="round" d="M4 15h16a2 2 0 012 2v1a2 2 0 01-2 2H4a2 2 0 01-2-2v-1a2 2 0 012-2z"/><line x1="4" y1="13" x2="20" y2="13"/></svg>`;
             case 'coffee':
                 return `<svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8h1a4 4 0 010 8h-1M3 8h14v7a4 4 0 01-4 4H7a4 4 0 01-4-4V8z"/><line x1="6" y1="2" x2="6" y2="4" stroke-linecap="round"/><line x1="10" y1="2" x2="10" y2="4" stroke-linecap="round"/><line x1="14" y1="2" x2="14" y2="4" stroke-linecap="round"/></svg>`;
             case 'ambience':
+            case 'sparkle':
             case 'sparkles':
                 return `<svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3l1.8 4.7 4.7 1.8-4.7 1.8L12 16l-1.8-4.7-4.7-1.8 4.7-1.8L12 3z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19 16l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9.9-2.1z"/></svg>`;
             case 'staff':
@@ -285,10 +292,9 @@ class DeveloperEditor {
         const container = document.getElementById('reviewChipsContainer') || document.getElementById('chipsContainer');
         if (!container || !this.data.reviewChips) return;
 
-        const activeDefaults = ['COFFEE', 'SERVICE', 'VALUE'];
         container.className = 'grid grid-cols-2 gap-2.5 sm:gap-3 w-full';
         container.innerHTML = this.data.reviewChips.map(chip => {
-            const isActive = (window.selectedChips && window.selectedChips.has(chip.key)) || activeDefaults.includes(chip.key);
+            const isActive = (window.selectedChips && window.selectedChips.has(chip.key)) || (!window.selectedChips && chip.key === 'ALL');
             const iconSvg = this.getChipSvg(chip.icon);
             return `
             <button type="button" onclick="toggleChip(this, '${chip.key}')"

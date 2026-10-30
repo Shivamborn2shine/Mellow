@@ -1982,12 +1982,86 @@
         window.selectedChips = selectedChips;
         let isEditing = false;
         let typingTimeout = null;
+        let lastGeneratedReview = '';
+        const recentGeneratedReviews = [];
+        const RECENT_HISTORY_LIMIT = 60;
+
+        // Persistent discarded/copied reviews registry so copied reviews never repeat
+        const DISCARDED_REVIEWS_KEY = 'scoopnbrew_discarded_reviews_v1';
+        let discardedReviewsSet = new Set();
+        try {
+            const savedDiscarded = localStorage.getItem(DISCARDED_REVIEWS_KEY);
+            if (savedDiscarded) {
+                const parsed = JSON.parse(savedDiscarded);
+                if (Array.isArray(parsed)) discardedReviewsSet = new Set(parsed);
+            }
+        } catch (e) { }
+
+        function discardReviewText(text) {
+            if (!text) return;
+            const clean = text.trim();
+            if (!clean) return;
+            discardedReviewsSet.add(clean);
+            try {
+                const arr = Array.from(discardedReviewsSet).slice(-350);
+                localStorage.setItem(DISCARDED_REVIEWS_KEY, JSON.stringify(arr));
+            } catch (e) { }
+        }
+
+        function recordGeneratedReview(text) {
+            if (!text) return;
+            const clean = text.trim();
+            lastGeneratedReview = clean;
+            recentGeneratedReviews.push(clean);
+            if (recentGeneratedReviews.length > RECENT_HISTORY_LIMIT) {
+                recentGeneratedReviews.shift();
+            }
+        }
 
         const EMOJIS = ["✨", "🍰", "☕", "🤤", "👌", "🔥", "❤️", "🙌", "💯"];
 
         function getRandomItem(arr) {
             if (!arr || arr.length === 0) return "";
             return arr[Math.floor(Math.random() * arr.length)];
+        }
+
+        function getUniqueRandomItem(arr) {
+            if (!arr || arr.length === 0) return "";
+            const freshPool = arr.filter(r =>
+                r !== lastGeneratedReview &&
+                !discardedReviewsSet.has(r) &&
+                !recentGeneratedReviews.includes(r)
+            );
+            if (freshPool.length > 0) return getRandomItem(freshPool);
+            const nonDiscarded = arr.filter(r => r !== lastGeneratedReview && !discardedReviewsSet.has(r));
+            if (nonDiscarded.length > 0) return getRandomItem(nonDiscarded);
+            const notImmediate = arr.filter(r => r !== lastGeneratedReview);
+            return getRandomItem(notImmediate.length > 0 ? notImmediate : arr);
+        }
+
+        // Smoothly scroll the page (both window and #mainScrollBody if applicable) to any target element
+        function scrollPageToElement(targetEl, offset = 28) {
+            if (!targetEl) return;
+            document.body.style.overflow = '';
+
+            const rect = targetEl.getBoundingClientRect();
+            const scrollY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+            const targetWindowY = Math.max(0, scrollY + rect.top - offset);
+
+            window.scrollTo({
+                top: targetWindowY,
+                behavior: 'smooth'
+            });
+
+            const scrollBody = document.getElementById('mainScrollBody');
+            if (scrollBody && scrollBody.scrollHeight > scrollBody.clientHeight + 5) {
+                const bodyRect = scrollBody.getBoundingClientRect();
+                const targetBodyTop = scrollBody.scrollTop + (rect.top - bodyRect.top) - offset;
+                scrollBody.scrollTo({
+                    top: Math.max(0, targetBodyTop),
+                    behavior: 'smooth'
+                });
+            }
         }
 
         function updateReviewCharCount(el) {
@@ -2086,9 +2160,9 @@
         // Smooth scroll to make "Copy & Open Google Review" button visible
         function scrollToReviewCTA() {
             setTimeout(() => {
-                const target = document.getElementById('copyToGoogleBtn');
+                const target = document.getElementById('reviewOutputCard') || document.getElementById('copyToGoogleBtn');
                 if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                    scrollPageToElement(target, 28);
                 }
             }, 120);
         }
@@ -2150,124 +2224,125 @@
             }
         }
 
-        function generateAIReview(animate = true) {
-            const activeBank = (window.CURRENT_STORE_DATA && window.CURRENT_STORE_DATA.reviewBank) ? window.CURRENT_STORE_DATA.reviewBank : REVIEWS_DB;
-            const db = activeBank[currentLang] || activeBank.ENGLISH || REVIEWS_DB.ENGLISH;
+        // Helper: procedurally synthesize a dynamic review from openings + categories + bridges + closings
+        function synthesizeProceduralReview(db, chipArr) {
+            const opening = getRandomItem(db.openings || []);
+            const closing = getRandomItem(db.closings || []);
+            const activeCats = (chipArr && chipArr.length > 0) ? chipArr : ['ALL'];
 
+            const phrases = [];
+            activeCats.forEach(cat => {
+                const pool = (db.categories && db.categories[cat]) || (db.categories && db.categories.ALL) || [];
+                if (pool.length > 0) {
+                    phrases.push(getRandomItem(pool));
+                }
+            });
+
+            if (phrases.length === 0) {
+                return (opening + ' ' + closing).trim();
+            } else if (phrases.length === 1) {
+                return (opening + ' ' + ucFirst(phrases[0]) + ' ' + closing).trim();
+            } else {
+                const bridge = db.bridges ? getRandomItem(db.bridges) : 'Also,';
+                return (opening + ' ' + ucFirst(phrases[0]) + ' ' + bridge + ' ' + phrases[1] + ' ' + closing).trim();
+            }
+        }
+
+        // Build a single candidate review (either from curated combos or procedural synthesis)
+        function buildSingleCandidateReview(db, preferProcedural = false) {
             let reviewText = "";
+            const chipArr = Array.from(selectedChips).sort();
 
-            // ─── STEP 0: Check if specific menu items were chosen from popup menu ───
-            if (window.chosenSpecificItems && window.chosenSpecificItems.length > 0) {
-                const specificSorted = Array.from(window.chosenSpecificItems).sort();
-                const specificKey = specificSorted.join(',');
+            if (!preferProcedural) {
+                // ─── STEP 0: Check if specific menu items were chosen from popup menu ───
+                if (window.chosenSpecificItems && window.chosenSpecificItems.length > 0) {
+                    const specificSorted = Array.from(window.chosenSpecificItems).sort();
+                    const specificKey = specificSorted.join(',');
 
-                // Try exact specific combo (e.g. "COFFEE,CROISSANTS" or "CROISSANTS")
-                if (db.combos && db.combos[specificKey]) {
-                    reviewText = getRandomItem(db.combos[specificKey]);
+                    if (db.combos && db.combos[specificKey]) {
+                        reviewText = getUniqueRandomItem(db.combos[specificKey]);
+                    }
+
+                    if (!reviewText && db.combos) {
+                        let bestMatch = null;
+                        let bestMatchLen = 0;
+
+                        for (const comboKey of Object.keys(db.combos)) {
+                            const comboItems = comboKey.split(',');
+                            const isSubset = comboItems.every(item => specificSorted.includes(item));
+                            if (isSubset && comboItems.length > bestMatchLen) {
+                                bestMatch = comboKey;
+                                bestMatchLen = comboItems.length;
+                            }
+                        }
+
+                        if (bestMatch && bestMatchLen >= 1) {
+                            reviewText = getUniqueRandomItem(db.combos[bestMatch]);
+
+                            const matchedSet = new Set(bestMatch.split(','));
+                            const remaining = specificSorted.filter(item => !matchedSet.has(item));
+
+                            if (remaining.length > 0 && db.categories) {
+                                remaining.forEach(remItem => {
+                                    if (remItem === 'ALL') return;
+                                    const extraPool = db.categories[remItem] || db.categories[itemToChipCategory(remItem)] || [];
+                                    if (extraPool.length > 0) {
+                                        const bridge = db.bridges ? getRandomItem(db.bridges) : 'Also,';
+                                        const extraPhrase = getRandomItem(extraPool);
+                                        let connector = reviewText.endsWith('!') || reviewText.endsWith('.') ? ' ' : '. ';
+                                        reviewText = reviewText + connector + bridge + ' ' + extraPhrase;
+                                    }
+                                });
+                            }
+                        }
+                    }
                 }
 
-                // If no exact combo match, try largest matching subset of chosen items
+                // ─── STEP 1: Try exact combo match with chips ───
+                if (!reviewText) {
+                    const sortedChips = chipArr.join(',');
+                    if (db.combos && db.combos[sortedChips]) {
+                        reviewText = getUniqueRandomItem(db.combos[sortedChips]);
+                    }
+                }
+
+                // ─── STEP 2: Try partial combo match (largest subset first) ───
                 if (!reviewText && db.combos) {
                     let bestMatch = null;
                     let bestMatchLen = 0;
 
                     for (const comboKey of Object.keys(db.combos)) {
-                        const comboItems = comboKey.split(',');
-                        const isSubset = comboItems.every(item => specificSorted.includes(item));
-                        if (isSubset && comboItems.length > bestMatchLen) {
+                        const comboChips = comboKey.split(',');
+                        const isSubset = comboChips.every(c => selectedChips.has(c));
+                        if (isSubset && comboChips.length > bestMatchLen) {
                             bestMatch = comboKey;
-                            bestMatchLen = comboItems.length;
+                            bestMatchLen = comboChips.length;
                         }
                     }
 
                     if (bestMatch && bestMatchLen >= 1) {
-                        reviewText = getRandomItem(db.combos[bestMatch]);
+                        reviewText = getUniqueRandomItem(db.combos[bestMatch]);
 
-                        // Bridge in remaining specific items
-                        const matchedSet = new Set(bestMatch.split(','));
-                        const remaining = specificSorted.filter(item => !matchedSet.has(item));
+                        const matchedChips = new Set(bestMatch.split(','));
+                        const remainingChips = chipArr.filter(c => !matchedChips.has(c));
 
-                        if (remaining.length > 0 && db.categories) {
-                            remaining.forEach(remItem => {
-                                if (remItem === 'ALL') return;
-                                const extraPool = db.categories[remItem] || db.categories[itemToChipCategory(remItem)] || [];
-                                if (extraPool.length > 0) {
-                                    const bridge = db.bridges ? getRandomItem(db.bridges) : 'Also,';
-                                    const extraPhrase = getRandomItem(extraPool);
-                                    let connector = reviewText.endsWith('!') || reviewText.endsWith('.') ? ' ' : '. ';
-                                    reviewText = reviewText + connector + bridge + ' ' + extraPhrase;
-                                }
-                            });
+                        if (remainingChips.length > 0 && db.bridges && db.categories) {
+                            const bridge = getRandomItem(db.bridges);
+                            const extraPhrase = getRandomItem(
+                                db.categories[remainingChips[0]] || db.categories.ALL || []
+                            );
+                            if (extraPhrase) {
+                                let connector = reviewText.endsWith('!') || reviewText.endsWith('.') ? ' ' : '. ';
+                                reviewText = reviewText + connector + bridge + ' ' + extraPhrase;
+                            }
                         }
                     }
                 }
             }
 
-            // ─── STEP 1: Try exact combo match with chips ───
+            // ─── STEP 3: Procedural assembly (opening + category phrases + closing) ───
             if (!reviewText) {
-                const sortedChips = Array.from(selectedChips).sort().join(',');
-                if (db.combos && db.combos[sortedChips]) {
-                    reviewText = getRandomItem(db.combos[sortedChips]);
-                }
-            }
-
-            // ─── STEP 2: Try partial combo match (largest subset first) ───
-            if (!reviewText && db.combos) {
-                const chipArr = Array.from(selectedChips).sort();
-                let bestMatch = null;
-                let bestMatchLen = 0;
-
-                for (const comboKey of Object.keys(db.combos)) {
-                    const comboChips = comboKey.split(',');
-                    // Check if this combo is a subset of selected chips
-                    const isSubset = comboChips.every(c => selectedChips.has(c));
-                    if (isSubset && comboChips.length > bestMatchLen) {
-                        bestMatch = comboKey;
-                        bestMatchLen = comboChips.length;
-                    }
-                }
-
-                if (bestMatch && bestMatchLen >= 1) {
-                    reviewText = getRandomItem(db.combos[bestMatch]);
-
-                    // Append phrases for remaining unmatched chips via bridge
-                    const matchedChips = new Set(bestMatch.split(','));
-                    const remainingChips = chipArr.filter(c => !matchedChips.has(c));
-
-                    if (remainingChips.length > 0 && db.bridges && db.categories) {
-                        const bridge = getRandomItem(db.bridges);
-                        const extraPhrase = getRandomItem(
-                            db.categories[remainingChips[0]] || db.categories.ALL || []
-                        );
-                        if (extraPhrase) {
-                            // Ensure clean sentence connection
-                            let connector = reviewText.endsWith('!') || reviewText.endsWith('.') ? ' ' : '. ';
-                            reviewText = reviewText + connector + bridge + ' ' + extraPhrase;
-                        }
-                    }
-                }
-            }
-
-            // ─── STEP 3: Assembled fallback (opening + category phrases + closing) ───
-            if (!reviewText) {
-                const opening = getRandomItem(db.openings || []);
-                const closing = getRandomItem(db.closings || []);
-                const chipArr = Array.from(selectedChips);
-
-                const phrases = [];
-                chipArr.forEach(cat => {
-                    const pool = (db.categories && db.categories[cat]) || (db.categories && db.categories.ALL) || [];
-                    if (pool.length > 0) phrases.push(getRandomItem(pool));
-                });
-
-                if (phrases.length === 0) {
-                    reviewText = opening + ' ' + closing;
-                } else if (phrases.length === 1) {
-                    reviewText = opening + ' ' + ucFirst(phrases[0]) + ' ' + closing;
-                } else {
-                    const bridge = db.bridges ? getRandomItem(db.bridges) : 'Also,';
-                    reviewText = opening + ' ' + ucFirst(phrases[0]) + ' ' + bridge + ' ' + phrases[1] + ' ' + closing;
-                }
+                reviewText = synthesizeProceduralReview(db, chipArr);
             }
 
             // ─── GUARANTEE: Ensure EVERY selected menu item is explicitly mentioned ───
@@ -2355,12 +2430,36 @@
             }
 
             // Clean up whitespace and double periods
-            reviewText = reviewText
+            return reviewText
                 .replace(/\s+/g, ' ')
                 .replace(/\.\./g, '.')
                 .replace(/\. \./g, '.')
                 .replace(/!\./, '!')
                 .trim();
+        }
+
+        function generateAIReview(animate = true) {
+            const db = REVIEWS_DB[currentLang] || REVIEWS_DB.ENGLISH;
+
+            let reviewText = "";
+            const MAX_ATTEMPTS = 35;
+
+            for (let attempt = 0; attempt < MAX_ATTEMPTS; attempt++) {
+                // Alternate between curated combos and dynamic procedural synthesis so variety is virtually infinite
+                const preferProcedural = (attempt >= 8) || (attempt > 0 && Math.random() < 0.45);
+                const candidate = buildSingleCandidateReview(db, preferProcedural);
+                if (!candidate) continue;
+
+                const isUnique =
+                    candidate !== lastGeneratedReview &&
+                    !discardedReviewsSet.has(candidate) &&
+                    !recentGeneratedReviews.includes(candidate);
+
+                reviewText = candidate;
+                if (isUnique) break;
+            }
+
+            recordGeneratedReview(reviewText);
 
             const outEl = document.getElementById('reviewOutputText');
             if (outEl) {
@@ -2437,8 +2536,9 @@
         // Copy Text & Redirect to Google Review Form (Opens 3-Step Guide Modal)
         function copyAndOpenGoogle() {
             const outEl = document.getElementById('reviewOutputText');
-            const text = (outEl?.textContent || outEl?.innerText || '').trim();
+            const text = (outEl?.textContent || outEl?.innerText || lastGeneratedReview || '').trim();
 
+            discardReviewText(text);
             closeAllTourPopups();
 
             navigator.clipboard.writeText(text).then(() => {
@@ -2463,7 +2563,8 @@
 
         function copyReviewTextOnly() {
             const outEl = document.getElementById('reviewOutputText');
-            const text = (outEl?.textContent || outEl?.innerText || '').trim();
+            const text = (outEl?.textContent || outEl?.innerText || lastGeneratedReview || '').trim();
+            discardReviewText(text);
             navigator.clipboard.writeText(text).then(() => {
                 showToast('Review copied to clipboard! 📋');
             });
@@ -2482,7 +2583,7 @@
 
             if (id === 'homeSection' || id === 'specialitiesSection') {
                 document.getElementById('pillHome')?.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
-            } else if (id === 'aiSection') {
+            } else if (id === 'aiSection' || id === 'reviewSelectionSection') {
                 document.getElementById('pillAI')?.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
             } else if (id === 'gallerySection') {
                 document.getElementById('pillGallery')?.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
@@ -2492,7 +2593,7 @@
         function scrollToSection(id) {
             const el = document.getElementById(id);
             if (el) {
-                el.scrollIntoView({ behavior: 'smooth' });
+                scrollPageToElement(el, 64);
             }
             setActivePill(id);
         }
