@@ -3189,6 +3189,9 @@
 
         function goToReviewTourStep() {
             isHeroReviewBtnTapped = true;
+            document.body.style.overflow = '';
+            setActivePill('aiSection');
+
             const heroBtn = document.getElementById('heroGoogleReviewBtn');
             if (heroBtn) {
                 heroBtn.classList.remove('hero-badge-floating');
@@ -3208,28 +3211,28 @@
             if (!selSec || !backdrop) return;
 
             backdrop.classList.remove('hidden');
+            selSec.classList.add('tour-highlight-review', 'tour-pulse-review');
 
-            // Scroll so "Loved your experience?" selection section is comfortably visible at top
-            const scrollBody = document.getElementById('mainScrollBody');
-            if (scrollBody) {
-                const targetTop = selSec.offsetTop - 20;
-                scrollBody.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' });
-            } else {
-                selSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
+            // Smoothly scroll the page from anywhere directly to the review selection section
+            scrollPageToElement(selSec, 28);
+            setTimeout(() => scrollPageToElement(selSec, 28), 60);
 
-            setTimeout(() => {
-                selSec.classList.add('tour-highlight-review', 'tour-pulse-review');
-                updateBackdropHole(selSec);
-
-                if (selPopup) {
-                    selPopup.classList.remove('hidden');
-                    positionTourElementPopup(selSec, selPopup);
-                }
-            }, 450);
+            [120, 300, 500, 800].forEach(delay => {
+                setTimeout(() => {
+                    if (currentHighlightedEl && currentHighlightedEl !== selSec) return;
+                    updateBackdropHole(selSec);
+                    if (selPopup) {
+                        selPopup.classList.remove('hidden');
+                        positionTourElementPopup(selSec, selPopup);
+                    }
+                }, delay);
+            });
         }
 
         function goToReviewOutputStep() {
+            document.body.style.overflow = '';
+            setActivePill('aiSection');
+
             const selSec = document.getElementById('reviewSelectionSection');
             const selPopup = document.getElementById('reviewSelectGuidePopup');
             if (selSec) selSec.classList.remove('tour-highlight-review', 'tour-pulse-review');
@@ -3246,30 +3249,35 @@
             // Generate review text immediately without animation so outputCard is at final height
             regenerateReview(false);
 
-            outputCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            outputCard.classList.add('tour-highlight-review', 'tour-pulse-review');
+            if (copyBtn) copyBtn.classList.add('tour-pulse-button');
 
-            setTimeout(() => {
-                outputCard.classList.add('tour-highlight-review', 'tour-pulse-review');
-                if (copyBtn) copyBtn.classList.add('tour-pulse-button');
-                updateBackdropHole(outputCard);
+            // Smoothly scroll the page to the generated review output card
+            scrollPageToElement(outputCard, 28);
 
-                if (submitPopup) {
-                    submitPopup.classList.remove('hidden');
-                    positionTourElementPopup(outputCard, submitPopup);
-                }
-            }, 360);
-
-            setTimeout(() => {
-                updateBackdropHole(outputCard);
-                if (submitPopup && !submitPopup.classList.contains('hidden')) {
-                    positionTourElementPopup(outputCard, submitPopup);
-                }
-            }, 720);
+            [120, 360, 600, 850].forEach(delay => {
+                setTimeout(() => {
+                    if (currentHighlightedEl && currentHighlightedEl !== outputCard) return;
+                    updateBackdropHole(outputCard);
+                    if (submitPopup) {
+                        submitPopup.classList.remove('hidden');
+                        positionTourElementPopup(outputCard, submitPopup);
+                    }
+                }, delay);
+            });
         }
 
         function handleGenerateReviewClick() {
-            regenerateReview(true);
-            goToReviewTourStep();
+            const selSec = document.getElementById('reviewSelectionSection');
+            const backdrop = document.getElementById('tourBackdrop');
+            const isStep1Active = backdrop && !backdrop.classList.contains('hidden') && currentHighlightedEl === selSec;
+
+            if (isStep1Active) {
+                goToReviewOutputStep();
+            } else {
+                regenerateReview(true);
+                goToReviewTourStep();
+            }
         }
 
         function regenerateReview(animate = true) {
@@ -3277,14 +3285,14 @@
 
             // Update text inside Google Guide Modal chat bubble
             const outEl = document.getElementById('reviewOutputText');
-            const text = (outEl?.textContent || outEl?.innerText || '').trim();
+            const text = (outEl?.textContent || outEl?.innerText || lastGeneratedReview || '').trim();
             const modalTextEl = document.getElementById('googleGuideModalReviewText');
             if (modalTextEl && text) {
                 modalTextEl.textContent = text;
             }
 
             if (animate) {
-                showToast('Fresh review generated! ✨', '🎲');
+                showToast('Fresh unique review generated! ✨', '🎲');
             }
 
             // If output card is spotlighted, refresh position after a slight delay
@@ -3302,7 +3310,7 @@
 
         function openGoogleGuideModal() {
             const outEl = document.getElementById('reviewOutputText');
-            const text = (outEl?.textContent || outEl?.innerText || '').trim();
+            const text = (outEl?.textContent || outEl?.innerText || lastGeneratedReview || '').trim();
             const modalTextEl = document.getElementById('googleGuideModalReviewText');
             if (modalTextEl && text) {
                 modalTextEl.textContent = text;
@@ -3317,6 +3325,9 @@
         }
 
         function confirmOpenGoogleMaps() {
+            const outEl = document.getElementById('reviewOutputText');
+            const text = (outEl?.textContent || outEl?.innerText || lastGeneratedReview || '').trim();
+            discardReviewText(text);
             closeGoogleGuideModal();
             const rUrl = BUSINESS_CONFIG.googleReviewUrl || BUSINESS_CONFIG.googleMapsUrl || '#';
             window.open(rUrl, '_blank');

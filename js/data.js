@@ -5,7 +5,7 @@
  * ===========================================================================
  */
 
-import { REVIEWS_DB } from './reviews-db.js';
+const REVIEWS_DB = (typeof window !== 'undefined' && window.REVIEWS_DB) ? window.REVIEWS_DB : {};
 
 export const DEFAULT_STORE_DATA = {
     brand: {
