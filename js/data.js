@@ -18,7 +18,7 @@ export const DEFAULT_STORE_DATA = {
         categoryBadge: '🍨 Waffles, Hocco Ice Cream & Shakes',
         heroHandwriting: 'Good Food Brings\nPeople Together ✨',
         logoImg: './assets/images/scoop-n-brew/scoop-n-brew-logo.png',
-        heroImg: './assets/images/scoop-n-brew/Scoop-n-Brew-Café-Badge.png',
+        heroImg: './assets/images/scoop-n-brew/scoop-n-brew-top-banner.jpg',
         rating: 4.9,
         ratingStars: '★★★★★',
         ratingCountText: '850+ Google Reviews',
@@ -258,7 +258,7 @@ export const DEFAULT_STORE_DATA = {
     }
 };
 
-const STORAGE_KEY = 'scoopnbrew_store_data_v3';
+const STORAGE_KEY = 'scoopnbrew_store_data_v4';
 
 export function getStoreData() {
     try {
@@ -266,6 +266,9 @@ export function getStoreData() {
         if (stored) {
             const parsed = JSON.parse(stored);
             parsed.reviewBank = REVIEWS_DB;
+            if (parsed.brand) {
+                parsed.brand.heroImg = './assets/images/scoop-n-brew/scoop-n-brew-top-banner.jpg';
+            }
             return parsed;
         }
     } catch (e) {

@@ -73,12 +73,15 @@ class DeveloperEditor {
         this.renderWelcomeModal();
 
         // 1. Header & Brand
-        this.setText('storeBrandInitials', d.brand.initials);
+        const initialsEl = document.getElementById('storeBrandInitials');
+        if (initialsEl && !initialsEl.querySelector('img')) {
+            this.setText('storeBrandInitials', d.brand.initials);
+        }
         this.setText('storeHeaderName', d.brand.name);
         this.setText('storeStatusBadge', d.brand.statusBadge);
 
         // 2. Hero & Identity
-        this.setImg('heroBannerImg', d.brand.heroImg, d.brand.name);
+        this.setImg('heroBannerImg', './assets/images/scoop-n-brew/scoop-n-brew-top-banner.jpg', d.brand.name);
         this.setImg('storeLogoImg', d.brand.logoImg, d.brand.name + ' Logo');
         this.setText('heroCategoryBadge', d.brand.categoryBadge);
         this.setText('storeMainName', d.brand.name);
